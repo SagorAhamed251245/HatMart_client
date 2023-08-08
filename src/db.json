@@ -1,0 +1,61 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Electronics",
+      "imageUrl": "http:/exempleImg"
+    },
+    {
+      "id": 2,
+      "name": "Clothing",
+      "imageUrl": "http:/clothingImg"
+    },
+    {
+      "id": 3,
+      "name": "Books",
+      "imageUrl": "http:/booksImg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "iPhone 12",
+      "price": 999,
+      "categoryId": 1,
+      "features": ["A14 chip", "256GB storage", "8GB RAM"],
+      "imageUrl": "ex"
+    },
+    {
+      "id": 2,
+      "title": "Samsung Galaxy S21",
+      "price": 899,
+      "categoryId": 1,
+      "features": ["Snapdragon 888", "128GB storage", "12GB RAM"],
+      "imageUrl": "samsung"
+    },
+    {
+      "id": 3,
+      "title": "Blue Denim Jeans",
+      "price": 49,
+      "categoryId": 2,
+      "features": ["Classic fit", "100% cotton", "Available in various sizes"],
+      "imageUrl": "jeans"
+    },
+    {
+      "id": 4,
+      "title": "Black Leather Jacket",
+      "price": 199,
+      "categoryId": 2,
+      "features": ["Genuine leather", "Zipper closure", "Stylish design"],
+      "imageUrl": "jacket"
+    },
+    {
+      "id": 5,
+      "title": "The Great Gatsby",
+      "price": 15,
+      "categoryId": 3,
+      "features": ["F. Scott Fitzgerald", "Classic novel", "1920s setting"],
+      "imageUrl": "gatsby"
+    }
+  ]
+}
