@@ -1,7 +1,7 @@
 const PrimaryLayout = ({ children }) => {
   return (
     <>
-      {children}
+      <main>{children}</main>
       <footer> this is footer</footer>
     </>
   );
