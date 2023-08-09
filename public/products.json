@@ -1,0 +1,15 @@
+[
+  {
+    "id": "1",
+    "title": "iPhone 12",
+    "details": "product details",
+    "price": 999,
+    "category": "food and vegetables",
+    "sub_category": "fress food",
+    "image": "exempleImg.png",
+    "images": ["exempleImg.png", "exempleImg2.png", "exempleImg.png"],
+    "rating": 4.2,
+    "stock": "Available",
+    "discount_percent": 1.3
+  }
+]
