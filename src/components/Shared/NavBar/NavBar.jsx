@@ -4,6 +4,7 @@ import React from "react";
 import NavLink from "./NavLink";
 import cartImage from "@/assets/icons/cart.png";
 import userImage from "@/assets/icons/user.png";
+import Categories from "@/components/Home/Categories/Categories";
 
 const NavBar = () => {
   const user = "sagor";
@@ -11,8 +12,8 @@ const NavBar = () => {
 
   return (
     <>
-      <nav>
-        <div className="navbar  mb-5  px-5">
+      <nav className="shadow-md">
+        <div className="navbar  lg:mb-2  lg:pt-5 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
             <div className="relative h-24  w-24 md:w-36">
@@ -145,6 +146,11 @@ const NavBar = () => {
             </div>
           </div>
         </div>
+         
+         <hr />
+
+         {/* category */}
+         <Categories></Categories>
       </nav>
     </>
   );

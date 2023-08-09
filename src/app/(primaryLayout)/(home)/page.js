@@ -7,7 +7,6 @@ import React from "react";
 const Homepage = () => {
   return (
     <>
-      <Categories></Categories>
       <Hero></Hero>
       <Products></Products>
     </>

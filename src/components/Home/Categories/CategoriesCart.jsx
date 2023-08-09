@@ -7,7 +7,7 @@ const CategoriesCart = ({ item }) => {
  
   return (
     
-        <div className="flex flex-col w-24 h-24 items-center justify-center  bg-green-400 rounded-xl">
+        <div className="flex flex-col  lg:h-24 h-18 p-2 lg:p-0 items-center justify-center  rounded-xl">
       <div>
         <Image src={icon} width={30} height={30} alt={category}/>
       </div>
