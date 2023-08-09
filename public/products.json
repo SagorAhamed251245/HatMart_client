@@ -5,10 +5,10 @@
     "details": "product details",
     "price": 999,
     "category": "food and vegetables",
-    "sub_category": "fress food",
+    "sub_category": ["fress food", "vagitable"],
     "image": "exempleImg.png",
     "images": ["exempleImg.png", "exempleImg2.png", "exempleImg.png"],
-    "rating": 4.2,
+    "rating": 4.5,
     "stock": "Available",
     "discount_percent": 1.3
   }
