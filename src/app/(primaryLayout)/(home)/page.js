@@ -8,7 +8,8 @@ const Homepage = () => {
   return (
     <>
       <Hero></Hero>
-      <Products></Products>
+      <Products sectionTitle="Popular Products"></Products>
+      <Products sectionTitle="Trending Products"></Products>
     </>
   );
 };
