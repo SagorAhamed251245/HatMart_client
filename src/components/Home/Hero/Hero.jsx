@@ -5,14 +5,37 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
+import "swiper/css/pagination";
 
-import { EffectFade, Autoplay } from "swiper/modules";
+import { EffectFade, Autoplay, Pagination } from "swiper/modules";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [main, setMain] = useState([]);
+  const [side, setSide] = useState([]);
+  const [bottom, setBottom] = useState([]);
+
+  useEffect(() => {
+    fetch("banner.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const mainBanner = data.filter((banner) => banner.type === "main");
+        const sideBanner = data.filter((banner) => banner.type === "side");
+        const bottomBanner = data.filter((banner) => banner.type === "bottom");
+        setMain(mainBanner);
+
+        setSide(sideBanner);
+
+        setBottom(bottomBanner);
+      });
+  }, []);
+
   return (
-    <header className=" p-5 w-[1380px] mx-auto">
-      <div className="flex w-full gap-6">
-        <section className="w-[880px] bg-yellow-400 ">
+    <header className=" p-5 w-full lg:w-[1380px] mx-auto">
+      {/* main bannner + sidebanner */}
+      <div className="lg:flex lg:flex-row flex-col w-full gap-6">
+        {/* main banner starts here */}
+        <section className="w-[880px] lg:mb-0 mb-3">
           <Swiper
             spaceBetween={5}
             effect={"fade"}
@@ -23,78 +46,85 @@ const Hero = () => {
             modules={[EffectFade, Autoplay]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <div className=" w-[880px] h-[494px] -mt-12 relative  ">
-                <Image
-                  fill
-                  className="object-cover"
-                  src={"/hatmart-custom-2.png"}
-                  alt="side banner image"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className=" w-[880px] h-[494px] -mt-12 relative  ">
-                <Image
-                  fill
-                  className="object-cover"
-                  src={"/hatmart-custom-3.png"}
-                  alt="side banner image"
-                />
-              </div>
-            </SwiperSlide>
+            {main.map((banner) => (
+              <SwiperSlide key={banner.id}>
+                <div className=" lg:w-screen lg:h-[498px] w-[374px] h-[200px] -mt-8 relative  ">
+                  <Image
+                    fill
+                    className="object-contain object-left"
+                    src={banner.image}
+                    alt="side banner image"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </section>
-
-        <section>
-          <div className="h-[210px] w-[438px] mb-6 relative">
-            <Image
-            fill
-              className=" rounded mb-6"
-              src={"/side-banner-1.png"}
-              alt="side banner image"
-            ></Image>
-          </div>
-          <div className="h-[210px] w-[438px] relative">
-            <Image
-            fill
-              className=" rounded mb-6"
-              src={"/side-banner-2.png"}
-              alt="side banner image"
-            ></Image>
-          </div>
+        {/* main banner ends here */}
+        {/* side banner starts here */}
+        <section className="flex lg:flex-col lg:gap-6 gap-3 flex-row">
+          {side.map((banner) => (
+            <div
+              key={banner.id}
+              className="lg:h-full lg:w-[438px] w-1/2 h-[100px] relative"
+            >
+              <Image
+                fill
+                className=" rounded"
+                src={banner.image}
+                alt="side banner image"
+              ></Image>
+            </div>
+          ))}
         </section>
+        {/* side banner ends here */}
       </div>
 
-      <section className="lg:grid-cols-3 mt-[24px] h-[250px] grid gap-6">
-        <div className="h-full w-full ">
-          <Image
-            height={130}
-            width={438}
-            className="w-full h-full rounded"
-            src={"/center-banner-1-380x190.png"}
-            alt="side banner image"
-          ></Image>
-        </div>
-        <div className="h-full w-full ">
-          <Image
-            height={130}
-            width={438}
-            className="w-full h-full rounded"
-            src={"/center-banner-2-380x190.png"}
-            alt="side banner image"
-          ></Image>
-        </div>
-        <div className="h-full w-full ">
-          <Image
-            height={130}
-            width={438}
-            className="w-full h-full rounded"
-            src={"/center-banner-1-380x190.png"}
-            alt="side banner image"
-          ></Image>
-        </div>
+      {/* bottom banners starts here for website*/}
+      <section className=" lg:flex hidden mt-[24px] h-[250px]  gap-6">
+        {bottom.map((banner) => (
+          <div key={banner.id} className="h-full w-full ">
+            <Image
+              height={130}
+              width={438}
+              className="w-full h-full rounded"
+              src={banner.image}
+              alt="side banner image"
+            ></Image>
+          </div>
+        ))}
       </section>
+      {/* bottom banner ends here for website*/}
+      {/* bottom banner starts here for mobile*/}
+      <div className="block lg:hidden mt-3">
+        <Swiper
+          slidesPerView={1}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination, Autoplay]}
+          className="mySwiper"
+        >
+          {bottom.map((banner) => (
+            <SwiperSlide key={banner.id}>
+              <div className="h-full w-full">
+                <Image
+                  height={130}
+                  width={438}
+                  className="w-full h-[200px] rounded"
+                  src={banner.image}
+                  alt="side banner image"
+                ></Image>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </header>
   );
 };
