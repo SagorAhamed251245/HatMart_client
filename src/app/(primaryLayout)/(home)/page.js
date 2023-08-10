@@ -1,3 +1,4 @@
+import MiddleAdd from "@/components/Home/Advertisement/MiddleAdd";
 import Categories from "@/components/Home/Categories/Categories";
 import Hero from "@/components/Home/Hero/Hero";
 import Products from "@/components/Home/Products/Products";
@@ -10,6 +11,7 @@ const Homepage = () => {
       <Hero></Hero>
       <Products sectionTitle="Popular Products"></Products>
       <Products sectionTitle="Trending Products"></Products>
+      <MiddleAdd></MiddleAdd>
     </>
   );
 };
