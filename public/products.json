@@ -1,15 +1,101 @@
 [
   {
-    "id": "1",
-    "title": "iPhone 12",
-    "details": "product details",
-    "price": 999,
-    "category": "food and vegetables",
+    "_id": "1",
+    "title": "Apple",
+    "details": "A variety of fresh apples.",
+    "price": 2.99,
+    "category": "Fruits",
     "sub_category": ["fress food", "vagitable"],
-    "image": "exempleImg.png",
-    "images": ["exempleImg.png", "exempleImg2.png", "exempleImg.png"],
-    "rating": 4.5,
-    "stock": "Available",
-    "discount_percent": 1.3
+    "image": "https://i.ibb.co/37mp1RR/image.png",
+    "images": [
+      "https://i.ibb.co/ZgQmcQd/image.png",
+      "https://i.ibb.co/vVBXdgY/image.png",
+      "apple_display.jpg"
+    ],
+    "rating": 4,
+    "stock": "In Stock",
+    "discount_percent": 13
+  },
+  {
+    "_id": "2",
+    "title": "Banana",
+    "details": "Sweet and nutritious bananas.",
+    "price": 0.49,
+    "category": "Fruits",
+    "sub_category": ["fress food", "vagitable"],
+    "image": "https://i.ibb.co/rZYZTPR/image.png",
+    "images": [
+      "https://i.ibb.co/zNsjyNP/image.png",
+      "banana_peeled.jpg",
+      "banana_bunch.jpg"
+    ],
+    "rating": 4.1,
+    "stock": "Out of stock",
+    "discount_percent": 11
+  },
+  {
+    "_id": "3",
+    "title": "Carrot",
+    "details": "Fresh and crunchy carrots.",
+    "price": 1.29,
+    "category": "Vegetables",
+    "sub_category": ["fress food", "vagitable"],
+    "image": "https://i.ibb.co/DWCwJM6/image.png",
+    "images": ["carrot.jpg", "carrot_sliced.jpg", "carrot_display.jpg"],
+    "rating": 4.8,
+    "stock": "In Stock",
+    "discount_percent": 9
+  },
+  {
+    "_id": "4",
+    "title": "Lettuce",
+    "details": "Crisp and green lettuce leaves.",
+    "price": 1.99,
+    "category": "Vegetables",
+    "sub_category": ["fress food", "vagitable"],
+    "image": "https://i.ibb.co/KmPV68n/image.png",
+    "images": ["lettuce.jpg", "lettuce_salad.jpg", "lettuce_display.jpg"],
+    "rating": 4.2,
+    "stock": "In Stock",
+    "discount_percent": 20
+  },
+  {
+    "_id": "5",
+    "title": "Orange",
+    "details": "Juicy and refreshing oranges.",
+    "price": 0.79,
+    "category": "Fruits",
+    "sub_category": ["Citrus Fruits", "vegetables"],
+    "image": "https://i.ibb.co/RQfhzqs/image.png",
+    "images": ["orange.jpg", "orange_peeled.jpg", "orange_display.jpg"],
+    "rating": 4.4,
+    "stock": "In Stock",
+    "discount_percent": 5
+  },
+  {
+    "_id": "6",
+    "title": "Carrot",
+    "details": "Fresh and crunchy carrots.",
+    "price": 1.29,
+    "category": "Vegetables",
+    "sub_category": ["fress food", "vagitable"],
+    "image": "https://i.ibb.co/DWCwJM6/image.png",
+    "images": ["carrot.jpg", "carrot_sliced.jpg", "carrot_display.jpg"],
+    "rating": 4.8,
+    "stock": "In Stock",
+    "discount_percent": 9
+  },
+  {
+    "_id": "7",
+    "title": "Lettuce",
+    "details": "Crisp and green lettuce leaves.",
+    "price": 1.99,
+    "category": "Vegetables",
+    "sub_category": ["fress food", "vagitable"],
+    "image": "https://i.ibb.co/KmPV68n/image.png",
+    "images": ["lettuce.jpg", "lettuce_salad.jpg", "lettuce_display.jpg"],
+    "rating": 4.2,
+    "stock": "In Stock",
+    "discount_percent": 20
   }
 ]
