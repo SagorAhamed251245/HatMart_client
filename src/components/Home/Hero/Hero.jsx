@@ -11,8 +11,8 @@ import { EffectFade, Autoplay } from "swiper/modules";
 const Hero = () => {
   return (
     <header className=" p-5 w-[1380px] mx-auto">
-      <div className="flex items-center w-full gap-6">
-        <section className="w-[880px] ">
+      <div className="flex w-full gap-6">
+        <section className="w-[880px] bg-yellow-400 ">
           <Swiper
             spaceBetween={5}
             effect={"fade"}
@@ -24,41 +24,45 @@ const Hero = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <Image
-                height={427}
-                width={880}
-                className=" rounded w-full  "
-                src={"/hatmart-custom-2.png"}
-                alt="side banner image"
-              />
+              <div className=" w-[880px] h-[494px] -mt-12 relative  ">
+                <Image
+                  fill
+                  className="object-cover"
+                  src={"/hatmart-custom-2.png"}
+                  alt="side banner image"
+                />
+              </div>
             </SwiperSlide>
             <SwiperSlide>
-              <Image
-                height={427}
-                width={880}
-                className=" rounded w-full "
-                src={"/hatmart-custom-3.png"}
-                alt="side banner image"
-              />
+              <div className=" w-[880px] h-[494px] -mt-12 relative  ">
+                <Image
+                  fill
+                  className="object-cover"
+                  src={"/hatmart-custom-3.png"}
+                  alt="side banner image"
+                />
+              </div>
             </SwiperSlide>
           </Swiper>
         </section>
 
-        <section className="">
-          <Image
-            height={300}
-            width={450}
-            className=" rounded mb-6"
-            src={"/side-banner-1.png"}
-            alt="side banner image"
-          ></Image>
-          <Image
-            height={300}
-            width={438}
-            className="w-full rounded"
-            src={"/side-banner-2.png"}
-            alt="side banner image"
-          ></Image>
+        <section>
+          <div className="h-[210px] w-[438px] mb-6 relative">
+            <Image
+            fill
+              className=" rounded mb-6"
+              src={"/side-banner-1.png"}
+              alt="side banner image"
+            ></Image>
+          </div>
+          <div className="h-[210px] w-[438px] relative">
+            <Image
+            fill
+              className=" rounded mb-6"
+              src={"/side-banner-2.png"}
+              alt="side banner image"
+            ></Image>
+          </div>
         </section>
       </div>
 
