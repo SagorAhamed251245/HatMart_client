@@ -11,9 +11,11 @@ import { FreeMode, Pagination } from "swiper/modules";
 
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+
 import SectionTitle from "./SectionTitle";
 
 const Products = ({ sectionTitle }) => {
+
   const [products, setProducts] = useState([]);
 
   // fetch data
@@ -24,9 +26,9 @@ const Products = ({ sectionTitle }) => {
   }, []);
   console.log(products);
   return (
+
     <div className="mb-20 md:w-[90%] mx-auto overflow-hidden">
       <SectionTitle>{sectionTitle}</SectionTitle>
-
       <div className="">
         <Swiper
           slidesPerView={1}
@@ -47,6 +49,7 @@ const Products = ({ sectionTitle }) => {
             },
             1200: {
               slidesPerView: 4,
+
               spaceBetween: 30,
             },
           }}
