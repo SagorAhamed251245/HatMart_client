@@ -31,11 +31,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <header className=" p-5 w-full lg:w-[1380px] mx-auto">
+    <header className=" p-5 w-full lg:w-[1380px] mx-auto overflow-hidden">
       {/* main bannner + sidebanner */}
       <div className="lg:flex lg:flex-row flex-col w-full gap-6">
         {/* main banner starts here */}
-        <section className="w-[880px] lg:mb-0 mb-3">
+        <section className="lg:w-[880px]  lg:mb-0 mb-3">
           <Swiper
             spaceBetween={5}
             effect={"fade"}

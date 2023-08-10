@@ -12,7 +12,10 @@ import { FreeMode, Pagination } from "swiper/modules";
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
-const Products = () => {
+import SectionTitle from "./SectionTitle";
+
+const Products = ({ sectionTitle }) => {
+
   const [products, setProducts] = useState([]);
 
   // fetch data
@@ -23,14 +26,9 @@ const Products = () => {
   }, []);
   console.log(products);
   return (
-    <div>
-      <div className="flex items-center my-5">
-        <h3 className="text-2xl font-medium text-gray-700  mr-4">
-          Popular Product
-        </h3>
-        <div className="border-b flex-grow border-gray-300"></div>
-      </div>
 
+    <div className="mb-20 md:w-[90%] mx-auto overflow-hidden">
+      <SectionTitle>{sectionTitle}</SectionTitle>
       <div className="">
         <Swiper
           slidesPerView={1}
@@ -38,26 +36,27 @@ const Products = () => {
           freeMode={true}
           breakpoints={{
             640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
+              slidesPerView: 1,
+              spaceBetween: 5,
             },
             768: {
-              slidesPerView: 3,
-              spaceBetween: 30,
+              slidesPerView: 2,
+              spaceBetween: 5,
             },
             1024: {
-              slidesPerView: 4,
-              spaceBetween: 30,
+              slidesPerView: 3,
+              spaceBetween: 20,
             },
             1200: {
-              slidesPerView: 5,
+              slidesPerView: 4,
+
               spaceBetween: 30,
             },
           }}
           pagination={{
             clickable: true,
           }}
-          modules={[FreeMode, Pagination]}
+          
           className="mySwiper"
         >
           <div className="">
