@@ -6,7 +6,6 @@ const PrimaryLayout = ({ children }) => {
     <>
       <NavBar></NavBar>
       <main>{children}</main>
-      <footer> this is footer</footer>
       <Footer></Footer>
     </>
   );

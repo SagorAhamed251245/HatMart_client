@@ -24,7 +24,7 @@ const Products = ({ sectionTitle }) => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
-  console.log(products);
+ 
   return (
 
     <div className="mb-20 md:w-[90%] mx-auto overflow-hidden">

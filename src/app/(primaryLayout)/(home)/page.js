@@ -6,11 +6,11 @@ import React from "react";
 
 const Homepage = () => {
   return (
-    <>
+    <div>
       <Hero></Hero>
       <Products sectionTitle="Popular Products"></Products>
       <Products sectionTitle="Trending Products"></Products>
-    </>
+    </div>
   );
 };
 

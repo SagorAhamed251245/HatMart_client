@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="shadow-md">
+      <nav className="shadow-md sticky z-50  top-0 bg-white">
         <div className="navbar  lg:mb-2  lg:pt-5 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
