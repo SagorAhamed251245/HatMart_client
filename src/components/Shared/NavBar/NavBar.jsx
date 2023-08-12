@@ -5,6 +5,7 @@ import NavLink from "./NavLink";
 import cartImage from "@/assets/icons/cart.png";
 import userImage from "@/assets/icons/user.png";
 import Categories from "@/components/Home/Categories/Categories";
+import Link from "next/link";
 
 const NavBar = () => {
   const user = "sagor";
@@ -12,31 +13,33 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="shadow-md sticky z-50  top-0 bg-white">
+      <nav className="shadow-md sticky z-10 mb-[75px] lg:mb-[100px] top-0 bg-white">
         <div className="navbar  lg:mb-2  lg:pt-5 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
             <div className="relative h-24  w-24 md:w-36">
-              <Image
-                src="https://i.ibb.co/WtbFpmR/logo.png"
-                layout="fill"
-                objectFit="cover"
-                alt="HatMart Logo"
-              />
+              <Link href={"/"}>
+                <Image
+                  src="https://i.ibb.co/WtbFpmR/logo.png"
+                  layout="fill"
+                  objectFit="cover"
+                  alt="HatMart Logo"
+                />
+              </Link>
             </div>
           </div>
 
           {/* Center-aligned section of the navbar (visible on larger screens) */}
-          <div className="navbar-center  lg:flex gap-2">
-            {/* Horizontal menu items */}
-            <div className="form-control">
-              <input
-                type="text"
-                placeholder="Search"
-                className="input input-bordered w-52  md:w-96"
-              />
-            </div>
-            <button className="btn bg-green-400 ">Search</button>
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="
+              Search Your Product"
+              className="input input-bordered w-[300px] lg:w-[500px] pr-16"
+            />
+            <button className="btn bg-[#ff6347cc] text-white hover:bg-[#FF7B13] absolute top-0 right-0 rounded-l-none">
+              Search
+            </button>
           </div>
 
           {/* Right-aligned section of the navbar */}
@@ -82,7 +85,7 @@ const NavBar = () => {
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   {" "}
-                  <div className="reletive">
+                  <div className="">
                     <Image
                       src={userImage}
                       layout="fill"
@@ -103,7 +106,6 @@ const NavBar = () => {
                     </NavLink>
                   ))}
                 </li>
-
 
                 {/* for  small divice  */}
                 <div className="md:hidden ">
@@ -146,11 +148,13 @@ const NavBar = () => {
             </div>
           </div>
         </div>
-         
-         <hr />
 
-         {/* category */}
-         <Categories></Categories>
+        <hr />
+
+        {/* category */}
+        <div className="absolute w-full  bg-white ">
+          <Categories></Categories>
+        </div>
       </nav>
     </>
   );

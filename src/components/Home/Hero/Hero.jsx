@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 
 import { EffectFade, Autoplay, Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Hero = () => {
   const [main, setMain] = useState([]);
@@ -31,11 +32,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <header className=" p-5 w-full lg:w-[1380px] mx-auto overflow-hidden">
+    <header className="  w-full md:w-[90%] mx-auto overflow-hidden">
       {/* main bannner + sidebanner */}
-      <div className="lg:flex lg:flex-row flex-col w-full gap-6">
+      <section className="lg:flex lg:flex-row flex-col  gap-5  w-full">
         {/* main banner starts here */}
-        <section className="lg:w-[880px]  lg:mb-0 mb-3">
+        <div className="md:w-[70%]  lg:mb-0  rounded-lg">
           <Swiper
             spaceBetween={5}
             effect={"fade"}
@@ -48,49 +49,57 @@ const Hero = () => {
           >
             {main.map((banner) => (
               <SwiperSlide key={banner.id}>
-                <div className=" lg:w-screen lg:h-[498px] w-[374px] h-[200px] -mt-8 relative  ">
-                  <Image
-                    fill
-                    className="object-contain object-left"
-                    src={banner.image}
-                    alt="side banner image"
-                  />
+                <div className="  relative h-[200px] lg:h-[450px] w-full rounded-xl">
+                  <Link href={"/"}>
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      className=" rounded-xl"
+                      src={banner.image}
+                      alt="side banner image"
+                    />
+                  </Link>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
-        </section>
+        </div>
         {/* main banner ends here */}
         {/* side banner starts here */}
-        <section className="flex lg:flex-col lg:gap-6 gap-3 flex-row">
+        <div className="flex lg:flex-col md:w-[30%] lg:gap-6 gap-3 flex-row">
           {side.map((banner) => (
             <div
               key={banner.id}
-              className="lg:h-full lg:w-[438px] w-1/2 h-[100px] relative"
+              className="lg:h-full  w-full rounded-lg relative"
             >
-              <Image
-                fill
-                className=" rounded"
-                src={banner.image}
-                alt="side banner image"
-              ></Image>
+              <Link href={'/'}>
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  className=" rounded-xl"
+                  src={banner.image}
+                  alt="side banner image"
+                ></Image>
+              </Link>
             </div>
           ))}
-        </section>
+        </div>
         {/* side banner ends here */}
-      </div>
+      </section>
 
       {/* bottom banners starts here for website*/}
       <section className=" lg:flex hidden mt-[24px] h-[250px]  gap-6">
         {bottom.map((banner) => (
           <div key={banner.id} className="h-full w-full ">
-            <Image
-              height={130}
-              width={438}
-              className="w-full h-full rounded"
-              src={banner.image}
-              alt="side banner image"
-            ></Image>
+            <Link href={'/'}>
+              <Image
+                height={130}
+                width={438}
+                className="w-full h-full rounded-xl"
+                src={banner.image}
+                alt="side banner image"
+              ></Image>
+            </Link>
           </div>
         ))}
       </section>
@@ -107,19 +116,21 @@ const Hero = () => {
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination, Autoplay]}
+          modules={[Autoplay]}
           className="mySwiper"
         >
           {bottom.map((banner) => (
             <SwiperSlide key={banner.id}>
               <div className="h-full w-full">
-                <Image
-                  height={130}
-                  width={438}
-                  className="w-full h-[200px] rounded"
-                  src={banner.image}
-                  alt="side banner image"
-                ></Image>
+                <Link href={'/'}>
+                  <Image
+                    height={130}
+                    width={438}
+                    className="w-full h-[200px] rounded-xl"
+                    src={banner.image}
+                    alt="side banner image"
+                  ></Image>
+                </Link>
               </div>
             </SwiperSlide>
           ))}
