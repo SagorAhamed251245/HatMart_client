@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // import required modules
-import { FreeMode, Pagination } from "swiper/modules";
+import { FreeMode, Pagination , Autoplay } from "swiper/modules";
 
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
@@ -35,8 +35,12 @@ const Products = ({ sectionTitle }) => {
           spaceBetween={10}
           freeMode={true}
           breakpoints={{
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 5,
+            },
             640: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               spaceBetween: 5,
             },
             768: {
@@ -56,7 +60,11 @@ const Products = ({ sectionTitle }) => {
           pagination={{
             clickable: true,
           }}
-          
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          modules={[ Autoplay]}
           className="mySwiper"
         >
           <div className="">

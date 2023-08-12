@@ -12,6 +12,7 @@ const Homepage = () => {
       <Products sectionTitle="Popular Products"></Products>
       <Products sectionTitle="Trending Products"></Products>
       <MiddleAdd></MiddleAdd>
+      <Products sectionTitle="Best Selling Products"></Products>
     </>
   );
 };

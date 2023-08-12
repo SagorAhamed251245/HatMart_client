@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
     discount_percent,
   } = product;
   return (
-    <div className="border border-gray-200 p-4 rounded bg-base-100 shadow-md hover:shadow-2xl duration-300">
+    <div className="border border-gray-200 p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
       <div className="relative bg-white h-36 w-full flex items-center justify-center ">
         <Image
           className="object-cover"
