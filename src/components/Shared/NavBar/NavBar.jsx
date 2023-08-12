@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="shadow-md sticky z-50  top-0 bg-white">
+      <nav className="shadow-md sticky z-10 mb-[75px] lg:mb-[90px] top-0 bg-white">
         <div className="navbar  lg:mb-2  lg:pt-5 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
@@ -82,7 +82,7 @@ const NavBar = () => {
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   {" "}
-                  <div className="reletive">
+                  <div className="">
                     <Image
                       src={userImage}
                       layout="fill"
@@ -103,7 +103,6 @@ const NavBar = () => {
                     </NavLink>
                   ))}
                 </li>
-
 
                 {/* for  small divice  */}
                 <div className="md:hidden ">
@@ -146,11 +145,13 @@ const NavBar = () => {
             </div>
           </div>
         </div>
-         
-         <hr />
 
-         {/* category */}
-         <Categories></Categories>
+        <hr />
+
+        {/* category */}
+        <div className="absolute w-full  bg-white ">
+          <Categories></Categories>
+        </div>
       </nav>
     </>
   );
