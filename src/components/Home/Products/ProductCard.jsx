@@ -3,6 +3,7 @@ import React from "react";
 import Rating from "react-rating";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Link from "next/link";
 
 const ProductCard = ({ product }) => {
   const {
@@ -62,12 +63,13 @@ const ProductCard = ({ product }) => {
           <button className="flex justify-center items-center gap-2 text-[#34B701] font-medium bg-green-100 px-4 py-1 rounded hover:bg-green-200">
             <AiOutlineShoppingCart size={20} /> Add{" "}
           </button>
-          <button
+         <Link href={'/payment'} >
+         <button
             disabled={stock === "Out of stock"}
             className="flex justify-center items-center gap-2 bg-[#ff6347cc]  text-white px-4 py-1 rounded disabled:cursor-not-allowed disabled:opacity-60 hover:bg-[#FF7B13]"
           >
             Buy Now
-          </button>
+          </button></Link>
         </div>
       </div>
     </div>
