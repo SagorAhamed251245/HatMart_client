@@ -15,7 +15,7 @@ const AddToCart = () => {
       {/* This is the item and total payment section */}
       <section>
           {/* card here */}
-          <section className="w-2/3 my-10">
+          <section className="w-fit my-10">
             <CartCard></CartCard>
           </section>
           {/* total payment here */}
