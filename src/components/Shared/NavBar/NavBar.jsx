@@ -2,6 +2,7 @@ import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import Image from "next/image";
 import React from "react";
 import NavLink from "./NavLink";
+
 import cartImage from "@/assets/icons/cart.png";
 import userImage from "@/assets/icons/user.png";
 import Categories from "@/components/Home/Categories/Categories";
