@@ -26,6 +26,7 @@ const CategoryProductsPage = ({ searchParams }) => {
                 alt="Np product found image"
                 height={300}
                 width={500}
+                
               ></Image>
             </div>
           </>
