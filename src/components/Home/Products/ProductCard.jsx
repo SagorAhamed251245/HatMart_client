@@ -18,21 +18,21 @@ const ProductCard = ({ product }) => {
     discount_percent,
   } = product;
   return (
-    <div className="border border-gray-200 p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
-      <div className="relative bg-white h-36 w-full flex items-center justify-center ">
+    <div className="border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
+      <div className="relative  h-36 w-full flex items-center justify-center ">
         <Image
-          className="object-cover"
+          layout="fill"
+          style={{ objectFit: "contain" }}
           src={image}
-          width="100"
-          height="100"
+          loading="lazy"
           alt="product image"
         />
-        <p className="absolute bg-yellow-400 px-3 py-px rounded-full top-0 left-0 text-xs">
+        <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
           {discount_percent}%
         </p>
       </div>
       <div className="space-y-1 mt-3">
-        <p className="text-xs text-gray-600 bg-green-100 inline px-1 py-px rounded">
+        <p className="text-xs dark:text-white dark:bg-green-500 text-gray-600 bg-green-100 inline px-1 py-px rounded">
           {category}
         </p>
         <p className="text-sm text-[#34B701]">
@@ -42,7 +42,9 @@ const ProductCard = ({ product }) => {
             <span className="text-red-600">{stock}</span>
           )}
         </p>
-        <h5 className="text-lg text-gray-700 font-semibold">{title}</h5>
+        <h5 className="text-lg text-gray-700 dark:text-white font-semibold">
+          {title}
+        </h5>
         <div className="flex items-center gap-2">
           <Rating
             placeholderRating={rating}
@@ -51,7 +53,9 @@ const ProductCard = ({ product }) => {
             fullSymbol={<FaStar className="text-yellow-400" />}
             readonly
           />
-          <span className="text-gray-500 text-sm font-medium">{rating}/5</span>
+          <span className="text-gray-500 dark:text-gray-50 text-sm font-medium">
+            {rating}/5
+          </span>
         </div>
         <p className="text-[#34B701] font-medium">${price}</p>
         <div className="flex items-center justify-between !mt-5">
