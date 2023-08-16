@@ -22,11 +22,11 @@ module.exports = {
       "retro",
       {
         mytheme: {
-          primary: "#570df8",
+          primary: "#FF7B13",
 
-          secondary: "#f000b8",
+          secondary: "#34B701",
 
-          accent: "#1dcdbc",
+          accent: "#ff6347cc",
 
           neutral: "#2b3440",
 
