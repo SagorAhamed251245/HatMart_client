@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import IconPage from './IconPage';
 
 
 const CheckoutForm = () => {
@@ -12,6 +13,7 @@ const CheckoutForm = () => {
 
   return (
     <div className="max-w-2xl mx-auto ">
+      <IconPage/>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid xl:grid-cols-2 xl:gap-6">
           <div className="relative z-0 mb-6 w-full group">
@@ -73,13 +75,13 @@ const CheckoutForm = () => {
          
         </div>
         <button
-          type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Submit
+          Payment Here
         </button>
       </form>
       <p className="mt-5">
+        
         Check out the original floating label form elements on and browse other
         similar components built with Tailwind CSS.
       </p>
