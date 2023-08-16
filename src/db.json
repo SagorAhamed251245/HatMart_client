@@ -2,60 +2,132 @@
   "categories": [
     {
       "id": 1,
-      "name": "Electronics",
-      "imageUrl": "http:/exempleImg"
+      "category": "Vegetable and Fruits",
+      "icon": "https://i.ibb.co/3cnZsds/healthy-food.png",
+      "sub_category": [
+        "Leafy Greens",
+        "Cruciferous Vegetables",
+        "Root Vegetables",
+        "Allium Vegetables",
+        "vagitable",
+        "Legumes",
+        "Nightshade Vegetables",
+        "Squash and Gourds",
+        "Citrus Fruits",
+        "Berries",
+        "Tropical Fruits",
+        "Stone Fruits",
+        "Melons",
+        "Apples and Pears",
+        "Exotic Fruits"
+      ]
     },
     {
       "id": 2,
-      "name": "Clothing",
-      "imageUrl": "http:/clothingImg"
+      "category": "Meat and Seafood",
+      "icon": "https://i.ibb.co/74cr4p6/canned-food.png",
+      "sub_category": ["Beef", "Chicken", "Pork", "Fish", "Shellfish"]
     },
     {
       "id": 3,
-      "name": "Books",
-      "imageUrl": "http:/booksImg"
-    }
-  ],
-  "products": [
-    {
-      "id": 1,
-      "title": "iPhone 12",
-      "price": 999,
-      "categoryId": 1,
-      "features": ["A14 chip", "256GB storage", "8GB RAM"],
-      "imageUrl": "ex"
-    },
-    {
-      "id": 2,
-      "title": "Samsung Galaxy S21",
-      "price": 899,
-      "categoryId": 1,
-      "features": ["Snapdragon 888", "128GB storage", "12GB RAM"],
-      "imageUrl": "samsung"
-    },
-    {
-      "id": 3,
-      "title": "Blue Denim Jeans",
-      "price": 49,
-      "categoryId": 2,
-      "features": ["Classic fit", "100% cotton", "Available in various sizes"],
-      "imageUrl": "jeans"
+      "category": "Snacks",
+      "icon": "https://i.ibb.co/SRB57zW/snack.png",
+      "sub_category": ["Chips", "Cookies", "Nuts", "Candy", "Granola Bars"]
     },
     {
       "id": 4,
-      "title": "Black Leather Jacket",
-      "price": 199,
-      "categoryId": 2,
-      "features": ["Genuine leather", "Zipper closure", "Stylish design"],
-      "imageUrl": "jacket"
+      "category": "Beverage",
+      "icon": "https://i.ibb.co/pWvqQ1X/drinks.png",
+      "sub_category": ["Water", "Soda", "Tea", "Coffee", "Juice"]
     },
     {
       "id": 5,
-      "title": "The Great Gatsby",
-      "price": 15,
-      "categoryId": 3,
-      "features": ["F. Scott Fitzgerald", "Classic novel", "1920s setting"],
-      "imageUrl": "gatsby"
+      "category": "Dairy and Eggs",
+      "icon": "https://i.ibb.co/FW9wf02/dairy-products.png",
+      "sub_category": ["Milk", "Cheese", "Yogurt", "Eggs", "Butter"]
+    },
+    {
+      "id": 6,
+      "category": "Pantry Staples",
+      "icon": "https://i.ibb.co/yRhHj9F/rice.png",
+      "sub_category": ["Rice", "Pasta", "Flour", "Sugar", "Canned Vegetables"]
+    },
+    {
+      "id": 7,
+      "category": "Bakery",
+      "icon": "https://i.ibb.co/YbGm1Mx/bread.png",
+      "sub_category": ["Bread", "Bagels", "Croissants", "Muffins", "Pastries"]
+    },
+    {
+      "id": 8,
+      "category": "Frozen Foods",
+      "icon": "https://i.ibb.co/gzsKb0P/frozen-food.png",
+      "sub_category": [
+        "Frozen Vegetables",
+        "Frozen Fruits",
+        "Frozen Meals",
+        "Ice Cream",
+        "Frozen Pizza"
+      ]
+    },
+    {
+      "id": 9,
+      "category": "Canned and Packaged Foods",
+      "icon": "https://i.ibb.co/1Xjkkxt/instant-food.png",
+      "sub_category": [
+        "Canned Soup",
+        "Canned Fruit",
+        "Canned Beans",
+        "Packaged Snacks",
+        "Instant Noodles"
+      ]
+    },
+    {
+      "id": 10,
+      "category": "Condiments",
+      "icon": "https://i.ibb.co/v4FK482/ketchup.png",
+      "sub_category": [
+        "Ketchup",
+        "Mustard",
+        "Mayonnaise",
+        "Soy Sauce",
+        "Hot Sauce"
+      ]
+    },
+    {
+      "id": 11,
+      "category": "Household Essentials",
+      "icon": "https://i.ibb.co/N9pvBBM/cleaning-products.png",
+      "sub_category": [
+        "Cleaning Supplies",
+        "Toilet Paper",
+        "Trash Bags",
+        "Batteries",
+        "Laundry Detergent"
+      ]
+    },
+    {
+      "id": 12,
+      "category": "Baby and Kids",
+      "icon": "https://i.ibb.co/FxSbD1k/baby.png",
+      "sub_category": [
+        "Diapers",
+        "Baby Food",
+        "Toys",
+        "Children's Clothing",
+        "Baby Care Products"
+      ]
+    },
+    {
+      "id": 13,
+      "category": "Health and Wellness",
+      "icon": "https://i.ibb.co/GFQkbS4/health.png",
+      "sub_category": [
+        "Baby Care Products",
+        "Cleaning Supplies",
+        "Personal Care",
+        "Household Items"
+      ]
     }
   ]
 }

@@ -4,6 +4,7 @@ import CategoriesCart from "./CategoriesCart";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+// import getCategories from "@/utils/getCategories";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -14,6 +15,8 @@ const Categories = () => {
       .then((data) => setCategories(data));
   }, []);
 
+  /* const { categoriesData } = getCategories();
+  console.log(categoriesData); */
   return (
     <section className="w-[90%] mx-auto hover:bg-white hover:transition hover:shadow-lg hover:h-[400px]  duration-1000 ease-in-out">
       <Swiper
@@ -43,7 +46,7 @@ const Categories = () => {
         className="mySwiper flex z-20"
       >
         <div className="">
-          {categories.map((item) => (
+          {categories?.map((item) => (
             <SwiperSlide key={item.id}>
               <CategoriesCart key={item.id} item={item}></CategoriesCart>
             </SwiperSlide>
