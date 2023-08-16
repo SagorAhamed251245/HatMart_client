@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const ProductCard = ({ product }) => {
   const {
+    _id,
     title,
     details,
     price,
@@ -20,18 +21,21 @@ const ProductCard = ({ product }) => {
   } = product;
   return (
     <div className="border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
-      <div className="relative  h-36 w-full flex items-center justify-center ">
-        <Image
-          layout="fill"
-          style={{ objectFit: "contain" }}
-          src={image}
-          loading="lazy"
-          alt="product image"
-        />
-        <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
-          {discount_percent}%
-        </p>
-      </div>
+      {/* details route */}
+      <Link href={`/productDetails/${_id}`}>
+        <div className="relative  h-36 w-full flex items-center justify-center ">
+          <Image
+            layout="fill"
+            style={{ objectFit: "contain" }}
+            src={image}
+            loading="lazy"
+            alt="product image"
+          />
+          <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
+            {discount_percent}%
+          </p>
+        </div>
+      </Link>
       <div className="space-y-1 mt-3">
         <p className="text-xs dark:text-white dark:bg-green-500 text-gray-600 bg-green-100 inline px-1 py-px rounded">
           {category}
@@ -63,13 +67,14 @@ const ProductCard = ({ product }) => {
           <button className="flex justify-center items-center gap-2 text-[#34B701] font-medium bg-green-100 px-4 py-1 rounded hover:bg-green-200">
             <AiOutlineShoppingCart size={20} /> Add{" "}
           </button>
-         <Link href={'/payment'} >
-         <button
-            disabled={stock === "Out of stock"}
-            className="flex justify-center items-center gap-2 bg-[#ff6347cc]  text-white px-4 py-1 rounded disabled:cursor-not-allowed disabled:opacity-60 hover:bg-[#FF7B13]"
-          >
-            Buy Now
-          </button></Link>
+          <Link href={"/payment"}>
+            <button
+              disabled={stock === "Out of stock"}
+              className="flex justify-center items-center gap-2 bg-[#ff6347cc]  text-white px-4 py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
+            >
+              Buy Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>
