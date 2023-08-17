@@ -9,7 +9,7 @@ const SubCategories = ({ sub_category }) => {
           href={{
             pathname: `/categoryProducts`,
             query: {
-              sub_category: item,
+              search: item,
             },
           }}
           key={item}

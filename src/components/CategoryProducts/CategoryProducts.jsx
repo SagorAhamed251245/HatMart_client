@@ -7,15 +7,20 @@ import GetProducts from "@/utils/getProducts";
 import noProductImage from "@/assets/images/no-products.jpg";
 import FilterAsPrice from "./FilterAsPrice";
 
-const CategoryProducts = ({ searchParams }) => {
+const CategoryProducts = ({ searchParams , pageName }) => {
   const [products] = GetProducts();
   const [viewAsList, setViewAsList] = useState(false);
 
   const [sortOrder, setSortOrder] = useState("bestMatch");
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const filterProduct = products.filter((product) =>
-    product.sub_category.find((sub) => sub === searchParams.sub_category)
-  );
+  const [filterProduct, setFilterProduct] = useState([]);
+
+  useEffect(() => {
+    const filterProduct = products.filter((product) =>
+      product.sub_category.find((sub) => sub === searchParams.search)
+    );
+    setFilterProduct(filterProduct);
+  }, [products, searchParams.search]);
 
   useEffect(() => {
     let sortedProducts = [...filterProduct];
@@ -35,7 +40,7 @@ const CategoryProducts = ({ searchParams }) => {
         setViewAsList={setViewAsList}
       ></FilterAsPrice>
       <SectionTitle>
-        <small>Category/{searchParams.sub_category}</small>
+        <small>{pageName}/{searchParams.search}</small>
       </SectionTitle>
       {filteredProducts.length === 0 ? (
         <>

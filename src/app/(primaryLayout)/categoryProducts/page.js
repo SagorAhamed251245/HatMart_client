@@ -5,7 +5,11 @@ const CategoryProductsPage = ({ searchParams }) => {
   return (
     <>
       <BrandAdd />
-      <CategoryProducts searchParams={searchParams} />
+      <CategoryProducts
+        searchParams={searchParams}
+        pageName={"Category"}
+       
+      />
     </>
   );
 };
