@@ -1,10 +1,11 @@
 import BrandAdd from "@/components/CategoryProducts/BrandAdd";
 import CategoryProducts from "@/components/CategoryProducts/CategoryProducts";
-const page = ({ searchParams}) => {
+import SearchProducts from "@/components/SearchProduct/SearchProducts";
+const page = ({ searchParams }) => {
   return (
     <>
       <BrandAdd />
-      <CategoryProducts searchParams={searchParams}  pageName={'Search'}/>
+      <SearchProducts searchParams={searchParams} pageName={"Search"} />
     </>
   );
 };
