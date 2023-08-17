@@ -47,8 +47,8 @@ const Categories = () => {
       >
         <div className="">
           {categories?.map((item) => (
-            <SwiperSlide key={item.id}>
-              <CategoriesCart key={item.id} item={item}></CategoriesCart>
+            <SwiperSlide key={item._id}>
+              <CategoriesCart key={item._id} item={item}></CategoriesCart>
             </SwiperSlide>
           ))}
         </div>
