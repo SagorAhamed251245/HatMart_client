@@ -1,3 +1,5 @@
+
+import CheckBox from '@/components/PaymentPage/CheckBox';
 import CheckoutForm from '@/components/PaymentPage/CheckoutForm';
 import React from 'react';
 
@@ -19,10 +21,10 @@ const PaymentPage = () => {
       <h1 className="text-5xl font-bold">Payment Here!</h1>
       <p className="py-6">We are here for your best  Payment Option.                                            
       Click Your easy method.</p>
-     
-    </div>
-    
-    <CheckoutForm/>
+     </div>
+   
+    {/* <div><CheckoutForm/></div> */}
+    <CheckBox/>
   </div>
 </div>
     </div>

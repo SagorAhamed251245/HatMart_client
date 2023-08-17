@@ -58,19 +58,19 @@ const CheckoutForm = () => {
         </div>
         <div className="relative z-0 mb-6 w-full group">
           <input
-            {...register('email2', { required: true })}
-            type="email"
+            {...register('Credit Card Number', { required: true })}
+            type="Credit Card Number"
             className="block py-2.5 px-0 w-full"
-            placeholder="Email"
+            placeholder="Credit Card Number"
           />
           
         </div>
         <div className="relative z-0 mb-6 w-full group">
           <input
-            {...register('email3', { required: true })}
-            type="email"
+            {...register('Address', { required: true })}
+            type="Address"
             className="block py-2.5 px-0 w-full shadow-2xl"
-            placeholder="Email"
+            placeholder="Address"
           />
          
         </div>

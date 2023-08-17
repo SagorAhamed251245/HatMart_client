@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCcPaypal, FaCcStripe, FaCcVisa } from "react-icons/fa";
+import { FaCcPaypal, FaCcStripe, FaCcVisa, } from "react-icons/fa";
 
 
 const IconPage = () => {
@@ -9,6 +9,8 @@ const IconPage = () => {
             <FaCcPaypal className='w-[50px] h-[50px] '/>
             <FaCcStripe className='w-[50px] h-[50px]'/>
             <FaCcVisa className='w-[50px] h-[50px]'/>
+            
+            
         </div>
     );
 };
