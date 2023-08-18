@@ -2,11 +2,7 @@ import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import Image from "next/image";
 import React from "react";
 import NavLink from "./NavLink";
-<<<<<<< HEAD
 
-import cartImage from "@/assets/icons/cart.png";
-=======
->>>>>>> 002a3145e2ed0fcdce797629ac430d4b782b9fe4
 import userImage from "@/assets/icons/user.png";
 import Categories from "@/components/Home/Categories/Categories";
 import Link from "next/link";
@@ -17,7 +13,7 @@ import Search from "./Search";
 import useAuth from "@/hooks/useAuth";
 
 const NavBar = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const { uid, displayName, photoURL } = user || {};
   const li = uid ? afterLoginNavData : beforeLoginNavData;
 
@@ -66,22 +62,25 @@ const NavBar = () => {
             </div>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="avatar cursor-pointer  ">
-               {uid ? <div className="w-10 rounded">
-                  <Image
-                    src={photoURL}
-                    layout="fill"
-                    objectFit="cover"
-                    alt="HatMart Logo"
-                  />
-                </div> :
-                <div className="w-10 rounded">
-                  <Image
-                    src={userImage}
-                    layout="fill"
-                    objectFit="cover"
-                    alt="HatMart Logo"
-                  />
-                </div>}
+                {uid ? (
+                  <div className="w-10 rounded">
+                    <Image
+                      src={photoURL}
+                      layout="fill"
+                      objectFit="cover"
+                      alt="HatMart Logo"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-10 rounded">
+                    <Image
+                      src={userImage}
+                      layout="fill"
+                      objectFit="cover"
+                      alt="HatMart Logo"
+                    />
+                  </div>
+                )}
               </label>
               <ul
                 tabIndex={0}
@@ -94,6 +93,13 @@ const NavBar = () => {
                     </NavLink>
                   ))}
                 </li>
+                {uid && (
+                  <li>
+                    <Link href={""} onClick={() => logout()}>
+                      LogOut
+                    </Link>
+                  </li>
+                )}
 
                 {/* for  small divice  */}
                 <div className="md:hidden hidden">
