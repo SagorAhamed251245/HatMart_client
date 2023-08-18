@@ -25,6 +25,7 @@ const Products = ({ sectionTitle }) => {
   }, []);
 
   const handleAddToCart = (id) => {
+  
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
     const existingItemIndex = cartItems.findIndex((item) => item._id === id);
@@ -49,6 +50,7 @@ const Products = ({ sectionTitle }) => {
 
       localStorage.setItem("cartItems", updatedCartItemsString);
     }
+    alert('Product has been added')
   };
 
   return (
