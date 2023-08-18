@@ -5,7 +5,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
 
-const ProductCard = ({ product,handleAddToCart }) => {
+const ProductCard = ({ product, handleAddToCart }) => {
   const {
     _id,
     title,
@@ -20,7 +20,6 @@ const ProductCard = ({ product,handleAddToCart }) => {
     discount_percent,
   } = product;
 
-  
   return (
     <div className="border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
       <Link href={`/productDetails/${_id}`}>
@@ -38,9 +37,6 @@ const ProductCard = ({ product,handleAddToCart }) => {
             {discount_percent}%
           </p>
         </div>
-
-        
-
 
         <div className="space-y-1 mt-3">
           <p className="text-xs dark:text-white dark:bg-green-500 text-gray-600 bg-green-100 inline px-1 py-px rounded">
@@ -70,9 +66,14 @@ const ProductCard = ({ product,handleAddToCart }) => {
           </div>
           <p className="text-[#34B701] font-medium">${price}</p>
           <div className="flex items-center justify-between !mt-5">
-            <button onClick={() => handleAddToCart(_id)} className="flex justify-center items-center gap-2 text-[#34B701] font-medium bg-green-100 px-4 py-1 rounded hover:bg-green-200">
-              <AiOutlineShoppingCart size={20} /> Add{" "}
-            </button>
+            <Link href={""}>
+              <button
+                onClick={() => handleAddToCart(_id)}
+                className="flex justify-center items-center gap-2 text-[#34B701] font-medium bg-green-100 px-4 py-1 rounded hover:bg-green-200"
+              >
+                <AiOutlineShoppingCart size={20} /> Add{" "}
+              </button>
+            </Link>
             <Link href={"/payment"}>
               <button
                 disabled={stock === "Out of stock"}
