@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "name": "Product 1",
+      "image": "https://i.ibb.co/37mp1RR/image.png",
+      "rating": 4.5,
+      "quantity": 1,
+      "price": 29.99
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "image": "https://i.ibb.co/rZYZTPR/image.png",
+      "rating": 3.8,
+      "quantity": 15,
+      "price": 19.95
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "image": "https://i.ibb.co/DWCwJM6/image.png",
+      "rating": 5.0,
+      "quantity": 8,
+      "price": 42.50
+    },
+    {
+      "id": 4,
+      "name": "Product 4",
+      "image": "https://i.ibb.co/KmPV68n/image.png",
+      "rating": 4.2,
+      "quantity": 20,
+      "price": 14.75
+    },
+    {
+      "id": 5,
+      "name": "Product 5",
+      "image": "https://i.ibb.co/RQfhzqs/image.png",
+      "rating": 4.7,
+      "quantity": 12,
+      "price": 56.00
+    },
+    {
+      "id": 6,
+      "name": "Product 6",
+      "image": "https://i.ibb.co/DWCwJM6/image.png",
+      "rating": 3.5,
+      "quantity": 5,
+      "price": 9.99
+    }
+  ]
+  
