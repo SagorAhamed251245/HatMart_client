@@ -10,7 +10,7 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("/categories.json")
+    fetch("https://hatmart-server.vercel.app/api/v1/auth/category")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
@@ -47,8 +47,8 @@ const Categories = () => {
       >
         <div className="">
           {categories?.map((item) => (
-            <SwiperSlide key={item.id}>
-              <CategoriesCart key={item.id} item={item}></CategoriesCart>
+            <SwiperSlide key={item._id}>
+              <CategoriesCart key={item._id} item={item}></CategoriesCart>
             </SwiperSlide>
           ))}
         </div>
