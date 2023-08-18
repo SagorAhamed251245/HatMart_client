@@ -1,3 +1,4 @@
+"use client";
 import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import Image from "next/image";
 import React from "react";
@@ -14,7 +15,8 @@ import useAuth from "@/hooks/useAuth";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
-  const { uid, displayName, photoURL } = user || {};
+
+  const { uid,  photoURL } = user || {};
   const li = uid ? afterLoginNavData : beforeLoginNavData;
 
   return (
@@ -61,8 +63,8 @@ const NavBar = () => {
               </div>
             </div>
             <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="avatar cursor-pointer  ">
-                <div className="w-10 rounded">
+              <label tabIndex={0} className="avatar cursor-pointer  rounded">
+                <div className="w-10 rounded overflow-hidden">
                   <Image
                     src={photoURL || userImage}
                     layout="fill"
