@@ -9,10 +9,12 @@ import Link from "next/link";
 import { BiSolidCartAlt } from "react-icons/bi";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import Search from "./Search";
+import useAuth from "@/hooks/useAuth";
 
 const NavBar = () => {
-  const user = "sagor";
-  const li = user ? afterLoginNavData : beforeLoginNavData;
+  const { user } = useAuth();
+  const { uid, displayName, photoURL } = user || {};
+  const li = uid ? afterLoginNavData : beforeLoginNavData;
 
   return (
     <>
@@ -59,6 +61,14 @@ const NavBar = () => {
             </div>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="avatar cursor-pointer  ">
+               {uid ? <div className="w-10 rounded">
+                  <Image
+                    src={photoURL}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="HatMart Logo"
+                  />
+                </div> :
                 <div className="w-10 rounded">
                   <Image
                     src={userImage}
@@ -66,7 +76,7 @@ const NavBar = () => {
                     objectFit="cover"
                     alt="HatMart Logo"
                   />
-                </div>
+                </div>}
               </label>
               <ul
                 tabIndex={0}
