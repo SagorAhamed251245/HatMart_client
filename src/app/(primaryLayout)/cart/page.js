@@ -6,6 +6,7 @@ const AddToCart = () => {
 
   const [totalPrice, setTotalPrice] = useState(0);
   const [data, setData] = useState([]);
+  const [products,setProducts] = useState([])
 
   useEffect(() => {
     fetch('cartItem.json')
@@ -13,6 +14,14 @@ const AddToCart = () => {
       .then(data => setData(data));
   }, []);
 
+
+
+  // const localstorageData = JSON.parse(localStorage.getItem("cartItems"))
+
+
+  
+
+  console.log(products)
   const updateTotal = (subTotal) => {
     setTotalPrice(prevTotalPrice => {
       const newTotal = prevTotalPrice + subTotal;
