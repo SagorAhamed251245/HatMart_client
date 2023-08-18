@@ -1,27 +1,32 @@
 "use client";
 import useAuth from "@/hooks/useAuth";
 import { useForm } from "react-hook-form";
+import { useRouter, useSearchParams } from "next/navigation";
+import { startTransition } from "react";
 
 const EmailForm = () => {
   const {
     register,
     handleSubmit,
     watch,
-    
+
     formState: { errors },
   } = useForm();
 
- 
   const { signIn } = useAuth();
-
- 
+  const search = useSearchParams();
+  const from = search.get("redirectUrl") || "/";
+  const { replace, refresh } = useRouter();
 
   const onSubmit = async (data) => {
     console.log(data);
     const { email, password } = data;
     try {
-      const user = await signIn(email, password);
-      console.log(user);
+      await signIn(email, password);
+      startTransition(() => {
+        refresh();
+        replace(from);
+      });
     } catch (error) {
       console.log(error);
     }
