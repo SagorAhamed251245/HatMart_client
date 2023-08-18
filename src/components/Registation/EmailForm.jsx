@@ -1,5 +1,7 @@
 "use client";
 import useAuth from "@/hooks/useAuth";
+import { useRouter, useSearchParams } from "next/navigation";
+import { startTransition } from "react";
 import { useForm } from "react-hook-form";
 
 const EmailForm = () => {
@@ -12,6 +14,9 @@ const EmailForm = () => {
     watch,
     formState: { errors },
   } = useForm();
+  const search = useSearchParams();
+  const from = search.get("redirectUrl") || "/";
+  const { replace, refresh } = useRouter();
 
   /* const uploadImage = async (event) => {
     const formData = new FormData();
@@ -45,6 +50,12 @@ const EmailForm = () => {
       await profileUpdate({
         displayName: name,
         photoURL: photo,
+      });
+      startTransition(() => {
+        refresh();
+        replace(from);
+        toast.dismiss(toastId);
+        toast.success("User signed in successfully");
       });
     } catch (error) {
       console.log(error);
