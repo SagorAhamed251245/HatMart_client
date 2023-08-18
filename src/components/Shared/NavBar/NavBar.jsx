@@ -16,7 +16,7 @@ import useAuth from "@/hooks/useAuth";
 const NavBar = () => {
   const { user, logout } = useAuth();
 
-  const { uid,  photoURL } = user || {};
+  const { uid, photoURL } = user || {};
   const li = uid ? afterLoginNavData : beforeLoginNavData;
 
   return (
@@ -59,11 +59,13 @@ const NavBar = () => {
             {/* night */}
             <div className="hidden md:inline-block">
               <div className="flex  items-center justify-center w-[35px] h-[35px]">
-                <BiSolidCartAlt className="text-3xl" />
+                <Link href={"cart"}>
+                  <BiSolidCartAlt className="text-3xl" />
+                </Link>
               </div>
             </div>
             <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="avatar cursor-pointer  rounded">
+              <label tabIndex={0} className="avatar cursor-pointer  ">
                 <div className="w-10 rounded overflow-hidden">
                   <Image
                     src={photoURL || userImage}
@@ -108,7 +110,9 @@ const NavBar = () => {
                 {/* night */}
                 <div className="md:hidden ">
                   <div className="flex w-[35px] h-[35px]   items-center justify-center">
-                    <BiSolidCartAlt className="text-3xl" />
+                    <Link href={"cart"}>
+                      <BiSolidCartAlt className="text-3xl" />
+                    </Link>
                   </div>
                 </div>
               </ul>
