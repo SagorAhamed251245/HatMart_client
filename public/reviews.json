@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "1",
+    "productId": "1",
+    "customer_Name": "Alice Smith",
+    "customer_Image": "https://i.ibb.co/L82Zc3h/image.png",
+    "rating": 4,
+    "feedback": "The product was fresh and of good quality. Will buy again.",
+    "createdAt": "2023-08-16T10:00:00Z"
+  },
+  {
+    "_id": "2",
+    "productId": "2",
+    "customer_Name": "John Johnson",
+    "customer_Image": "https://i.ibb.co/KNhxw7y/image.png",
+    "rating": 4,
+    "feedback": "Excellent grocery item, exceeded my expectations.",
+    "createdAt": "2023-08-15T14:30:00Z"
+  },
+  {
+    "_id": "3",
+    "productId": "2",
+    "customer_Name": "Emily Davis",
+    "customer_Image": "https://i.ibb.co/L82Zc3h/image.png",
+    "rating": 3,
+    "feedback": "Decent product, but it could be better. Average quality.",
+    "createdAt": "2023-08-14T09:15:00Z"
+  },
+  {
+    "_id": "4",
+    "productId": "4",
+    "customer_Name": "Michael Brown",
+    "customer_Image": "https://i.ibb.co/KNhxw7y/image.png",
+    "rating": 4,
+    "feedback": "Good value for the price. Satisfied with the purchase.",
+    "createdAt": "2023-08-13T18:45:00Z"
+  },
+  {
+    "_id": "5",
+    "productId": "5",
+    "customer_Name": "Sophia Wilson",
+    "customer_Image": "https://i.ibb.co/L82Zc3h/image.png",
+    "rating": 2,
+    "feedback": "Disappointed with the quality. The product looked better in the picture.",
+    "createdAt": "2023-08-12T22:10:00Z"
+  }
+]

@@ -1,7 +1,8 @@
-import categories from "@/json/categories.json";
 const getCategories = async () => {
-  const res = await fetch(categories);
-  const data = await res.json();
+  const res = await fetch("http://localhost:500/categories");
+  const categoriesData = await res.json();
+  return categoriesData;
 };
 
 export default getCategories;
+console.log(getCategories);
