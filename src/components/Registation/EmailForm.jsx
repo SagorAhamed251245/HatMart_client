@@ -1,16 +1,54 @@
 "use client";
+import useAuth from "@/hooks/useAuth";
 import { useForm } from "react-hook-form";
 
 const EmailForm = () => {
+  const { createUser, profileUpdate } = useAuth();
   const {
     register,
     handleSubmit,
+    getValues,
+    setValue,
     watch,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data); // You can handle the form data here
+  /* const uploadImage = async (event) => {
+    const formData = new FormData();
+    if (!event.target.files[0]) return;
+    formData.append("image", event.target.files[0]);
+   
+    try {
+      const res = await fetch(
+        `https://api.imgbb.com/1/upload?key=f52e595071a0957951aba70405bfbaf8`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      if (!res.ok) throw new Error("Failed to upload image");
+
+      const data = await res.json();
+      
+      setValue("photo", data.data.url);
+    } catch (error) {
+    console.log(error);
+  };} */
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    const { name, email, password, photo } = data;
+
+    try {
+      await createUser(email, password);
+
+      await profileUpdate({
+        displayName: name,
+        photoURL: photo,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

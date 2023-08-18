@@ -1,3 +1,4 @@
+import Providers from "@/providers";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -11,7 +12,11 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en" data-theme="light">
-      <body suppressHydrationWarning={true} className={inter.className}>{children}</body>
+      <Providers>
+        <body suppressHydrationWarning={true} className={inter.className}>
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 };

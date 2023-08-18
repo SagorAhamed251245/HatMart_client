@@ -1,4 +1,5 @@
-'use client'
+"use client";
+import useAuth from "@/hooks/useAuth";
 import { useForm } from "react-hook-form";
 
 const EmailForm = () => {
@@ -6,11 +7,24 @@ const EmailForm = () => {
     register,
     handleSubmit,
     watch,
+    
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data); 
+ 
+  const { signIn } = useAuth();
+
+ 
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    const { email, password } = data;
+    try {
+      const user = await signIn(email, password);
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

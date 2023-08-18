@@ -62,25 +62,14 @@ const NavBar = () => {
             </div>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="avatar cursor-pointer  ">
-                {uid ? (
-                  <div className="w-10 rounded">
-                    <Image
-                      src={photoURL}
-                      layout="fill"
-                      objectFit="cover"
-                      alt="HatMart Logo"
-                    />
-                  </div>
-                ) : (
-                  <div className="w-10 rounded">
-                    <Image
-                      src={userImage}
-                      layout="fill"
-                      objectFit="cover"
-                      alt="HatMart Logo"
-                    />
-                  </div>
-                )}
+                <div className="w-10 rounded">
+                  <Image
+                    src={photoURL || userImage}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="HatMart Logo"
+                  />
+                </div>
               </label>
               <ul
                 tabIndex={0}
