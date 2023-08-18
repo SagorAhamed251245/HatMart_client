@@ -50,15 +50,13 @@ const Hero = () => {
             {main.map((banner) => (
               <SwiperSlide key={banner.id}>
                 <div className="  relative h-[200px] lg:h-[450px] w-full rounded-xl">
-                  <Link href={"/"}>
-                    <Image
-                      layout="fill"
-                      objectFit="cover"
-                      className=" rounded-xl"
-                      src={banner.image}
-                      alt="side banner image"
-                    />
-                  </Link>
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    className=" rounded-xl"
+                    src={banner.image}
+                    alt="side banner image"
+                  />
                 </div>
               </SwiperSlide>
             ))}
@@ -72,15 +70,13 @@ const Hero = () => {
               key={banner.id}
               className="lg:h-full  w-full rounded-lg relative"
             >
-              <Link href={'/'}>
-                <Image
-                  layout="fill"
-                  objectFit="cover"
-                  className=" rounded-xl"
-                  src={banner.image}
-                  alt="side banner image"
-                ></Image>
-              </Link>
+              <Image
+                layout="fill"
+                objectFit="cover"
+                className=" rounded-xl"
+                src={banner.image}
+                alt="side banner image"
+              ></Image>
             </div>
           ))}
         </div>
@@ -91,15 +87,13 @@ const Hero = () => {
       <section className=" lg:flex hidden mt-[24px] h-[250px]  gap-6">
         {bottom.map((banner) => (
           <div key={banner.id} className="h-full w-full ">
-            <Link href={'/'}>
-              <Image
-                height={130}
-                width={438}
-                className="w-full h-full rounded-xl"
-                src={banner.image}
-                alt="side banner image"
-              ></Image>
-            </Link>
+            <Image
+              height={130}
+              width={438}
+              className="w-full h-full rounded-xl"
+              src={banner.image}
+              alt="side banner image"
+            ></Image>
           </div>
         ))}
       </section>
@@ -122,15 +116,13 @@ const Hero = () => {
           {bottom.map((banner) => (
             <SwiperSlide key={banner.id}>
               <div className="h-full w-full">
-                <Link href={'/'}>
-                  <Image
-                    height={130}
-                    width={438}
-                    className="w-full h-[200px] rounded-xl"
-                    src={banner.image}
-                    alt="side banner image"
-                  ></Image>
-                </Link>
+                <Image
+                  height={130}
+                  width={438}
+                  className="w-full h-[200px] rounded-xl"
+                  src={banner.image}
+                  alt="side banner image"
+                ></Image>
               </div>
             </SwiperSlide>
           ))}
