@@ -41,7 +41,7 @@ const EmailForm = () => {
   };} */
 
   const onSubmit = async (data) => {
-    console.log(data);
+   
     const { name, email, password, photo } = data;
 
     try {

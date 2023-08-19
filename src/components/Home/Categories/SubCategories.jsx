@@ -13,10 +13,9 @@ const SubCategories = ({ sub_category }) => {
             },
           }}
           key={item}
+          className="border-white hover:border-black border"
         >
-          <div className="cursor-pointer hover:border-black hover:border flex rounded">
-            <p>{item}</p>
-          </div>
+          {item}
         </Link>
       ))}
     </div>

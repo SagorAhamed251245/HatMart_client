@@ -1,8 +1,8 @@
 const getCategories = async () => {
-  const res = await fetch("http://localhost:500/categories");
-  const categoriesData = await res.json();
-  return categoriesData;
+  const res = await fetch(
+    "https://hatmart-server.vercel.app/api/v1/auth/category"
+  );
+  return res.json();
 };
 
 export default getCategories;
-console.log(getCategories);
