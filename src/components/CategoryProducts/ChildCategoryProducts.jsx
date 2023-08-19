@@ -1,37 +1,42 @@
-"use client";
-import { useEffect, useState } from "react";
-import FilterAsPrice from "../CategoryProducts/FilterAsPrice";
-import ProductCard from "../Home/Products/ProductCard";
+"use client"
+import React, { useEffect, useState } from "react";
 import SectionTitle from "../Home/Products/SectionTitle";
-import noProductImage from "@/assets/images/no-products.jpg";
+import ProductCard from "../Home/Products/ProductCard";
 import Image from "next/image";
 
-const SearchProducts = ({ searchParams, pageName }) => {
+import noProductImage from "@/assets/images/no-products.jpg";
+import FilterAsPrice from "./FilterAsPrice";
+
+const ChildCategoryProducts = ({ pageName, searchParams, products }) => {
+  console.log(
+    "🚀 ~ file: ChildCategoryProducts.jsx:11 ~ ChildCategoryProducts ~ products:",
+    products
+  );
+
   const [viewAsList, setViewAsList] = useState(false);
 
   const [sortOrder, setSortOrder] = useState("bestMatch");
-  const [searchedProducts, setFilteredProducts] = useState([]);
-  const [searchProduct, setFilterProduct] = useState([]);
-
-
-  useEffect(() => {
-    fetch(`https://hatmart-server.vercel.app/api/v1/auth/product/${searchParams.search}`)
-      .then((res) => res.json())
-      .then((data) => setFilterProduct(data));
-  }, [searchParams.search]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filterProduct, setFilterProduct] = useState([]);
 
   useEffect(() => {
-    let sortedProducts = [...searchProduct];
+    const filterProduct = products?.filter((product) =>
+      product.sub_category.find((sub) => sub === searchParams.sub_category)
+    );
+    setFilterProduct(filterProduct);
+  }, [products, searchParams.sub_category]);
+
+  useEffect(() => {
+    let sortedProducts = [...filterProduct];
     if (sortOrder === "highToLow") {
       sortedProducts.sort((a, b) => b.price - a.price);
     } else if (sortOrder === "lowToHigh") {
       sortedProducts.sort((a, b) => a.price - b.price);
     }
     setFilteredProducts(sortedProducts);
-  }, [searchProduct, sortOrder]);
-
+  }, [filterProduct, sortOrder]);
   return (
-    <section className="md:w-[90%] mx-auto min-h-screen mb-24">
+    <>
       <FilterAsPrice
         setSortOrder={setSortOrder}
         sortOrder={sortOrder}
@@ -39,10 +44,10 @@ const SearchProducts = ({ searchParams, pageName }) => {
       ></FilterAsPrice>
       <SectionTitle>
         <small>
-          {pageName}/{searchParams.search}
+          {pageName}/{searchParams.sub_category}
         </small>
       </SectionTitle>
-      {searchedProducts.length === 0 ? (
+      {filteredProducts.length === 0 ? (
         <>
           <div className="justify-center flex items-center">
             <Image
@@ -62,7 +67,7 @@ const SearchProducts = ({ searchParams, pageName }) => {
                 : "grid grid-cols-1 gap-5"
             }
           >
-            {searchedProducts.map((product) => (
+            {filteredProducts.map((product) => (
               <div key={product._id} className="col-span-1 ">
                 <ProductCard product={product} />
               </div>
@@ -70,8 +75,8 @@ const SearchProducts = ({ searchParams, pageName }) => {
           </div>
         </>
       )}
-    </section>
+    </>
   );
 };
 
-export default SearchProducts;
+export default ChildCategoryProducts;

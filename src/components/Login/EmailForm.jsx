@@ -19,7 +19,7 @@ const EmailForm = () => {
   const { replace, refresh } = useRouter();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    
     const { email, password } = data;
     try {
       await signIn(email, password);

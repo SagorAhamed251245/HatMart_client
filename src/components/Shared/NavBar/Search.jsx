@@ -14,7 +14,7 @@ const Search = () => {
     const searchInputValue = document.getElementById("search-input").value;
     setSearchInput(searchInputValue);
   };
-  console.log(searchInput);
+ 
 
   return (
     <div className="relative">
