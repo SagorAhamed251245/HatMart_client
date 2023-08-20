@@ -19,13 +19,13 @@ const DescriptionAndReviews = ({ id, productData }) => {
       <Tabs>
         <TabList className="text-center  mx-auto  flex gap-6 tabs text-gray-600 py-3 duration-500">
           <Tab
-            className="font-semibold cursor-pointer  border border-gray-300 rounded-full px-5 py-1 outline-none"
+            className="font-semibold cursor-pointer  border  rounded-full px-5 py-1 outline-none"
             selectedClassName="text-[#34B701]  border-[#34B701] duration-300"
           >
             Description
           </Tab>
           <Tab
-            className="font-semibold cursor-pointer  border border-gray-300 rounded-full px-5 py-1 outline-none"
+            className="font-semibold cursor-pointer  border  rounded-full px-5 py-1 outline-none"
             selectedClassName="text-[#34B701]  border-[#34B701] duration-300"
           >
             Reviews ({reviews.length})
@@ -34,7 +34,7 @@ const DescriptionAndReviews = ({ id, productData }) => {
 
         <TabPanel>
           <div className="mt-8">
-            <p className="text-gray-500">
+            <p className="text-gray-500 text-justify">
              {productData?.details?.description}
             </p>
 
@@ -42,13 +42,13 @@ const DescriptionAndReviews = ({ id, productData }) => {
               <h3 className="text-gray-700 font-medium text-xl">
                 Packaging & Delivery
               </h3>
-              <p className="text-gray-500 mt-4">
+              <p className="text-gray-500 mt-4 text-justify">
               {productData?.details?.packagingDelivery}
               </p>
             </div>
             <div className="mt-10">
               <h3 className="text-gray-700 font-medium text-xl">Warnings</h3>
-              <p className="text-gray-500 mt-4">
+              <p className="text-gray-500 mt-4 text-justify">
               {productData?.details?.warnings}
               </p>
             </div>

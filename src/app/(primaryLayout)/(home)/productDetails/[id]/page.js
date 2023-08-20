@@ -8,9 +8,7 @@ import "react-tabs/style/react-tabs.css";
 
 const ProductDetailsPage = ({ params }) => {
   const [productData, setProductData] = useState([]);
-  const [mainImage, setMainImage] = useState(
-    "https://i.ibb.co/8rmC3MW/image.png"
-  ); // Set initial state to null
+  const [mainImage, setMainImage] = useState("image.jpg"); // Set initial state to null
 
   // Fetch data
   useEffect(() => {
@@ -29,7 +27,7 @@ const ProductDetailsPage = ({ params }) => {
     setMainImage(image);
   };
   return (
-    <section className="mt-36 mb-20 md:w-[90%] mx-auto">
+    <section className="mt-36 mb-20 md:w-[90%] w-[95%] mx-auto">
       <div className="md:flex gap-10">
         {/* Product images */}
         <ProductImages

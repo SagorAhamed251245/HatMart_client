@@ -16,7 +16,7 @@ const ProductImages = ({ mainImage, productData, handleMainImage }) => {
       {/* <div className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-md cursor-pointer">
             <ReactImageZoom {...zoomProps} />
           </div> */}
-      <div className="flex h-72 relative justify-center items-center mb-5">
+      <div className="flex h-72 relative justify-center items-center mb-5 object-contain">
         <Image
           className="rounded h-full"
           src={mainImage}
@@ -40,7 +40,7 @@ const ProductImages = ({ mainImage, productData, handleMainImage }) => {
               key={i}
             >
               <Image
-                className="rounded h-full"
+                className="rounded h-full object-cover"
                 src={image}
                 width={70}
                 height={70}
