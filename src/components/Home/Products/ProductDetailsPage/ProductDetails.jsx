@@ -5,6 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
+
 const ProductDetails = ({ productData }) => {
   return (
     <div className=" w-full">
