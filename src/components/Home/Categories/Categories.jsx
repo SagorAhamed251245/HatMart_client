@@ -8,7 +8,7 @@ const Categories = async () => {
 const categories = await getCategories()
   
   return (
-    <section className="w-[90%] mx-auto hover:bg-white hover:transition hover:shadow-lg hover:h-[400px]  duration-1000 ease-in-out">
+    <section className="w-[90%] mx-auto hover:bg-white hover:transition hover:shadow-lg  duration-1000 ease-in-out">
      <ChildCategories categories={categories}></ChildCategories>
     </section>
   );
