@@ -1,4 +1,4 @@
-"use client";
+
 import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import Image from "next/image";
 import React from "react";
@@ -124,7 +124,7 @@ const NavBar = () => {
 
         {/* category */}
         <div className="absolute w-full  bg-white ">
-          <Categories></Categories>
+        
         </div>
       </nav>
     </>
