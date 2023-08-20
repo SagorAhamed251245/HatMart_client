@@ -3,6 +3,7 @@ import useAuth from "@/hooks/useAuth";
 import { useRouter, useSearchParams } from "next/navigation";
 import { startTransition } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 const EmailForm = () => {
   const { createUser, profileUpdate } = useAuth();
@@ -18,11 +19,11 @@ const EmailForm = () => {
   const from = search.get("redirectUrl") || "/";
   const { replace, refresh } = useRouter();
 
-  /* const uploadImage = async (event) => {
+  const uploadImage = async (event) => {
     const formData = new FormData();
     if (!event.target.files[0]) return;
     formData.append("image", event.target.files[0]);
-   
+
     try {
       const res = await fetch(
         `https://api.imgbb.com/1/upload?key=f52e595071a0957951aba70405bfbaf8`,
@@ -34,16 +35,16 @@ const EmailForm = () => {
       if (!res.ok) throw new Error("Failed to upload image");
 
       const data = await res.json();
-      
+
       setValue("photo", data.data.url);
     } catch (error) {
-    console.log(error);
-  };} */
+      console.log(error);
+    }
+  };
 
-  const onSubmit = async (data) => {
-   
+  const onSubmit = async (data, event) => {
     const { name, email, password, photo } = data;
-
+    const toastId = toast.loading("Loading...");
     try {
       await createUser(email, password);
 
@@ -51,6 +52,7 @@ const EmailForm = () => {
         displayName: name,
         photoURL: photo,
       });
+      toast.success("User signed in successfully");
       startTransition(() => {
         refresh();
         replace(from);
@@ -58,7 +60,8 @@ const EmailForm = () => {
         toast.success("User signed in successfully");
       });
     } catch (error) {
-      console.log(error);
+      toast.dismiss(toastId);
+      toast.error(error.message || "User not signed in");
     }
   };
 
@@ -85,27 +88,7 @@ const EmailForm = () => {
           <span className="text-red-500">{errors?.name?.message}</span>
         )}
       </div>
-      <div>
-        <label
-          htmlFor="photo"
-          className="block text-md font-medium text-gray-700"
-        >
-          Profile Photo
-        </label>
-        <input
-          type="text"
-          id="photo"
-          name="photo"
-          placeholder="Photo Url"
-          className={`mt-1 p-2 focus:shadow-blue-400 transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
-            errors?.photo ? "border-red-500" : ""
-          }`}
-          {...register("photo", { required: "Profile Photo is required" })}
-        />
-        {errors?.photo && (
-          <span className="text-red-500">{errors?.photo?.message}</span>
-        )}
-      </div>
+
       <div>
         <label
           htmlFor="email"
@@ -188,6 +171,21 @@ const EmailForm = () => {
           </span>
         )}
       </div>
+      <div className="form-control">
+        <label
+          htmlFor="photo"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Photo
+        </label>
+        <input
+          type="file"
+          id="photo"
+          onChange={uploadImage}
+          className="file-input file-input-bordered   w-full"
+        />
+      </div>
+
       <button
         type="submit"
         className="w-full py-2 btn bg-[#FFD814] hover:bg-[#e6cc0b] text-black hover rounded-md transition duration-300"

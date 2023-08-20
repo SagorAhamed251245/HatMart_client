@@ -12,12 +12,26 @@ import { BiSolidCartAlt } from "react-icons/bi";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import Search from "./Search";
 import useAuth from "@/hooks/useAuth";
+import { toast } from "react-hot-toast";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
 
   const { uid, photoURL } = user || {};
   const li = uid ? afterLoginNavData : beforeLoginNavData;
+
+  const handleLogout = async () => {
+    const toastId = toast.loading("Loading...");
+    try {
+      await logout();
+
+      toast.dismiss(toastId);
+      toast.success("Successfully logout!");
+    } catch (error) {
+      toast.error("Successfully not logout!");
+      toast.dismiss(toastId);
+    }
+  };
 
   return (
     <>
@@ -88,7 +102,7 @@ const NavBar = () => {
                 </li>
                 {uid && (
                   <li>
-                    <Link href={""} onClick={() => logout()}>
+                    <Link href={""} onClick={handleLogout}>
                       LogOut
                     </Link>
                   </li>

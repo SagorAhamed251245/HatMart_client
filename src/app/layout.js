@@ -1,6 +1,7 @@
 import Providers from "@/providers";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Toaster from "@/components/Shared/Toaster/Toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,10 +14,14 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en" data-theme="light">
       <Providers>
-        <body suppressHydrationWarning={true} className={`${inter.className} scrollbar` }>
+        <body
+          suppressHydrationWarning={true}
+          className={`${inter.className} scrollbar`}
+        >
           {children}
         </body>
       </Providers>
+      <Toaster />
     </html>
   );
 };
