@@ -15,11 +15,11 @@ const CategoriesCart = ({ item }) => {
   };
 
   return (
-    <div className=" hover:h-96  ">
+    <div className="h-24 w-36  ">
       <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className=" flex flex-col cursor-pointer lg:h-24  h-18 p-2 lg:p-0 items-center justify-center rounded-xl"
+      className=" flex flex-col cursor-pointer h-24 w-36  p-2 lg:p-0 items-center justify-center rounded-xl"
     >
       <div>
         <Image src={icon} width={30} height={30} alt={category} />
@@ -28,7 +28,7 @@ const CategoriesCart = ({ item }) => {
         <h4 className="font-bold text-xs text-center">{category}</h4>
       </div>
       {showSubCategory && (
-        <div className="relative h-auto">
+        <div className=" h-auto  absolute z-30  left-30 top-52 ">
           <SubCategories sub_category={sub_category}></SubCategories>
         </div>
       )}

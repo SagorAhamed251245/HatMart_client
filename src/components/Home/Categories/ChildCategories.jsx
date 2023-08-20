@@ -5,6 +5,10 @@ import "swiper/css/pagination";
 import CategoriesCart from "./CategoriesCart";
 
 const ChildCategories = ({ categories }) => {
+  const swiperStyles = {
+    position: "static", // Set the desired positioning
+    // Add more custom styles here if needed
+  };
   return (
     <Swiper
       slidesPerView={10}
@@ -30,13 +34,11 @@ const ChildCategories = ({ categories }) => {
       pagination={{
         clickable: true,
       }}
-      className="mySwiper flex z-20"
+      style={swiperStyles}
     >
-      <div className="">
+      <div className="flex flex-row items-center justify-between  overflow-x-auto">
         {categories?.map((item) => (
-          <SwiperSlide key={item._id}>
-            <CategoriesCart key={item._id} item={item}></CategoriesCart>
-          </SwiperSlide>
+          <CategoriesCart key={item._id} item={item}></CategoriesCart>
         ))}
       </div>
     </Swiper>

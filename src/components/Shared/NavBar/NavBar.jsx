@@ -123,7 +123,7 @@ const NavBar = () => {
         <hr />
 
         {/* category */}
-        <div className="absolute w-full  bg-white ">
+        <div className=" w-full  bg-white ">
           <Categories></Categories>
         </div>
       </nav>
