@@ -13,7 +13,7 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en" data-theme="light">
       <Providers>
-        <body suppressHydrationWarning={true} className={inter.className}>
+        <body suppressHydrationWarning={true} className={inter.className }>
           {children}
         </body>
       </Providers>

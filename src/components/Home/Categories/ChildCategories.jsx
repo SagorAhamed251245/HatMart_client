@@ -36,7 +36,7 @@ const ChildCategories = ({ categories }) => {
       }}
       style={swiperStyles}
     >
-      <div className="flex flex-row items-center justify-between  overflow-x-auto">
+      <div className="flex flex-row items-center justify-between  overflow-x-auto scrollbar">
         {categories?.map((item) => (
           <CategoriesCart key={item._id} item={item}></CategoriesCart>
         ))}

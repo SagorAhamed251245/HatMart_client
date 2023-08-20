@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .bgPrimary {
+    background-color: #34b701;
+  }
+  bgNext {
+    background: #ff8b0f;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: auto;
+    height: 5px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #ff8b0f;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #34b701;
+    border-radius: 100vh;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgb(34 197 94);
+  }
+}
