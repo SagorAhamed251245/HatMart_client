@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const SubCategories = ({ sub_category }) => {
   return (
-    <div className="shadow-2xl p-2 w-96 grid gap-3 bg-white grid-cols-3 overflow-x-auto   h-auto ">
+    <div className="shadow-2xl p-2 w-96 grid gap-3 bg-white grid-cols-3  h-auto ">
       {sub_category.map((item) => (
         <Link
           href={{
@@ -13,7 +13,7 @@ const SubCategories = ({ sub_category }) => {
             },
           }}
           key={item}
-          className="border-white hover:border-black border"
+          className="border-white hover:border-black border flex items-center justify-center"
         >
           {item}
         </Link>
