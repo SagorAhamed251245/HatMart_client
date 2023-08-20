@@ -22,7 +22,14 @@ const ProductCard = ({ product, handleAddToCart }) => {
 
   return (
     <div className="border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
-      <Link href={`/productDetails/${_id}`}>
+      <Link
+        href={{
+          pathname: `/productDetails`,
+          query: {
+            productId: _id,
+          },
+        }}
+      >
         {/* details route */}
 
         <div className="relative  h-36 w-full flex items-center justify-center ">

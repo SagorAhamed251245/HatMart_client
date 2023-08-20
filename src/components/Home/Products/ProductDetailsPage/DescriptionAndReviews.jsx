@@ -10,7 +10,7 @@ const DescriptionAndReviews = ({ id, productData }) => {
     fetch("/reviews.json")
       .then((res) => res.json())
       .then((data) => {
-        const reviewData = data.filter((product) => product.productId === id);
+        const reviewData = data.filter((product) => product?.productId === id);
         setReviews(reviewData);
       });
   }, [id]);

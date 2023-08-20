@@ -10,7 +10,7 @@
   }
 
   .scrollbar::-webkit-scrollbar {
-    width: auto;
+    width: 5px;
     height: 5px;
   }
 
