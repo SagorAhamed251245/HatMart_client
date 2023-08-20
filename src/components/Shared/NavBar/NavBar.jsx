@@ -2,11 +2,6 @@ import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import Image from "next/image";
 import React from "react";
 import NavLink from "./NavLink";
-<<<<<<< HEAD
-
-import cartImage from "@/assets/icons/cart.png";
-=======
->>>>>>> 002a3145e2ed0fcdce797629ac430d4b782b9fe4
 import userImage from "@/assets/icons/user.png";
 import Categories from "@/components/Home/Categories/Categories";
 import Link from "next/link";

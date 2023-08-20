@@ -23,7 +23,7 @@ const PaymentPage = () => {
       Click Your easy method.</p>
      </div>
    
-    {/* <div><CheckoutForm/></div> */}
+    {/* <CheckoutForm/> */}
     <CheckBox/>
   </div>
 </div>
