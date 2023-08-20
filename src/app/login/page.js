@@ -7,9 +7,9 @@ const LoginPage = () => {
     <>
     <Nav/>
     <div className="flex h-screen bg-gray-100">
-      <div className="m-auto p-10 bg-white rounded-lg shadow-md  w-96">
+      <div className="m-auto p-6 bg-white rounded-lg shadow-md  w-96">
         <h2 className="text-2xl font-semibold text-[#FC873B] mb-4 text-center">Log in to Your Account</h2>
-        <form className="space-y-4 mt-10">
+        <form className="space-y-4 mt-5">
           <div>
             <label htmlFor="email" className="block  text-md font-medium text-gray-700">
             Mobile phone number or email
