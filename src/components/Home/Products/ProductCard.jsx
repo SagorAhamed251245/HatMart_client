@@ -18,6 +18,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
     rating,
     stock,
     discount_percent,
+    stock_quantity,
   } = product;
 
   return (
@@ -32,7 +33,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
       >
         {/* details route */}
 
-        <div className="relative  h-36 w-full flex items-center justify-center ">
+        <div className="relative  h-24 w-full flex items-center justify-center ">
           <Image
             layout="fill"
             style={{ objectFit: "contain" }}
@@ -50,16 +51,16 @@ const ProductCard = ({ product, handleAddToCart }) => {
             {category}
           </p>
           <p className="text-sm text-[#34B701]">
-            {stock == "In Stock" ? (
+            {stock_quantity > 0 ? (
               "In Stock"
             ) : (
-              <span className="text-red-600">{stock}</span>
+              <span className="text-red-600">Out Of Stock</span>
             )}
           </p>
-          <h5 className="text-lg text-gray-700 dark:text-white font-semibold">
+          <h5 className="md:text-lg  text-base text-gray-700 dark:text-white font-semibold">
             {title}
           </h5>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 md:text-base text-sm">
             <Rating
               placeholderRating={rating}
               emptySymbol={<FaRegStar className="text-yellow-400" />}
@@ -71,20 +72,37 @@ const ProductCard = ({ product, handleAddToCart }) => {
               {rating}/5
             </span>
           </div>
-          <p className="text-[#34B701] font-medium">${price}</p>
+          <p className=" md:text-base text-sm font-medium">
+            {discount_percent ? (
+              <>
+                <span className=" line-through">${price}</span>
+                <span className="text-[#34B701] ml-4">
+                  $
+                  {(
+                    parseFloat(price) -
+                    parseFloat(
+                      parseFloat(price) * (parseFloat(discount_percent) / 100)
+                    )
+                  ).toFixed(2)}
+                </span>{" "}
+              </>
+            ) : (
+              <span className="text-[#34B701]">${price}</span>
+            )}
+          </p>
           <div className="flex items-center justify-between !mt-5">
             <Link href={""}>
               <button
                 onClick={() => handleAddToCart(_id)}
-                className="flex justify-center items-center gap-2 text-[#34B701] font-medium bg-green-100 px-4 py-1 rounded hover:bg-green-200"
+                className="flex justify-center items-center gap-2 text-[#34B701] font-medium bg-green-100 text-sm md:text-base px-[10px] md:px-4 py-1 rounded hover:bg-green-200"
               >
                 <AiOutlineShoppingCart size={20} /> Add{" "}
               </button>
             </Link>
             <Link href={"/payment"}>
               <button
-                disabled={stock === "Out of stock"}
-                className="flex justify-center items-center gap-2 bg-[#ff6347cc]  text-white px-4 py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
+                disabled={stock_quantity == 0}
+                className="bg-[#ff6347cc]  text-white md:text-base text-sm px-[10px] md:px-4 font-medium py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
               >
                 Buy Now
               </button>
