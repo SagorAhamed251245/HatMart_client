@@ -16,7 +16,7 @@ const RootLayout = ({ children }) => {
       <Providers>
         <body
           suppressHydrationWarning={true}
-          className={`${inter.className} scrollbar`}
+          className={`${inter.className} scrollbar select-none`}
         >
           {children}
           <Toaster />
