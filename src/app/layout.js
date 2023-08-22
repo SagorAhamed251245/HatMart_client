@@ -19,9 +19,9 @@ const RootLayout = ({ children }) => {
           className={`${inter.className} scrollbar`}
         >
           {children}
+          <Toaster />
         </body>
       </Providers>
-      <Toaster />
     </html>
   );
 };
