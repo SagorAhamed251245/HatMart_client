@@ -16,7 +16,7 @@ const CategoriesCart = ({ item }) => {
   };
 
   return (
-    <div className="h-24 w-36  ">
+    <div className="h-24 w-full  ">
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -29,7 +29,7 @@ const CategoriesCart = ({ item }) => {
           <h4 className="font-bold text-xs text-center">{category}</h4>
         </div>
         {showSubCategory && (
-          <div className=" h-auto  absolute z-30   top-40 ">
+          <div className=" h-auto  absolute z-30 w-auto bg-white shadow-2xl left-10 right-10 top-40 ">
             <SubCategories sub_category={sub_category}></SubCategories>
           </div>
         )}
