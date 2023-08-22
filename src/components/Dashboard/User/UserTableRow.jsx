@@ -28,7 +28,7 @@ const UserTableRow = ({ userData, index }) => {
         <p className="text-gray-600 whitespace-no-wrap">{email}</p>
       </td>
 
-      <td className="px-5 py-4 text-sm bg-white border-b border-gray-300">
+      <td className="px-5 py-4 text-sm bg-white border-b border-gray-300 shadow-lg">
         <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-gray-700">
           <span
             aria-hidden="true"
@@ -61,10 +61,10 @@ const UserTableRow = ({ userData, index }) => {
         </p>
       </td>
       <td className="px-5 py-4 text-sm bg-white border-b border-gray-300">
-        <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
+        <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-700">
           <span
             aria-hidden="true"
-            className="absolute inset-0 bg-green-200 rounded-full opacity-50"
+            className="absolute inset-0 bg-green-100 rounded-full opacity-50 shadow-lg"
           ></span>
           <span className="relative">active</span>
         </span>
