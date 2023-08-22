@@ -9,7 +9,7 @@ import { BiTrashAlt } from "react-icons/bi";
 const CartCard = ({ updateTotal, cartItem }) => {
   const [quantity, setQuantity] = useState(cartItem?.quantity);
   const [total, setTotal] = useState(0);
-  const totalPrice = useRef();
+  const totalPrice = useRef(); 
   const counter = useRef();
 
   useEffect(() => {

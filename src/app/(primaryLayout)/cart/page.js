@@ -11,7 +11,7 @@ const AddToCart = () => {
     fetch("cartItem.json")
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, []);
+  }, []); 
 
   // const localstorageData = JSON.parse(localStorage.getItem("cartItems"))
 
