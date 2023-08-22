@@ -2,100 +2,136 @@
   {
     "_id": "1",
     "title": "Apple",
-    "details": "A variety of fresh apples.",
+    "details": {
+      "description": "A variety of fresh apples.",
+      "packagingDelivery": "Laconic overheard dear woodchuck wow this outrageously taut beaver hey hello far meadowlark imitatively egregiously hugged that yikes minimally unanimous pouted flirtatiously as beaver beheld above forward energetic across this jeepers beneficently cockily less a the raucously that magic upheld far so the this where crud then below after jeez enchanting drunkenly more much wow callously irrespective limpet.Scallop or far crud plain remarkably far by thus far iguana lewd precociously and and less rattlesnake contrary caustic wow this near alas and next and pled the yikes articulate about as less cackled dalmatian in much less well jeering for the thanks blindly sentimental whimpered less across objectively fanciful grimaced wildly some wow and rose jeepers outgrew lugubrious luridly irrationally attractively dachshund.",
+      "warnings": "Oil separation occurs naturally. May contain pieces of shell."
+    },
     "price": 2.99,
     "category": "Fruits",
     "sub_category": ["fress food", "vagitable"],
     "image": "https://i.ibb.co/37mp1RR/image.png",
     "images": [
-      "https://i.ibb.co/ZgQmcQd/image.png",
+      "https://i.ibb.co/37mp1RR/image.png",
       "https://i.ibb.co/vVBXdgY/image.png",
-      "apple_display.jpg"
+      "https://i.ibb.co/ZgQmcQd/image.png"
     ],
     "rating": 4,
     "stock": "In Stock",
-    "discount_percent": 13
+    "discount_percent": 13,
+    "stock_quantity": 7
   },
   {
     "_id": "2",
     "title": "Banana",
-    "details": "Sweet and nutritious bananas.",
+    "details": {
+      "description": "Ripe and succulent peaches, bursting with natural sweetness. These juicy fruits are perfect for snacking, baking, and making refreshing drinks. Their vibrant color and fragrant aroma add a touch of summer to your kitchen.",
+      "packagingDelivery": "Each peach is carefully handpicked and individually wrapped to ensure they arrive at your doorstep in pristine condition. We take extra care to protect their delicate skin and prevent bruising during transit.",
+      "warnings": "Handle with care to avoid bruising. Refrigerate for longer shelf life."
+    },
+
     "price": 0.49,
     "category": "Fruits",
     "sub_category": ["fress food", "vagitable"],
     "image": "https://i.ibb.co/rZYZTPR/image.png",
     "images": [
-      "https://i.ibb.co/zNsjyNP/image.png",
-      "banana_peeled.jpg",
-      "banana_bunch.jpg"
+      "https://i.ibb.co/rZYZTPR/image.png",
+      "https://i.ibb.co/zNsjyNP/image.png"
     ],
     "rating": 4.1,
     "stock": "Out of stock",
-    "discount_percent": 11
+    "discount_percent": 11,
+    "stock_quantity": 0
   },
   {
     "_id": "3",
     "title": "Carrot",
-    "details": "Fresh and crunchy carrots.",
+    "details": {
+      "description": "Crisp and flavorful celery stalks, a versatile ingredient for soups, salads, and snacks. These stalks provide a satisfying crunch and a mild earthy taste that complements a variety of dishes.",
+      "packagingDelivery": "Our celery is meticulously cleaned and packaged, with the leaves intact to preserve freshness. Each stalk is wrapped in a protective layer to prevent dehydration and maintain crispness.",
+      "warnings": "Consume within a few days for optimal taste and texture. Store in the crisper section of your refrigerator."
+    },
     "price": 1.29,
     "category": "Vegetables",
     "sub_category": ["fress food", "vagitable"],
     "image": "https://i.ibb.co/DWCwJM6/image.png",
-    "images": ["carrot.jpg", "carrot_sliced.jpg", "carrot_display.jpg"],
+    "images": ["https://i.ibb.co/DWCwJM6/image.png"],
     "rating": 4.8,
     "stock": "In Stock",
-    "discount_percent": 9
+    "discount_percent": 9,
+    "stock_quantity": 22
   },
   {
     "_id": "4",
     "title": "Lettuce",
-    "details": "Crisp and green lettuce leaves.",
+
+    "details": {
+      "description": "Sweet and aromatic basil leaves, a culinary essential for adding depth of flavor to your dishes. These fragrant leaves are perfect for making pesto, garnishing salads, and infusing oils.",
+      "packagingDelivery": "We handpick our basil leaves at the peak of freshness and pack them in breathable containers to ensure they stay vibrant and aromatic. They are carefully stored to prevent wilting.",
+      "warnings": "Keep basil refrigerated to prolong shelf life. Avoid exposure to direct sunlight."
+    },
     "price": 1.99,
     "category": "Vegetables",
     "sub_category": ["fress food", "vagitable"],
     "image": "https://i.ibb.co/KmPV68n/image.png",
-    "images": ["lettuce.jpg", "lettuce_salad.jpg", "lettuce_display.jpg"],
+    "images": ["https://i.ibb.co/KmPV68n/image.png"],
     "rating": 4.2,
     "stock": "In Stock",
-    "discount_percent": 20
+    "discount_percent": 20,
+    "stock_quantity": 71
   },
   {
     "_id": "5",
     "title": "Orange",
-    "details": "Juicy and refreshing oranges.",
+    "details": {
+      "description": "Vibrant and tangy cranberries, bursting with antioxidants and flavor. These ruby-red berries are a versatile ingredient for sauces, baked goods, and cocktails, adding a burst of color and tartness.",
+      "packagingDelivery": "Our cranberries are carefully sorted and packed to ensure uniform size and quality. They are sealed in a resealable bag to maintain freshness and prevent moisture.",
+      "warnings": "Cranberries may contain natural sugar crystals. Store in a cool, dry place away from direct sunlight."
+    },
     "price": 0.79,
     "category": "Fruits",
     "sub_category": ["Citrus Fruits", "vegetables"],
     "image": "https://i.ibb.co/RQfhzqs/image.png",
-    "images": ["orange.jpg", "orange_peeled.jpg", "orange_display.jpg"],
+    "images": ["https://i.ibb.co/RQfhzqs/image.png"],
     "rating": 4.4,
     "stock": "In Stock",
-    "discount_percent": 5
+    "discount_percent": 5,
+    "stock_quantity": 7
   },
   {
     "_id": "6",
     "title": "Carrot",
-    "details": "Fresh and crunchy carrots.",
+    "details": {
+      "description": "Fresh and aromatic rosemary sprigs, a fragrant herb that elevates the taste of your culinary creations. Perfect for roasts, stews, and marinades, these leaves infuse dishes with a savory, pine-like aroma.",
+      "packagingDelivery": "Our rosemary is carefully trimmed and bundled to preserve its natural oils and flavors. Each sprig is wrapped in a breathable packaging to maintain freshness.",
+      "warnings": "Remove rosemary leaves from the stem before using. Keep in a cool, dark place to extend shelf life."
+    },
     "price": 1.29,
     "category": "Vegetables",
     "sub_category": ["fress food", "vagitable"],
     "image": "https://i.ibb.co/DWCwJM6/image.png",
-    "images": ["carrot.jpg", "carrot_sliced.jpg", "carrot_display.jpg"],
+    "images": ["https://i.ibb.co/DWCwJM6/image.png"],
     "rating": 4.8,
     "stock": "In Stock",
-    "discount_percent": 9
+    "discount_percent": 9,
+    "stock_quantity": 33
   },
   {
     "_id": "7",
     "title": "Lettuce",
-    "details": "Crisp and green lettuce leaves.",
+    "details": {
+      "description": "Plump and juicy blueberries, bursting with antioxidants and natural sweetness. These little gems are perfect for adding a burst of color and flavor to your breakfast, desserts, and smoothies.",
+      "packagingDelivery": "Our blueberries are meticulously handpicked and packaged in a protective container to prevent bruising and crushing. We take pride in delivering berries that are plump and undamaged.",
+      "warnings": "Blueberries may have natural variations in size and color. Refrigerate to maintain freshness."
+    },
     "price": 1.99,
     "category": "Vegetables",
     "sub_category": ["fress food", "vagitable"],
     "image": "https://i.ibb.co/KmPV68n/image.png",
-    "images": ["lettuce.jpg", "lettuce_salad.jpg", "lettuce_display.jpg"],
+    "images": ["https://i.ibb.co/KmPV68n/image.png"],
     "rating": 4.2,
     "stock": "In Stock",
-    "discount_percent": 20
+    "discount_percent": 20,
+    "stock_quantity": 23
   }
 ]

@@ -1,5 +1,7 @@
+import Providers from "@/providers";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Toaster from "@/components/Shared/Toaster/Toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +13,15 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en" data-theme="light">
-      <body suppressHydrationWarning={true} className={inter.className}>{children}</body>
+      <Providers>
+        <body
+          suppressHydrationWarning={true}
+          className={`${inter.className} scrollbar`}
+        >
+          {children}
+        </body>
+      </Providers>
+      <Toaster />
     </html>
   );
 };

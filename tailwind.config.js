@@ -22,7 +22,7 @@ module.exports = {
       "retro",
       {
         mytheme: {
-          primary: "#FF7B13",
+          primary1: "#FF7B13",
 
           secondary: "#34B701",
 

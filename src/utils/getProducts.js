@@ -1,15 +1,8 @@
-'use client'
-import { useEffect, useState } from "react";
-const GetProducts = () => {
-  const [products, setProducts] = useState([]);
-
-  // fetch data
-  useEffect(() => {
-    fetch(`/products.json`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-  return [products]
+const getProducts = async () => {
+  const res = await fetch(
+    "https://hatmart-server.vercel.app/api/v1/auth/product"
+  );
+  return res.json();
 };
 
-export default GetProducts;
+export default getProducts;
