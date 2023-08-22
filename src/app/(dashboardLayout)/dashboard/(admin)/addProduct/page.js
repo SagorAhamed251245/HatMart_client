@@ -1,11 +1,11 @@
-
+import AddProduct from "@/components/Dashboard/Admin/AddProduct/AddProduct";
 
 const addProductPage = () => {
-    return (
-        <div>
-            <h1>Add product page</h1>
-        </div>
-    );
+  return (
+    <>
+      <AddProduct />
+    </>
+  );
 };
 
 export default addProductPage;
