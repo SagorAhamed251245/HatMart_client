@@ -1,58 +1,53 @@
 import getAllUsers from "@/utils/users/getAllUsers";
 import React from "react";
-import UserListingTable from "./UserListingTable";
+import UserTableRow from "./UserTableRow";
+import UserSearch from "./UserSearch";
 
 const UserListing = async () => {
   const usersData = await getAllUsers(); // fetch users data
   console.log(usersData);
   return (
     <div>
-      {/* table head */}
+      {/* user search bar */}
+      <UserSearch />
 
-      <div className="container  px-4 mx-auto sm:px-8">
+      <div className="px-4 mx-auto sm:px-8">
         <div className="py-2">
           <div className="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
             <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
               <table className="min-w-full leading-normal">
                 <thead>
                   <tr>
-                    <th
-                      scope="col"
-                      className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
-                    >
+                    <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300">
+                      #
+                    </th>
+                    <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300">
                       User
                     </th>
-                    <th
-                      scope="col"
-                      className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
-                    >
+                    <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300">
+                      Email
+                    </th>
+                    <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300">
                       Role
                     </th>
-                    <th
-                      scope="col"
-                      className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
-                    >
+                    <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300">
                       Created at
                     </th>
-                    <th
-                      scope="col"
-                      className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
-                    >
+                    <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300">
                       status
                     </th>
-                    <th
-                      scope="col"
-                      className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
-                    ></th>
+                    <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300"></th>
                   </tr>
                 </thead>
                 <tbody>
+                  {/* user table row */}
                   {usersData &&
                     usersData.length > 0 &&
-                    usersData.map((userData) => (
-                      <UserListingTable
+                    usersData.map((userData, index) => (
+                      <UserTableRow
                         key={userData._id}
                         userData={userData}
+                        index={index}
                       />
                     ))}
                 </tbody>
