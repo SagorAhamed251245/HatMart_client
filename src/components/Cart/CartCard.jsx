@@ -12,6 +12,11 @@ const CartCard = ({ updateTotal, cartItem }) => {
   const totalPrice = useRef(); 
   const counter = useRef();
 
+  // cartItem Destructure
+  const {title, price, rating, _id} = cartItem;
+
+  // 
+
   useEffect(() => {
     const newTotal = quantity * parseFloat(cartItem?.price);
     setTotal(newTotal);
@@ -43,7 +48,7 @@ const CartCard = ({ updateTotal, cartItem }) => {
   return (
     <div className="bg-white my-3 flex p-3 md:w-[600px] w-full rounded-lg">
       {/* card image here */}
-      <section className="relative h-[100px] w-[100px] rounded-lg border-2 border-slate-400">
+      <section className="relative h-[100px] w-[100px] object-cover rounded-lg border border-slate-400">
         <Image
           fill
           alt="cart image"
@@ -56,22 +61,22 @@ const CartCard = ({ updateTotal, cartItem }) => {
       <section className="px-3 flex justify-between w-full">
         {/* item info */}
         <div>
-          <h4 className="text-xl font-semibold">{cartItem?.name}</h4>
+          <h4 className="text-xl font-semibold">{title}</h4>
           <div className="mt-2">
             <Rating
-              placeholderRating={cartItem?.rating}
+              placeholderRating={rating}
               emptySymbol={<FaRegStar className="text-yellow-400" />}
               placeholderSymbol={<FaStar className="text-yellow-400" />}
               fullSymbol={<FaStar className="text-yellow-400" />}
               readonly
             />
             <span className="text-gray-500 text-sm font-medium">
-              ({cartItem?.rating})
+              ({rating})
             </span>
           </div>
           <div>
             <span className="text-[#34B701] font-bold text-lg">
-              ${cartItem?.price}
+              ${price}
             </span>
           </div>
         </div>
@@ -80,6 +85,7 @@ const CartCard = ({ updateTotal, cartItem }) => {
 
         <div className="gap-6 md:ml-10 flex">
           <div className="flex flex-col justify-between items-center">
+            
             {/* counter */}
             <div className="border-2  font-semibold border-[#34B701] w-fit rounded">
               <button
