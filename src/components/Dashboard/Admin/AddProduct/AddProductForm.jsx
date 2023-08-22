@@ -16,14 +16,14 @@ const AddProductForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className="flex w-full ">
           {/* left site from */}
-          <div>
+          <div className="w-[60%] bg-red-400">
             <AddProductInfoFrom></AddProductInfoFrom>
           </div>
           {/* left site from */}
           {/* right side from */}
-          <div>
+          <div className="w-[40%] bg-red-400">
             <PriceAndBrand></PriceAndBrand>
           </div>
 
