@@ -16,20 +16,29 @@ const AddProductForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex w-full ">
+        <div className="lg:flex w-full gap-5">
           {/* left site from */}
-          <div className="w-[60%] bg-red-400">
+          <div className="lg:w-[70%] ">
             <AddProductInfoFrom></AddProductInfoFrom>
           </div>
           {/* left site from */}
           {/* right side from */}
-          <div className="w-[40%] bg-red-400">
+          <div className="lg:w-[30%] ">
             <PriceAndBrand></PriceAndBrand>
           </div>
 
           {/* right side from */}
         </div>
-        <input type="submit" value="Submit" />
+        <div className="w-[80%] mx-auto sticky bottom-5    h-20 bg-[#FF7B13] rounded-lg ">
+          <div className="flex h-full p-3 justify-between items-center ">
+            <p>To Add your Product Click</p>
+            <input
+              type="submit"
+              className="text-[#34B701] font-medium bg-green-100  px-3 py-2 rounded-md hover:bg-green-200"
+              value="Submit"
+            />
+          </div>
+        </div>
       </form>
     </>
   );

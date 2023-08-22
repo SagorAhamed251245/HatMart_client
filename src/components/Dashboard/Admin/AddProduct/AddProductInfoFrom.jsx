@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import DropSvg from "./DropSvg";
 
 const AddProductInfoFrom = () => {
   const {
@@ -9,7 +10,7 @@ const AddProductInfoFrom = () => {
   return (
     <>
       {/* Product information */}
-      <div className="border rounded-xl w-full p-5 mb-5">
+      <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
         <h3>Product information</h3>
         <hr />
         <div>
@@ -17,7 +18,7 @@ const AddProductInfoFrom = () => {
             Title:
           </label>
           <input
-            className="border-black border rounded w-full p-2"
+            className="border-black border rounded w-full p-2 shadow-md"
             type="text"
             id="title"
             {...register("title", { required: true })}
@@ -30,7 +31,7 @@ const AddProductInfoFrom = () => {
             Description:
           </label>
           <textarea
-            className="border-black border rounded w-full p-2 h-96"
+            className="border-black border rounded w-full p-2 h-96 shadow-md"
             id="description"
             {...register("description", { required: true })}
           ></textarea>
@@ -42,7 +43,7 @@ const AddProductInfoFrom = () => {
             Packaging & Delivery:
           </label>
           <textarea
-            className="border-black border rounded w-full p-2 "
+            className="border-black border rounded w-full p-2  shadow-md"
             id="packagingDelivery"
             {...register("packagingDelivery", { required: true })}
           ></textarea>
@@ -54,7 +55,7 @@ const AddProductInfoFrom = () => {
             Warnings:
           </label>
           <textarea
-            className="border-black border rounded w-full p-2 "
+            className="border-black border rounded w-full p-2  shadow-md"
             id="warnings"
             {...register("warnings", { required: true })}
           ></textarea>
@@ -62,37 +63,15 @@ const AddProductInfoFrom = () => {
         </div>
       </div>
       {/* Media information*/}
-      <div className="border rounded-xl w-full p-5 mb-5">
-        <div>
-          <label className="block" htmlFor="image">
-            Main Image:
-          </label>
-          <input
-            className="border-black border rounded w-full p-2"
-            type="text"
-            id="image"
-            {...register("image", { required: true })}
-          />
-          {errors.category && <span>This field is required</span>}
-        </div>
+      <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
+        <label className="block" htmlFor="image">
+          Main Image:
+        </label>
 
-        <div className="max-w-xl">
-          <label className="flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+        <div className="w-fll">
+          <label className="shadow-md flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
             <span className="flex items-center space-x-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-gray-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                />
-              </svg>
+              <DropSvg />
               <span className="font-medium text-gray-600">
                 Drop files to Attach, or
                 <span className="text-blue-600 underline">browse</span>
@@ -102,33 +81,80 @@ const AddProductInfoFrom = () => {
               type="file"
               id="image"
               {...register("image", { required: true })}
-              className="hidden"
+              className="hidden "
             />
           </label>
         </div>
 
+        {/* Additional :*/}
         <div>
           <label className="block" htmlFor="images">
             Additional Image URLs:
           </label>
-          <input
-            className="border-black border rounded w-full p-2"
-            type="text"
-            id="images"
-            {...register("images", { required: true })}
-          />
-          {errors.category && <span>This field is required</span>}
+          
+          <div className="w-fll md:flex gap-2  ">
+            <label className="shadow-md flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+              <span className="flex items-center space-x-2">
+                <DropSvg />
+                <span className="font-medium text-gray-600">
+                  Drop files to Attach, or
+                  <span className="text-blue-600 underline">browse</span>
+                </span>
+              </span>
+              <input
+                type="file"
+                id="images"
+                {...register("images", { required: true })}
+                className="hidden"
+              />
+            </label>
+            {/* 2 */}
+            <label className="shadow-md flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+              <span className="flex items-center space-x-2">
+                <DropSvg />
+                <span className="font-medium text-gray-600">
+                  Drop files to Attach, or
+                  <span className="text-blue-600 underline">browse</span>
+                </span>
+              </span>
+              <input
+                type="file"
+                id="images"
+                {...register("images", { required: true })}
+                className="hidden"
+              />
+            </label>
+            {/* 3 */}
+            <label className="shadow-md flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+              <span className="flex items-center space-x-2">
+                <DropSvg />
+                <span className="font-medium text-gray-600">
+                  Drop files to Attach, or
+                  <span className="text-blue-600 underline">browse</span>
+                </span>
+              </span>
+              <input
+                type="file"
+                id="images"
+                {...register("images", { required: true })}
+                className="hidden"
+              />
+            </label>
+          </div>
+          
         </div>
       </div>
+
       {/* Stock information */}
-      <div className="border rounded-xl w-full p-5 mb-5">
+      <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
         <div>
           <label className="block" htmlFor="stock">
             Stock:
           </label>
           <input
-            className="border-black border rounded w-full p-2"
-            type="stock"
+            className="border-black border rounded w-full p-2 shadow-md"
+            type="number"
+            placeholder="0"
             id="stock"
             {...register("stock", { required: true })}
           />
@@ -140,9 +166,10 @@ const AddProductInfoFrom = () => {
             Unit:
           </label>
           <input
-            className="border-black border rounded w-full p-2"
+            className="border-black border rounded w-full p-2 shadow-md"
             type="unit"
             id="unit"
+            placeholder="kg"
             {...register("unit", { required: true })}
           />
           {errors.category && <span>This field is required</span>}
