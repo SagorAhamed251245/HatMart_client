@@ -1,25 +1,25 @@
-import React from "react";
+"use client";
 
-const UserSearch = () => {
+import { FaSearch } from "react-icons/fa";
+
+const UserSearch = ({ searchData, setSearchData }) => {
   return (
-    <div className="flex flex-row justify-between w-full mb-1 sm:mb-0">
-      <h2 className="text-2xl leading-tight">Users</h2>
+    <div className="flex  justify-end items-center w-full mb-1 sm:mb-0 ">
       <div className="text-end">
-        <form className="flex flex-col justify-center w-3/4 max-w-sm space-y-3 md:flex-row md:w-full md:space-y-0">
+        <form className="flex flex-col justify-center w-3/4 max-w-md space-y-3 md:flex-row md:w-full md:space-y-0">
           <div className=" relative ">
+            <FaSearch
+              className="absolute text-[#ff6347cc] top-3 left-3"
+              size={20}
+            />
             <input
+              onChange={() => setSearchData(event.target.value)}
               type="text"
               id='"form-subscribe-Filter'
-              className=" rounded-l-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-1 focus:ring-[#34B701] focus:border-transparent"
-              placeholder="name"
+              className=" rounded-full flex-1 appearance-none border border-gray-300 w-full py-2 pr-4 pl-10 bg-white text-gray-700 placeholder-gray-500 shadow-xl text-base focus:outline-none focus:ring-2 ring-1 ring-[#34B701] focus:border-transparent focus:placeholder-opacity-0"
+              placeholder="Filter name and email..."
             />
           </div>
-          <button
-            className="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-[#ff6347cc] rounded-r-lg shadow-md hover:bg-[#FF7B13] focus:outline-none  "
-            type="submit"
-          >
-            Filter
-          </button>
         </form>
       </div>
     </div>
