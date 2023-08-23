@@ -92,20 +92,16 @@ const CartCard = ({ cartItem,decreaseAmount,increaseAmount,setCartData }) => {
 
   // onclick delete cart item==================================================================================
   const deleteCartItem = (itemId) => {
-    // Get the cart items from local storage
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
   
     // Find the index of the item to delete
     const itemIndex = storedCartItems.findIndex((item) => item._id === itemId);
   
     if (itemIndex !== -1) {
-      // Remove the item from the array
       storedCartItems.splice(itemIndex, 1);
   
-      // Update the array in local storage
       localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
   
-      // Update your state if needed
       setCartData(storedCartItems);
       window.location.reload()
     }

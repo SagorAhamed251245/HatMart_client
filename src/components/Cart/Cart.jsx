@@ -1,6 +1,7 @@
 "use client";
 import CartCard from "@/components/Cart/CartCard";
 import React, { useEffect, useState } from "react";
+import DiscountSection from "./DiscountSection";
 
 const Cart = ({ products }) => {
   // totalprice stores the data for subtotal
@@ -49,10 +50,9 @@ const Cart = ({ products }) => {
     // Set the initial total price to the calculated subTotalPrice
     setInitializedTotal((prevTotal) => prevTotal + subTotalPrice);
     setTotalPrice((prevTotal) => prevTotal + subTotalPrice);
-    setCartData(selectedCartItems)
+    setCartData(selectedCartItems);
   }, [subTotalPrice]);
 
-  console.log(initializedTotal);
 
   // increase price
   const increaseAmount = (price) => {
@@ -129,20 +129,11 @@ const Cart = ({ products }) => {
             </button>
 
             <hr />
-
-            <form>
-              <input
-                type="text"
-                className="border-2 border-orange-400 my-6 w-full py-2 px-3 rounded-lg"
-                placeholder="Enter Your Coupon Code"
-              />
-              <button
-                type="submit"
-                className="btn bg-[#34b701] text-white  hover:bg-orange-600"
-              >
-                Get Discount
-              </button>
-            </form>
+            {/* discount section */}
+            <DiscountSection
+              totalPrice={totalPrice}
+              initializedTotal={initializedTotal}
+            />
           </div>
         </section>
       </section>
