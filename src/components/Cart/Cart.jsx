@@ -8,6 +8,8 @@ const Cart = ({ products }) => {
   const [initializedTotal, setInitializedTotal] = useState(0);
   // cartItems store localstorage raw data
   const [cartItems, setCartItems] = useState([]);
+  // Products data here
+  const [cartData, setCartData] = useState([]);
 
   // get cart data from localstorage
   useEffect(() => {
@@ -47,6 +49,7 @@ const Cart = ({ products }) => {
     // Set the initial total price to the calculated subTotalPrice
     setInitializedTotal((prevTotal) => prevTotal + subTotalPrice);
     setTotalPrice((prevTotal) => prevTotal + subTotalPrice);
+    setCartData(selectedCartItems)
   }, [subTotalPrice]);
 
   console.log(initializedTotal);
@@ -77,9 +80,10 @@ const Cart = ({ products }) => {
       <section className="my-10 flex md:flex-row justify-center flex-col gap-10">
         {/* card here */}
         <section className="md:w-3/4 w-full flex flex-col items-center">
-          {selectedCartItems.map((cartItem) => (
+          {cartData.map((cartItem) => (
             <CartCard
               key={cartItem._id}
+              setCartData={setCartData}
               increaseAmount={increaseAmount}
               decreaseAmount={decreaseAmount}
               cartItem={cartItem}
@@ -115,7 +119,7 @@ const Cart = ({ products }) => {
                     Total{" "}
                   </td>
                   <td className="text-end text-lg font-semibold pr-16 ">
-                    $ <span>{totalPrice}</span>
+                    $ <span>{totalPrice ? totalPrice : initializedTotal}</span>
                   </td>
                 </tr>
               </tbody>

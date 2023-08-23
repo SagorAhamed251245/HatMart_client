@@ -6,14 +6,15 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { BiTrashAlt } from "react-icons/bi";
 
-const CartCard = ({ cartItem,decreaseAmount,increaseAmount }) => {
+const CartCard = ({ cartItem,decreaseAmount,increaseAmount,setCartData }) => {
   const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(0);
   const totalPrice = useRef();
   const counter = useRef();
 
   // cartItem Destructure
-  const { title, price, rating, _id } = cartItem;
+  const { title, price, rating, _id, image } = cartItem;
+
 
   // get localstorage items and find quantity = ok
   useEffect(() => {
@@ -88,6 +89,29 @@ const CartCard = ({ cartItem,decreaseAmount,increaseAmount }) => {
     decreaseAmount(price)
   };
 
+
+  // onclick delete cart item==================================================================================
+  const deleteCartItem = (itemId) => {
+    // Get the cart items from local storage
+    const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+  
+    // Find the index of the item to delete
+    const itemIndex = storedCartItems.findIndex((item) => item._id === itemId);
+  
+    if (itemIndex !== -1) {
+      // Remove the item from the array
+      storedCartItems.splice(itemIndex, 1);
+  
+      // Update the array in local storage
+      localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
+  
+      // Update your state if needed
+      setCartData(storedCartItems);
+      window.location.reload()
+    }
+  };
+  
+
   return (
     <div className="bg-white mb-3 flex p-3 md:w-[600px] w-full rounded-lg">
       {/* card image here */}
@@ -96,7 +120,7 @@ const CartCard = ({ cartItem,decreaseAmount,increaseAmount }) => {
           fill
           alt="cart image"
           className="object-cover object-center rounded-lg"
-          src={cartItem?.image}
+          src={image}
         ></Image>
       </section>
 
@@ -162,7 +186,7 @@ const CartCard = ({ cartItem,decreaseAmount,increaseAmount }) => {
             </div>
           </div>
 
-          <button className="bg-[#FF7218] hover:bg-red-400 active:bg-red-600 text-white p-3 text-2xl h-fit rounded-full my-auto">
+          <button onClick={() => deleteCartItem(_id)} className="bg-[#FF7218] hover:bg-red-400 active:bg-red-600 text-white p-3 text-2xl h-fit rounded-full my-auto">
             <BiTrashAlt />
           </button>
         </div>
