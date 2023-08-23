@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-const PriceAndBrand = () => {
+const PriceAndBrand = ({ ProductCategory, subCategory }) => {
   const {
     register,
     handleSubmit,
@@ -10,7 +10,7 @@ const PriceAndBrand = () => {
     <>
       {/* pricing */}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-        <h3 className="text-[#34B701] mb-1 mt-3 font-bold">Pricing</h3>
+        <h3 className="text-[#34B701] mb-1 mt-3 font-bold">Pricing & Stock</h3>
         <hr className="border-t border-[#FF7B13]" />
         <div>
           <label
@@ -109,13 +109,18 @@ const PriceAndBrand = () => {
           >
             Category:
           </label>
-          <input
+          <select
             className="border-black border rounded w-full p-2 shadow-md"
-            type="text"
             id="category"
             placeholder="Select Product Category"
             {...register("category", { required: true })}
-          />
+          >
+            {ProductCategory.map(({ category, _id }) => (
+              <option key={_id} value={category} defaultValue={category[0]}>
+                {category}
+              </option>
+            ))}
+          </select>
           {errors.category && <span>This field is required</span>}
         </div>
 
@@ -126,13 +131,23 @@ const PriceAndBrand = () => {
           >
             Sub Category:
           </label>
-          <input
+          <select
             className="border-black border rounded w-full p-2 shadow-md"
             type="text"
             id="sub_category"
             placeholder="Select Product Sub Category"
             {...register("sub_category", { required: true })}
-          />
+          >
+            {subCategory.map((sub_category, index) => (
+              <option
+                key={index}
+                value={sub_category}
+                defaultValue={sub_category[0]}
+              >
+                {sub_category}
+              </option>
+            ))}
+          </select>
           {errors.sub_category && <span>This field is required</span>}
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import PriceAndBrand from "./PriceAndBrand";
 import AddProductInfoFrom from "./AddProductInfoFrom";
 
-const AddProductForm = () => {
+const AddProductForm = ({ProductCategory, subCategory}) => {
   const {
     register,
     handleSubmit,
@@ -24,7 +24,7 @@ const AddProductForm = () => {
           {/* left site from */}
           {/* right side from */}
           <div className="lg:w-[30%] ">
-            <PriceAndBrand></PriceAndBrand>
+            <PriceAndBrand ProductCategory={ProductCategory} subCategory={subCategory}></PriceAndBrand>
           </div>
 
           {/* right side from */}
