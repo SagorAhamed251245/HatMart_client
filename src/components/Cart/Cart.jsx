@@ -3,8 +3,9 @@ import CartCard from "@/components/Cart/CartCard";
 import React, { useEffect, useState } from "react";
 
 const Cart = ({ products }) => {
+  // totalprice stores the data for subtotal
   const [totalPrice, setTotalPrice] = useState(0);
-  const [data, setData] = useState([]);
+  const [initializedTotal, setInitializedTotal] = useState(0);
   // cartItems store localstorage raw data
   const [cartItems, setCartItems] = useState([]);
 
@@ -13,7 +14,6 @@ const Cart = ({ products }) => {
     if (typeof window !== "undefined") {
       const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
       setCartItems(storedCartItems || []);
-      console.log(storedCartItems);
     } else {
     }
   }, []);
@@ -21,25 +21,46 @@ const Cart = ({ products }) => {
   // separate the localstorage object id from Data
   const cartItemsId = cartItems.map((cartItem) => cartItem._id);
 
+  //separate the localstorage ammount from data
+  const cartItemsquantity = cartItems.map((cartItem) => cartItem.quantity);
+
   const selectedCartItems = [];
+  let subTotalPrice = 0;
 
   //finding cart data from server with localstorage id;
   for (let i = 0; i < cartItemsId.length; i++) {
     const id = cartItemsId[i];
+    const quantity = cartItemsquantity[i];
     const cartItem = products.find((item) => item._id === id);
     if (cartItem) {
       selectedCartItems.push(cartItem);
+      subTotalPrice = parseFloat(
+        (subTotalPrice + cartItem.price * quantity).toFixed(2)
+      );
     } else {
       console.log("not found");
     }
   }
 
-  const updateTotal = (subTotal) => {
-    setTotalPrice((prevTotalPrice) => {
-      const newTotal = prevTotalPrice + subTotal;
-      // console.log("New Total Price:", subTotal);
-      return newTotal;
-    });
+  // setting the subtotal price onload
+  useEffect(() => {
+    // Set the initial total price to the calculated subTotalPrice
+    setInitializedTotal((prevTotal) => prevTotal + subTotalPrice);
+    setTotalPrice((prevTotal) => prevTotal + subTotalPrice);
+  }, [subTotalPrice]);
+
+  console.log(initializedTotal);
+
+  // increase price
+  const increaseAmount = (price) => {
+    const totalPriceData = parseFloat((totalPrice + price).toFixed(2)); // Calculate the new total
+    setTotalPrice(totalPriceData); // Update the state
+  };
+
+  // decrease price
+  const decreaseAmount = (price) => {
+    const totalPriceData = parseFloat((totalPrice - price).toFixed(2)); // Calculate the new total
+    setTotalPrice(totalPriceData); // Update the state
   };
 
   return (
@@ -59,7 +80,8 @@ const Cart = ({ products }) => {
           {selectedCartItems.map((cartItem) => (
             <CartCard
               key={cartItem._id}
-              updateTotal={updateTotal}
+              increaseAmount={increaseAmount}
+              decreaseAmount={decreaseAmount}
               cartItem={cartItem}
             ></CartCard>
           ))}
@@ -71,37 +93,52 @@ const Cart = ({ products }) => {
           {/* table */}
           <div className="overflow-x-auto">
             <table className="table">
-              
               <tbody>
-                
                 <tr>
                   <td className="text-start pl-16">SubTotal :</td>
-                  <td className="text-end pr-16 ">$ 100</td>
+                  <td className="text-end pr-16 ">
+                    $ {totalPrice ? totalPrice : initializedTotal}
+                  </td>
                 </tr>
                 {/* row 2 */}
                 <tr>
                   <td className="text-start pl-16">Shipping :</td>
-                  <td className="text-end pr-16 ">$ 200</td>
+                  <td className="text-end pr-16 ">$ {0}</td>
                 </tr>
                 {/* row 3 */}
                 <tr>
                   <td className="text-start pl-16">Tax :</td>
-                  <td className="text-end pr-16 ">$ 1000</td>
+                  <td className="text-end pr-16 ">$ {0}</td>
                 </tr>
                 <tr className="border-t-2 border-gray-400">
-                <td className="text-start text-lg font-semibold pl-16">Total </td>
-                  <td className="text-end text-lg font-semibold pr-16 ">$ 1000</td>
+                  <td className="text-start text-lg font-semibold pl-16">
+                    Total{" "}
+                  </td>
+                  <td className="text-end text-lg font-semibold pr-16 ">
+                    $ <span>{totalPrice}</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
-                    <button className="btn w-full bg-[#34B701] hover:bg-green-500 duration-300 text-white my-6">Payment</button>
+            <button className="btn w-full bg-[#34B701] hover:bg-green-500 duration-300 text-white my-6">
+              Payment
+            </button>
 
-                    <hr />
+            <hr />
 
-                    <form>
-                        <input type="text" className="border-2 border-orange-400 my-6 w-full py-2 px-3 rounded-lg" placeholder="Enter Your Coupon Code" />
-                        <button type="submit" className="btn bg-[#34b701] text-white  hover:bg-orange-600">Get Discount</button>
-                    </form>
+            <form>
+              <input
+                type="text"
+                className="border-2 border-orange-400 my-6 w-full py-2 px-3 rounded-lg"
+                placeholder="Enter Your Coupon Code"
+              />
+              <button
+                type="submit"
+                className="btn bg-[#34b701] text-white  hover:bg-orange-600"
+              >
+                Get Discount
+              </button>
+            </form>
           </div>
         </section>
       </section>

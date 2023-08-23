@@ -6,7 +6,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { BiTrashAlt } from "react-icons/bi";
 
-const CartCard = ({ updateTotal, cartItem }) => {
+const CartCard = ({ cartItem,decreaseAmount,increaseAmount }) => {
   const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(0);
   const totalPrice = useRef();
@@ -23,12 +23,15 @@ const CartCard = ({ updateTotal, cartItem }) => {
         (item) => item._id === _id
       ).quantity;
       setQuantity(itemAmmount);
-      const totalCardPrice = itemAmmount * parseFloat(price);
+      const totalCardPrice = parseFloat((itemAmmount * parseFloat(price)).toFixed(2));
+
       setTotal(totalCardPrice);
     } else {
       console.log("We are running on the server");
     }
   }, []);
+
+  
 
   // onclick increase the amount of the products--------------------------------------------------------------------
   const handlePlusCounter = (_id) => {
@@ -51,7 +54,8 @@ const CartCard = ({ updateTotal, cartItem }) => {
 
     const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
     setTotal(formattedTotalPrice);
-    updateTotal(total);
+
+    increaseAmount(price)
   };
 
   // onclick decrease the amount of the products-------------------------------------------------------------------------
@@ -81,7 +85,7 @@ const CartCard = ({ updateTotal, cartItem }) => {
     const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
 
     setTotal(formattedTotalPrice);
-    updateTotal(total);
+    decreaseAmount(price)
   };
 
   return (
