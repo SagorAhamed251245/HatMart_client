@@ -2,60 +2,46 @@
 import CartCard from "@/components/Cart/CartCard";
 import React, { useEffect, useState } from "react";
 
+const Cart = ({ products }) => {
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [data, setData] = useState([]);
+  // cartItems store localstorage raw data
+  const [cartItems, setCartItems] = useState([]);
 
-const Cart = ({products}) => {
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [data, setData] = useState([]);
-    // cartItems store localstorage raw data
-    const [cartItems, setCartItems] = useState([]);
-
-
-// get cart data from localstorage
-useEffect(() => {
-    if (typeof window !== 'undefined') {
-        const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
-        setCartItems(storedCartItems || []);
-        console.log(storedCartItems);
+  // get cart data from localstorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+      setCartItems(storedCartItems || []);
+      console.log(storedCartItems);
     } else {
     }
-}, []);
+  }, []);
 
-// separate the localstorage data from the id
-    const cartItemsId = cartItems.map(cartItem => cartItem._id)
+  // separate the localstorage object id from Data
+  const cartItemsId = cartItems.map((cartItem) => cartItem._id);
 
-    const selectedCartItems = [];
+  const selectedCartItems = [];
 
-    //finding cart data from server with localstorage id; 
-    for (let i = 0; i < cartItemsId.length; i++) {
-        const id = cartItemsId[i];
-        const cartItem = products.find(item => item._id === id);
-        if (cartItem) {
-            selectedCartItems.push(cartItem);
-        }
-        else {
-            console.log('not found')
-        }
+  //finding cart data from server with localstorage id;
+  for (let i = 0; i < cartItemsId.length; i++) {
+    const id = cartItemsId[i];
+    const cartItem = products.find((item) => item._id === id);
+    if (cartItem) {
+      selectedCartItems.push(cartItem);
+    } else {
+      console.log("not found");
     }
-    
-    console.log(selectedCartItems)
-    
-    useEffect(() => {
-        fetch("cartItem.json")
-        .then((res) => res.json())
-        .then((data) => setData(data));
-    }, []); 
-    
-    
-    const updateTotal = (subTotal) => {
-        setTotalPrice((prevTotalPrice) => {
-            const newTotal = prevTotalPrice + subTotal;
-            // console.log("New Total Price:", subTotal); 
-        return newTotal;
-      });
-    };
+  }
 
+  const updateTotal = (subTotal) => {
+    setTotalPrice((prevTotalPrice) => {
+      const newTotal = prevTotalPrice + subTotal;
+      // console.log("New Total Price:", subTotal);
+      return newTotal;
+    });
+  };
 
-    
   return (
     <div className="md:my-16 md:mb-20 mb-10 rounded w-full lg:max-w-[1380px] mx-auto bg-slate-100 md:p-10 p-3 ">
       {/* page title here */}
@@ -79,26 +65,44 @@ useEffect(() => {
           ))}
         </section>
         {/* total payment here */}
-        <section className="bg-green-100 text-center rounded-lg p-3 md:w-[350px] w-full">
-          <h3 className="text-2xl font-semibold">Total Payment</h3>
-          <table className="table-fixed m-4 text-start flex items-center justify-center">
-            <tbody className="">
-              <tr className="border-b ">
-                <td className="pr-6 w-96 font-bold">Product </td>
-                <td className="font-bold">Price</td>
-              </tr>
+        <section className="bg-white text-center rounded-lg p-3 lg:w-1/3 w-full">
+          {/* card title */}
+          <h4 className="my-5 text-2xl font-bold">Order Summary</h4>
+          {/* table */}
+          <div className="overflow-x-auto">
+            <table className="table">
+              
+              <tbody>
+                
+                <tr>
+                  <td className="text-start pl-16">SubTotal :</td>
+                  <td className="text-end pr-16 ">$ 100</td>
+                </tr>
+                {/* row 2 */}
+                <tr>
+                  <td className="text-start pl-16">Shipping :</td>
+                  <td className="text-end pr-16 ">$ 200</td>
+                </tr>
+                {/* row 3 */}
+                <tr>
+                  <td className="text-start pl-16">Tax :</td>
+                  <td className="text-end pr-16 ">$ 1000</td>
+                </tr>
+                <tr className="border-t-2 border-gray-400">
+                <td className="text-start text-lg font-semibold pl-16">Total </td>
+                  <td className="text-end text-lg font-semibold pr-16 ">$ 1000</td>
+                </tr>
+              </tbody>
+            </table>
+                    <button className="btn w-full bg-[#34B701] hover:bg-green-500 duration-300 text-white my-6">Payment</button>
 
-              {/* <tr>
-                <td className="pr-6 overflow-hidden">{name.length > 24 ? (name.substring(0,24) + '..') : name}</td>
-                <td>${total}</td>
-              </tr> */}
+                    <hr />
 
-              <tr className=" border-t-2  border-black">
-                <td className="pr-6 font-semibold">Total Price</td>
-                <td>${totalPrice}</td>
-              </tr>
-            </tbody>
-          </table>
+                    <form>
+                        <input type="text" className="border-2 border-orange-400 my-6 w-full py-2 px-3 rounded-lg" placeholder="Enter Your Coupon Code" />
+                        <button type="submit" className="btn bg-[#34b701] text-white  hover:bg-orange-600">Get Discount</button>
+                    </form>
+          </div>
         </section>
       </section>
     </div>

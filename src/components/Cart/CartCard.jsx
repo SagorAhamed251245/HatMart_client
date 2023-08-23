@@ -85,7 +85,7 @@ const CartCard = ({ updateTotal, cartItem }) => {
   };
 
   return (
-    <div className="bg-white my-3 flex p-3 md:w-[600px] w-full rounded-lg">
+    <div className="bg-white mb-3 flex p-3 md:w-[600px] w-full rounded-lg">
       {/* card image here */}
       <section className="relative h-[100px] w-[100px] object-cover rounded-lg border border-slate-400">
         <Image
