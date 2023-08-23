@@ -1,9 +1,12 @@
+import UserTypeTab from "@/components/Dashboard/User/UserTypeTab";
+import getAllUsers from "@/utils/users/getAllUsers";
 import React from "react";
 
-const userListingPage = () => {
+const userListingPage = async () => {
+  const usersData = await getAllUsers(); // fetch users data
   return (
-    <div>
-      <h1>User listing page</h1>
+    <div className="px-4 mx-auto sm:px-8 mt-5">
+      <UserTypeTab usersData={usersData} />
     </div>
   );
 };
