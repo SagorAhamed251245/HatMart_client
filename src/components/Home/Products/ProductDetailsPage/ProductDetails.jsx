@@ -7,7 +7,7 @@ import Rating from "react-rating";
 
 const ProductDetails = ({ productData }) => {
   return (
-    <div className=" w-full h-full">
+    <div className=" w-[95%] mx-auto h-full">
       <h3 className="text-gray-700 text-4xl font-medium">
         {productData?.title}
       </h3>

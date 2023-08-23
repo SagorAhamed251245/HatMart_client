@@ -25,7 +25,7 @@ const UserTableRow = ({ userData, index }) => {
         </div>
       </td>
       <td className="px-5 py-4 text-sm bg-white border-b border-gray-300">
-        <p className="text-gray-600 whitespace-no-wrap">{email}</p>
+        <p className="text-gray-600 whitespace-no-wrap ml-2">{email}</p>
       </td>
 
       <td className="px-5 py-4 text-sm bg-white border-b border-gray-300 shadow-lg">
