@@ -11,7 +11,7 @@ const PriceAndBrand = () => {
       {/* pricing */}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
         <h3>Pricing</h3>
-        <hr  className="text-[#FF7B13]"/>
+        <hr  className="border-t border-[#FF7B13]"/>
         <div>
           <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="price">
             Price:
@@ -71,7 +71,7 @@ const PriceAndBrand = () => {
       {/* Organization*/}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
         <h3> Organization</h3>
-        <hr />
+        <hr className="border-t border-[#FF7B13]"/>
         <div>
           <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="brand">
             brand:

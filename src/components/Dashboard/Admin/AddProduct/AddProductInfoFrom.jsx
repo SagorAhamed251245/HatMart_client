@@ -11,8 +11,8 @@ const AddProductInfoFrom = () => {
     <>
       {/* Product information */}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-        <h3>Product information</h3>
-        <hr />
+        <h3 className="text-[#34B701] mb-1 mt-3 font-bold">Product information</h3>
+        <hr className="border-t border-[#FF7B13]" />
         <div>
           <label className="block text-[#34B701] mb-1 mt-3 font-bold  " htmlFor="title">
             Title:
@@ -66,7 +66,7 @@ const AddProductInfoFrom = () => {
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl  ">
         {/* Additional :*/}
         <h3>Media</h3>
-        <hr />
+        <hr className="border-t border-[#FF7B13]"  />
         <div className="md:flex gap-5">
           <div className="md:w-[60%] ">
             <label className="block text-[#34B701] mb-1 mt-3 font-bold " htmlFor="image">
