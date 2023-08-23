@@ -14,11 +14,11 @@ const AddProductInfoFrom = () => {
         <h3>Product information</h3>
         <hr />
         <div>
-          <label className="block" htmlFor="title">
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold  " htmlFor="title">
             Title:
           </label>
           <input
-            className="border-black border rounded w-full p-2 shadow-md"
+            className="border-black border rounded w-full p-2 shadow-md "
             type="text"
             id="title"
             {...register("title", { required: true })}
@@ -27,7 +27,7 @@ const AddProductInfoFrom = () => {
         </div>
 
         <div>
-          <label className="block" htmlFor="description">
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="description">
             Description:
           </label>
           <textarea
@@ -39,7 +39,7 @@ const AddProductInfoFrom = () => {
         </div>
 
         <div>
-          <label className="block" htmlFor="packagingDelivery ">
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold " htmlFor="packagingDelivery ">
             Packaging & Delivery:
           </label>
           <textarea
@@ -51,7 +51,7 @@ const AddProductInfoFrom = () => {
         </div>
 
         <div>
-          <label className="block" htmlFor="warnings">
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="warnings">
             Warnings:
           </label>
           <textarea
@@ -69,7 +69,7 @@ const AddProductInfoFrom = () => {
         <hr />
         <div className="md:flex gap-5">
           <div className="md:w-[60%] ">
-            <label className="block" htmlFor="image">
+            <label className="block text-[#34B701] mb-1 mt-3 font-bold " htmlFor="image">
               Main Image:
             </label>
             <label className="shadow-md flex justify-center w-full h-32 md:h-96 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
@@ -91,11 +91,11 @@ const AddProductInfoFrom = () => {
 
           {/* Additional :*/}
           <div className="md:w-[40%]">
-            <label className="block" htmlFor="images">
+            <label className="block text-[#34B701] mb-1 mt-3 font-bold " htmlFor="images">
               Additional Image URLs:
             </label>
 
-            <label className="shadow-md flex justify-center w-full h-32 md:h-96  px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+            <label className=" shadow-md flex justify-center w-full h-32 md:h-96  px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
               <span className="flex items-center space-x-2">
                 <DropSvg />
                 <span className="font-medium text-gray-600">
