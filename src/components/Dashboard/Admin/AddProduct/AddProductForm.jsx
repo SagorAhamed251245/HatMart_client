@@ -29,12 +29,12 @@ const AddProductForm = () => {
 
           {/* right side from */}
         </div>
-        <div className="w-[80%] mx-auto sticky bottom-5    h-20 bg-[#FF7B13] rounded-lg ">
+        <div className="w-[80%] mx-auto sticky bottom-5  h-20 bg-[#34B701] rounded-lg ">
           <div className="flex h-full p-3 justify-between items-center ">
-            <p>To Add your Product Click</p>
+            <p className="text-white font-bold">Add your Product </p>
             <input
               type="submit"
-              className="text-[#34B701] font-medium bg-green-100  px-3 py-2 rounded-md hover:bg-green-200"
+              className="text-[#FF7B13] font-medium bg-orange-100  px-3 py-2 rounded-md hover:bg-orange-200"
               value="Submit"
             />
           </div>

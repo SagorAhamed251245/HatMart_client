@@ -1,10 +1,11 @@
 import React from "react";
 import AddProductForm from "./AddProductForm";
+import SectionTitle from "@/components/Home/Products/SectionTitle";
 
 const AddProduct = () => {
   return (
     <section>
-      <h1>Add a New Product</h1>
+      <SectionTitle>Add a New Product</SectionTitle>
       <AddProductForm></AddProductForm>
     </section>
   );
