@@ -13,6 +13,7 @@ import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import Search from "./Search";
 import useAuth from "@/hooks/useAuth";
 import { toast } from "react-hot-toast";
+import LogoSVG from "./LogoSVG";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
@@ -39,6 +40,7 @@ const NavBar = () => {
         <div className="navbar  lg:mb-2  lg:pt-5 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
+            <LogoSVG></LogoSVG>
             <div className="relative h-24  w-24 md:w-36">
               <Link href={"/"}>
                 <Image
@@ -85,7 +87,7 @@ const NavBar = () => {
                     src={photoURL || userImage}
                     layout="fill"
                     objectFit="cover"
-                    alt="HatMart Logo"
+                    alt="User Logo"
                   />
                 </div>
               </label>
