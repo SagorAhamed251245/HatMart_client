@@ -1,4 +1,3 @@
-import CheckBox from "@/components/PaymentPage/CheckBox";
 import PaymentInfo from "@/components/PaymentPage/PaymentInfo/PaymentInfo";
 import UserInfo from "@/components/PaymentPage/UserInfo/UserInfo";
 import React from "react";
