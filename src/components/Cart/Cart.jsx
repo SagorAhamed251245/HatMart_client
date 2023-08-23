@@ -13,12 +13,10 @@ const Cart = ({products}) => {
 // get cart data from localstorage
 useEffect(() => {
     if (typeof window !== 'undefined') {
-        console.log('We are running on the client');
         const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
         setCartItems(storedCartItems || []);
         console.log(storedCartItems);
     } else {
-        console.log('We are running on the server');
     }
 }, []);
 

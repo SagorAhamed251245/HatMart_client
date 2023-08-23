@@ -7,43 +7,82 @@ import Rating from "react-rating";
 import { BiTrashAlt } from "react-icons/bi";
 
 const CartCard = ({ updateTotal, cartItem }) => {
-  const [quantity, setQuantity] = useState(cartItem?.quantity);
+  const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(0);
-  const totalPrice = useRef(); 
+  const totalPrice = useRef();
   const counter = useRef();
 
   // cartItem Destructure
-  const {title, price, rating, _id} = cartItem;
+  const { title, price, rating, _id } = cartItem;
 
-  // 
-
+  // get localstorage items and find quantity = ok
   useEffect(() => {
-    const newTotal = quantity * parseFloat(cartItem?.price);
-    setTotal(newTotal);
-    updateTotal(newTotal); // Send the new total to the parent when the component mounts
+    if (typeof window !== "undefined") {
+      const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+      const itemAmmount = storedCartItems.find(
+        (item) => item._id === _id
+      ).quantity;
+      setQuantity(itemAmmount);
+      const totalCardPrice = itemAmmount * parseFloat(price);
+      setTotal(totalCardPrice);
+    } else {
+      console.log("We are running on the server");
+    }
   }, []);
-  
-  const handlePlusCounter = () => {
+
+  // onclick increase the amount of the products--------------------------------------------------------------------
+  const handlePlusCounter = (_id) => {
+    // increasing the ammount of products in localstorage
+    const itemsFromLS = JSON.parse(localStorage.getItem("cartItems"));
+
+    const index = itemsFromLS.findIndex((item) => item._id === _id);
+
+    if (index !== -1) {
+      itemsFromLS[index].quantity += 1;
+
+      localStorage.setItem("cartItems", JSON.stringify(itemsFromLS));
+    } else {
+      console.log("Item with the id not found.");
+    }
+    // increasing the ammount of products on screen
+
     setQuantity(quantity + 1);
     const totalPrice = (quantity + 1) * parseFloat(cartItem?.price);
-    
+
     const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
     setTotal(formattedTotalPrice);
-    updateTotal(total)
+    updateTotal(total);
   };
-  const handleMinusCounter = () => {
+
+  // onclick decrease the amount of the products-------------------------------------------------------------------------
+  const handleMinusCounter = (_id) => {
     if (quantity == 1) {
       return;
     }
+
+    // decreasing the ammount of products in localstorage
+    const itemsFromLS = JSON.parse(localStorage.getItem("cartItems"));
+
+    const index = itemsFromLS.findIndex((item) => item._id === _id);
+
+    if (index !== -1) {
+      itemsFromLS[index].quantity -= 1;
+
+      localStorage.setItem("cartItems", JSON.stringify(itemsFromLS));
+    } else {
+      console.log("Item with the id not found.");
+    }
+
+    // decreasing the ammount of products on screen
+
     setQuantity(quantity - 1);
     const totalPrice = (quantity - 1) * parseFloat(cartItem.price);
-    
+
     const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
 
     setTotal(formattedTotalPrice);
-    updateTotal(total)
+    updateTotal(total);
   };
-
 
   return (
     <div className="bg-white my-3 flex p-3 md:w-[600px] w-full rounded-lg">
@@ -75,9 +114,7 @@ const CartCard = ({ updateTotal, cartItem }) => {
             </span>
           </div>
           <div>
-            <span className="text-[#34B701] font-bold text-lg">
-              ${price}
-            </span>
+            <span className="text-[#34B701] font-bold text-lg">${price}</span>
           </div>
         </div>
 
@@ -85,20 +122,22 @@ const CartCard = ({ updateTotal, cartItem }) => {
 
         <div className="gap-6 md:ml-10 flex">
           <div className="flex flex-col justify-between items-center">
-            
             {/* counter */}
             <div className="border-2  font-semibold border-[#34B701] w-fit rounded">
               <button
-                onClick={() => handleMinusCounter()}
+                onClick={() => handleMinusCounter(_id)}
                 className="text-[#34B701] hover:bg-green-500 duration-200  active:bg-green-200 px-[5px] md:px-[10px] py-1"
               >
                 -
               </button>
-              <span ref={counter} className="md:px-[10px] px-[5px] border-l-2 border-r-2">
+              <span
+                ref={counter}
+                className="md:px-[10px] px-[5px] border-l-2 border-r-2"
+              >
                 {quantity}
               </span>
               <button
-                onClick={() => handlePlusCounter()}
+                onClick={() => handlePlusCounter(_id)}
                 className="text-[#34B701] hover:bg-green-500 duration-200  active:bg-green-200 px-[5px] md:px-[10px] py-1"
               >
                 +
@@ -107,7 +146,6 @@ const CartCard = ({ updateTotal, cartItem }) => {
 
             {/* total */}
             <div>
-              
               <div className="text-center inline-block text-slate-500 ">
                 <span className="block text-sm">Total</span>
                 <span>
