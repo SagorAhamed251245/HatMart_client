@@ -11,9 +11,9 @@ const PriceAndBrand = () => {
       {/* pricing */}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
         <h3>Pricing</h3>
-        <hr />
+        <hr  className="text-[#FF7B13]"/>
         <div>
-          <label className="block" htmlFor="price">
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="price">
             Price:
           </label>
           <input
@@ -26,7 +26,7 @@ const PriceAndBrand = () => {
         </div>
 
         <div>
-          <label className="block" htmlFor="discount_percent">
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="discount_percent">
             Discount Percent:
           </label>
           <input
@@ -37,12 +37,43 @@ const PriceAndBrand = () => {
           />
           {errors.category && <span>This field is required</span>}
         </div>
+
+        {/* Stock information */}
+        <div>
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="unit">
+            Unit:
+          </label>
+          <input
+            className="border-black border rounded w-full p-2 shadow-md"
+            type="unit"
+            id="unit"
+            placeholder="kg"
+            {...register("unit", { required: true })}
+          />
+          {errors.category && <span>This field is required</span>}
+        </div>
+
+        <div>
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="stock">
+            Stock:
+          </label>
+          <input
+            className="border-black border rounded w-full p-2 shadow-md"
+            type="number"
+            placeholder="0"
+            id="stock"
+            {...register("stock", { required: true })}
+          />
+          {errors.category && <span>This field is required</span>}
+        </div>
       </div>
 
       {/* Organization*/}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
+        <h3> Organization</h3>
+        <hr />
         <div>
-          <label className="block" htmlFor="brand">
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="brand">
             brand:
           </label>
           <input
@@ -55,7 +86,7 @@ const PriceAndBrand = () => {
           {errors.brand && <span>This field is required</span>}
         </div>
         <div>
-          <label className="block" htmlFor="category">
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="category">
             Category:
           </label>
           <input
@@ -68,7 +99,7 @@ const PriceAndBrand = () => {
         </div>
 
         <div>
-          <label className="block" htmlFor="sub_category">
+          <label className="block text-[#34B701] mb-1 mt-3 font-bold" htmlFor="sub_category">
             Sub Category:
           </label>
           <input
