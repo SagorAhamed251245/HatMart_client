@@ -3,11 +3,83 @@ import { useForm } from "react-hook-form";
 import PriceAndBrand from "./PriceAndBrand";
 import AddProductInfoFrom from "./AddProductInfoFrom";
 import DropSvg from "./DropSvg";
+import { useState } from "react";
+import Image from "next/image";
 
 const AddProductForm = ({ ProductCategory, subCategory }) => {
+  const [MainImage, setMainImage] = useState(null);
+  const [Images, setImages] = useState([]);
+
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    setValue,
+    formState: { errors },
+  } = useForm();
+
+  const uploadImage = async (event) => {
+    const formData = new FormData();
+    if (!event.target.files[0]) return;
+
+    formData.append("image", event.target.files[0]);
+
+    try {
+      const res = await fetch(
+        `https://api.imgbb.com/1/upload?key=f52e595071a0957951aba70405bfbaf8`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      if (!res.ok) throw new Error("Failed to upload image");
+
+      const data = await res.json();
+
+      setValue("image", data.data.url);
+      setMainImage(data.data.url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const uploadMultiImage = async (event) => {
+    const formData = new FormData();
+
+    for (let i = 0; i < event.target.files.length; i++) {
+      formData.append(`image`, event.target.files[i]);
+      try {
+        const res = await fetch(
+          `https://api.imgbb.com/1/upload?key=f52e595071a0957951aba70405bfbaf8`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        if (!res.ok) {
+          const errorResponse = await res.json(); // Check for detailed error response
+          throw new Error(
+            `Failed to upload image: ${errorResponse.error.message}`
+          );
+        }
+
+        const data = await res.json();
+        setImages((prevImages) => [...prevImages, data.data.url]);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  const onSubmit = async (data, event) => {
+    const item = { ...data, images: Images };
+    // You can handle the form data submission here
+    console.log(item);
+  };
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="lg:flex w-full gap-5">
           {/* left site from */}
           <div className="lg:w-[70%] ">
@@ -29,7 +101,9 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="title"
                   placeholder="Product Name"
                   name="title"
+                  {...register("title")} // You can handle the form data submission here
                 />
+                {errors.title && <span>This field is required</span>}
               </div>
 
               <div>
@@ -44,6 +118,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="description"
                   placeholder="write Product Description"
                   name="description"
+                  {...register("description")}
                 ></textarea>
               </div>
 
@@ -59,6 +134,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="packagingDelivery"
                   placeholder="Write About Product Packaging & Delivery"
                   name="packagingDelivery"
+                  {...register("packagingDelivery")}
                 ></textarea>
               </div>
 
@@ -74,6 +150,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="warnings"
                   placeholder="Write About Product  Warnings"
                   name="warnings"
+                  {...register("warnings")}
                 ></textarea>
               </div>
             </div>
@@ -91,17 +168,32 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                     Main Image:
                   </label>
                   <label className="shadow-md flex justify-center w-full h-32 md:h-96 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
-                    <span className="flex items-center space-x-2">
-                      <DropSvg />
-                      <span className="font-medium text-gray-600">
-                        Drop files to Attach, or
-                        <span className="text-blue-600 underline">browse</span>
+                    {!MainImage ? (
+                      <span className="flex items-center space-x-2">
+                        <DropSvg />
+                        <span className="font-medium text-gray-600">
+                          Drop files to Attach, or
+                          <span className="text-blue-600 underline">
+                            browse
+                          </span>
+                        </span>
                       </span>
-                    </span>
+                    ) : (
+                      <>
+                        <Image
+                          src={MainImage}
+                          layout="fit"
+                          objectFit="cover"
+                          width={300}
+                          height={300}
+                        ></Image>
+                      </>
+                    )}
                     <input
                       type="file"
                       id="image"
                       name="image"
+                      onChange={uploadImage}
                       className="hidden "
                     />
                   </label>
@@ -114,19 +206,37 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   </label>
 
                   <label className=" shadow-md flex justify-center w-full h-32 md:h-96  px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
-                    <span className="flex items-center space-x-2">
-                      <DropSvg />
-                      <span className="font-medium text-gray-600">
-                        Drop files to Attach, or
-                        <span className="text-blue-600 underline">browse</span>
-                      </span>
-                    </span>
+                    {Images.length > 0 ? (
+                      <>
+                        
+                          <div className=" flex flex-wrap">
+                            {Images.map((item, index) => (
+                              <Image key={index} src={item} height={50} width={200}></Image>
+                            ))}
+                          
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <span className="flex items-center space-x-2 ">
+                          <DropSvg />
+                          <span className="font-medium text-gray-600">
+                            Drop files to Attach, or
+                            <span className="text-blue-600 underline">
+                              browse
+                            </span>
+                          </span>
+                        </span>
+                      </>
+                    )}
+
                     <input
                       type="file"
                       id="images"
                       multiple
                       name="images"
                       className="hidden "
+                      onChange={uploadMultiImage}
                     />
                   </label>
                 </div>
@@ -155,6 +265,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="price"
                   placeholder="0"
                   name="price"
+                  {...register("price")}
                 />
               </div>
 
@@ -171,6 +282,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="discount_percent"
                   placeholder="0"
                   name="discount_percent"
+                  {...register("discount_percent")}
                 />
               </div>
 
@@ -188,6 +300,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="unit"
                   placeholder="g; kg; quantity "
                   name="unit"
+                  {...register("unit")}
                 />
               </div>
 
@@ -204,6 +317,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   placeholder="0"
                   id="stock"
                   name="stock"
+                  {...register("stock")}
                 />
               </div>
             </div>
@@ -228,6 +342,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   type="text"
                   id="brand"
                   name="brand"
+                  {...register("brand")}
                 />
               </div>
               <div>
@@ -242,6 +357,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="category"
                   placeholder="Select Product Category"
                   name="category"
+                  {...register("category")}
                 >
                   {ProductCategory.map(({ category, _id }) => (
                     <option
@@ -268,6 +384,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="sub_category"
                   placeholder="Select Product Sub Category"
                   name="sub_category"
+                  {...register("sub_category")}
                 >
                   {subCategory.map((sub_category, index) => (
                     <option
