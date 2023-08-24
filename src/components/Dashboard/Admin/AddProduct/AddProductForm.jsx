@@ -5,18 +5,9 @@ import AddProductInfoFrom from "./AddProductInfoFrom";
 import DropSvg from "./DropSvg";
 
 const AddProductForm = ({ ProductCategory, subCategory }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data.image[0].name); // You can handle the form data submission here
-  };
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <div className="lg:flex w-full gap-5">
           {/* left site from */}
           <div className="lg:w-[70%] ">
@@ -37,9 +28,8 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   type="text"
                   id="title"
                   placeholder="Product Name"
-                  {...register("title", { required: true })}
+                  name="title"
                 />
-                {errors.title && <span>This field is required</span>}
               </div>
 
               <div>
@@ -53,9 +43,8 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   className=" border rounded w-full p-2 h-36 shadow-md"
                   id="description"
                   placeholder="write Product Description"
-                  {...register("description", { required: true })}
+                  name="description"
                 ></textarea>
-                {errors.description && <span>This field is required</span>}
               </div>
 
               <div>
@@ -69,11 +58,8 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   className=" border rounded w-full p-2  shadow-md"
                   id="packagingDelivery"
                   placeholder="Write About Product Packaging & Delivery"
-                  {...register("packagingDelivery", { required: true })}
+                  name="packagingDelivery"
                 ></textarea>
-                {errors.packagingDelivery && (
-                  <span>This field is required</span>
-                )}
               </div>
 
               <div>
@@ -87,9 +73,8 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   className=" border rounded w-full p-2  shadow-md"
                   id="warnings"
                   placeholder="Write About Product  Warnings"
-                  {...register("warnings", { required: true })}
+                  name="warnings"
                 ></textarea>
-                {errors.warnings && <span>This field is required</span>}
               </div>
             </div>
             {/* Media information*/}
@@ -116,19 +101,15 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                     <input
                       type="file"
                       id="image"
-                      {...register("image", { required: true })}
+                      name="image"
                       className="hidden "
                     />
-                    {errors.image && <span>This field is required</span>}
                   </label>
                 </div>
 
                 {/* Additional :*/}
                 <div className="md:w-[40%]">
-                  <label
-                    className="block text-black mb-1 mt-3 font-semibold "
-                    htmlFor="images"
-                  >
+                  <label className="block text-black mb-1 mt-3 font-semibold ">
                     Additional Image URLs:
                   </label>
 
@@ -144,8 +125,8 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                       type="file"
                       id="images"
                       multiple
-                      {...register("images")}
-                      className="hidden"
+                      name="images"
+                      className="hidden "
                     />
                   </label>
                 </div>
@@ -156,148 +137,150 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
           {/* right side from */}
           <div className="lg:w-[30%] ">
             {/* pricing */}
-      <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-        <h3 className="text-black mb-1 mt-3 font-semibold">Pricing & Stock</h3>
-        <hr className="border-t border-[#FF7B13]" />
-        <div>
-          <label
-            className="block text-black mb-1 mt-3 font-semibold"
-            htmlFor="price"
-          >
-            Price:
-          </label>
-          <input
-            className=" border rounded w-full p-2 shadow-md"
-            type="number"
-            id="price"
-            placeholder="0"
-            {...register("price", { required: true })}
-          />
-          {errors.price && <span>This field is required</span>}
-        </div>
+            <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
+              <h3 className="text-black mb-1 mt-3 font-semibold">
+                Pricing & Stock
+              </h3>
+              <hr className="border-t border-[#FF7B13]" />
+              <div>
+                <label
+                  className="block text-black mb-1 mt-3 font-semibold"
+                  htmlFor="price"
+                >
+                  Price:
+                </label>
+                <input
+                  className=" border rounded w-full p-2 shadow-md"
+                  type="number"
+                  id="price"
+                  placeholder="0"
+                  name="price"
+                />
+              </div>
 
-        <div>
-          <label
-            className="block text-black mb-1 mt-3 font-semibold"
-            htmlFor="discount_percent"
-          >
-            Discount Percent:
-          </label>
-          <input
-            className=" border rounded w-full p-2 shadow-md"
-            type="discount_percent"
-            id="discount_percent"
-            placeholder="0"
-            {...register("discount_percent")}
-          />
-          {errors.discount_percent && <span>This field is required</span>}
-        </div>
+              <div>
+                <label
+                  className="block text-black mb-1 mt-3 font-semibold"
+                  htmlFor="discount_percent"
+                >
+                  Discount Percent:
+                </label>
+                <input
+                  className=" border rounded w-full p-2 shadow-md"
+                  type="discount_percent"
+                  id="discount_percent"
+                  placeholder="0"
+                  name="discount_percent"
+                />
+              </div>
 
-        {/* Stock information */}
-        <div>
-          <label
-            className="block text-black mb-1 mt-3 font-semibold"
-            htmlFor="unit"
-          >
-            Unit:
-          </label>
-          <input
-            className=" border rounded w-full p-2 shadow-md"
-            type="unit"
-            id="unit"
-            placeholder="g; kg; quantity "
-            {...register("unit", { required: true })}
-          />
-          {errors.unit && <span>This field is required</span>}
-        </div>
+              {/* Stock information */}
+              <div>
+                <label
+                  className="block text-black mb-1 mt-3 font-semibold"
+                  htmlFor="unit"
+                >
+                  Unit:
+                </label>
+                <input
+                  className=" border rounded w-full p-2 shadow-md"
+                  type="unit"
+                  id="unit"
+                  placeholder="g; kg; quantity "
+                  name="unit"
+                />
+              </div>
 
-        <div>
-          <label
-            className="block text-black mb-1 mt-3 font-semibold"
-            htmlFor="stock"
-          >
-            Stock:
-          </label>
-          <input
-            className=" border rounded w-full p-2 shadow-md"
-            type="number"
-            placeholder="0"
-            id="stock"
-            {...register("stock", { required: true })}
-          />
-          {errors.stock && <span>This field is required</span>}
-        </div>
-      </div>
+              <div>
+                <label
+                  className="block text-black mb-1 mt-3 font-semibold"
+                  htmlFor="stock"
+                >
+                  Stock:
+                </label>
+                <input
+                  className=" border rounded w-full p-2 shadow-md"
+                  type="number"
+                  placeholder="0"
+                  id="stock"
+                  name="stock"
+                />
+              </div>
+            </div>
 
-      {/* Organization*/}
-      <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-        <h3 className="text-black mb-1 mt-3 font-semibold"> Organization</h3>
-        <hr className="border-t border-[#FF7B13]" />
-        <div>
-          <label
-            className="block text-black mb-1 mt-3 font-semibold"
-            htmlFor="brand"
-          >
-            brand:
-          </label>
-          <input
-            placeholder="Product brand name"
-            className=" border rounded w-full p-2 shadow-md"
-            type="text"
-            id="brand"
-            {...register("brand")}
-          />
-          {errors.brand && <span>This field is required</span>}
-        </div>
-        <div>
-          <label
-            className="block text-black mb-1 mt-3 font-semibold"
-            htmlFor="category"
-          >
-            Category:
-          </label>
-          <select
-            className=" border rounded w-full p-2 shadow-md"
-            id="category"
-            placeholder="Select Product Category"
-            {...register("category", { required: true })}
-          >
-            {ProductCategory.map(({ category, _id }) => (
-              <option key={_id} value={category} defaultValue={category[0]}>
-                {category}
-              </option>
-            ))}
-          </select>
-          {errors.category && <span>This field is required</span>}
-        </div>
+            {/* Organization*/}
+            <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
+              <h3 className="text-black mb-1 mt-3 font-semibold">
+                {" "}
+                Organization
+              </h3>
+              <hr className="border-t border-[#FF7B13]" />
+              <div>
+                <label
+                  className="block text-black mb-1 mt-3 font-semibold"
+                  htmlFor="brand"
+                >
+                  brand:
+                </label>
+                <input
+                  placeholder="Product brand name"
+                  className=" border rounded w-full p-2 shadow-md"
+                  type="text"
+                  id="brand"
+                  name="brand"
+                />
+              </div>
+              <div>
+                <label
+                  className="block text-black mb-1 mt-3 font-semibold"
+                  htmlFor="category"
+                >
+                  Category:
+                </label>
+                <select
+                  className=" border rounded w-full p-2 shadow-md"
+                  id="category"
+                  placeholder="Select Product Category"
+                  name="category"
+                >
+                  {ProductCategory.map(({ category, _id }) => (
+                    <option
+                      key={_id}
+                      value={category}
+                      defaultValue={category[0]}
+                    >
+                      {category}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-        <div>
-          <label
-            className="block text-black mb-1 mt-3 font-semibold"
-            htmlFor="sub_category"
-          >
-            Sub Category:
-          </label>
-          <select
-            className=" border rounded w-full p-2 shadow-md"
-            type="text"
-            id="sub_category"
-            placeholder="Select Product Sub Category"
-            {...register("sub_category", { required: true })}
-          >
-            {subCategory.map((sub_category, index) => (
-              <option
-                key={index}
-                value={sub_category}
-                defaultValue={sub_category[0]}
-              >
-                {sub_category}
-              </option>
-            ))}
-          </select>
-          {errors.sub_category && <span>This field is required</span>}
-        </div>
-      </div>
+              <div>
+                <label
+                  className="block text-black mb-1 mt-3 font-semibold"
+                  htmlFor="sub_category"
+                >
+                  Sub Category:
+                </label>
+                <select
+                  className=" border rounded w-full p-2 shadow-md"
+                  type="text"
+                  id="sub_category"
+                  placeholder="Select Product Sub Category"
+                  name="sub_category"
+                >
+                  {subCategory.map((sub_category, index) => (
+                    <option
+                      key={index}
+                      value={sub_category}
+                      defaultValue={sub_category[0]}
+                    >
+                      {sub_category}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
           </div>
 
           {/* right side from */}
@@ -306,8 +289,8 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
           <div className="flex h-full p-3 justify-between items-center ">
             <p className="text-black font-bold">Add your Product </p>
             <input
-              type="submit"
               className="text-[black] hover:bg-orange-300 font-medium  px-3 py-2 rounded-md bg-[#FF7B13]"
+              type="submit"
               value="Submit"
             />
           </div>
@@ -316,5 +299,4 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
     </>
   );
 };
-
 export default AddProductForm;
