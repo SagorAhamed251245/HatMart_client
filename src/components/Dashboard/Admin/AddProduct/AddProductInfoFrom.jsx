@@ -11,19 +11,19 @@ const AddProductInfoFrom = () => {
     <>
       {/* Product information */}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-        <h3 className="text-[#34B701] mb-1 mt-3 font-bold">
+        <h3 className="text-black mb-1 mt-3 font-semibold">
           Product information
         </h3>
         <hr className="border-t border-[#FF7B13]" />
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold  "
+            className="block text-black mb-1 mt-3 font-semibold  "
             htmlFor="title"
           >
             Title:
           </label>
           <input
-            className="border-black border rounded w-full p-2 shadow-md "
+            className=" border rounded w-full p-2 shadow-md "
             type="text"
             id="title"
             placeholder="Product Name"
@@ -34,13 +34,13 @@ const AddProductInfoFrom = () => {
 
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold"
+            className="block text-black mb-1 mt-3 font-semibold"
             htmlFor="description"
           >
             Description:
           </label>
           <textarea
-            className="border-black border rounded w-full p-2 h-36 shadow-md"
+            className=" border rounded w-full p-2 h-36 shadow-md"
             id="description"
             placeholder="write Product Description"
             {...register("description", { required: true })}
@@ -50,13 +50,13 @@ const AddProductInfoFrom = () => {
 
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold "
+            className="block text-black mb-1 mt-3 font-semibold "
             htmlFor="packagingDelivery "
           >
             Packaging & Delivery:
           </label>
           <textarea
-            className="border-black border rounded w-full p-2  shadow-md"
+            className=" border rounded w-full p-2  shadow-md"
             id="packagingDelivery"
             placeholder="Write About Product Packaging & Delivery"
             {...register("packagingDelivery", { required: true })}
@@ -66,13 +66,13 @@ const AddProductInfoFrom = () => {
 
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold"
+            className="block text-black mb-1 mt-3 font-semibold"
             htmlFor="warnings"
           >
             Warnings:
           </label>
           <textarea
-            className="border-black border rounded w-full p-2  shadow-md"
+            className=" border rounded w-full p-2  shadow-md"
             id="warnings"
             placeholder="Write About Product  Warnings"
             {...register("warnings", { required: true })}
@@ -83,12 +83,12 @@ const AddProductInfoFrom = () => {
       {/* Media information*/}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl  ">
         {/* Additional :*/}
-        <h3 className="text-[#34B701] mb-1 mt-3 font-bold">Media</h3>
+        <h3 className="text-black mb-1 mt-3 font-semibold">Media</h3>
         <hr className="border-t border-[#FF7B13]" />
         <div className="md:flex gap-5">
           <div className="md:w-[60%] ">
             <label
-              className="block text-[#34B701] mb-1 mt-3 font-bold "
+              className="block text-black mb-1 mt-3 font-semibold "
               htmlFor="image"
             >
               Main Image:
@@ -114,7 +114,7 @@ const AddProductInfoFrom = () => {
           {/* Additional :*/}
           <div className="md:w-[40%]">
             <label
-              className="block text-[#34B701] mb-1 mt-3 font-bold "
+              className="block text-black mb-1 mt-3 font-semibold "
               htmlFor="images"
             >
               Additional Image URLs:
