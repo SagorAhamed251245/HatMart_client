@@ -23,7 +23,10 @@ export const afterLoginNavData = [
     path: "userProfile",
     title: "Profile",
   },
- 
+  {
+    path: "dashboard",
+    title: "Dashboard",
+  },
   {
     path: "helpCenter",
     title: "Help Center",
@@ -39,10 +42,6 @@ export const beforeLoginNavData = [
   {
     path: "/login",
     title: "Login",
-  },
-  {
-    path: "userProfile",
-    title: "Profile",
   },
 
   {
