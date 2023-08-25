@@ -101,7 +101,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="title"
                   placeholder="Product Name"
                   name="title"
-                  {...register("title")} // You can handle the form data submission here
+                  {...register("title", { required: true })} // You can handle the form data submission here
                 />
                 {errors.title && <span>This field is required</span>}
               </div>
@@ -118,7 +118,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="description"
                   placeholder="write Product Description"
                   name="description"
-                  {...register("description")}
+                  {...register("description", { required: true })}
                 ></textarea>
               </div>
 
@@ -134,7 +134,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="packagingDelivery"
                   placeholder="Write About Product Packaging & Delivery"
                   name="packagingDelivery"
-                  {...register("packagingDelivery")}
+                  {...register("packagingDelivery ", { required: true })}
                 ></textarea>
               </div>
 
@@ -150,7 +150,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="warnings"
                   placeholder="Write About Product  Warnings"
                   name="warnings"
-                  {...register("warnings")}
+                  {...register("warnings", { required: true })}
                 ></textarea>
               </div>
             </div>
@@ -193,6 +193,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                       type="file"
                       id="image"
                       name="image"
+                      required
                       onChange={uploadImage}
                       className="hidden "
                     />
@@ -208,12 +209,15 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   <label className=" shadow-md flex justify-center w-full h-32 md:h-96  px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                     {Images.length > 0 ? (
                       <>
-                        
-                          <div className=" flex flex-wrap">
-                            {Images.map((item, index) => (
-                              <Image key={index} src={item} height={50} width={200}></Image>
-                            ))}
-                          
+                        <div className=" flex flex-wrap">
+                          {Images.map((item, index) => (
+                            <Image
+                              key={index}
+                              src={item}
+                              height={50}
+                              width={200}
+                            ></Image>
+                          ))}
                         </div>
                       </>
                     ) : (
@@ -235,6 +239,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                       id="images"
                       multiple
                       name="images"
+                      required
                       className="hidden "
                       onChange={uploadMultiImage}
                     />
@@ -265,7 +270,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="price"
                   placeholder="0"
                   name="price"
-                  {...register("price")}
+                  {...register("price", { required: true })}
                 />
               </div>
 
@@ -300,7 +305,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="unit"
                   placeholder="g; kg; quantity "
                   name="unit"
-                  {...register("unit")}
+                  {...register("unit", { required: true })}
                 />
               </div>
 
@@ -317,7 +322,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   placeholder="0"
                   id="stock"
                   name="stock"
-                  {...register("stock")}
+                  {...register("stock", { required: true })}
                 />
               </div>
             </div>
@@ -357,7 +362,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="category"
                   placeholder="Select Product Category"
                   name="category"
-                  {...register("category")}
+                  {...register("category", { required: true })}
                 >
                   {ProductCategory.map(({ category, _id }) => (
                     <option
@@ -384,7 +389,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="sub_category"
                   placeholder="Select Product Sub Category"
                   name="sub_category"
-                  {...register("sub_category")}
+                  {...register("sub_category", { required: true })}
                 >
                   {subCategory.map((sub_category, index) => (
                     <option
