@@ -5,13 +5,13 @@ import React from "react";
 const PaymentPage = () => {
   return (
     <>
-      <section className="flex w-[90%] mx-auto bg-white min-h-screen ">
-        <div className="w-1/2 bg-green-300">
+      <section className="flex flex-col sm:flex-row w-[90%] mx-auto min-h-screen gap-3 mb-5  ">
+        <div className="sm:w-[100%] md:w-[60%]">
           <UserInfo></UserInfo>
           {/* eikhnae user address componet thakbe */}
         </div>
 
-        <div className="w-1/2 bg-green-500">
+        <div className="sm:w-[100%] md:w-[40%]">
           {/* eikhnae payment componet thakbe */}
           <PaymentInfo></PaymentInfo>
         </div>
