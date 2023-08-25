@@ -5,6 +5,7 @@ import AddProductInfoFrom from "./AddProductInfoFrom";
 import DropSvg from "./DropSvg";
 import { useState } from "react";
 import Image from "next/image";
+import addProduct from "@/utils/addProduct";
 
 const AddProductForm = ({ ProductCategory, subCategory }) => {
   const [MainImage, setMainImage] = useState(null);
@@ -73,9 +74,44 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
   };
 
   const onSubmit = async (data, event) => {
-    const item = { ...data, images: Images };
-    // You can handle the form data submission here
-    console.log(item);
+    let {
+      title,
+      description,
+      packagingDelivery,
+      warnings,
+      price,
+      brand,
+      category,
+      discount_percent,
+      image,
+      stock,
+      sub_category,
+      unit,
+    } = data;
+    console.log(data);
+    const priceAsNumber = parseFloat(price);
+    const stockAsNumber = parseInt(stock);
+    const percentAsNumber = parseFloat(discount_percent);
+
+    const updatedItem = {
+      title,
+      details: {
+        packagingDelivery,
+        warnings,
+        description,
+      },
+      brand,
+      category,
+      sub_category,
+      unit,
+      image,
+      images: Images,
+      discount_percent: percentAsNumber,
+      price: priceAsNumber,
+      stock: stockAsNumber,
+    };
+
+    await addProduct(updatedItem);
   };
   return (
     <>
@@ -134,7 +170,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="packagingDelivery"
                   placeholder="Write About Product Packaging & Delivery"
                   name="packagingDelivery"
-                  {...register("packagingDelivery ", { required: true })}
+                  {...register("packagingDelivery", { required: true })}
                 ></textarea>
               </div>
 
