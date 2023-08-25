@@ -1,3 +1,5 @@
+import { toast } from "react-hot-toast";
+
 const addProduct = async (productData) => {
   try {
     const res = await fetch(
@@ -14,6 +16,7 @@ const addProduct = async (productData) => {
     if (res.ok) {
       const responseJson = await res.json();
       console.log("Product added:", responseJson);
+      toast.success("product is added");
     } else {
       console.log("Error:", res.statusText);
     }
