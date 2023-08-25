@@ -121,7 +121,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
           <div className="lg:w-[70%] ">
             <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
               <h3 className="text-black mb-1 mt-3 font-semibold">
-                Product information
+                Product informations
               </h3>
               <hr className="border-t border-[#FF7B13]" />
               <div>
