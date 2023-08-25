@@ -5,6 +5,7 @@ import AddProductInfoFrom from "./AddProductInfoFrom";
 import DropSvg from "./DropSvg";
 import { useState } from "react";
 import Image from "next/image";
+import addProduct from "@/utils/addProduct";
 
 const AddProductForm = ({ ProductCategory, subCategory }) => {
   const [MainImage, setMainImage] = useState(null);
@@ -73,9 +74,44 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
   };
 
   const onSubmit = async (data, event) => {
-    const item = { ...data, images: Images };
-    // You can handle the form data submission here
-    console.log(item);
+    let {
+      title,
+      description,
+      packagingDelivery,
+      warnings,
+      price,
+      brand,
+      category,
+      discount_percent,
+      image,
+      stock,
+      sub_category,
+      unit,
+    } = data;
+    console.log(data);
+    const priceAsNumber = parseFloat(price);
+    const stockAsNumber = parseInt(stock);
+    const percentAsNumber = parseFloat(discount_percent);
+
+    const updatedItem = {
+      title,
+      details: {
+        packagingDelivery,
+        warnings,
+        description,
+      },
+      brand,
+      category,
+      sub_category,
+      unit,
+      image,
+      images: Images,
+      discount_percent: percentAsNumber,
+      price: priceAsNumber,
+      stock: stockAsNumber,
+    };
+
+    await addProduct(updatedItem);
   };
   return (
     <>
@@ -85,7 +121,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
           <div className="lg:w-[70%] ">
             <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
               <h3 className="text-black mb-1 mt-3 font-semibold">
-                Product information
+                Product informations
               </h3>
               <hr className="border-t border-[#FF7B13]" />
               <div>
@@ -134,7 +170,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="packagingDelivery"
                   placeholder="Write About Product Packaging & Delivery"
                   name="packagingDelivery"
-                  {...register("packagingDelivery ", { required: true })}
+                  {...register("packagingDelivery", { required: true })}
                 ></textarea>
               </div>
 
@@ -167,7 +203,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   >
                     Main Image:
                   </label>
-                  <label className="shadow-md flex justify-center w-full h-32 md:h-96 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                  <label className="shadow-md flex justify-center w-full h-32 md:h-96  transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                     {!MainImage ? (
                       <span className="flex items-center space-x-2">
                         <DropSvg />
@@ -180,13 +216,16 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                       </span>
                     ) : (
                       <>
-                        <Image
-                          src={MainImage}
-                          layout="fit"
-                          objectFit="cover"
-                          width={300}
-                          height={300}
-                        ></Image>
+                        <div className="flex relative overflow-hidden">
+                          <Image
+                            src={MainImage}
+                            layout="fit"
+                            objectFit="cover"
+                            width={600}
+                            height={600}
+                            alt="main image"
+                          ></Image>
+                        </div>
                       </>
                     )}
                     <input
@@ -206,17 +245,20 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                     Additional Image URLs:
                   </label>
 
-                  <label className=" shadow-md flex justify-center w-full h-32 md:h-96  px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                  <label className=" shadow-md flex justify-center w-full h-32 md:h-96   transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                     {Images.length > 0 ? (
                       <>
-                        <div className=" flex flex-wrap">
+                        <div className="grid grid-cols-2 overflow-hidden  row-span-2">
                           {Images.map((item, index) => (
-                            <Image
-                              key={index}
-                              src={item}
-                              height={50}
-                              width={200}
-                            ></Image>
+                            <div className="relative col-span-1 h-auto w-full row-span-1">
+                              <Image
+                                key={index}
+                                src={item}
+                                height={100}
+                                width={300}
+                                alt="sub image"
+                              ></Image>
+                            </div>
                           ))}
                         </div>
                       </>
