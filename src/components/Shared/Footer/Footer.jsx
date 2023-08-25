@@ -4,14 +4,14 @@ import {FaRegPaperPlane, FaFacebookF, FaTwitter, FaLinkedinIn} from "react-icons
 import {MdKeyboardArrowRight} from "react-icons/md"
 const Footer = () => {
   return (
-    <footer className="bg-gray-800">
+    <footer className="bg-white border shadow-2xl shadow-black">
       <div className="lg:w-[90%] w-full py-6 mx-auto flex lg:flex-row flex-col items-center lg:gap-0 gap-3 lg:justify-between justify-center">
         {/* section 1 */}
         <section className="flex flex-col lg:items-start items-center">
           <div className="h-14 w-48 relative">
             <Image src={Logo} alt={"Footer Logo"} fill />
           </div>
-          <p className="text-gray-300 text-sm font-sans italic">"Hatmart is your one-stop for all your grocery needs."</p>
+          <p className="text-gray-800 text-sm font-sans italic">"Hatmart is your one-stop for all your grocery needs."</p>
 
           {/* news letter */}
           <div className="flex my-3">
@@ -26,7 +26,7 @@ const Footer = () => {
               <FaRegPaperPlane />
             </button>
           </div>
-          <span className="text-sm text-gray-400 ">Subscribe for our newsletter <br /> by entering your Email address</span>
+          <span className="text-sm text-gray-800 ">Subscribe for our newsletter <br /> by entering your Email address</span>
           {/* socials */}
           <div className="mt-5 flex gap-6">
             <div className="text-orange-600 border-2 duration-300 hover:bg-orange-600 hover:text-white cursor-pointer border-orange-600 p-3 w-fit rounded-full">
@@ -43,7 +43,7 @@ const Footer = () => {
         <section className="text-center lg:text-start" >
            {/* title */}
            <h4 className="text-white font-semibold">Information</h4>
-           <div className="text-gray-500 flex flex-col lg:items-start items-center">
+           <div className="text-gray-800 flex flex-col lg:items-start items-center">
             <div className="flex items-center my-3" >
                 <MdKeyboardArrowRight className="text-orange-600" />
                 <span className="text-sm">About us</span>
@@ -66,7 +66,7 @@ const Footer = () => {
         <section className="text-center lg:text-start">
            {/* title */}
            <h4 className="text-white font-semibold">Contact Info</h4>
-           <div className="text-gray-500  flex flex-col lg:items-start items-center">
+           <div className="text-gray-800  flex flex-col lg:items-start items-center">
             <div className="flex items-center my-3" >
                 <MdKeyboardArrowRight className="text-orange-600" />
                 <span className="text-sm">Phone: <span className="text-white">+88038383838</span></span>
@@ -111,7 +111,7 @@ const Footer = () => {
            </div>
         </section>
       </div>
-      <div className="bg-gray-500 py-3 text-gray-900 text-sm font-semibold text-center">
+      <div className="bg-white py-3 text-black border text-sm text-center">
           <p>@copyright all rights preserved by hatmart</p>
       </div>
     </footer>
