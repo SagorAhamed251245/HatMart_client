@@ -30,6 +30,7 @@ const AuthProvider = ({ children }) => {
     setUser((preUser) => ({ ...preUser, ...updateUser }));
   };
 
+  
   const googleLogin = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);

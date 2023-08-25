@@ -11,11 +11,14 @@ const AddProduct = async () => {
       subCategory.push(sub_category);
     }
   }
-  console.log(subCategory);
+
   return (
     <section>
       <SectionTitle>Add a New Product</SectionTitle>
-      <AddProductForm ProductCategory={ProductCategory} subCategory={subCategory}></AddProductForm>
+      <AddProductForm
+        ProductCategory={ProductCategory}
+        subCategory={subCategory}
+      ></AddProductForm>
     </section>
   );
 };
