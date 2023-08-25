@@ -5,9 +5,9 @@ import {MdKeyboardArrowRight} from "react-icons/md"
 const Footer = () => {
   return (
     <footer className="bg-gray-800">
-      <div className="w-[90%] mx-auto h-[50vh] flex items-center justify-between">
+      <div className="lg:w-[90%] w-full py-6 mx-auto flex lg:flex-row flex-col items-center lg:gap-0 gap-3 lg:justify-between justify-center">
         {/* section 1 */}
-        <section className="">
+        <section className="flex flex-col lg:items-start items-center">
           <div className="h-14 w-48 relative">
             <Image src={Logo} alt={"Footer Logo"} fill />
           </div>
@@ -40,10 +40,10 @@ const Footer = () => {
             </div>
           </div>
         </section>
-        <section>
+        <section className="text-center lg:text-start" >
            {/* title */}
            <h4 className="text-white font-semibold">Information</h4>
-           <div className="text-gray-500">
+           <div className="text-gray-500 flex flex-col lg:items-start items-center">
             <div className="flex items-center my-3" >
                 <MdKeyboardArrowRight className="text-orange-600" />
                 <span className="text-sm">About us</span>
@@ -63,10 +63,10 @@ const Footer = () => {
             
            </div>
         </section>
-        <section>
+        <section className="text-center lg:text-start">
            {/* title */}
            <h4 className="text-white font-semibold">Contact Info</h4>
-           <div className="text-gray-500">
+           <div className="text-gray-500  flex flex-col lg:items-start items-center">
             <div className="flex items-center my-3" >
                 <MdKeyboardArrowRight className="text-orange-600" />
                 <span className="text-sm">Phone: <span className="text-white">+88038383838</span></span>
@@ -86,7 +86,7 @@ const Footer = () => {
             
            </div>
         </section>
-        <section>
+        <section className="flex flex-col lg:items-start items-center">
            <h4 className="text-white font-semibold">Payment</h4>
            <div className="flex w-[300px] my-3 gap-4">
 
