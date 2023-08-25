@@ -28,7 +28,7 @@ export const afterLoginNavData = [
     title: "Dashboard",
   },
   {
-    path: "helpCenter",
+    path: "HelpCenter",
     title: "Help Center",
   },
 ];
