@@ -1,12 +1,10 @@
-'use client'
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import ReactImageZoom from "react-image-zoom";
 
-const ProductImages = ({  productData }) => {
-  const [mainImage, setMainImage] = useState(
-    "https://i.ibb.co/8rmC3MW/image.png"
-  ); // Set initial state to null
+const ProductImages = ({ productData }) => {
+  const [mainImage, setMainImage] = useState(productData?.images[0]); // Set initial state to null
 
   // Main product image change handler
   const handleMainImage = (image) => {
