@@ -15,9 +15,7 @@ const SearchProducts = ({ searchParams, pageName }) => {
 
   console.log(searchParams);
   useEffect(() => {
-    fetch(
-      `https://hatmart-server.vercel.app/api/v1/auth/productSearch/${searchParams.search}`
-    )
+    fetch(`${process.env.NEXT_PUBLIC_API}/productSearch/${searchParams.search}`)
       .then((res) => res.json())
       .then((data) => setFilterProduct(data));
   }, [searchParams.search]);

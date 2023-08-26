@@ -1,51 +1,44 @@
 [
-    {
-        "id": "1",
-        "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80", 
-        "title": "this is banner title",
-        "type":"main",
-        "sub_title": "this is banner subtitle"
-    },
-    {
-        "id": "2",
-        "image": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80", 
-        "title": "this is banner title",
-        "type":"main",
-        "sub_title": "this is banner subtitle"
-    },
-    {
-        "id": "3",
-        "image": "https://i.ibb.co/tZLH3Ny/side-banner-1.png", 
-        "title": "this is side banner title",
-        "type":"side",
-        "sub_title": "this is banner subtitle"
-    },
-    {
-        "id": "4",
-        "image": "https://i.ibb.co/D1TZ4fp/side-banner-2.png", 
-        "title": "this is side banner title",
-        "type":"side",
-        "sub_title": "this is banner subtitle"
-    },
-    {
-        "id": "5",
-        "image": "https://i.ibb.co/rFPHjxy/center-banner-2-380x190.png", 
-        "title": "this is bottom banner title",
-        "type":"bottom",
-        "sub_title": "this is banner subtitle"
-    },
-    {
-        "id": "6",
-        "image": "https://i.ibb.co/WV9q198/center-banner-1-380x190.png", 
-        "title": "this is bottom banner title",
-        "type":"bottom",
-        "sub_title": "this is banner subtitle"
-    },
-    {
-        "id": "7",
-        "image": "https://i.ibb.co/44FzyxZ/Baby-Care-Product.jpg", 
-        "title": "this is bottom banner title",
-        "type":"bottom",
-        "sub_title": "this is banner subtitle"
-    }
+  {
+    "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+    "title": "this is banner title",
+    "type": "main",
+    "sub_title": "this is banner subtitle"
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "title": "this is banner title",
+    "type": "main",
+    "sub_title": "this is banner subtitle"
+  },
+  {
+    "image": "https://i.ibb.co/tZLH3Ny/side-banner-1.png",
+    "title": "this is side banner title",
+    "type": "side",
+    "sub_title": "this is banner subtitle"
+  },
+  {
+    "image": "https://i.ibb.co/D1TZ4fp/side-banner-2.png",
+    "title": "this is side banner title",
+    "type": "side",
+    "sub_title": "this is banner subtitle"
+  },
+  {
+    "image": "https://i.ibb.co/rFPHjxy/center-banner-2-380x190.png",
+    "title": "this is bottom banner title",
+    "type": "bottom",
+    "sub_title": "this is banner subtitle"
+  },
+  {
+    "image": "https://i.ibb.co/WV9q198/center-banner-1-380x190.png",
+    "title": "this is bottom banner title",
+    "type": "bottom",
+    "sub_title": "this is banner subtitle"
+  },
+  {
+    "image": "https://i.ibb.co/44FzyxZ/Baby-Care-Product.jpg",
+    "title": "this is bottom banner title",
+    "type": "bottom",
+    "sub_title": "this is banner subtitle"
+  }
 ]

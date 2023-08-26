@@ -2,15 +2,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
+import "swiper/css/bundle";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 import ProductCard from "./ProductCard";
 
-
-const ChildProduct = ({products}) => {
+const ChildProduct = ({ products }) => {
   const handleAddToCart = (id) => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 

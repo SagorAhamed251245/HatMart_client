@@ -1,7 +1,5 @@
 const getAllUsers = async () => {
-  const res = await fetch(
-    "https://hatmart-server.vercel.app/api/v1/auth/users"
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/users`);
   return res.json();
 };
 
