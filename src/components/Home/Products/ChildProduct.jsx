@@ -6,11 +6,10 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // import required modules
-import { FreeMode, Pagination, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import ProductCard from "./ProductCard";
 
-
-const ChildProduct = ({products}) => {
+const ChildProduct = ({ products }) => {
   const handleAddToCart = (id) => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 

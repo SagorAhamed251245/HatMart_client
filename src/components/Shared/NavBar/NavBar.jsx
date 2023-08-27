@@ -21,19 +21,6 @@ const NavBar = () => {
   const { uid, photoURL } = user || {};
   const li = uid ? afterLoginNavData : beforeLoginNavData;
 
-  const handleLogout = async () => {
-    const toastId = toast.loading("Loading...");
-    try {
-      await logout();
-
-      toast.dismiss(toastId);
-      toast.success("Successfully logout!");
-    } catch (error) {
-      toast.error("Successfully not logout!");
-      toast.dismiss(toastId);
-    }
-  };
-
   return (
     <>
       <nav className="shadow-md  mb-[25px] lg:mb-[50px] top-0 bg-white">
@@ -104,7 +91,7 @@ const NavBar = () => {
                 </li>
                 {uid && (
                   <li>
-                    <Link href={""} onClick={handleLogout}>
+                    <Link href={""} onClick={() => logout()}>
                       LogOut
                     </Link>
                   </li>

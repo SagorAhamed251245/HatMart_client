@@ -5,20 +5,11 @@ import getCategories from "@/utils/getCategories";
 
 const AddProduct = async () => {
   const ProductCategory = await getCategories();
-  let subCategory = [];
-  for (const category of ProductCategory) {
-    for (const sub_category of category.sub_category) {
-      subCategory.push(sub_category);
-    }
-  }
 
   return (
     <section>
       <SectionTitle>Add a New Product</SectionTitle>
-      <AddProductForm
-        ProductCategory={ProductCategory}
-        subCategory={subCategory}
-      ></AddProductForm>
+      <AddProductForm ProductCategory={ProductCategory}></AddProductForm>
     </section>
   );
 };
