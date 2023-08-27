@@ -2,7 +2,7 @@ import { toast } from "react-hot-toast";
 
 const addProduct = async (productData) => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_APIS}/product`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // Fixed the typo here

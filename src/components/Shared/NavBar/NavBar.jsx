@@ -28,13 +28,13 @@ const NavBar = () => {
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
             <LogoSVG></LogoSVG>
-            <div className="relative h-24  w-24 md:w-36">
+            <div className="h-24 flex justify-center item-center  w-24 md:w-36">
               <Link href={"/"}>
                 <Image
                   src="https://i.ibb.co/WtbFpmR/logo.png"
-                  layout="fill"
-                  objectFit="cover"
-                  alt="HatMart Logo"
+                  className="object-cover w-full"
+                  height={144}
+                  width={144}
                 />
               </Link>
             </div>
@@ -72,8 +72,9 @@ const NavBar = () => {
                 <div className="w-10 rounded overflow-hidden">
                   <Image
                     src={photoURL || userImage}
-                    layout="fill"
-                    objectFit="cover"
+                    className="object-cover w-full"
+                    height={400}
+                    width={600}
                     alt="User Logo"
                   />
                 </div>

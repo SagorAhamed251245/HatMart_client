@@ -1,7 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
-import PriceAndBrand from "./PriceAndBrand";
-import AddProductInfoFrom from "./AddProductInfoFrom";
+
 import DropSvg from "./DropSvg";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -225,8 +224,7 @@ const AddProductForm = ({ ProductCategory }) => {
                         <div className="flex relative overflow-hidden">
                           <Image
                             src={MainImage}
-                            layout="fit"
-                            objectFit="cover"
+                            className="object-cover"
                             width={600}
                             height={600}
                             alt="main image"
@@ -262,6 +260,7 @@ const AddProductForm = ({ ProductCategory }) => {
                                 src={item}
                                 height={100}
                                 width={300}
+                                className="object-cover"
                                 alt="sub image"
                               ></Image>
                             </div>

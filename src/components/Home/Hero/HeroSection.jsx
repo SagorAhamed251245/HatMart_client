@@ -16,14 +16,14 @@ const HeroSection = async () => {
           <BannerSlider main={main} />
           {/* main banner ends here */}
           {/* side banner starts here */}
-          <div className="flex lg:flex-col md:w-[30%] lg:gap-6 gap-3 flex-row">
+          <div className="mt-5 md:mt-0 relative flex lg:flex-col md:w-[30%] lg:gap-6 gap-3  flex-row">
             {side.map((banner) => (
               <div key={banner.id} className=" flex h-full  w-full rounded-lg ">
-                <div className="h-full  w-full relative ">
+                <div className="h-full  w-full overflow-hidden ">
                   <Image
-                    layout="fill"
-                    objectFit="cover"
-                    className=" rounded-xl"
+                    height={203}
+                    width={407}
+                    className="w-full h-24 md:h-full  object-cover rounded-xl"
                     src={banner.image}
                     alt="side banner image"
                   ></Image>
@@ -39,12 +39,13 @@ const HeroSection = async () => {
           {bottom.map((banner) => (
             <div
               key={banner._id}
-              className=" h-[150px] lg:h-[250px]   w-[60%] relative rounded-xl overflow-hidden"
+              className=" h-[150px] lg:h-[250px]   w-[60%] rounded-xl overflow-hidden"
             >
               <Image
                 src={banner.image}
-                layout="fill"
-                objectFit="cover"
+                height={300}
+                width={500}
+                className="w-full h-24 md:h-full  object-cover rounded-xl"
                 alt="Middle Add"
               ></Image>
             </div>
