@@ -1,5 +1,5 @@
 const getProducts = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APIS}/product`);
   return res.json();
 };
 

@@ -20,8 +20,9 @@ const LogoSection = () => {
             <Link href={"/"}>
               <Image
                 src="https://i.ibb.co/WtbFpmR/logo.png"
-                layout="fill"
-                objectFit="cover"
+                className="object-cover w-full"
+                height={100}
+                width={300}
                 alt="HatMart Logo"
               />
             </Link>

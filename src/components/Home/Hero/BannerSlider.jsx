@@ -14,7 +14,7 @@ const BannerSlider = ({ main }) => {
   }, [main.length]);
   return (
     <>
-      <div className="md:w-[70%] lg:mb-0 relative h-[450px] lg:h-[450px] w-full rounded-xl overflow-hidden">
+      <div className="md:w-[70%] lg:mb-0 relative h-56 md:h-[450px] w-full rounded-xl overflow-hidden">
         {main.map((banner, index) => (
           <div
             key={banner.id}
@@ -23,9 +23,10 @@ const BannerSlider = ({ main }) => {
             }`}
           >
             <Image
-              layout="fill"
-              objectFit="cover"
-              className="rounded-xl"
+              height={949}
+              width={450}
+              className="w-full h-56 md:h-full  object-cover rounded-xl"
+              priority
               src={banner.image}
               alt="side banner image"
             />

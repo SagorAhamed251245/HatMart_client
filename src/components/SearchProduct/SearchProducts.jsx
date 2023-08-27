@@ -15,7 +15,9 @@ const SearchProducts = ({ searchParams, pageName }) => {
 
   console.log(searchParams);
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API}/productSearch/${searchParams.search}`)
+    fetch(
+      `${process.env.NEXT_PUBLIC_APIS}/productSearch/${searchParams.search}`
+    )
       .then((res) => res.json())
       .then((data) => setFilterProduct(data));
   }, [searchParams.search]);

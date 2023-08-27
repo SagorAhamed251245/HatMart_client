@@ -6,7 +6,12 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { BiTrashAlt } from "react-icons/bi";
 
-const CartCard = ({ cartItem,decreaseAmount,increaseAmount,setCartData }) => {
+const CartCard = ({
+  cartItem,
+  decreaseAmount,
+  increaseAmount,
+  setCartData,
+}) => {
   const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(0);
   const totalPrice = useRef();
@@ -14,7 +19,6 @@ const CartCard = ({ cartItem,decreaseAmount,increaseAmount,setCartData }) => {
 
   // cartItem Destructure
   const { title, price, rating, _id, image } = cartItem;
-
 
   // get localstorage items and find quantity = ok
   useEffect(() => {
@@ -24,15 +28,15 @@ const CartCard = ({ cartItem,decreaseAmount,increaseAmount,setCartData }) => {
         (item) => item._id === _id
       ).quantity;
       setQuantity(itemAmmount);
-      const totalCardPrice = parseFloat((itemAmmount * parseFloat(price)).toFixed(2));
+      const totalCardPrice = parseFloat(
+        (itemAmmount * parseFloat(price)).toFixed(2)
+      );
 
       setTotal(totalCardPrice);
     } else {
       console.log("We are running on the server");
     }
   }, []);
-
-  
 
   // onclick increase the amount of the products--------------------------------------------------------------------
   const handlePlusCounter = (_id) => {
@@ -56,7 +60,7 @@ const CartCard = ({ cartItem,decreaseAmount,increaseAmount,setCartData }) => {
     const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
     setTotal(formattedTotalPrice);
 
-    increaseAmount(price)
+    increaseAmount(price);
   };
 
   // onclick decrease the amount of the products-------------------------------------------------------------------------
@@ -86,34 +90,33 @@ const CartCard = ({ cartItem,decreaseAmount,increaseAmount,setCartData }) => {
     const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
 
     setTotal(formattedTotalPrice);
-    decreaseAmount(price)
+    decreaseAmount(price);
   };
-
 
   // onclick delete cart item==================================================================================
   const deleteCartItem = (itemId) => {
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-  
+
     // Find the index of the item to delete
     const itemIndex = storedCartItems.findIndex((item) => item._id === itemId);
-  
+
     if (itemIndex !== -1) {
       storedCartItems.splice(itemIndex, 1);
-  
+
       localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
-  
+
       setCartData(storedCartItems);
-      window.location.reload()
+      window.location.reload();
     }
   };
-  
 
   return (
     <div className="bg-white mb-3 flex p-3 md:w-[600px] w-full rounded-lg">
       {/* card image here */}
       <section className="relative h-[100px] w-[100px] object-cover rounded-lg border border-slate-400">
         <Image
-          fill
+          height={100}
+          width={100}
           alt="cart image"
           className="object-cover object-center rounded-lg"
           src={image}
@@ -182,7 +185,10 @@ const CartCard = ({ cartItem,decreaseAmount,increaseAmount,setCartData }) => {
             </div>
           </div>
 
-          <button onClick={() => deleteCartItem(_id)} className="bg-[#FF7218] hover:bg-red-400 active:bg-red-600 text-white p-3 text-2xl h-fit rounded-full my-auto">
+          <button
+            onClick={() => deleteCartItem(_id)}
+            className="bg-[#FF7218] hover:bg-red-400 active:bg-red-600 text-white p-3 text-2xl h-fit rounded-full my-auto"
+          >
             <BiTrashAlt />
           </button>
         </div>
