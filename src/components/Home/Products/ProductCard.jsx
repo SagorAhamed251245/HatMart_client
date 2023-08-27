@@ -22,7 +22,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
   } = product;
 
   return (
-    <div className="border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
+    <div className=" border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
       <Link
         href={{
           pathname: `/productDetails`,
@@ -33,12 +33,13 @@ const ProductCard = ({ product, handleAddToCart }) => {
       >
         {/* details route */}
 
-        <div className="relative  h-24 w-full flex items-center justify-center ">
+        <div className="  h-36 w-full overflow-hidden ">
           <Image
-            layout="fill"
-            style={{ objectFit: "contain" }}
             src={image}
-            loading="lazy"
+            height={300}
+            width={500}
+            className="w-full h-full object-cover"
+            priority
             alt="product image"
           />
           <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">

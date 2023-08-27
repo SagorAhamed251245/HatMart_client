@@ -3,13 +3,19 @@ import { useForm } from "react-hook-form";
 import PriceAndBrand from "./PriceAndBrand";
 import AddProductInfoFrom from "./AddProductInfoFrom";
 import DropSvg from "./DropSvg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import addProduct from "@/utils/addProduct";
 
-const AddProductForm = ({ ProductCategory, subCategory }) => {
+const AddProductForm = ({ ProductCategory }) => {
   const [MainImage, setMainImage] = useState(null);
   const [Images, setImages] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
+
+  useEffect(() => {
+    const subCategories = ProductCategory.flatMap((item) => item.sub_category);
+    setSubCategory(subCategories);
+  }, [ProductCategory]);
 
   const {
     register,

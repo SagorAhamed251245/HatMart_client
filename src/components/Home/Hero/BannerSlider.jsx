@@ -14,7 +14,7 @@ const BannerSlider = ({ main }) => {
   }, [main.length]);
   return (
     <>
-      <div className="md:w-[70%] lg:mb-0 rounded-lg relative h-[450px] lg:h-[450px] w-full rounded-xl overflow-hidden">
+      <div className="md:w-[70%] lg:mb-0 relative h-[450px] lg:h-[450px] w-full rounded-xl overflow-hidden">
         {main.map((banner, index) => (
           <div
             key={banner.id}
