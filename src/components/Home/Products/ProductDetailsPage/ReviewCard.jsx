@@ -11,7 +11,7 @@ const ReviewCard = ({ review }) => {
           <div className="w-16 h-16 rounded-full">
             <Image
               className="rounded-full h-full"
-              src={review.customer_Image}
+              src={review.customer_image}
               width={80}
               height={80}
               alt="product image"
@@ -20,15 +20,18 @@ const ReviewCard = ({ review }) => {
         </div>
         <div className="space-y-1">
           <h3 className="text-gray-700 text-xl font-medium">
-            {review.customer_Name} -{" "}
+            {review.customer_name} -{" "}
             <span className="text-xs text-green-500">
-              {new Date(review.createdAt).toLocaleString("en-US", {
-                hour: "numeric",
-                minute: "numeric",
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
+              {new Date(review.createdAt || new Date()).toLocaleString(
+                "en-US",
+                {
+                  hour: "numeric",
+                  minute: "numeric",
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                }
+              )}
             </span>
           </h3>
           <Rating
