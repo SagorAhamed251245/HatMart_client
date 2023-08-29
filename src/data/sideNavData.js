@@ -1,11 +1,11 @@
-import { BiSolidDashboard } from "react-icons/bi";
+import { BiSolidDashboard, BiSolidUserCircle } from "react-icons/bi";
 import { IoBagAdd } from "react-icons/io5";
-import { FaUserCog } from "react-icons/fa";
+import { FaCartArrowDown, FaUserCog } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHeart, AiFillHome } from "react-icons/ai";
 
 const user = {
-  role: "admin",
+  role: "user",
 };
 
 const SideData = () => {
@@ -16,7 +16,7 @@ const SideData = () => {
       {
         path: "/dashboard",
         title: "Dashboard",
-        icon: <BiSolidDashboard className="w-6" />,
+        icon: <BiSolidDashboard />,
       },
       {
         path: "/dashboard/addProduct",
@@ -42,12 +42,24 @@ const SideData = () => {
   } else if (user.role === "user") {
     sideData = [
       {
+        path: "/dashboard/myProfile",
+        title: "My Profile",
+        icon: <BiSolidUserCircle />,
+      },
+      {
         path: "/dashboard/myOrder",
         title: "My Order",
+        icon: <FaCartArrowDown />,
       },
       {
         path: "/dashboard/myWishList",
         title: "My WishList",
+        icon: <AiFillHeart className="text-red-300" />,
+      },
+      {
+        path: "/",
+        title: "Home",
+        icon: <AiFillHome />,
       },
     ];
   }
