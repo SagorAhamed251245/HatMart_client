@@ -4,7 +4,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import Rating from "react-rating";
 
-const AllOrders = () => {
+const AllOrdersTable = () => {
   const orders = [
     {
       id: 1,
@@ -74,7 +74,10 @@ const AllOrders = () => {
     },
   ];
   return (
-    <div className="overflow-x-auto mt-10 border rounded-xl p-4">
+    <div
+      style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
+      className="overflow-x-auto mt-10 border rounded-xl p-4 shadow mb-5"
+    >
       <table className="min-w-full border-collapse ">
         <thead>
           <tr className="border-b border-gray-300 text-green-500 w-full">
@@ -150,4 +153,4 @@ const AllOrders = () => {
   );
 };
 
-export default AllOrders;
+export default AllOrdersTable;

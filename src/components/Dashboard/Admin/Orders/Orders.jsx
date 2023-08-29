@@ -1,6 +1,6 @@
 "use client";
 
-import AllOrders from "./AllOrders";
+import AllOrdersTable from "./AllOrdersTable";
 import OrderStatics from "./OrderStatics";
 import SalesPeriod from "./SalesPeriod";
 
@@ -9,7 +9,7 @@ const Orders = () => {
     <div className="mt-5">
       <SalesPeriod />
       <OrderStatics />
-      <AllOrders />
+      <AllOrdersTable />
     </div>
   );
 };
