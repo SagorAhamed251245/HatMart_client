@@ -9,7 +9,6 @@ const productDerailsPage = async ({ searchParams }) => {
   const { productReviews: reviewsData = [] } = await getReviews(
     searchParams.productId
   );
-  console.log(reviewsData);
 
   return (
     <>
@@ -17,7 +16,7 @@ const productDerailsPage = async ({ searchParams }) => {
         <div className="md:flex gap-10">
           <ProductImages productData={productData} />
 
-          <ProductDetails productData={productData} />
+          <ProductDetails productData={productData} reviewsData={reviewsData} />
         </div>
 
         <DescriptionAndReviews
