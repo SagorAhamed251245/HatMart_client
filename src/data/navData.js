@@ -45,7 +45,7 @@ export const beforeLoginNavData = [
   },
 
   {
-    path: "helpCenter",
+    path: "/HelpCenter",
     title: "Help Center",
   },
 ];
