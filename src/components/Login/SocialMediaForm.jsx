@@ -7,10 +7,10 @@ const SocialMediaForm = () => {
       <div className="flex justify-between space-x-4 mt-2">
         <button
           type="button"
-          class="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2"
+          className="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2"
         >
           <svg
-            class="w-4 h-4 mr-2"
+            className="w-4 h-4 mr-2"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -22,11 +22,11 @@ const SocialMediaForm = () => {
               clip-rule="evenodd"
             />
           </svg>
-           Facebook
+          Facebook
         </button>
         <button
           type="button"
-          class="text-black bg-slate-200  focus:ring-4 focus:outline-none focus:ring-[#000]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+          className="text-black bg-slate-200  focus:ring-4 focus:outline-none focus:ring-[#000]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
         >
           <svg
             className="w-4 h-4 mr-2 text-black"
@@ -41,7 +41,7 @@ const SocialMediaForm = () => {
               clip-rule="evenodd"
             />
           </svg>
-           Google
+          Google
         </button>
       </div>
     </div>
