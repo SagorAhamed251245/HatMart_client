@@ -4,27 +4,62 @@ import DropSvg from "../AddProduct/DropSvg";
 import { useState } from "react";
 
 import SubCategoryView from "./SubCategoryView";
+import Image from "next/image";
+import addCategory from "@/utils/addCategory";
 
 const AddCategory = () => {
   const [subCategory, setSubCategory] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [categoryImage, setCategoryImage] = useState(null);
 
-  console.log(subCategory);
   const {
     register,
     handleSubmit,
+    getValues,
+    setValue,
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+
+  // handle submit form data
+  const onSubmit = async (data) => {
     const categoryData = {
-      category: data.category,
-      image: data.image,
-      subCategories: subCategory,
+      category: data.title,
+      icon: data.image,
+      sub_category: subCategory,
     };
-    console.log(categoryData); // You can handle the form data submission here
+
+    await addCategory(categoryData);
+    reset();
   };
 
+  // upload image using ibb
+  const uploadImage = async (event) => {
+    const formData = new FormData();
+    if (!event.target.files[0]) return;
+
+    formData.append("image", event.target.files[0]);
+
+    try {
+      const res = await fetch(
+        `https://api.imgbb.com/1/upload?key=f52e595071a0957951aba70405bfbaf8`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      if (!res.ok) throw new Error("Failed to upload image");
+
+      const data = await res.json();
+
+      setValue("image", data.data.url); // set up the value for form data name "image"
+      setCategoryImage(data.data.url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //  add multiple category data
   const handleSubCategoryBlur = (event) => {
     const inputValue = event.target.value.trim();
     if (inputValue !== "") {
@@ -32,13 +67,6 @@ const AddCategory = () => {
       setSubCategory([...subCategory, inputValue]);
       event.target.value = "";
     }
-  };
-
-  // Edit subCategory input field data
-  const handleSubCategoryEdit = () => {};
-  // delete subCategory data
-  const handleSubCategoryDelete = (index) => {
-    setSubCategory(subCategory.filter((i) => i !== index));
   };
 
   return (
@@ -75,24 +103,35 @@ const AddCategory = () => {
               Choose Image:
             </label>
             <label className="shadow-md flex  h-28 w-64 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
-              <span className="flex items-center space-x-2">
-                <DropSvg />
-                <span className="font-medium text-gray-600">
-                  Drop image to Attach, or
-                  <span className="text-blue-600 underline ml-1">browse</span>
+              {!categoryImage ? (
+                <span className="flex items-center space-x-2">
+                  <DropSvg />
+                  <span className="font-medium text-gray-600">
+                    Drop image to Attach, or
+                    <span className="text-blue-600 underline ml-1">browse</span>
+                  </span>
                 </span>
-              </span>
+              ) : (
+                <>
+                  <div className="flex relative overflow-hidden">
+                    <Image
+                      src={categoryImage}
+                      className="object-cover"
+                      width={256}
+                      height={112}
+                      alt="Category Image"
+                    ></Image>
+                  </div>
+                </>
+              )}
               <input
                 type="file"
                 id="image"
-                accept="image/*"
-                {...register("image", { required: true })}
+                required
+                onChange={uploadImage}
                 className="hidden "
               />
             </label>
-            {errors.image && (
-              <span className="text-red-500">This field is required</span>
-            )}
           </div>
 
           <div>
@@ -100,7 +139,8 @@ const AddCategory = () => {
               className="block text-[#FF7B13] mb-1 mt-3 font-bold "
               htmlFor="subCategory "
             >
-              Sub category:
+              Sub category{" "}
+              <small className="opacity-70">(You can add multiple)</small>:
             </label>
             <input
               className=" border rounded outline-none w-full p-2 shadow-md  focus:shadow-yellow-200 focus:shadow-md"
@@ -110,7 +150,7 @@ const AddCategory = () => {
               defaultValue={inputValue}
               // onBlur={handleSubCategoryBlur}
               {...register("subCategory", {
-                required: true,
+                required: subCategory.length === 0 && true,
                 onBlur: (e) => {
                   // Call your custom logic function
                   handleSubCategoryBlur(e);
@@ -124,8 +164,6 @@ const AddCategory = () => {
             <SubCategoryView
               subCategory={subCategory}
               setSubCategory={setSubCategory}
-              handleSubCategoryEdit={handleSubCategoryEdit}
-              handleSubCategoryDelete={handleSubCategoryDelete}
             />
 
             {errors.subCategory && (
@@ -134,7 +172,10 @@ const AddCategory = () => {
           </div>
 
           <div className="mt-5 text-center">
-            <button className="bg-[#ff6347cc]  text-white md:text-lg text-sm px-[10px] md:px-4 font-medium py-1.5  rounded disabled:opacity-60 hover:bg-[#FF7B13]">
+            <button
+              type="submit"
+              className="bg-[#ff6347cc]  text-white md:text-lg text-sm px-[10px] md:px-4 font-medium py-1.5  rounded disabled:opacity-60 hover:bg-[#FF7B13]"
+            >
               Save Category
             </button>
           </div>
