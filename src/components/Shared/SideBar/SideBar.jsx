@@ -7,9 +7,9 @@ const SideBar = () => {
   return (
     <aside className=" border py-5 md:w-[5%] w-[40px] flex flex-col  justify-between items-center fixed bg-white shadow-xl   h-screen">
       <div className="h-[60vh] flex flex-col  justify-between items-center">
-        {data.map(({ path, title }) => (
+        {data.map(({ path, title, icon }) => (
           <Link key={path} href={path}>
-            {" "}
+            {icon}
             {title}
           </Link>
         ))}
@@ -18,7 +18,7 @@ const SideBar = () => {
       <div>
         <hr />
         <Link href={"/"}>
-          <AiFillHome />
+          {Home} <AiFillHome />
         </Link>
       </div>
     </aside>

@@ -1,3 +1,5 @@
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 const AddToCartBtn = ({ handleAddToCart, id }) => {
   return (
     <>

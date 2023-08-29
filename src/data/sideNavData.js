@@ -14,19 +14,23 @@ const SideData = () => {
     sideData = [
       {
         path: "/dashboard",
-        title: <BiSolidDashboard />,
+        title: "Dashboard",
+        icon: <BiSolidDashboard className="w-6" />,
       },
       {
         path: "/dashboard/addProduct",
-        title: <IoBagAdd />,
+        title: " Add Product",
+        icon: <IoBagAdd />,
       },
       {
         path: "/dashboard/userListing",
-        title: <FaUserCog />,
+        title: "User List",
+        icon: <FaUserCog />,
       },
       {
         path: "/dashboard/addCategory",
-        title: <MdCategory />,
+        title: "Add Category",
+        icon: <MdCategory />,
       },
     ];
   } else if (user.role === "user") {
