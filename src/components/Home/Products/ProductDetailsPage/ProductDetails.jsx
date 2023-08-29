@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
-const ProductDetails = ({ productData }) => {
+const ProductDetails = ({ productData, reviewsData }) => {
   return (
     <div className=" w-[95%] mx-auto h-full">
       <h3 className="text-gray-700 text-4xl font-medium">
@@ -22,7 +22,10 @@ const ProductDetails = ({ productData }) => {
 
         <div className="text-gray-500 dark:text-gray-50 font-medium text-base">
           <span>{productData?.rating}</span>
-          <span className="text-[#32B900] "> (1 customer review)</span>
+          <span className="text-[#32B900] ">
+            {" "}
+            ({reviewsData.length > 0 && reviewsData.length} customer review)
+          </span>
         </div>
       </div>
       <p className="font-medium text-2xl mt-4">
