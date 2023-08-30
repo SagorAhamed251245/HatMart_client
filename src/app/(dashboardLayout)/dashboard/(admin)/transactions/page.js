@@ -1,15 +1,15 @@
-import Orders from "@/components/Dashboard/Admin/Orders/Orders";
+import Transaction from "@/components/Dashboard/Admin/Transactions/Transaction";
 import React from "react";
 
-const ordersPage = async () => {
+const transactionsPage = () => {
   return (
     <section className="px-4 mx-auto sm:px-8 mt-5">
       <h3 className="text-3xl font-bold mb-5 md:text-start text-center">
-        Orders
+        Transactions
       </h3>
-      <Orders />
+      <Transaction />
     </section>
   );
 };
 
-export default ordersPage;
+export default transactionsPage;

@@ -8,8 +8,8 @@ import {
 
 const OrderStatics = () => {
   return (
-    <div className="mt-8 flex justify-between gap-5">
-      <div className="md:w-[35%] hover:shadow-xl shadow-md p-5 border rounded duration-300">
+    <div className="mt-8 lg:flex justify-between gap-5 lg:space-y-0 space-y-5">
+      <div className="lg:w-[35%] w-full hover:shadow-xl shadow-md p-5 border rounded duration-300">
         <h3 className="text-xl font-bold">Average Rate (%)</h3>
         <div>
           <label
@@ -39,8 +39,10 @@ const OrderStatics = () => {
             max="100"
           ></progress>
         </div>
-      </div>{" "}
-      <div className="flex gap-5 justify-between md:w-[65%]">
+      </div>
+
+      {/* order details */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5  lg:w-[65%] w-full">
         <div className="flex flex-col hover:shadow-xl shadow-md p-5 border rounded duration-300 w-full">
           <p className=" bg-[#035ECF] p-2.5 rounded w-fit h-fit">
             <FaCheckToSlot className="  text-white" size={23} />
