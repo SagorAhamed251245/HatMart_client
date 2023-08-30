@@ -97,7 +97,7 @@ const AllOrdersTable = () => {
                 {order.orderNumber}
               </td>
               <td className=" px-4 py-4 text-center flex gap-2 items-center justify-center">
-                <div className="h-10 overflow-hidden object-contain rounded">
+                <div className="h-10 w-10 overflow-hidden object-contain rounded">
                   <Image
                     style={{ objectFit: "contain" }}
                     src={order.productImage}
