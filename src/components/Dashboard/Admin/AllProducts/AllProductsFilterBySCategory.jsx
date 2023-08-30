@@ -5,6 +5,8 @@ const AllProductsFilterBySCategory = ({
   setData,
   ProductCategory,
 }) => {
+
+    // This page is for filter or sort by sub_Category
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [subCategory, setSubCategory] = useState([]);
 
