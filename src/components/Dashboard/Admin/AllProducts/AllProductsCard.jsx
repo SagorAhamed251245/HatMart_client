@@ -33,7 +33,7 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
             {category}
           </span>
 
-          {product.sub_category.map((c) => (
+          {product?.sub_category?.map((c) => (
             <span className="text-sm bg-green-400 rounded-full px-2 text-white">
               {c}
             </span>

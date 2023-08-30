@@ -5,6 +5,7 @@ import ProductSearch from "./ProductSearch";
 import AllProductsCard from "./AllProductsCard";
 import AllProductsFilterByPrice from "./AllProductsFilterByPrice";
 import AllProductsFilterBySCategory from "./AllProductsFilterBySCategory";
+import AllProductsFilterByOther from "./AllProductsFilterByOther";
 
 const AllProducts = ({ ProductCategory, products }) => {
   const [data, setData] = useState(products);
@@ -39,19 +40,15 @@ const AllProducts = ({ ProductCategory, products }) => {
           <AllProductsFilterByPrice setData={setData} data={data} />
 
           {/* select by category */}
-          
-          <AllProductsFilterBySCategory setData={setData} products={products} ProductCategory={ProductCategory} />
+
+          <AllProductsFilterBySCategory
+            setData={setData}
+            products={products}
+            ProductCategory={ProductCategory}
+          />
 
           {/* select by other */}
-          <select className=" border border-green-400 rounded w-fit p-2 shadow-md">
-            <option disabled value=''>
-              Select by others
-            </option>
-            <option>Latest Added</option>
-            <option>Latest Updated</option>
-            <option>Best Selling</option>
-            <option>High rating</option>
-          </select>
+          <AllProductsFilterByOther setData={setData} products={products} />
         </div>
       </div>
 
@@ -72,7 +69,6 @@ const AllProducts = ({ ProductCategory, products }) => {
         {/* {
           products.filter(item => (item?.title).toLowerCase() === searchData.toLowerCase()).map(product => <AllProductsCard key={product._id}  />)
         } */}
-
       </section>
     </>
   );
