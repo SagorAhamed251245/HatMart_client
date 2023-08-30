@@ -1,25 +1,19 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
 import ProductSearch from "./ProductSearch";
 import AllProductsCard from "./AllProductsCard";
+import AllProductsFilterByPrice from "./AllProductsFilterByPrice";
+import AllProductsFilterBySCategory from "./AllProductsFilterBySCategory";
 
-const AllProducts = ({ ProductCategory,products }) => {
-  const [subCategory, setSubCategory] = useState([]);
+const AllProducts = ({ ProductCategory, products }) => {
   const [data, setData] = useState(products);
 
-  
   const handleDeleteProduct = (_id) => {
-
     // TODO: delete Product
-    console.log(_id,'delete this product')
-  }
+    console.log(_id, "delete this product");
+  };
 
-  useEffect(() => {
-    const subCategories = ProductCategory.flatMap((item) => item.sub_category);
-    setSubCategory(subCategories);
-  }, [ProductCategory]);
   return (
     <>
       <div className="flex justify-between items-end px-10">
@@ -41,32 +35,16 @@ const AllProducts = ({ ProductCategory,products }) => {
         <div className="flex justify-end gap-6 items-center my-6 px-10">
           <span className="font-bold my-6 text-gray-500">Filter By:</span>
           {/* select by price */}
-          <select className=" border border-green-400 rounded w-fit p-2 shadow-md">
-            <option disabled selected>
-              Select By Price
-            </option>
-            <option>High to low</option>
-            <option>Low to High</option>
-          </select>
+
+          <AllProductsFilterByPrice setData={setData} data={data} />
+
           {/* select by category */}
-          <select
-            className=" border border-green-400 rounded w-fit p-2 shadow-md"
-            type="text"
-            name="subCatgory"
-          >
-            {subCategory.map((sub_category, index) => (
-              <option
-                key={index}
-                value={sub_category}
-                defaultValue={sub_category[0]}
-              >
-                {sub_category}
-              </option>
-            ))}
-          </select>
+          
+          <AllProductsFilterBySCategory setData={setData} products={products} ProductCategory={ProductCategory} />
+
           {/* select by other */}
           <select className=" border border-green-400 rounded w-fit p-2 shadow-md">
-            <option disabled selected>
+            <option disabled value=''>
               Select by others
             </option>
             <option>Latest Added</option>
@@ -81,16 +59,20 @@ const AllProducts = ({ ProductCategory,products }) => {
       <section className="grid grid-cols-3 gap-6 my-10 mx-10">
         {/* product cards  */}
 
-        {
-          data.map(product => <AllProductsCard key={product._id} product={product} handleDeleteProduct={handleDeleteProduct}  />)
-        }
+        {data.map((product) => (
+          <AllProductsCard
+            key={product._id}
+            product={product}
+            handleDeleteProduct={handleDeleteProduct}
+          />
+        ))}
 
+        {/* This idea was from Ni Fahad which worked but not very useful for this part of the work */}
 
-        {/* This idea was from fahad bhai */}
         {/* {
           products.filter(item => (item?.title).toLowerCase() === searchData.toLowerCase()).map(product => <AllProductsCard key={product._id}  />)
         } */}
-        
+
       </section>
     </>
   );
