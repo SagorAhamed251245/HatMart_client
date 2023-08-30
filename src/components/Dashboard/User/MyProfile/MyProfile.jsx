@@ -7,6 +7,7 @@ import Link from "next/link";
 import useAuth from "@/hooks/useAuth";
 
 const MyProfile = () => {
+  const { user } = useAuth();
   return (
     <>
       <SectionTitle>My Profile</SectionTitle>
@@ -24,7 +25,7 @@ const MyProfile = () => {
           </div>
           <div className="space-y-2">
             <p className="text-lg font-semibold">Full Name:</p>
-            <p>Email Address:{user.email}</p>
+            <p>Email Address:{user.email || "plece provide Your eamil"}</p>
             <p>Mobile Number:{""}</p>
             <p>Birth Day:</p>
             <p>Gender:</p>
