@@ -1,10 +1,11 @@
-import { BiSolidDashboard } from "react-icons/bi";
+import { BiSolidDashboard, BiSolidUserCircle } from "react-icons/bi";
 import { IoBagAdd } from "react-icons/io5";
-import { FaUserCog } from "react-icons/fa";
+import { FaCartArrowDown, FaUserCog } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
+import { AiFillHeart, AiFillHome } from "react-icons/ai";
 
 const user = {
-  role: "admin",
+  role: "user",
 };
 
 const SideData = () => {
@@ -14,30 +15,51 @@ const SideData = () => {
     sideData = [
       {
         path: "/dashboard",
-        title: <BiSolidDashboard />,
+        title: "Dashboard",
+        icon: <BiSolidDashboard />,
       },
       {
         path: "/dashboard/addProduct",
-        title: <IoBagAdd />,
+        title: " Add Product",
+        icon: <IoBagAdd />,
       },
       {
         path: "/dashboard/userListing",
-        title: <FaUserCog />,
+        title: "User List",
+        icon: <FaUserCog />,
       },
       {
         path: "/dashboard/addCategory",
-        title: <MdCategory />,
+        title: "Add Category",
+        icon: <MdCategory />,
+      },
+      {
+        path: "/",
+        title: "Home",
+        icon: <AiFillHome />,
       },
     ];
   } else if (user.role === "user") {
     sideData = [
       {
+        path: "/dashboard/myProfile",
+        title: "My Profile",
+        icon: <BiSolidUserCircle />,
+      },
+      {
         path: "/dashboard/myOrder",
         title: "My Order",
+        icon: <FaCartArrowDown />,
       },
       {
         path: "/dashboard/myWishList",
         title: "My WishList",
+        icon: <AiFillHeart className="text-red-300" />,
+      },
+      {
+        path: "/",
+        title: "Home",
+        icon: <AiFillHome />,
       },
     ];
   }
