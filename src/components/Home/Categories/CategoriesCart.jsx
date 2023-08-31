@@ -16,7 +16,7 @@ const CategoriesCart = ({ item }) => {
   };
 
   return (
-    <div className="h-24 w-full  ">
+    <div className="h-24 w-full">
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
