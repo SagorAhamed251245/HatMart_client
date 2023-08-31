@@ -6,10 +6,28 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import addProduct from "@/utils/addProduct";
 
-const AddProductForm = ({ ProductCategory }) => {
+const AddProductForm = ({ ProductCategory, products, _id }) => {
   const [MainImage, setMainImage] = useState(null);
   const [Images, setImages] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
+
+  const editProduct = products.find((p) => p._id === _id);
+
+  console.log(editProduct);
+
+  const {
+    title,
+    details,
+    rating,
+    stock,
+    stock_quantity,
+    image,
+    images,
+    price,
+    discount_percent,
+    category,
+    sub_category,
+  } = editProduct;
 
   useEffect(() => {
     const subCategories = ProductCategory.flatMap((item) => item.sub_category);
@@ -140,6 +158,7 @@ const AddProductForm = ({ ProductCategory }) => {
                   className=" border rounded w-full p-2 shadow-md "
                   type="text"
                   id="title"
+                  defaultValue={title}
                   placeholder="Product Name"
                   name="title"
                   {...register("title", { required: true })} // You can handle the form data submission here
@@ -157,6 +176,7 @@ const AddProductForm = ({ ProductCategory }) => {
                 <textarea
                   className=" border rounded w-full p-2 h-36 shadow-md"
                   id="description"
+                  defaultValue={details?.description}
                   placeholder="write Product Description"
                   name="description"
                   {...register("description", { required: true })}
@@ -173,6 +193,7 @@ const AddProductForm = ({ ProductCategory }) => {
                 <textarea
                   className=" border rounded w-full p-2  shadow-md"
                   id="packagingDelivery"
+                  defaultValue={details?.packagingDelivery}
                   placeholder="Write About Product Packaging & Delivery"
                   name="packagingDelivery"
                   {...register("packagingDelivery", { required: true })}
@@ -189,6 +210,7 @@ const AddProductForm = ({ ProductCategory }) => {
                 <textarea
                   className=" border rounded w-full p-2  shadow-md"
                   id="warnings"
+                  defaultValue={details?.warnings}
                   placeholder="Write About Product  Warnings"
                   name="warnings"
                   {...register("warnings", { required: true })}
@@ -315,6 +337,7 @@ const AddProductForm = ({ ProductCategory }) => {
                   className=" border rounded w-full p-2 shadow-md"
                   type="number"
                   id="price"
+                  defaultValue={price}
                   placeholder="0"
                   name="price"
                   {...register("price", { required: true })}
@@ -332,6 +355,7 @@ const AddProductForm = ({ ProductCategory }) => {
                   className=" border rounded w-full p-2 shadow-md"
                   type="discount_percent"
                   id="discount_percent"
+                  defaultValue={discount_percent}
                   placeholder="0"
                   name="discount_percent"
                   {...register("discount_percent")}
@@ -368,6 +392,7 @@ const AddProductForm = ({ ProductCategory }) => {
                   type="number"
                   placeholder="0"
                   id="stock"
+                  defaultValue={stock_quantity}
                   name="stock"
                   {...register("stock", { required: true })}
                 />
