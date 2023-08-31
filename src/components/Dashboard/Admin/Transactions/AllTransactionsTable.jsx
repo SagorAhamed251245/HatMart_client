@@ -1,13 +1,11 @@
 "use client";
-import { Disclosure } from "@headlessui/react";
 
 import Image from "next/image";
 import React from "react";
-import { FaAngleUp } from "react-icons/fa6";
 import TransactionsSmallScreenView from "./TransactionsSmallScreenView";
 
 const AllTransactionsTable = () => {
-  const orders = [
+  const transactions = [
     {
       id: 1,
       transactionId: "ORD123",
@@ -94,7 +92,7 @@ const AllTransactionsTable = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {transactions.map((order) => (
               <tr key={order.id} className="border-b border-gray-300 w-full">
                 <td className=" px-4 py-4 text-center text-green-500">
                   {new Date(order.date || new Date()).toLocaleString("en-US", {
@@ -154,7 +152,7 @@ const AllTransactionsTable = () => {
       </div>
 
       {/* For small screen */}
-      <TransactionsSmallScreenView orders={orders} />
+      <TransactionsSmallScreenView transactions={transactions} />
     </div>
   );
 };

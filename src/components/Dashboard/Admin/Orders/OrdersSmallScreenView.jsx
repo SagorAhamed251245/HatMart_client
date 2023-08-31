@@ -1,13 +1,15 @@
 import { Disclosure } from "@headlessui/react";
 import Image from "next/image";
-import { FaAngleUp } from "react-icons/fa6";
+import { FaRegStar, FaStar } from "react-icons/fa";
+import { FaAngleUp, FaEllipsisVertical } from "react-icons/fa6";
+import Rating from "react-rating";
 
-const TransactionsSmallScreenView = ({ transactions }) => {
+const OrdersSmallScreenView = ({ orders }) => {
   return (
     <div className="lg:hidden overflow-x-auto">
-      {transactions.map((transition) => (
+      {orders.map((order) => (
         <div
-          key={transition.id}
+          key={order.id}
           className="mx-auto w-full mb-4 py-3 shadow-lg hover:shadow-2xl duration-300 "
           style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
         >
@@ -19,16 +21,16 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                     <div className="h-6 w-6 overflow-hidden object-contain rounded">
                       <Image
                         style={{ objectFit: "contain" }}
-                        src={transition.productImage}
+                        src={order.productImage}
                         alt="product image"
                         width={40}
                         height={40}
                       />
                     </div>
-                    <p>{transition.productName}</p>
+                    <p>{order.productName}</p>
                   </div>
                   <p>
-                    <span className="mr-1">{transition.transactionId}</span>
+                    <span className="mr-2">{order.orderNumber}</span>
                     <FaAngleUp
                       className={`${
                         open
@@ -43,32 +45,18 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                     <tbody className="w-full">
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          DATE & TIME
+                          # ORDER
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  text-green-500">
-                          {new Date(
-                            transition.date || new Date()
-                          ).toLocaleString("en-US", {
-                            day: "numeric",
-                            month: "numeric",
-                            year: "numeric",
-                          })}{" "}
-                          <br />
-                          at{" "}
-                          {new Date(
-                            transition.date || new Date()
-                          ).toLocaleString("en-US", {
-                            hour: "numeric",
-                            minute: "numeric",
-                          })}
+                          {order.orderNumber}
                         </td>
                       </tr>
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          TRANSACTION ID
+                          CATEGORY
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          {transition.transactionId}
+                          {order.category}
                         </td>
                       </tr>
                       <tr>
@@ -79,31 +67,31 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                           <div className="h-10 w-10 overflow-hidden object-contain rounded">
                             <Image
                               style={{ objectFit: "contain" }}
-                              src={transition.productImage}
+                              src={order.productImage}
                               alt="product image"
                               width={40}
                               height={40}
                             />
                           </div>
-                          <span>{transition.productName}</span>
+                          <span>{order.productName}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          STATUS
+                          ORDER STATUS
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  text-sm">
-                          {transition.status === "rejected" ? (
-                            <span className="py-1.5 px-4 rounded-full bg-[#515C6B] font-medium text-white">
-                              Rejected
+                          {order.status === "confirmed" ? (
+                            <span className="py-1.5 px-4 rounded-full bg-[#00BA9D] font-medium text-white">
+                              Confirmed
                             </span>
-                          ) : transition.status === "canceled" ? (
+                          ) : order.status === "canceled" ? (
                             <span className="py-1.5 px-4 rounded-full bg-[#FF5470] text-white font-medium">
                               Cancelled
                             </span>
-                          ) : transition.status === "approved" ? (
+                          ) : order.status === "completed" ? (
                             <span className="py-1.5 px-4 rounded-full bg-[#035ECF] text-white font-medium">
-                              Approved
+                              Completed
                             </span>
                           ) : (
                             <span>No data</span>
@@ -112,28 +100,40 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                       </tr>
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          FEE
+                          PAYMENT
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          ${transition.payment}
+                          ${order.payment}
                         </td>
                       </tr>
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          TAX
+                          Rating
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          ${transition.tax}
+                          <Rating
+                            fractions={true}
+                            placeholderRating={order.rate}
+                            emptySymbol={
+                              <FaRegStar className="text-yellow-400" />
+                            }
+                            placeholderSymbol={
+                              <FaStar className="text-yellow-400" />
+                            }
+                            fullSymbol={<FaStar className="text-yellow-400" />}
+                            readonly
+                          />
                         </td>
                       </tr>
                       <tr>
                         <td className=" font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          TOTAL
+                          Actions
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  font-semibold">
-                          $
-                          {parseFloat(transition.payment) +
-                            parseFloat(transition.tax)}
+                          <FaEllipsisVertical
+                            size={30}
+                            className="text-green-500 mx-auto cursor-pointer"
+                          />
                         </td>
                       </tr>
                     </tbody>
@@ -148,4 +148,4 @@ const TransactionsSmallScreenView = ({ transactions }) => {
   );
 };
 
-export default TransactionsSmallScreenView;
+export default OrdersSmallScreenView;
