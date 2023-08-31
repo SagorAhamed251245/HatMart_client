@@ -1,7 +1,5 @@
 const getProducts = async () => {
-  const res = await fetch(
-    "https://hatmart-server.vercel.app/api/v1/auth/product"
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APIS}/product`);
   return res.json();
 };
 

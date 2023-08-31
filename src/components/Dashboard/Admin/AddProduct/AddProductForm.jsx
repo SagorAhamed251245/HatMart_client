@@ -1,14 +1,20 @@
 "use client";
 import { useForm } from "react-hook-form";
-import PriceAndBrand from "./PriceAndBrand";
-import AddProductInfoFrom from "./AddProductInfoFrom";
-import DropSvg from "./DropSvg";
-import { useState } from "react";
-import Image from "next/image";
 
-const AddProductForm = ({ ProductCategory, subCategory }) => {
+import DropSvg from "./DropSvg";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import addProduct from "@/utils/addProduct";
+
+const AddProductForm = ({ ProductCategory }) => {
   const [MainImage, setMainImage] = useState(null);
   const [Images, setImages] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
+
+  useEffect(() => {
+    const subCategories = ProductCategory.flatMap((item) => item.sub_category);
+    setSubCategory(subCategories);
+  }, [ProductCategory]);
 
   const {
     register,
@@ -73,9 +79,44 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
   };
 
   const onSubmit = async (data, event) => {
-    const item = { ...data, images: Images };
-    // You can handle the form data submission here
-    console.log(item);
+    let {
+      title,
+      description,
+      packagingDelivery,
+      warnings,
+      price,
+      brand,
+      category,
+      discount_percent,
+      image,
+      stock,
+      sub_category,
+      unit,
+    } = data;
+    console.log(data);
+    const priceAsNumber = parseFloat(price);
+    const stockAsNumber = parseInt(stock);
+    const percentAsNumber = parseFloat(discount_percent);
+
+    const updatedItem = {
+      title,
+      details: {
+        packagingDelivery,
+        warnings,
+        description,
+      },
+      brand,
+      category,
+      sub_category,
+      unit,
+      image,
+      images: Images,
+      discount_percent: percentAsNumber,
+      price: priceAsNumber,
+      stock: stockAsNumber,
+    };
+
+    await addProduct(updatedItem);
   };
   return (
     <>
@@ -101,7 +142,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="title"
                   placeholder="Product Name"
                   name="title"
-                  {...register("title")} // You can handle the form data submission here
+                  {...register("title", { required: true })} // You can handle the form data submission here
                 />
                 {errors.title && <span>This field is required</span>}
               </div>
@@ -118,7 +159,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="description"
                   placeholder="write Product Description"
                   name="description"
-                  {...register("description")}
+                  {...register("description", { required: true })}
                 ></textarea>
               </div>
 
@@ -134,7 +175,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="packagingDelivery"
                   placeholder="Write About Product Packaging & Delivery"
                   name="packagingDelivery"
-                  {...register("packagingDelivery")}
+                  {...register("packagingDelivery", { required: true })}
                 ></textarea>
               </div>
 
@@ -150,7 +191,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="warnings"
                   placeholder="Write About Product  Warnings"
                   name="warnings"
-                  {...register("warnings")}
+                  {...register("warnings", { required: true })}
                 ></textarea>
               </div>
             </div>
@@ -167,7 +208,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   >
                     Main Image:
                   </label>
-                  <label className="shadow-md flex justify-center w-full h-32 md:h-96 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                  <label className="shadow-md flex justify-center w-full h-32 md:h-96  transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                     {!MainImage ? (
                       <span className="flex items-center space-x-2">
                         <DropSvg />
@@ -180,19 +221,22 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                       </span>
                     ) : (
                       <>
-                        <Image
-                          src={MainImage}
-                          layout="fit"
-                          objectFit="cover"
-                          width={300}
-                          height={300}
-                        ></Image>
+                        <div className="flex relative overflow-hidden">
+                          <Image
+                            src={MainImage}
+                            className="object-cover"
+                            width={600}
+                            height={600}
+                            alt="main image"
+                          ></Image>
+                        </div>
                       </>
                     )}
                     <input
                       type="file"
                       id="image"
                       name="image"
+                      required
                       onChange={uploadImage}
                       className="hidden "
                     />
@@ -205,15 +249,22 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                     Additional Image URLs:
                   </label>
 
-                  <label className=" shadow-md flex justify-center w-full h-32 md:h-96  px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                  <label className=" shadow-md flex justify-center w-full h-32 md:h-96   transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                     {Images.length > 0 ? (
                       <>
-                        
-                          <div className=" flex flex-wrap">
-                            {Images.map((item, index) => (
-                              <Image key={index} src={item} height={50} width={200}></Image>
-                            ))}
-                          
+                        <div className="grid grid-cols-2 overflow-hidden  row-span-2">
+                          {Images.map((item, index) => (
+                            <div className="relative col-span-1 h-auto w-full row-span-1">
+                              <Image
+                                key={index}
+                                src={item}
+                                height={100}
+                                width={300}
+                                className="object-cover"
+                                alt="sub image"
+                              ></Image>
+                            </div>
+                          ))}
                         </div>
                       </>
                     ) : (
@@ -235,6 +286,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                       id="images"
                       multiple
                       name="images"
+                      required
                       className="hidden "
                       onChange={uploadMultiImage}
                     />
@@ -265,7 +317,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="price"
                   placeholder="0"
                   name="price"
-                  {...register("price")}
+                  {...register("price", { required: true })}
                 />
               </div>
 
@@ -300,7 +352,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="unit"
                   placeholder="g; kg; quantity "
                   name="unit"
-                  {...register("unit")}
+                  {...register("unit", { required: true })}
                 />
               </div>
 
@@ -317,7 +369,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   placeholder="0"
                   id="stock"
                   name="stock"
-                  {...register("stock")}
+                  {...register("stock", { required: true })}
                 />
               </div>
             </div>
@@ -357,7 +409,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="category"
                   placeholder="Select Product Category"
                   name="category"
-                  {...register("category")}
+                  {...register("category", { required: true })}
                 >
                   {ProductCategory.map(({ category, _id }) => (
                     <option
@@ -384,7 +436,7 @@ const AddProductForm = ({ ProductCategory, subCategory }) => {
                   id="sub_category"
                   placeholder="Select Product Sub Category"
                   name="sub_category"
-                  {...register("sub_category")}
+                  {...register("sub_category", { required: true })}
                 >
                   {subCategory.map((sub_category, index) => (
                     <option

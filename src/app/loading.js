@@ -1,3 +1,4 @@
+
 import logo from "@/assets/icons/hatmartLogo.svg";
 import Image from "next/image";
 
@@ -13,6 +14,8 @@ const Loading = () => {
       </div>      
     </>
   );
+
+
 };
 
-export default Loading;
+export default loading;

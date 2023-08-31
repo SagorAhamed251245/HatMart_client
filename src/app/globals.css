@@ -5,10 +5,15 @@
   .bgPrimary {
     background-color: #34b701;
   }
-  bgNext {
+  .bgNext {
     background: #ff8b0f;
   }
-
+  .textPrimary {
+    color: #34b701;
+  }
+  .progressGreen::-webkit-progress-value {
+    background-color: #34b701; /* Change the progress bar color */
+  }
   .scrollbar::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -28,7 +33,6 @@
     background: rgb(34 197 94);
   }
 }
-
 
 /* two color */
 /* #34B701

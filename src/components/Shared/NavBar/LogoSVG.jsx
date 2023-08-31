@@ -8,8 +8,9 @@ const LogoSVG = () => {
       <Link href={"/"}>
         <Image
           src={logo}
-          layout="fill"
-          objectFit="cover"
+          className="object-cover w-full"
+          height={400}
+          width={600}
           alt="HatMart Logo"
         ></Image>
       </Link>
