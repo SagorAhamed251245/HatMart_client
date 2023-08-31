@@ -75,17 +75,19 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           PRODUCT
                         </td>
-                        <td className=" px-4 py-4 text-left border border-gray-300  flex gap-2 items-center justify-left">
-                          <div className="h-10 w-10 overflow-hidden object-contain rounded">
-                            <Image
-                              style={{ objectFit: "contain" }}
-                              src={transition.productImage}
-                              alt="product image"
-                              width={40}
-                              height={40}
-                            />
+                        <td className=" px-4 py-4 text-left border border-gray-300  ">
+                          <div className="flex gap-2 items-center justify-left">
+                            <div className="h-10 w-10 overflow-hidden object-contain rounded">
+                              <Image
+                                style={{ objectFit: "contain" }}
+                                src={transition.productImage}
+                                alt="product image"
+                                width={40}
+                                height={40}
+                              />
+                            </div>
+                            <span>{transition.productName}</span>
                           </div>
-                          <span>{transition.productName}</span>
                         </td>
                       </tr>
                       <tr>

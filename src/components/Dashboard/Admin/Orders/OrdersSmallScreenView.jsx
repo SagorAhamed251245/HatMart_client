@@ -40,7 +40,7 @@ const OrdersSmallScreenView = ({ orders }) => {
                     />
                   </p>
                 </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm w-full">
+                <Disclosure.Panel className="px-4 pt-4 pb-2 !text-sm w-full">
                   <table className="w-full">
                     <tbody className="w-full">
                       <tr>
@@ -63,17 +63,19 @@ const OrdersSmallScreenView = ({ orders }) => {
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           PRODUCT
                         </td>
-                        <td className=" px-4 py-4 text-left border border-gray-300  flex gap-2 items-center justify-left">
-                          <div className="h-10 w-10 overflow-hidden object-contain rounded">
-                            <Image
-                              style={{ objectFit: "contain" }}
-                              src={order.productImage}
-                              alt="product image"
-                              width={40}
-                              height={40}
-                            />
+                        <td className=" px-4 py-4 text-left border border-gray-300  ">
+                          <div className="flex gap-2 items-center justify-left">
+                            <div className="h-10 w-10 overflow-hidden object-contain rounded">
+                              <Image
+                                style={{ objectFit: "contain" }}
+                                src={order.productImage}
+                                alt="product image"
+                                width={40}
+                                height={40}
+                              />
+                            </div>
+                            <span>{order.productName}</span>
                           </div>
-                          <span>{order.productName}</span>
                         </td>
                       </tr>
                       <tr>
@@ -132,7 +134,7 @@ const OrdersSmallScreenView = ({ orders }) => {
                         <td className=" px-4 py-4 text-left border border-gray-300  font-semibold">
                           <FaEllipsisVertical
                             size={30}
-                            className="text-green-500 mx-auto cursor-pointer"
+                            className="text-green-500 cursor-pointer"
                           />
                         </td>
                       </tr>
