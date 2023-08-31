@@ -1,11 +1,14 @@
 import DescriptionAndReviews from "@/components/Home/Products/ProductDetailsPage/DescriptionAndReviews";
 import ProductDetails from "@/components/Home/Products/ProductDetailsPage/ProductDetails";
 import ProductImages from "@/components/Home/Products/ProductDetailsPage/ProductImages";
+import getReviews from "@/utils/getReviews";
 import getSingleProduct from "@/utils/getSingleProduct";
 
 const productDerailsPage = async ({ searchParams }) => {
   const productData = await getSingleProduct(searchParams.productId);
- 
+  const { productReviews: reviewsData = [] } = await getReviews(
+    searchParams.productId
+  );
 
   return (
     <>
@@ -13,12 +16,12 @@ const productDerailsPage = async ({ searchParams }) => {
         <div className="md:flex gap-10">
           <ProductImages productData={productData} />
 
-          <ProductDetails productData={productData} />
+          <ProductDetails productData={productData} reviewsData={reviewsData} />
         </div>
 
         <DescriptionAndReviews
-          id={productData?._id}
           productData={productData}
+          reviewsData={reviewsData}
         />
       </section>
     </>
