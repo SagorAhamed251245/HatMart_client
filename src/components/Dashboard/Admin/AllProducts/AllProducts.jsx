@@ -17,9 +17,9 @@ const AllProducts = ({ ProductCategory, products }) => {
 
   return (
     <>
-      <div className="flex justify-between items-end px-10">
+      <div className="flex items-center justify-between lg:flex-row flex-col lg:items-end px-10">
         {/* title here */}
-        <div>
+        <div className="mb-4 lg:mb-0">
           <h3 className="text-4xl font-semibold mb-2">All Products</h3>
           <p className="text-sm">
             In this page An admin can delete, Edit, search, and filter any data
@@ -33,7 +33,7 @@ const AllProducts = ({ ProductCategory, products }) => {
 
       {/* filter here */}
       <div>
-        <div className="flex justify-end gap-6 items-center my-6 px-10">
+        <div className="flex lg:flex-row flex-col justify-end gap-6 items-center my-6 px-10">
           <span className="font-bold my-6 text-gray-500">Filter By:</span>
           {/* select by price */}
 
@@ -53,7 +53,7 @@ const AllProducts = ({ ProductCategory, products }) => {
       </div>
 
       {/* data cards */}
-      <section className="grid grid-cols-3 gap-6 my-10 mx-10">
+      <section className="grid lg:grid-cols-3 grid-cols-1 gap-6 my-10 mx-10">
         {/* product cards  */}
 
         {data.map((product) => (
