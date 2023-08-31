@@ -10,6 +10,9 @@ const page = async ({ params }) => {
 
   return (
     <div>
+      <Link href={`/dashboard/allProducts/editProduct/${params.id}`}>
+        <button className="btn bg-orange-400 text-white ">Edit Product</button>
+      </Link>
       <section className=" mt-16 mb-20 md:w-[90%] mx-auto">
         <div className="md:flex gap-10">
           <ProductImages productData={productData} />
@@ -22,9 +25,6 @@ const page = async ({ params }) => {
           productData={productData}
         />
       </section>
-      <Link href={`/dashboard/allProducts/editProduct/${params.id}`}>
-        editpage
-      </Link>
     </div>
   );
 };

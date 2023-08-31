@@ -1,9 +1,11 @@
+import EditProducts from '@/components/Dashboard/Admin/AllProducts/EditProducts/EditProducts';
 import React from 'react';
 
-const editProductPage = () => {
+const editProductPage = ({params}) => {
+    const id = params.id;
     return (
         <div>
-            hello everyone i am here
+            <EditProducts _id={id}  />
         </div>
     );
 };
