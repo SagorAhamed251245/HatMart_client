@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaRegStar, FaRegWindowClose, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import Image from "next/image";
+import Link from "next/link";
 
 const AllProductsCard = ({ product, handleDeleteProduct }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -51,16 +52,22 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
               fullSymbol={<FaStar className="text-yellow-400" />}
               readonly
             />
-            <span className="text-gray-500 text-sm font-medium">({rating})</span>
+            <span className="text-gray-500 text-sm font-medium">
+              ({rating})
+            </span>
           </div>
         ) : (
           ""
         )}
 
         {/* product Details Button */}
-        <button className="bg-orange-400 px-4 py-1 rounded w-fit text-white hover:bg-orange-300 duration-300 mt-2">
-          View Details
-        </button>
+        <Link
+          href={`/dashboard/allProducts/${_id}`}
+        >
+          <button className="bg-orange-400 px-4 py-1 rounded w-fit text-white hover:bg-orange-300 duration-300 mt-2">
+            View Details
+          </button>
+        </Link>
         {/* product Delete Button */}
         <button
           onClick={() => handleDeleteProduct(_id)}
