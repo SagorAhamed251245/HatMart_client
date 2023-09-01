@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
@@ -10,7 +11,9 @@ const AboutSection = () => {
         <div className="text-gray-800 flex flex-col lg:items-start items-center">
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
-            <span className="text-sm">About us</span>
+            <span className="text-sm">
+              <Link href={"/aboutUs"}>About us</Link>
+            </span>
           </div>
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
@@ -18,7 +21,9 @@ const AboutSection = () => {
           </div>
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
-            <span className="text-sm">Terms & condtions</span>
+            <span className="text-sm">
+              <Link href={"/terms"}>Terms & condtions</Link>
+            </span>
           </div>
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
