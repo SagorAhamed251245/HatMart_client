@@ -1,3 +1,4 @@
+
 import LogoSection from "./LogoSection";
 import AboutSection from "./AboutSection";
 import ContactInfo from "./ContactInfo";
@@ -14,6 +15,7 @@ const Footer = () => {
       <div className="bg-white py-3 text-black border text-sm text-center">
         <p>@copyright all rights preserved by hatmart</p>
       </div>
+
     </footer>
   );
 };
