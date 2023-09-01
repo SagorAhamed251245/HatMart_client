@@ -25,7 +25,7 @@ const MyProfile = () => {
           </div>
           <div className="space-y-2">
             <p className="text-lg font-semibold">Full Name:</p>
-            <p>Email Address:{user.email || "plece provide Your eamil"}</p>
+            <p>Email Address:{user?.email || "plece provide Your eamil"}</p>
             <p>Mobile Number:{""}</p>
             <p>Birth Day:</p>
             <p>Gender:</p>
