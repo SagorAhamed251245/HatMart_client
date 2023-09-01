@@ -1,7 +1,7 @@
 import logo from "@/assets/icons/hatmartLogo.svg";
 import Image from "next/image";
 
-const Loading = () => {
+const LoadingComponent = () => {
   return (
     <>
       <div className=" flex items-center h-screen justify-center animate-bounce">
@@ -12,4 +12,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default LoadingComponent;

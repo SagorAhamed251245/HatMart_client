@@ -5,7 +5,7 @@ import { MdCategory } from "react-icons/md";
 import { AiFillHeart, AiFillHome } from "react-icons/ai";
 
 const user = {
-  role: "user",
+  role: "admin",
 };
 
 const SideData = () => {
