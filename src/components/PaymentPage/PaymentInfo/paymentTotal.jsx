@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 const PaymentTotal = () => {
   return (
     <section className="shadow-xl border py-5 px-2">

@@ -1,4 +1,4 @@
-export const teamMember = [
+const teamMember = [
   {
     name: "Sagor Ahmed",
     id: 1,
@@ -34,4 +34,12 @@ export const teamMember = [
       "https://i.ibb.co/BnSSfJM/275782945-4801929829885602-3703333568475087947-n.jpg",
     gmail: "aasgfamily@gmail.com",
   },
+  // {
+  //   name: "Md Alhaj Sarker",
+  //   id: 6,
+  //   image:
+  //     "https://i.ibb.co/BnSSfJM/275782945-4801929829885602-3703333568475087947-n.jpg",
+  //   gmail: "alhazsarkar5523@gmail.com",
+  // },
 ];
+export default teamMember;
