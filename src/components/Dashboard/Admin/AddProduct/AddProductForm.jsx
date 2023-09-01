@@ -11,7 +11,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
   const [Images, setImages] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
 
-  const editProduct = products.find((p) => p._id === _id);
+  /*  const editProduct = products?.find((p) => p?._id === _id);
 
   console.log(editProduct);
 
@@ -27,7 +27,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
     discount_percent,
     category,
     sub_category,
-  } = editProduct;
+  } = editProduct; */
 
   useEffect(() => {
     const subCategories = ProductCategory.flatMap((item) => item.sub_category);

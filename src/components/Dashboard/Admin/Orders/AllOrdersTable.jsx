@@ -101,11 +101,11 @@ const AllOrdersTable = () => {
                 <td className=" px-4 py-4 text-center flex gap-2 items-center justify-center">
                   <div className="h-10 w-10 overflow-hidden object-contain rounded">
                     <Image
-                      style={{ objectFit: "contain" }}
+                      className="w-full object-contain"
                       src={order.productImage}
                       alt="product image"
-                      width={40}
-                      height={40}
+                      width={64}
+                      height={64}
                     />
                   </div>
                   <span>{order.productName}</span>
