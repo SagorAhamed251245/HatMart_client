@@ -13,9 +13,11 @@ const SearchProducts = ({ searchParams, pageName }) => {
   const [searchedProducts, setFilteredProducts] = useState([]);
   const [searchProduct, setFilterProduct] = useState([]);
 
-
+  console.log(searchParams);
   useEffect(() => {
-    fetch(`https://hatmart-server.vercel.app/api/v1/auth/product/${searchParams.search}`)
+    fetch(
+      `${process.env.NEXT_PUBLIC_APIS}/productSearch/${searchParams.search}`
+    )
       .then((res) => res.json())
       .then((data) => setFilterProduct(data));
   }, [searchParams.search]);

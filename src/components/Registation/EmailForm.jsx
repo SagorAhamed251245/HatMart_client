@@ -20,6 +20,7 @@ const EmailForm = () => {
   const { replace, refresh } = useRouter();
 
   const uploadImage = async (event) => {
+    console.log("hit");
     const formData = new FormData();
     if (!event.target.files[0]) return;
     formData.append("image", event.target.files[0]);

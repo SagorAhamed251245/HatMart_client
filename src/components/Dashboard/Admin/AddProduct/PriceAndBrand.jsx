@@ -10,17 +10,17 @@ const PriceAndBrand = ({ ProductCategory, subCategory }) => {
     <>
       {/* pricing */}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-        <h3 className="text-[#34B701] mb-1 mt-3 font-bold">Pricing & Stock</h3>
+        <h3 className="text-black mb-1 mt-3 font-semibold">Pricing & Stock</h3>
         <hr className="border-t border-[#FF7B13]" />
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold"
+            className="block text-black mb-1 mt-3 font-semibold"
             htmlFor="price"
           >
             Price:
           </label>
           <input
-            className="border-black border rounded w-full p-2 shadow-md"
+            className=" border rounded w-full p-2 shadow-md"
             type="number"
             id="price"
             placeholder="0"
@@ -31,13 +31,13 @@ const PriceAndBrand = ({ ProductCategory, subCategory }) => {
 
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold"
+            className="block text-black mb-1 mt-3 font-semibold"
             htmlFor="discount_percent"
           >
             Discount Percent:
           </label>
           <input
-            className="border-black border rounded w-full p-2 shadow-md"
+            className=" border rounded w-full p-2 shadow-md"
             type="discount_percent"
             id="discount_percent"
             placeholder="0"
@@ -49,13 +49,13 @@ const PriceAndBrand = ({ ProductCategory, subCategory }) => {
         {/* Stock information */}
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold"
+            className="block text-black mb-1 mt-3 font-semibold"
             htmlFor="unit"
           >
             Unit:
           </label>
           <input
-            className="border-black border rounded w-full p-2 shadow-md"
+            className=" border rounded w-full p-2 shadow-md"
             type="unit"
             id="unit"
             placeholder="g; kg; quantity "
@@ -66,13 +66,13 @@ const PriceAndBrand = ({ ProductCategory, subCategory }) => {
 
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold"
+            className="block text-black mb-1 mt-3 font-semibold"
             htmlFor="stock"
           >
             Stock:
           </label>
           <input
-            className="border-black border rounded w-full p-2 shadow-md"
+            className=" border rounded w-full p-2 shadow-md"
             type="number"
             placeholder="0"
             id="stock"
@@ -84,18 +84,18 @@ const PriceAndBrand = ({ ProductCategory, subCategory }) => {
 
       {/* Organization*/}
       <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-        <h3 className="text-[#34B701] mb-1 mt-3 font-bold"> Organization</h3>
+        <h3 className="text-black mb-1 mt-3 font-semibold"> Organization</h3>
         <hr className="border-t border-[#FF7B13]" />
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold"
+            className="block text-black mb-1 mt-3 font-semibold"
             htmlFor="brand"
           >
             brand:
           </label>
           <input
             placeholder="Product brand name"
-            className="border-black border rounded w-full p-2 shadow-md"
+            className=" border rounded w-full p-2 shadow-md"
             type="text"
             id="brand"
             {...register("brand")}
@@ -104,13 +104,13 @@ const PriceAndBrand = ({ ProductCategory, subCategory }) => {
         </div>
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold"
+            className="block text-black mb-1 mt-3 font-semibold"
             htmlFor="category"
           >
             Category:
           </label>
           <select
-            className="border-black border rounded w-full p-2 shadow-md"
+            className=" border rounded w-full p-2 shadow-md"
             id="category"
             placeholder="Select Product Category"
             {...register("category", { required: true })}
@@ -126,13 +126,13 @@ const PriceAndBrand = ({ ProductCategory, subCategory }) => {
 
         <div>
           <label
-            className="block text-[#34B701] mb-1 mt-3 font-bold"
+            className="block text-black mb-1 mt-3 font-semibold"
             htmlFor="sub_category"
           >
             Sub Category:
           </label>
           <select
-            className="border-black border rounded w-full p-2 shadow-md"
+            className=" border rounded w-full p-2 shadow-md"
             type="text"
             id="sub_category"
             placeholder="Select Product Sub Category"

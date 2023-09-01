@@ -4,6 +4,7 @@ import Rating from "react-rating";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
+import AddToCartBtn from "./AddToCartBtn";
 
 const ProductCard = ({ product, handleAddToCart }) => {
   const {
@@ -22,7 +23,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
   } = product;
 
   return (
-    <div className="border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
+    <div className=" border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
       <Link
         href={{
           pathname: `/productDetails`,
@@ -33,12 +34,13 @@ const ProductCard = ({ product, handleAddToCart }) => {
       >
         {/* details route */}
 
-        <div className="relative  h-24 w-full flex items-center justify-center ">
+        <div className="  h-36 w-full overflow-hidden ">
           <Image
-            layout="fill"
-            style={{ objectFit: "contain" }}
             src={image}
-            loading="lazy"
+            height={300}
+            width={500}
+            className="w-full h-full object-cover"
+            priority
             alt="product image"
           />
           <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
@@ -91,21 +93,14 @@ const ProductCard = ({ product, handleAddToCart }) => {
             )}
           </p>
           <div className="flex items-center justify-between !mt-5">
-            <Link href={""}>
-              <button
-                onClick={() => handleAddToCart(_id)}
-                className="flex justify-center items-center gap-2 text-[#34B701] font-medium bg-green-100 text-sm md:text-base px-[10px] md:px-4 py-1 rounded hover:bg-green-200"
-              >
-                <AiOutlineShoppingCart size={20} /> Add{" "}
-              </button>
-            </Link>
-            <Link href={"/payment"}>
-              <button
-                disabled={stock_quantity == 0}
-                className="bg-[#ff6347cc]  text-white md:text-base text-sm px-[10px] md:px-4 font-medium py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
-              >
-                Buy Now
-              </button>
+            <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
+
+            <Link
+              href={"/payment"}
+              disabled={stock_quantity == 0}
+              className="bg-[#ff6347cc]  text-white md:text-base text-sm px-[10px] md:px-4 font-medium py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
+            >
+              Buy Now
             </Link>
           </div>
         </div>

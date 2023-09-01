@@ -1,6 +1,7 @@
 import MiddleAdd from "@/components/Home/Advertisement/MiddleAdd";
 import Categories from "@/components/Home/Categories/Categories";
-import Hero from "@/components/Home/Hero/Hero";
+
+import HeroSection from "@/components/Home/Hero/HeroSection";
 import Products from "@/components/Home/Products/Products";
 import NavBar from "@/components/Shared/NavBar/NavBar";
 import React from "react";
@@ -8,7 +9,7 @@ import React from "react";
 const Homepage = () => {
   return (
     <>
-      <Hero></Hero>
+      <HeroSection />
       <Products sectionTitle="Popular Products"></Products>
       <Products sectionTitle="Trending Products"></Products>
       <MiddleAdd></MiddleAdd>
