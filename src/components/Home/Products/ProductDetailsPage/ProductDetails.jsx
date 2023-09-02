@@ -24,7 +24,7 @@ const ProductDetails = ({ productData, reviewsData }) => {
           <span>{productData?.rating}</span>
           <span className="text-[#32B900] ">
             {" "}
-            ({reviewsData.length > 0 && reviewsData.length} customer review)
+            ({reviewsData?.length > 0 && reviewsData?.length} customer review)
           </span>
         </div>
       </div>
@@ -79,6 +79,7 @@ const ProductDetails = ({ productData, reviewsData }) => {
         <button className="flex justify-center items-center gap-2 text-[#34B701] font-medium  bg-green-100 px-6 py-1.5 rounded hover:bg-green-200">
           <AiOutlineShoppingCart size={24} /> Add{" "}
         </button>
+        {/* TODO: // you shouldn't declare a button inside <a> tag it causes hydration problem */}
         <Link href={"/payment"}>
           <button
             disabled={productData?.stock === "Out of stock"}

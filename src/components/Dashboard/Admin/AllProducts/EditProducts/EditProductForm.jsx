@@ -1,15 +1,18 @@
 "use client";
 import { useForm } from "react-hook-form";
 
-import DropSvg from "./DropSvg";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import addProduct from "@/utils/addProduct";
+import DropSvg from "../../AddProduct/DropSvg";
 
-const AddProductForm = ({ ProductCategory, products, _id }) => {
+const EditProductForm = ({ ProductCategory, products, _id }) => {
   const [MainImage, setMainImage] = useState(null);
   const [Images, setImages] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
+
+  // edit product from asik
+  const editProduct = products?.find((p) => p?._id === _id);
 
   useEffect(() => {
     const subCategories = ProductCategory.flatMap((item) => item.sub_category);
@@ -141,6 +144,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   type="text"
                   id="title"
                   placeholder="Product Name"
+                  defaultValue={editProduct?.title}
                   name="title"
                   {...register("title", { required: true })} // You can handle the form data submission here
                 />
@@ -159,6 +163,8 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   id="description"
                   placeholder="write Product Description"
                   name="description"
+                  defaultValue={editProduct?.details?.description}
+                  
                   {...register("description", { required: true })}
                 ></textarea>
               </div>
@@ -174,6 +180,8 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   className=" border rounded w-full p-2  shadow-md"
                   id="packagingDelivery"
                   placeholder="Write About Product Packaging & Delivery"
+                  defaultValue={editProduct?.details?.packagingDelivery}
+
                   name="packagingDelivery"
                   {...register("packagingDelivery", { required: true })}
                 ></textarea>
@@ -189,6 +197,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                 <textarea
                   className=" border rounded w-full p-2  shadow-md"
                   id="warnings"
+                  defaultValue={editProduct?.details?.warnings}
                   placeholder="Write About Product  Warnings"
                   name="warnings"
                   {...register("warnings", { required: true })}
@@ -315,6 +324,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   className=" border rounded w-full p-2 shadow-md"
                   type="number"
                   id="price"
+                  defaultValue={editProduct?.price}
                   placeholder="0"
                   name="price"
                   {...register("price", { required: true })}
@@ -332,6 +342,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   className=" border rounded w-full p-2 shadow-md"
                   type="discount_percent"
                   id="discount_percent"
+                  defaultValue={editProduct?.discount_percent}
                   placeholder="0"
                   name="discount_percent"
                   {...register("discount_percent")}
@@ -350,6 +361,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   className=" border rounded w-full p-2 shadow-md"
                   type="unit"
                   id="unit"
+                  // defaultValue={}
                   placeholder="g; kg; quantity "
                   name="unit"
                   {...register("unit", { required: true })}
@@ -368,6 +380,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   type="number"
                   placeholder="0"
                   id="stock"
+                  defaultValue={editProduct?.stock_quantity}
                   name="stock"
                   {...register("stock", { required: true })}
                 />
@@ -415,7 +428,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                     <option
                       key={_id}
                       value={category}
-                      defaultValue={category[0]}
+                      defaultValue={editProduct? editProduct?.category[0] : category[0]}
                     >
                       {category}
                     </option>
@@ -442,7 +455,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                     <option
                       key={index}
                       value={sub_category}
-                      defaultValue={sub_category[0]}
+                      defaultValue={editProduct? editProduct?.sub_category[0] : sub_category[0]}
                     >
                       {sub_category}
                     </option>
@@ -468,4 +481,4 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
     </>
   );
 };
-export default AddProductForm;
+export default EditProductForm;
