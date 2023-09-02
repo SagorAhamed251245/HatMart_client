@@ -16,8 +16,8 @@ const AllProducts = ({ ProductCategory, products }) => {
   };
 
   return (
-    <>
-      <div className="flex items-center justify-between lg:flex-row flex-col lg:items-end px-10">
+    <div>
+      <section className="flex items-center justify-between lg:flex-row flex-col lg:items-end px-10">
         {/* title here */}
         <div className="mb-4 lg:mb-0">
           <h3 className="text-4xl font-semibold mb-2">All Products</h3>
@@ -29,10 +29,10 @@ const AllProducts = ({ ProductCategory, products }) => {
         {/* title ends here */}
         {/* Search function here */}
         <ProductSearch products={products} setData={setData} />
-      </div>
+      </section>
 
       {/* filter here */}
-      <div>
+      <section>
         <div className="flex lg:flex-row flex-col justify-end gap-6 items-center my-6 px-10">
           <span className="font-bold my-6 text-gray-500">Filter By:</span>
           {/* select by price */}
@@ -50,7 +50,7 @@ const AllProducts = ({ ProductCategory, products }) => {
           {/* select by other */}
           <AllProductsFilterByOther setData={setData} products={products} />
         </div>
-      </div>
+      </section>
 
       {/* data cards */}
       <section className="grid lg:grid-cols-3 grid-cols-1 gap-6 my-10 mx-10">
@@ -63,14 +63,8 @@ const AllProducts = ({ ProductCategory, products }) => {
             handleDeleteProduct={handleDeleteProduct}
           />
         ))}
-
-        {/* This idea was from Ni Fahad which worked but not very useful for this part of the work */}
-
-        {/* {
-          products.filter(item => (item?.title).toLowerCase() === searchData.toLowerCase()).map(product => <AllProductsCard key={product._id}  />)
-        } */}
       </section>
-    </>
+    </div>
   );
 };
 
