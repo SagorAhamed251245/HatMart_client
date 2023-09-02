@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
 const ProductDetails = ({ productData, reviewsData }) => {
+  const [editProduct,setEditProduct] = useState(false)
   return (
     <div className=" w-[95%] mx-auto h-full">
       <h3 className="text-gray-700 text-4xl font-medium">
