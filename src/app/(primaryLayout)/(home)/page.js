@@ -1,4 +1,5 @@
 import MiddleAdd from "@/components/Home/Advertisement/MiddleAdd";
+import CartCategories from "@/components/Home/Categories/CartCategories";
 import Categories from "@/components/Home/Categories/Categories";
 
 import HeroSection from "@/components/Home/Hero/HeroSection";
@@ -14,6 +15,7 @@ const Homepage = () => {
       <Products sectionTitle="Trending Products"></Products>
       <MiddleAdd></MiddleAdd>
       <Products sectionTitle="Best Selling Products"></Products>
+      <CartCategories/>
     </>
   );
 };
