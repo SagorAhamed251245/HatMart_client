@@ -6,21 +6,16 @@ import SectionTitle from "../Home/Products/SectionTitle";
 import noProductImage from "@/assets/images/no-products.jpg";
 import Image from "next/image";
 
-const SearchProducts = ({ searchParams, pageName }) => {
+const SearchProducts = ({ searchParams, pageName, product }) => {
   const [viewAsList, setViewAsList] = useState(false);
 
   const [sortOrder, setSortOrder] = useState("bestMatch");
   const [searchedProducts, setFilteredProducts] = useState([]);
   const [searchProduct, setFilterProduct] = useState([]);
 
-  console.log(searchParams);
   useEffect(() => {
-    fetch(
-      `${process.env.NEXT_PUBLIC_APIS}/productSearch/${searchParams.search}`
-    )
-      .then((res) => res.json())
-      .then((data) => setFilterProduct(data));
-  }, [searchParams.search]);
+    setFilterProduct(product);
+  }, [product]);
 
   useEffect(() => {
     let sortedProducts = [...searchProduct];

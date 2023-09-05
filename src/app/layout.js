@@ -22,14 +22,12 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en" data-theme="light">
-      <head>
+      {/* <head>
         <link rel="icon" href={logo} type="svg" sizes="any" />
-      </head>
+        <link rel="stylesheet" href="/styles.css" defer />
+      </head> */}
       <Providers>
-        <body
-          suppressHydrationWarning={true}
-          className={`${poppins.className} scrollbar select-none`}
-        >
+        <body className={`${poppins.className} scrollbar `}>
           {children}
           <Toaster />
         </body>

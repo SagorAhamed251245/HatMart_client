@@ -34,7 +34,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
       >
         {/* details route */}
 
-        <div className="  h-36 w-full overflow-hidden ">
+        <div className="  h-36 w-full overflow-hidden  relative">
           <Image
             src={image}
             height={300}
