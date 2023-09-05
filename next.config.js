@@ -3,7 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      
       {
         protocol: "https",
         hostname: "i.ibb.co",
@@ -11,6 +10,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
       },
     ],
   },
