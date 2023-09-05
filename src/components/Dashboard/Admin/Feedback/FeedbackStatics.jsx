@@ -5,8 +5,8 @@ import { FaUserClock } from "react-icons/fa6";
 
 const FeedbackStatics = () => {
   return (
-    <div className="mt-8 flex justify-between gap-5">
-      <div className="md:w-[35%] hover:shadow-xl shadow-md p-5 border rounded duration-300">
+    <div className="mt-8 lg:flex justify-between gap-5">
+      <div className="lg:w-[35%] hover:shadow-xl shadow-md p-5 border rounded duration-300">
         <h3 className="text-xl font-bold">Reviews Rate (%)</h3>
         <div>
           <label
@@ -37,7 +37,7 @@ const FeedbackStatics = () => {
           ></progress>
         </div>
       </div>
-      <div className="flex gap-5 justify-between md:w-[65%]">
+      <div className="flex mt-5 lg:mt-0 gap-5 justify-between lg:w-[65%]">
         {/* New */}
         <div className="flex flex-col     justify-center items-center                                                                               hover:shadow-xl shadow-md p-5 border rounded duration-300 w-full">
           <p className=" bg-[#035ECF] p-2.5 rounded w-fit h-fit">

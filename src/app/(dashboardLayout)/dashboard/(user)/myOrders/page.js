@@ -1,10 +1,11 @@
+import MyOrderPage from "@/components/Dashboard/User/MyOrder/MyOrderPage";
 
 const myOrderPage = () => {
-    return (
-        <div>
-            myOrderPage
-        </div>
-    );
+  return (
+    <>
+      <MyOrderPage />
+    </>
+  );
 };
 
 export default myOrderPage;
