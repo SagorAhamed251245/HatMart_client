@@ -39,7 +39,7 @@ const ChildProduct = ({ products }) => {
   return (
     <Swiper
       slidesPerView={1}
-      spaceBetween={10}
+      spaceBetween={100}
       freeMode={true}
       breakpoints={{
         320: {
