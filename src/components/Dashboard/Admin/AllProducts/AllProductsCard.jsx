@@ -10,7 +10,7 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
   const { category, sub_category, rating, price, image, title, _id } = product;
 
   return (
-    <div
+    <section
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="bg-white relative border rounded-lg shadow-md w-fit h-full p-3"
@@ -62,11 +62,10 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
 
         {/* product Details Button */}
         <Link
+          className="bg-orange-400 px-4 py-1 rounded w-fit text-white hover:bg-orange-300 duration-300 mt-2"
           href={`/dashboard/allProducts/${_id}`}
         >
-          <button className="bg-orange-400 px-4 py-1 rounded w-fit text-white hover:bg-orange-300 duration-300 mt-2">
-            View Details
-          </button>
+          View Details
         </Link>
         {/* product Delete Button */}
         <button
@@ -78,7 +77,7 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
           <FaRegWindowClose />
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 
