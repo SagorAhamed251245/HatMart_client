@@ -33,7 +33,7 @@ const MyWishListSmallScreenView = ({ orders }) => {
                     <FaAngleUp
                       className={`${
                         open
-                          ? "rotate-180 transform duration-500"
+                          ? "rotate-180 transform duration-500 "
                           : "rotate-360 transform duration-500"
                       } h-5 w-5 text-green-500 font-bold inline`}
                     />
