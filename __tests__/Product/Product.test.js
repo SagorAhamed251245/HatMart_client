@@ -3,6 +3,8 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import AddToCartBtn from "@/components/Home/Products/AddToCartBtn";
 import BuyNow from "@/components/Home/Products/BuyNow";
 
+import getProducts from "@/utils/getProducts";
+
 describe("AddToCartBtn", () => {
   it("should call the handleAddToCart function when clicked", () => {
     const handleAddToCart = jest.fn();
@@ -46,3 +48,4 @@ describe("BuyNow", () => {
     expect(buyNowLink).toHaveTextContent("Buy Now");
   });
 });
+// ------------------------------------------
