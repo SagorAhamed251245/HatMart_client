@@ -1,9 +1,9 @@
 import React from "react";
-import AboutBanner from "./AboutBanner";
-import OurStory from "./OurStory";
-import OurPromise from "./OurPromise";
-import Ourvalue from "./Ourvalue";
-import AllMember from "./AllMember";
+import AboutBanner from "@/components/AboutUs/AboutBanner";
+import OurStory from "@/components/AboutUs/Story/OurStory";
+import OurPromise from "@/components/AboutUs/Promise/OurPromise";
+import Ourvalue from "@/components/AboutUs/Values/Ourvalue";
+import AllMember from "@/components/AboutUs/AllMember/AllMember";
 
 const page = () => {
   return (

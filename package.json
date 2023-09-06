@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server --watch src/db.json --port 500"
+    "server": "json-server --watch src/db.json --port 500",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
@@ -20,10 +22,10 @@
     "eslint-config-next": "^13.4.4",
     "firebase": "^10.2.0",
     "json-server": "^0.17.3",
-    "next": "^13.4.13",
+    "next": "^13.4.19",
     "postcss": "8.4.27",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
@@ -36,6 +38,11 @@
     "tailwindcss": "3.3.3"
   },
   "devDependencies": {
-    "daisyui": "^3.5.1"
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "daisyui": "^3.5.1",
+    "jest": "^29.6.4",
+    "jest-environment-jsdom": "^29.6.4"
   }
 }
