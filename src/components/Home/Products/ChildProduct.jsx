@@ -8,8 +8,23 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay } from "swiper/modules";
 import ProductCard from "./ProductCard";
+import { useEffect, useState } from "react";
 
-const ChildProduct = ({ products }) => {
+const ChildProduct = ({ products, sectionTitle }) => {
+  const [allProduct, setProduct] = useState([]);
+
+  useEffect(() => {
+    if (sectionTitle === "Popular Products") {
+      const filteredProducts = products.filter((p) => p?.viewCount > 5);
+      setProduct(filteredProducts);
+    } else if (sectionTitle === "Trending Products") {
+      const filteredProducts = products.filter((p) => p?.rating > 2);
+      setProduct(filteredProducts);
+    } else {
+      return;
+    }
+  }, [products, sectionTitle]);
+
   const handleAddToCart = (id) => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -36,6 +51,7 @@ const ChildProduct = ({ products }) => {
     }
     alert("Product has been added");
   };
+
   return (
     <Swiper
       slidesPerView={1}
@@ -75,7 +91,7 @@ const ChildProduct = ({ products }) => {
       className="mySwiper"
     >
       <div className="">
-        {products.map((product) => (
+        {allProduct.map((product) => (
           <SwiperSlide key={product._id}>
             {/* product card */}
             <ProductCard handleAddToCart={handleAddToCart} product={product} />
