@@ -5,6 +5,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
 import AddToCartBtn from "./AddToCartBtn";
+import BuyNow from "./BuyNow";
 
 const ProductCard = ({ product, handleAddToCart }) => {
   const {
@@ -102,13 +103,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
             <div className="flex items-center justify-between !mt-5">
               <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
 
-              <Link
-                href={"/payment"}
-                disabled={stock_quantity == 0}
-                className="bg-[#ff6347cc]  text-white md:text-base text-sm px-[10px] md:px-4 font-medium py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
-              >
-                Buy Now
-              </Link>
+              <BuyNow stock_quantity={stock_quantity} />
             </div>
           </div>
         </div>
