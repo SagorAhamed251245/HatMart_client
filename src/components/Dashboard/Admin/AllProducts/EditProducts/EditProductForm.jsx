@@ -164,7 +164,6 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                   placeholder="write Product Description"
                   name="description"
                   defaultValue={editProduct?.details?.description}
-                  
                   {...register("description", { required: true })}
                 ></textarea>
               </div>
@@ -181,7 +180,6 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                   id="packagingDelivery"
                   placeholder="Write About Product Packaging & Delivery"
                   defaultValue={editProduct?.details?.packagingDelivery}
-
                   name="packagingDelivery"
                   {...register("packagingDelivery", { required: true })}
                 ></textarea>
@@ -263,9 +261,11 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                       <>
                         <div className="grid grid-cols-2 overflow-hidden  row-span-2">
                           {Images.map((item, index) => (
-                            <div className="relative col-span-1 h-auto w-full row-span-1">
+                            <div
+                              key={index}
+                              className="relative col-span-1 h-auto w-full row-span-1"
+                            >
                               <Image
-                                key={index}
                                 src={item}
                                 height={100}
                                 width={300}
@@ -428,7 +428,9 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                     <option
                       key={_id}
                       value={category}
-                      defaultValue={editProduct? editProduct?.category[0] : category[0]}
+                      defaultValue={
+                        editProduct ? editProduct?.category[0] : category[0]
+                      }
                     >
                       {category}
                     </option>
@@ -455,7 +457,11 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                     <option
                       key={index}
                       value={sub_category}
-                      defaultValue={editProduct? editProduct?.sub_category[0] : sub_category[0]}
+                      defaultValue={
+                        editProduct
+                          ? editProduct?.sub_category[0]
+                          : sub_category[0]
+                      }
                     >
                       {sub_category}
                     </option>

@@ -254,9 +254,11 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                       <>
                         <div className="grid grid-cols-2 overflow-hidden  row-span-2">
                           {Images.map((item, index) => (
-                            <div className="relative col-span-1 h-auto w-full row-span-1">
+                            <div
+                              key={index}
+                              className="relative col-span-1 h-auto w-full row-span-1"
+                            >
                               <Image
-                                key={index}
                                 src={item}
                                 height={100}
                                 width={300}
