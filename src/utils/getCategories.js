@@ -1,6 +1,6 @@
 const getCategories = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_APIS}/category`, {
-    cache: "force-cache",
+    cache: "no-cache",
   });
   return res.json();
 };

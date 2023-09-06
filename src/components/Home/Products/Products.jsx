@@ -5,7 +5,6 @@ import ChildProduct from "./ChildProduct";
 
 const Products = async ({ sectionTitle }) => {
   const products = await getProducts();
-  console.log(products);
 
   return (
     <div className="mb-20 md:w-[90%] mx-auto ">
