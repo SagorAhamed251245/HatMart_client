@@ -24,7 +24,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
   } = product;
 
   return (
-    <div className=" border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
+    <div className="relative border border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-96">
       <Link
         href={{
           pathname: `/productDetails`,
@@ -44,9 +44,11 @@ const ProductCard = ({ product, handleAddToCart }) => {
             priority
             alt="product image"
           />
-          <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
-            {discount_percent}%
-          </p>
+          {discount_percent && discount_percent > 0 && (
+            <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
+              {discount_percent}%
+            </p>
+          )}
         </div>
 
         <div className="space-y-1 mt-3">
@@ -60,21 +62,25 @@ const ProductCard = ({ product, handleAddToCart }) => {
               <span className="text-red-600">Out Of Stock</span>
             )}
           </p>
-          <h5 className="md:text-lg  text-base text-gray-700 dark:text-white font-semibold">
+          <h5 className="md:text-lg capitalize  text-base text-gray-700 dark:text-white font-semibold">
             {title}
           </h5>
-          <div className="flex items-center gap-2 md:text-base text-sm">
-            <Rating
-              placeholderRating={rating}
-              emptySymbol={<FaRegStar className="text-yellow-400" />}
-              placeholderSymbol={<FaStar className="text-yellow-400" />}
-              fullSymbol={<FaStar className="text-yellow-400" />}
-              readonly
-            />
-            <span className="text-gray-500 dark:text-gray-50 text-sm font-medium">
-              {rating}/5
-            </span>
-          </div>
+          {rating && rating > 0 && (
+            <div className="flex items-center gap-2 md:text-base text-sm">
+              <span className="mt-1">
+                <Rating
+                  placeholderRating={rating}
+                  emptySymbol={<FaRegStar className="text-yellow-400" />}
+                  placeholderSymbol={<FaStar className="text-yellow-400" />}
+                  fullSymbol={<FaStar className="text-yellow-400" />}
+                  readonly
+                />
+              </span>
+              <span className="text-gray-500 dark:text-gray-50 text-sm font-medium">
+                {rating}/5
+              </span>
+            </div>
+          )}
           <p className=" md:text-base text-sm font-medium">
             {discount_percent ? (
               <>
@@ -93,10 +99,12 @@ const ProductCard = ({ product, handleAddToCart }) => {
               <span className="text-[#34B701]">${price}</span>
             )}
           </p>
-          <div className="flex items-center justify-between !mt-5">
-            <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
+          <div className="absolute w-full bottom-4 left-0 px-2 md:px-4 ">
+            <div className="flex items-center justify-between !mt-5">
+              <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
 
-            <BuyNow stock_quantity={stock_quantity} />
+              <BuyNow stock_quantity={stock_quantity} />
+            </div>
           </div>
         </div>
       </Link>
