@@ -29,6 +29,11 @@ const SideData = () => {
               icon: <BiSolidDashboard />,
             },
             {
+              path: "/dashboard/myProfile",
+              title: "My Profile",
+              icon: <BiSolidUserCircle />,
+            },
+            {
               path: "/dashboard/allProducts",
               title: "All Products",
               icon: <GiBallPyramid />,
@@ -74,6 +79,11 @@ const SideData = () => {
           ];
         } else if (user.role === "user") {
           data = [
+            {
+              path: "/dashboard",
+              title: "Dashboard",
+              icon: <BiSolidDashboard />,
+            },
             {
               path: "/dashboard/myProfile",
               title: "My Profile",

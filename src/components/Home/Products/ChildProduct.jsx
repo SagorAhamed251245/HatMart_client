@@ -6,25 +6,14 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // import required modules
-import { Autoplay } from "swiper/modules";
+
 import ProductCard from "./ProductCard";
-import { useEffect, useState } from "react";
+
 import ProductSkeleton from "./ProductSkeleton";
-
+import FilterProducts from "./FilterProducts";
+import { Autoplay } from "swiper/modules";
 const ChildProduct = ({ products, sectionTitle }) => {
-  const [allProduct, setProduct] = useState([]);
-
-  useEffect(() => {
-    if (sectionTitle === "Popular Products") {
-      const filteredProducts = products.filter((p) => p?.viewCount > 5);
-      setProduct(filteredProducts);
-    } else if (sectionTitle === "Trending Products") {
-      const filteredProducts = products.filter((p) => p?.rating > 2);
-      setProduct(filteredProducts);
-    } else {
-      return;
-    }
-  }, [products, sectionTitle]);
+  const allProduct = FilterProducts(products, sectionTitle);
 
   const handleAddToCart = (id) => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -55,7 +44,7 @@ const ChildProduct = ({ products, sectionTitle }) => {
 
   return (
     <Swiper
-      slidesPerView={4}
+      slidesPerView={1}
       spaceBetween={100}
       freeMode={true}
       breakpoints={{
