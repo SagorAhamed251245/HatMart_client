@@ -17,30 +17,30 @@ import LogoSVG from "./LogoSVG";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
+  console.log(user);
 
   const { uid, photoURL } = user || {};
   const li = uid ? afterLoginNavData : beforeLoginNavData;
 
   return (
     <>
-
       <nav className="shadow-md  z-10 mb-[25px] lg:mb-[50px]  bg-white">
-
-
         <div className="navbar  lg:mb-2  lg:pt-5 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
             <LogoSVG></LogoSVG>
-            <div className="h-24 flex justify-center item-center  w-24 md:w-36">
-              <Link href={"/"}>
-                <Image
-                  src="https://i.ibb.co/WtbFpmR/logo.png"
-                  className="object-cover w-full"
-                  height={144}
-                  width={144}
-                />
-              </Link>
-            </div>
+
+            <Link
+              href={"/"}
+              className="h-24 flex justify-center item-center  w-24 md:w-36"
+            >
+              <Image
+                src="https://i.ibb.co/WtbFpmR/logo.png"
+                className="object-cover w-full"
+                height={144}
+                width={144}
+              />
+            </Link>
           </div>
 
           {/* Center-aligned section of the navbar (visible on larger screens) */}

@@ -6,6 +6,7 @@ import getSingleProduct from "@/utils/getSingleProduct";
 
 const productDerailsPage = async ({ searchParams }) => {
   const productData = await getSingleProduct(searchParams.productId);
+  console.log(productData);
   const { productReviews: reviewsData = [] } = await getReviews(
     searchParams.productId
   );
