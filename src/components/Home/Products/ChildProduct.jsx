@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
 import ProductCard from "./ProductCard";
 import { useEffect, useState } from "react";
+import ProductSkeleton from "./ProductSkeleton";
 
 const ChildProduct = ({ products, sectionTitle }) => {
   const [allProduct, setProduct] = useState([]);
@@ -54,7 +55,7 @@ const ChildProduct = ({ products, sectionTitle }) => {
 
   return (
     <Swiper
-      slidesPerView={1}
+      slidesPerView={4}
       spaceBetween={100}
       freeMode={true}
       breakpoints={{
@@ -76,7 +77,6 @@ const ChildProduct = ({ products, sectionTitle }) => {
         },
         1200: {
           slidesPerView: 4,
-
           spaceBetween: 30,
         },
       }}
@@ -87,17 +87,30 @@ const ChildProduct = ({ products, sectionTitle }) => {
         delay: 2500,
         disableOnInteraction: false,
       }}
-      modules={[Autoplay]}
       className="mySwiper"
     >
-      <div className="">
-        {allProduct.map((product) => (
+      {allProduct.length === 0 ? (
+        <div className="grid lg:grid-cols-4 gap-5 md:grid-cols-3 grid-cols-2">
+          <div className="md:hidden lg:block">
+            <ProductSkeleton />
+          </div>
+          <div className="hidden md:block">
+            <ProductSkeleton />
+          </div>
+          <div>
+            <ProductSkeleton />
+          </div>
+          <div>
+            <ProductSkeleton />
+          </div>
+        </div>
+      ) : (
+        allProduct.map((product) => (
           <SwiperSlide key={product._id}>
-            {/* product card */}
             <ProductCard handleAddToCart={handleAddToCart} product={product} />
           </SwiperSlide>
-        ))}
-      </div>
+        ))
+      )}
     </Swiper>
   );
 };
