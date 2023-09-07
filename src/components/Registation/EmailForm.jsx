@@ -1,5 +1,6 @@
 "use client";
 import useAuth from "@/hooks/useAuth";
+import postUser from "@/utils/users/postUser";
 import { useRouter, useSearchParams } from "next/navigation";
 import { startTransition } from "react";
 import { useForm } from "react-hook-form";
@@ -20,7 +21,6 @@ const EmailForm = () => {
   const { replace, refresh } = useRouter();
 
   const uploadImage = async (event) => {
-    console.log("hit");
     const formData = new FormData();
     if (!event.target.files[0]) return;
     formData.append("image", event.target.files[0]);
@@ -60,6 +60,7 @@ const EmailForm = () => {
         toast.dismiss(toastId);
         toast.success("User signed in successfully");
       });
+      await postUser(data);
     } catch (error) {
       toast.dismiss(toastId);
       toast.error(error.message || "User not signed in");

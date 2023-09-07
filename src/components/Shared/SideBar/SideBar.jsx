@@ -1,3 +1,4 @@
+"use client";
 import SideData from "@/data/sideNavData";
 import Link from "next/link";
 
