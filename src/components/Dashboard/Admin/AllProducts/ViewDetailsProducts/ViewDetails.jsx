@@ -1,23 +1,18 @@
 import DescriptionAndReviews from "@/components/Home/Products/ProductDetailsPage/DescriptionAndReviews";
-import ProductDetails from "@/components/Home/Products/ProductDetailsPage/ProductDetails";
 import ProductImages from "@/components/Home/Products/ProductDetailsPage/ProductImages";
 import Link from "next/link";
 import React from "react";
+import ProductDetailsDashBoard from "./ProductDetailsDashBoard";
 
 const ViewDetails = ({ productData, id }) => {
   return (
     <>
-      <Link
-        className="btn bg-orange-400 text-white "
-        href={`/dashboard/allProducts/editProduct/${id}`}
-      >
-        Edit Product
-      </Link>
+      
       <section className=" mt-16 mb-20 md:w-[90%] mx-auto">
         <div className="md:flex gap-10">
           <ProductImages productData={productData} />
 
-          <ProductDetails productData={productData} />
+          <ProductDetailsDashBoard productData={productData} />
         </div>
 
         <DescriptionAndReviews
