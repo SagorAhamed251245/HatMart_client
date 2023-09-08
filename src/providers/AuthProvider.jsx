@@ -3,6 +3,7 @@ import auth, { googleProvider } from "@/firebase/firebase.auth";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -30,12 +31,30 @@ const AuthProvider = ({ children }) => {
     setUser((preUser) => ({ ...preUser, ...updateUser }));
   };
 
-  
   const googleLogin = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+  const changePassword = (newPassword) => {
+    const user = auth.currentUser;
 
+    updatePassword(user, newPassword)
+      .then(() => {
+        // Update successful.
+      })
+      .catch((error) => {
+        // An error ocurred
+        // ...
+      });
+  };
+  const resetPassword = (userEmail) => {
+    sendPasswordResetEmail(auth, userEmail)
+      .then(() => {})
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
   const logout = () => {
     setLoading(true);
     return signOut(auth);
@@ -60,6 +79,7 @@ const AuthProvider = ({ children }) => {
     profileUpdate,
     googleLogin,
     logout,
+    changePassword,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

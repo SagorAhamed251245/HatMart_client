@@ -12,7 +12,12 @@ const AboutSection = () => {
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
             <span className="text-sm">
-              <Link href={"/aboutUs"}>About us</Link>
+              <Link
+                href={"/aboutUs"}
+                className="hover:text-green-400 transition"
+              >
+                About us
+              </Link>
             </span>
           </div>
           <div className="flex items-center my-3">
@@ -22,7 +27,9 @@ const AboutSection = () => {
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
             <span className="text-sm">
-              <Link href={"/terms"}>Terms & condtions</Link>
+              <Link href={"/terms"} className="hover:text-green-400 transition">
+                Terms & condtions
+              </Link>
             </span>
           </div>
           <div className="flex items-center my-3">
