@@ -1,7 +1,9 @@
 import PaymentInfo from "@/components/PaymentPage/PaymentInfo/PaymentInfo";
 import UserInfo from "@/components/PaymentPage/UserInfo/UserInfo";
 import React from "react";
-
+export const metadata = {
+  title: "HatMat/payment",
+};
 const PaymentPage = () => {
   return (
     <>
