@@ -17,7 +17,9 @@ const AboutSection = () => {
           </div>
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
-            <span className="text-sm">Privacy Policy</span>
+            <span className="text-sm">
+              <Link href={"/privacyPolicy"}>Privacy Policy</Link>
+            </span>
           </div>
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
@@ -27,7 +29,9 @@ const AboutSection = () => {
           </div>
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
-            <span className="text-sm">FAQ</span>
+            <span className="text-sm">
+              <Link href={"/faq"}>FAQ</Link>
+            </span>
           </div>
         </div>
       </section>

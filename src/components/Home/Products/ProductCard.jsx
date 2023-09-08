@@ -37,13 +37,14 @@ const ProductCard = ({ product, handleAddToCart }) => {
 
         <div className="  h-36 w-full overflow-hidden  relative">
           <Image
-            src={image}
+            src={image} // Replace with the actual image URL
             height={300}
             width={500}
             className="w-full h-full object-cover"
             priority
             alt="product image"
           />
+
           {discount_percent && discount_percent > 0 && (
             <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
               {discount_percent}%
