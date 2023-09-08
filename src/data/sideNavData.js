@@ -9,19 +9,20 @@ import { PiUserListFill } from "react-icons/pi";
 
 import getSingleUser from "@/utils/users/getSingleUser";
 import { useEffect, useState } from "react";
+import useAuth from "@/hooks/useAuth";
 
 const SideData = () => {
   const [sideData, setSideData] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const user = await getSingleUser("test@3gmail.com");
-        console.log(user);
+        const getUser = await getSingleUser(user.email);
 
         let data = [];
 
-        if (user.role === "admin") {
+        if (getUser.role === "admin") {
           data = [
             {
               path: "/dashboard",
@@ -77,7 +78,7 @@ const SideData = () => {
               icon: <AiFillHome />,
             },
           ];
-        } else if (user.role === "user") {
+        } else if (getUser.role === "user") {
           data = [
             {
               path: "/dashboard",
@@ -90,7 +91,7 @@ const SideData = () => {
               icon: <BiSolidUserCircle />,
             },
             {
-              path: "/dashboard/myOrder",
+              path: "/dashboard/myOrders",
               title: "My Order",
               icon: <FaCartArrowDown />,
             },
