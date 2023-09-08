@@ -6,24 +6,14 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // import required modules
-import { Autoplay } from "swiper/modules";
+
 import ProductCard from "./ProductCard";
-import { useEffect, useState } from "react";
 
+import ProductSkeleton from "./ProductSkeleton";
+import FilterProducts from "./FilterProducts";
+import { Autoplay } from "swiper/modules";
 const ChildProduct = ({ products, sectionTitle }) => {
-  const [allProduct, setProduct] = useState([]);
-
-  useEffect(() => {
-    if (sectionTitle === "Popular Products") {
-      const filteredProducts = products.filter((p) => p?.viewCount > 5);
-      setProduct(filteredProducts);
-    } else if (sectionTitle === "Trending Products") {
-      const filteredProducts = products.filter((p) => p?.rating > 2);
-      setProduct(filteredProducts);
-    } else {
-      return;
-    }
-  }, [products, sectionTitle]);
+  const allProduct = FilterProducts(products, sectionTitle);
 
   const handleAddToCart = (id) => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -76,7 +66,6 @@ const ChildProduct = ({ products, sectionTitle }) => {
         },
         1200: {
           slidesPerView: 4,
-
           spaceBetween: 30,
         },
       }}
@@ -87,17 +76,30 @@ const ChildProduct = ({ products, sectionTitle }) => {
         delay: 2500,
         disableOnInteraction: false,
       }}
-      modules={[Autoplay]}
       className="mySwiper"
     >
-      <div className="">
-        {allProduct.map((product) => (
+      {allProduct.length === 0 ? (
+        <div className="grid lg:grid-cols-4 gap-5 md:grid-cols-3 grid-cols-2">
+          <div className="md:hidden lg:block">
+            <ProductSkeleton />
+          </div>
+          <div className="hidden md:block">
+            <ProductSkeleton />
+          </div>
+          <div>
+            <ProductSkeleton />
+          </div>
+          <div>
+            <ProductSkeleton />
+          </div>
+        </div>
+      ) : (
+        allProduct.map((product) => (
           <SwiperSlide key={product._id}>
-            {/* product card */}
             <ProductCard handleAddToCart={handleAddToCart} product={product} />
           </SwiperSlide>
-        ))}
-      </div>
+        ))
+      )}
     </Swiper>
   );
 };

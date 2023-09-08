@@ -3,7 +3,9 @@ import Nav from "@/components/Shared/NavBar/Nav";
 import Link from "next/link";
 import EmailForm from "@/components/Login/EmailForm";
 import SocialMediaForm from "@/components/Login/SocialMediaForm";
-
+export const metadata = {
+  title: "HatMat/Login",
+};
 const LoginPage = () => {
   return (
     <>
@@ -20,7 +22,7 @@ const LoginPage = () => {
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
               <Link
-                href="/registation"
+                href="/registration"
                 className="text-#FE7216 font-semibold hover:underline transition duration-300"
               >
                 Sign up

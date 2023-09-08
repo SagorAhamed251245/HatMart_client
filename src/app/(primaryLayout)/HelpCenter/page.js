@@ -1,6 +1,8 @@
 import NavBar from "@/components/Shared/NavBar/NavBar";
 import HelpCard from "./HelpCard";
-
+export const metadata = {
+    title: "HatMat/helpCenter",
+  };
 const Helpcategory = [ 
     {
         "id":0,
