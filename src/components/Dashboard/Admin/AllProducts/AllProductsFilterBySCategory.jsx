@@ -22,7 +22,8 @@ const AllProductsFilterBySCategory = ({
 
   const sortProductsBySubcategory = (subCategory) => {
     if (!subCategory) {
-      return; 
+      setData(products);
+      return;
     }
 
     const sortedData = products.filter((product) =>

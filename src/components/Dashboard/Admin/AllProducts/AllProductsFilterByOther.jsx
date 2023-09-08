@@ -22,24 +22,35 @@ const AllProductsFilterByOther = ({ setData, products }) => {
         return bCreatedAt - aCreatedAt;
       }
     },
-    // Add more sorting functions for other criteria here
+    "High rating": (a, b) => {
+      if (!a.rating && b.rating) {
+        return 1; 
+      } else if (a.rating && !b.rating) {
+        return -1; 
+      } else if (!a.rating && !b.rating) {
+        return 0;
+      } else {
+        return b.rating - a.rating; 
+      }
+    },
+    "Best Selling": (a, b) => {
+      return b.estimateSells - a.estimateSells;
+    },
   };
 
   const handleSort = (criteria) => {
-    console.log(criteria);
-
     let sortingFunction = sortingFunctions[criteria];
 
+    console.log(sortingFunction);
     if (!sortingFunction) {
-      // If no specific sorting selected, keep the original order
-      setData([...products]); // Clone the original array
+      setData([...products]); 
       return;
     }
 
-    let sortedData = [...products]; // Clone the data array
+    let sortedData = [...products]; 
     sortedData.sort(sortingFunction);
 
-    setData(sortedData); // Update the state with sorted data
+    setData(sortedData); 
   };
 
   return (
@@ -52,7 +63,6 @@ const AllProductsFilterByOther = ({ setData, products }) => {
       </option>
       <option>Latest Added</option>
       <option>Latest Updated</option>
-      {/* Add more sorting options as needed */}
       <option>Best Selling</option>
       <option>High rating</option>
     </select>

@@ -17,7 +17,7 @@ const ProductSearch = ({ products, setData }) => {
   };
 
   return (
-    <form className="flex flex-col justify-center w-3/4 max-w-md space-y-3 md:flex-row md:w-full md:space-y-0">
+    <form className="flex flex-col justify-end w-fit max-w-md space-y-3 md:flex-row md:w-full md:space-y-0">
       <div className=" relative ">
         <FaSearch
           className="absolute text-[#ff6347cc] top-3 left-3"
