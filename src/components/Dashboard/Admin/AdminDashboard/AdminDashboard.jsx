@@ -4,7 +4,7 @@ import DateSelect from "./DateSelect";
 import OverView from "./OverView/OverView";
 const AdminDashboard = () => {
   return (
-    <div>
+    <div className="mb-5">
       <div className="flex justify-between gap-2">
         <h3 className="text-3xl font-bold mb-5 md:text-start text-center">
           Dashboard
@@ -53,9 +53,9 @@ const AdminDashboard = () => {
           {/* Over View */}
           <OverView />
         </TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
+        <TabPanel>Analytics</TabPanel>
+        <TabPanel>Reports</TabPanel>
+        <TabPanel>Notifications</TabPanel>
       </Tabs>
     </div>
   );
