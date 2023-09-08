@@ -13,7 +13,7 @@ const TermsOfUse = () => {
   return (
     <>
       <section className="p-10">
-        <h2 className="text-5xl font-bold mb-10">Terms and Conditions</h2>
+        <h2 className="text-3xl font-bold mb-10">Terms and Conditions</h2>
 
         <div className="space-y-5">
           <h2 className="text-2xl font-bold">1. INTRODUCTION</h2>
@@ -30,9 +30,6 @@ const TermsOfUse = () => {
             do not agree to be bound by this User Agreement, please do not
             access, register with, or use this Site.
           </p>
-          <button onClick={handleScrollToTop} style={{ color: "#FF7B13" }}>
-            Back to top
-          </button>
         </div>
         <div className="space-y-5">
           <h2 className="text-2xl font-bold mt-5">2. CONDITIONS OF USE</h2>
@@ -63,9 +60,6 @@ const TermsOfUse = () => {
             used in the manner specified in the Privacy Agreement, please do not
             use the Site.
           </p>
-          <button onClick={handleScrollToTop} style={{ color: "#FF7B13" }}>
-            Back to top
-          </button>
         </div>
         <div className="space-y-5">
           <h2 className="text-2xl font-bold mt-5">

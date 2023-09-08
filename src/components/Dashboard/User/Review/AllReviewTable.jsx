@@ -5,6 +5,9 @@ import ReviewRating from "./ReviewRating";
 import AllReviewTableSmallScreen from "./AllReviewTableSmallScreen";
 
 const AllReviewTable = () => {
+  if (!reviewData || reviewData.length === 0) {
+    return <div>No reviews available</div>; // Display a message if there are no reviews
+  }
   return (
     <div
       style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
