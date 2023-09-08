@@ -22,14 +22,28 @@ const AllProductsFilterByOther = ({ setData, products }) => {
         return bCreatedAt - aCreatedAt;
       }
     },
-    // Add more sorting functions for other criteria here
+    "High rating": (a, b) => {
+      // This function sorts by high rating (rating > 4)
+      if (!a.rating && b.rating) {
+        return 1; // Move products without a rating to the end
+      } else if (a.rating && !b.rating) {
+        return -1; // Move products without a rating to the end
+      } else if (!a.rating && !b.rating) {
+        return 0; // No rating for both, maintain current order
+      } else {
+        return b.rating - a.rating; // Sort by rating in descending order
+      }
+    },
+    "Best Selling": (a, b) => {
+      // This function sorts by the estimateSells property in descending order
+      return b.estimateSells - a.estimateSells;
+    },
   };
 
   const handleSort = (criteria) => {
-    console.log(criteria);
-
     let sortingFunction = sortingFunctions[criteria];
 
+    console.log(sortingFunction);
     if (!sortingFunction) {
       // If no specific sorting selected, keep the original order
       setData([...products]); // Clone the original array
