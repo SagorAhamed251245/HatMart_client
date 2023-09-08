@@ -3,11 +3,10 @@ import Image from "next/image";
 import userImage from "../../../../assets/icons/user.png";
 import SectionTitle from "@/components/Home/Products/SectionTitle";
 import Link from "next/link";
-
-import useAuth from "@/hooks/useAuth";
+import getUserData from "@/data/getUserData";
 
 const MyProfile = () => {
-  const { user } = useAuth();
+  const user = getUserData();
   return (
     <>
       <SectionTitle>My Profile</SectionTitle>
@@ -15,8 +14,7 @@ const MyProfile = () => {
         <div className=" p-8 rounded-lg   space-y-4  w-full">
           <div className="flex justify-center">
             <Image
-              src={user?.PhotoUrl || userImage}
-              placeholder="blur"
+              src={user?.image || userImage}
               priority
               height={50}
               width={50}
@@ -24,12 +22,33 @@ const MyProfile = () => {
             />
           </div>
           <div className="space-y-2">
-            <p className="text-lg font-semibold">Full Name:</p>
-            <p>Email Address:{user?.email || "plece provide Your eamil"}</p>
-            <p>Mobile Number:{""}</p>
-            <p>Birth Day:</p>
-            <p>Gender:</p>
-            <p>Gender:</p>
+            <p className="text-lg font-semibold">
+              <span className="text-green-">Full Name</span>: {user?.name}
+            </p>
+            <p className="text-sm">
+              <span className="text-green-400 font-bold">Email Address: </span>
+              {user?.email || "please provide Your email"}
+            </p>
+            <p className="text-sm">
+              <span className="text-green-400 font-bold"> Mobile Number</span>:{" "}
+              {user?.mobileNumber || "please provide Your mobileNumber"}
+            </p>
+            <p className="text-sm">
+              <span className="text-green-400 font-bold">Date Of Birth</span>:{" "}
+              {user?.dateOfBirth || "please provide Your Date Of Birth"}
+            </p>
+            <p className="text-sm">
+              <span className="text-green-400 font-bold">Gender</span>:{" "}
+              {user?.gender || "please provide Your gender"}
+            </p>
+            <p className="text-sm">
+              <span className="text-green-400 font-bold">Address</span>:{" "}
+              {user?.address || "please provide Your address"}
+            </p>
+            <p className="text-sm">
+              <span className="text-green-400 font-bold">Role</span>:{" "}
+              {user?.role}
+            </p>
           </div>
           <div className="flex space-x-4">
             <Link
