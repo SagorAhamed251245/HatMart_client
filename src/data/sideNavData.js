@@ -18,7 +18,7 @@ const SideData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const getUser = await getSingleUser(user.email);
+        const getUser = await getSingleUser(user?.email);
 
         let data = [];
 
