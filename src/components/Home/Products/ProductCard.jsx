@@ -40,7 +40,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
             src={image}
             height={300}
             width={500}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
             priority
             alt="product image"
           />
