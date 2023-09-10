@@ -15,33 +15,6 @@ import { Autoplay } from "swiper/modules";
 const ChildProduct = ({ products, sectionTitle }) => {
   const allProduct = FilterProducts(products, sectionTitle);
 
-  const handleAddToCart = (id) => {
-    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-    const existingItemIndex = cartItems.findIndex((item) => item._id === id);
-
-    if (existingItemIndex !== -1) {
-      const updatedCartItems = [...cartItems];
-
-      updatedCartItems[existingItemIndex].quantity += 1;
-
-      const updatedCartItemsString = JSON.stringify(updatedCartItems);
-
-      localStorage.setItem("cartItems", updatedCartItemsString);
-    } else {
-      const newItem = {
-        _id: id,
-        quantity: 1,
-      };
-      const updatedCartItems = [...cartItems, newItem];
-
-      const updatedCartItemsString = JSON.stringify(updatedCartItems);
-
-      localStorage.setItem("cartItems", updatedCartItemsString);
-    }
-    alert("Product has been added");
-  };
-
   return (
     <Swiper
       slidesPerView={1}
@@ -96,7 +69,7 @@ const ChildProduct = ({ products, sectionTitle }) => {
       ) : (
         allProduct.map((product) => (
           <SwiperSlide key={product._id}>
-            <ProductCard handleAddToCart={handleAddToCart} product={product} />
+            <ProductCard product={product} />
           </SwiperSlide>
         ))
       )}

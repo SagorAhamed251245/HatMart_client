@@ -7,7 +7,7 @@ import Link from "next/link";
 import AddToCartBtn from "./AddToCartBtn";
 import BuyNow from "./BuyNow";
 
-const ProductCard = ({ product, handleAddToCart }) => {
+const ProductCard = ({ product }) => {
   const {
     _id,
     title,
@@ -22,6 +22,9 @@ const ProductCard = ({ product, handleAddToCart }) => {
     discount_percent,
     stock_quantity,
   } = product;
+
+  
+
 
   return (
     <div className="relative border border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-96">
@@ -102,7 +105,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
           </p>
           <div className="absolute w-full bottom-4 left-0 px-2 md:px-4 mt-2">
             <div className="flex items-center justify-between !mt-5">
-              <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
+              <AddToCartBtn _id={_id} />
 
               <BuyNow stock_quantity={stock_quantity} />
             </div>

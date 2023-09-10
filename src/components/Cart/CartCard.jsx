@@ -1,133 +1,43 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
-import { BiTrashAlt } from "react-icons/bi";
+import CartCounter from "./CartCounter";
+import CartCardDeleteButton from "./CartCardDeleteButton";
 
 const CartCard = ({
   cartItem,
   decreaseAmount,
   increaseAmount,
-  setCartData,
+  deleteCartItem,
 }) => {
-  const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(0);
   const totalPrice = useRef();
-  const counter = useRef();
 
   // cartItem Destructure
   const { title, price, rating, _id, image } = cartItem;
 
-  // get localstorage items and find quantity = ok
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-      const itemAmmount = storedCartItems.find(
-        (item) => item._id === _id
-      ).quantity;
-      setQuantity(itemAmmount);
-      const totalCardPrice = parseFloat(
-        (itemAmmount * parseFloat(price)).toFixed(2)
-      );
-
-      setTotal(totalCardPrice);
-    } else {
-      console.log("We are running on the server");
-    }
-  }, []);
-
-  // onclick increase the amount of the products--------------------------------------------------------------------
-  const handlePlusCounter = (_id) => {
-    // increasing the ammount of products in localstorage
-    const itemsFromLS = JSON.parse(localStorage.getItem("cartItems"));
-
-    const index = itemsFromLS.findIndex((item) => item._id === _id);
-
-    if (index !== -1) {
-      itemsFromLS[index].quantity += 1;
-
-      localStorage.setItem("cartItems", JSON.stringify(itemsFromLS));
-    } else {
-      console.log("Item with the id not found.");
-    }
-    // increasing the ammount of products on screen
-
-    setQuantity(quantity + 1);
-    const totalPrice = (quantity + 1) * parseFloat(cartItem?.price);
-
-    const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
-    setTotal(formattedTotalPrice);
-
-    increaseAmount(price);
-  };
-
-  // onclick decrease the amount of the products-------------------------------------------------------------------------
-  const handleMinusCounter = (_id) => {
-    if (quantity == 1) {
-      return;
-    }
-
-    // decreasing the ammount of products in localstorage
-    const itemsFromLS = JSON.parse(localStorage.getItem("cartItems"));
-
-    const index = itemsFromLS.findIndex((item) => item._id === _id);
-
-    if (index !== -1) {
-      itemsFromLS[index].quantity -= 1;
-
-      localStorage.setItem("cartItems", JSON.stringify(itemsFromLS));
-    } else {
-      console.log("Item with the id not found.");
-    }
-
-    // decreasing the ammount of products on screen
-
-    setQuantity(quantity - 1);
-    const totalPrice = (quantity - 1) * parseFloat(cartItem.price);
-
-    const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
-
-    setTotal(formattedTotalPrice);
-    decreaseAmount(price);
-  };
-
-  // onclick delete cart item==================================================================================
-  const deleteCartItem = (itemId) => {
-    const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-
-    // Find the index of the item to delete
-    const itemIndex = storedCartItems.findIndex((item) => item._id === itemId);
-
-    if (itemIndex !== -1) {
-      storedCartItems.splice(itemIndex, 1);
-
-      localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
-
-      setCartData(storedCartItems);
-      window.location.reload();
-    }
-  };
-
   return (
-    <div className="bg-white mb-3 flex p-3 md:w-[600px] w-full rounded-lg">
+    <div className="bg-white mb-3 flex p-3 md:w-[650px] w-full rounded-lg">
       {/* card image here */}
-      <section className="relative h-[100px] w-[100px] object-cover rounded-lg border border-slate-400">
+      <div className="relative h-full w-[120px] object-cover rounded-lg border border-slate-400">
         <Image
-          height={100}
-          width={100}
+          fill
           alt="cart image"
-          className="object-cover object-center rounded-lg"
+          className="object-cover object-center h-full w-full rounded-lg"
           src={image}
         ></Image>
-      </section>
+      </div>
 
       {/* card info here */}
       <section className="px-3 flex justify-between w-full">
         {/* item info */}
         <div>
-          <h4 className="text-xl font-semibold">{title}</h4>
+          <h4 className="text-xl font-semibold">
+            {title?.length > 20 ? title?.slice(0, 20) + "..." : title}
+          </h4>
           <div className="mt-2">
             <Rating
               placeholderRating={rating}
@@ -140,8 +50,29 @@ const CartCard = ({
               ({rating})
             </span>
           </div>
+          {/* price as percentage */}
           <div>
-            <span className="text-[#34B701] font-bold text-lg">${price}</span>
+            <p className=" md:text-base text-sm my-2 font-medium">
+              {cartItem?.discount_percent ? (
+                <>
+                  <span className="text-[#34B701]">
+                    $
+                    {(
+                      parseFloat(price) -
+                      parseFloat(
+                        parseFloat(price) *
+                          (parseFloat(cartItem?.discount_percent) / 100)
+                      )
+                    ).toFixed(2)}
+                  </span>{" "}
+                  <span className=" line-through  ml-4 text-sm text-gray-400">
+                    ${price}
+                  </span>
+                </>
+              ) : (
+                <span className="text-[#34B701]">${price}</span>
+              )}
+            </p>
           </div>
         </div>
 
@@ -150,26 +81,15 @@ const CartCard = ({
         <div className="gap-6 md:ml-10 flex">
           <div className="flex flex-col justify-between items-center">
             {/* counter */}
-            <div className="border-2  font-semibold border-[#34B701] w-fit rounded">
-              <button
-                onClick={() => handleMinusCounter(_id)}
-                className="text-[#34B701] hover:bg-green-500 duration-200  active:bg-green-200 px-[5px] md:px-[10px] py-1"
-              >
-                -
-              </button>
-              <span
-                ref={counter}
-                className="md:px-[10px] px-[5px] border-l-2 border-r-2"
-              >
-                {quantity}
-              </span>
-              <button
-                onClick={() => handlePlusCounter(_id)}
-                className="text-[#34B701] hover:bg-green-500 duration-200  active:bg-green-200 px-[5px] md:px-[10px] py-1"
-              >
-                +
-              </button>
-            </div>
+
+            <CartCounter
+              _id={_id}
+              price={price}
+              setTotal={setTotal}
+              cartItem={cartItem}
+              decreaseAmount={decreaseAmount}
+              increaseAmount={increaseAmount}
+            />
 
             {/* total */}
             <div>
@@ -185,12 +105,11 @@ const CartCard = ({
             </div>
           </div>
 
-          <button
-            onClick={() => deleteCartItem(_id)}
-            className="bg-[#FF7218] hover:bg-red-400 active:bg-red-600 text-white p-3 text-2xl h-fit rounded-full my-auto"
-          >
-            <BiTrashAlt />
-          </button>
+          <CartCardDeleteButton
+            _id={_id}
+            total={total}
+            deleteCartItem={deleteCartItem}
+          />
         </div>
       </section>
     </div>

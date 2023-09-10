@@ -2,70 +2,73 @@
 import CartCard from "@/components/Cart/CartCard";
 import React, { useEffect, useState } from "react";
 import DiscountSection from "./DiscountSection";
+import Link from "next/link";
 
 const Cart = ({ products }) => {
-  // totalprice stores the data for subtotal
   const [totalPrice, setTotalPrice] = useState(0);
-  const [initializedTotal, setInitializedTotal] = useState(0);
-  // cartItems store localstorage raw data
   const [cartItems, setCartItems] = useState([]);
-  // Products data here
   const [cartData, setCartData] = useState([]);
 
-  // get cart data from localstorage
+  // onclick delete sigleCart item==================================================================================
+  const deleteCartItem = (itemId) => {
+    const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+
+    // Find the index of the item to delete
+    const itemIndex = storedCartItems.findIndex((item) => item._id === itemId);
+
+    if (itemIndex !== -1) {
+      storedCartItems.splice(itemIndex, 1);
+
+      localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
+
+      setCartData(storedCartItems);
+    }
+  };
+
+  // TODO:// Newly added changes needs some fix
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-      setCartItems(storedCartItems || []);
-    } else {
+      const storedCartItems =
+        JSON.parse(localStorage.getItem("cartItems")) || [];
+      setCartItems(storedCartItems);
     }
-  }, []);
+  }, [cartData]);
 
-  // separate the localstorage object id from Data
-  const cartItemsId = cartItems.map((cartItem) => cartItem._id);
-
-  //separate the localstorage ammount from data
-  const cartItemsquantity = cartItems.map((cartItem) => cartItem.quantity);
-
-  const selectedCartItems = [];
-  let subTotalPrice = 0;
-
-  //finding cart data from server with localstorage id;
-  for (let i = 0; i < cartItemsId.length; i++) {
-    const id = cartItemsId[i];
-    const quantity = cartItemsquantity[i];
-    const cartItem = products.find((item) => item._id === id);
-    if (cartItem) {
-      selectedCartItems.push(cartItem);
-      subTotalPrice = parseFloat(
-        (subTotalPrice + cartItem.price * quantity).toFixed(2)
-      );
-    } else {
-      console.log("not found");
-    }
-  }
-
-  // setting the subtotal price onload
   useEffect(() => {
-    // Set the initial total price to the calculated subTotalPrice
-    setInitializedTotal((prevTotal) => prevTotal + subTotalPrice);
-    setTotalPrice((prevTotal) => prevTotal + subTotalPrice);
-    setCartData(selectedCartItems);
-  }, [subTotalPrice]);
+    const cartItemsId = cartItems.map((cartItem) => cartItem._id);
+    const cartItemsQuantity = cartItems.map((cartItem) => cartItem.quantity);
+    const selectedCartItems = [];
+    let subTotalPrice = 0;
 
+    for (let i = 0; i < cartItemsId.length; i++) {
+      const id = cartItemsId[i];
+      const quantity = cartItemsQuantity[i];
+      const cartItem = products.find((item) => item._id === id);
+      if (cartItem) {
+        selectedCartItems.push(cartItem);
+        subTotalPrice += cartItem.price * quantity;
+      } else {
+        console.log("Item not found:", id);
+      }
+    }
+
+    setCartData(selectedCartItems);
+    setTotalPrice(subTotalPrice.toFixed(2));
+  }, [cartItems, products]);
+  // TODO:// Newly added changes needs some fix
 
   // increase price
   const increaseAmount = (price) => {
-    const totalPriceData = parseFloat((totalPrice + price).toFixed(2)); // Calculate the new total
+    const totalPriceData = parseFloat((Number(totalPrice) + price).toFixed(2)); // Calculate the new total
     setTotalPrice(totalPriceData); // Update the state
   };
 
   // decrease price
   const decreaseAmount = (price) => {
-    const totalPriceData = parseFloat((totalPrice - price).toFixed(2)); // Calculate the new total
+    const totalPriceData = parseFloat((Number(totalPrice) - price).toFixed(2)); // Calculate the new total
     setTotalPrice(totalPriceData); // Update the state
   };
-
+  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   return (
     <div className="md:my-16 md:mb-20 mb-10 rounded w-full lg:max-w-[1380px] mx-auto bg-slate-100 md:p-10 p-3 ">
       {/* page title here */}
@@ -83,10 +86,10 @@ const Cart = ({ products }) => {
           {cartData.map((cartItem) => (
             <CartCard
               key={cartItem._id}
-              setCartData={setCartData}
               increaseAmount={increaseAmount}
               decreaseAmount={decreaseAmount}
               cartItem={cartItem}
+              deleteCartItem={deleteCartItem}
             ></CartCard>
           ))}
         </section>
@@ -101,7 +104,7 @@ const Cart = ({ products }) => {
                 <tr>
                   <td className="text-start pl-16">SubTotal :</td>
                   <td className="text-end pr-16 ">
-                    $ {totalPrice ? totalPrice : initializedTotal}
+                    $ {totalPrice ? totalPrice : 0}
                   </td>
                 </tr>
                 {/* row 2 */}
@@ -119,20 +122,27 @@ const Cart = ({ products }) => {
                     Total{" "}
                   </td>
                   <td className="text-end text-lg font-semibold pr-16 ">
-                    $ <span>{totalPrice ? totalPrice : initializedTotal}</span>
+                    $ <span>{totalPrice ? totalPrice : 0}</span>
                   </td>
                 </tr>
               </tbody>
             </table>
-            <button className="btn w-full bg-[#34B701] hover:bg-green-500 duration-300 text-white my-6">
+            <Link
+              href={{
+                pathname: "/payment",
+                query: {
+                  productId: JSON.stringify(cartItems),
+                },
+              }}
+              className="btn w-full bg-[#34B701] hover:bg-green-500 duration-300 text-white my-6"
+            >
               Payment
-            </button>
+            </Link>
 
             <hr />
             {/* discount section */}
             <DiscountSection
               totalPrice={totalPrice}
-              initializedTotal={initializedTotal}
             />
           </div>
         </section>
