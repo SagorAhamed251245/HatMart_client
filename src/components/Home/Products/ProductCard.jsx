@@ -104,7 +104,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
             <div className="flex items-center justify-between !mt-5">
               <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
 
-              <BuyNow stock_quantity={stock_quantity} />
+              <BuyNow stock_quantity={stock_quantity} _id={_id} />
             </div>
           </div>
         </div>
