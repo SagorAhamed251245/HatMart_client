@@ -19,10 +19,13 @@ const CartCard = ({
   // cartItem Destructure
   const { title, price, rating, _id, image } = cartItem;
 
+  const finalPrice = parseFloat((parseFloat(cartItem?.price) - (parseFloat(cartItem?.price)*(parseFloat(cartItem?.discount_percent) / 100))).toFixed(2));
+
+
   return (
-    <div className="bg-white mb-3 flex p-3 md:w-[650px] w-full rounded-lg">
+    <div className="bg-white mb-3 flex p-3 shadow-lg md:w-11/12 w-full rounded-lg">
       {/* card image here */}
-      <div className="relative h-full w-[120px] object-cover rounded-lg border border-slate-400">
+      <div className="relative md:h-full w-[100px] md:w-[120px] object-cover rounded-lg border border-slate-400">
         <Image
           fill
           alt="cart image"
@@ -35,8 +38,11 @@ const CartCard = ({
       <section className="px-3 flex justify-between w-full">
         {/* item info */}
         <div>
-          <h4 className="text-xl font-semibold">
-            {title?.length > 20 ? title?.slice(0, 20) + "..." : title}
+          <h4 title={title?.length > 20 ? `${title}` : ""} className="text-xl md:block hidden font-semibold">
+            {title?.length > 30 ? title?.slice(0, 30) + "..." : title}
+          </h4>
+          <h4 title={title?.length > 10 ? `${title}` : ""} className="text-sm md:hidden block font-semibold">
+            {title?.length > 10 ? title?.slice(0, 10) + "..." : title}
           </h4>
           <div className="mt-2">
             <Rating
@@ -46,7 +52,7 @@ const CartCard = ({
               fullSymbol={<FaStar className="text-yellow-400" />}
               readonly
             />
-            <span className="text-gray-500 text-sm font-medium">
+            <span className="text-gray-500 md:text-sm text-xs font-medium">
               ({rating})
             </span>
           </div>
@@ -57,13 +63,7 @@ const CartCard = ({
                 <>
                   <span className="text-[#34B701]">
                     $
-                    {(
-                      parseFloat(price) -
-                      parseFloat(
-                        parseFloat(price) *
-                          (parseFloat(cartItem?.discount_percent) / 100)
-                      )
-                    ).toFixed(2)}
+                    {finalPrice}
                   </span>{" "}
                   <span className=" line-through  ml-4 text-sm text-gray-400">
                     ${price}
@@ -84,7 +84,6 @@ const CartCard = ({
 
             <CartCounter
               _id={_id}
-              price={price}
               setTotal={setTotal}
               cartItem={cartItem}
               decreaseAmount={decreaseAmount}

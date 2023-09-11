@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 const CartCounter = ({
   _id,
-  price,
   setTotal,
   cartItem,
   decreaseAmount,
@@ -12,8 +11,10 @@ const CartCounter = ({
 }) => {
   const [quantity, setQuantity] = useState(1);
 
+  const finalPrice = parseFloat((parseFloat(cartItem?.price) - (parseFloat(cartItem?.price)*(parseFloat(cartItem?.discount_percent) / 100))).toFixed(2));
+
+
   const counter = useRef();
-  // get localstorage items and find quantity
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedCartItems =
@@ -23,7 +24,7 @@ const CartCounter = ({
       if (foundCartItem) {
         setQuantity(foundCartItem.quantity);
         const totalCardPrice = parseFloat(
-          (foundCartItem.quantity * parseFloat(price)).toFixed(2)
+          (foundCartItem.quantity * parseFloat(finalPrice)).toFixed(2)
         );
         setTotal(totalCardPrice);
       }
@@ -44,11 +45,11 @@ const CartCounter = ({
       const updatedQuantity = quantity + 1;
       setQuantity(updatedQuantity);
 
-      const totalPrice = updatedQuantity * parseFloat(cartItem?.price);
+      const totalPrice = updatedQuantity * parseFloat(finalPrice);
       const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
       setTotal(formattedTotalPrice);
 
-      increaseAmount(price);
+      increaseAmount(finalPrice);
     } else {
       console.log("Item with the id not found.");
     }
@@ -70,11 +71,11 @@ const CartCounter = ({
       const updatedQuantity = quantity - 1;
       setQuantity(updatedQuantity);
 
-      const totalPrice = updatedQuantity * parseFloat(cartItem.price);
+      const totalPrice = updatedQuantity * parseFloat(finalPrice);
       const formattedTotalPrice = parseFloat(totalPrice.toFixed(2));
       setTotal(formattedTotalPrice);
 
-      decreaseAmount(price);
+      decreaseAmount(finalPrice);
     } else {
       console.log("Item with the id not found.");
     }
