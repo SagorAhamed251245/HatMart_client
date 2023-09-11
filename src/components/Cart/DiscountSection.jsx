@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { TbShoppingCartDiscount } from "react-icons/tb";
 
 const DiscountSection = ({ setDiscountMoney, setTotalPrice, totalPrice }) => {
   const [gotDiscount, setGotDiscount] = useState(false);
   const [discountDetails, setDiscountDetails] = useState([]);
 
+  //TODO: add discount api
   const discountCodes = [
     {
       code: "SUMMER2023",
@@ -22,7 +24,8 @@ const DiscountSection = ({ setDiscountMoney, setTotalPrice, totalPrice }) => {
     },
     // Add more discount codes as needed
   ];
-
+  
+  //TODO: add expired discount api
   const expiredDiscountCoupons = [
     {
       code: "EXPIRED10",
@@ -91,8 +94,9 @@ const DiscountSection = ({ setDiscountMoney, setTotalPrice, totalPrice }) => {
         />
         <button
           type="submit"
-          className="btn bg-[#34b701] text-white  hover:bg-orange-600"
+          className="btn bg-[#34b701]  text-white  hover:bg-orange-600"
         >
+          <TbShoppingCartDiscount className="text-lg" />
           Get Discount
         </button>
       </form>

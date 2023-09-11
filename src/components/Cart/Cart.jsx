@@ -3,6 +3,7 @@ import CartCard from "@/components/Cart/CartCard";
 import React, { useEffect, useState } from "react";
 import DiscountSection from "./DiscountSection";
 import Link from "next/link";
+import { MdOutlinePayment } from "react-icons/md";
 
 const Cart = ({ products }) => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -158,6 +159,7 @@ const Cart = ({ products }) => {
               }}
               className="btn w-full bg-[#34B701] hover:bg-green-500 duration-300 text-white my-6"
             >
+              <MdOutlinePayment />
               Payment
             </Link>
 
