@@ -55,7 +55,6 @@ const EditProfilePage = () => {
 
     const updatedItem = {
       name,
-      email,
       mobileNumber: NewMobileNumber,
       address,
       gender,
@@ -106,29 +105,6 @@ const EditProfilePage = () => {
         />
         {errors?.name && (
           <span className="text-red-500">{errors?.name?.message}</span>
-        )}
-      </div>
-
-      <div>
-        <label
-          htmlFor="email"
-          className="block text-md font-medium text-gray-700"
-        >
-          Your email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={user?.email}
-          placeholder="Your email"
-          className={`mt-1 p-2 focus:shadow-blue-400 transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
-            errors?.email ? "border-red-500" : ""
-          }`}
-          {...register("email", { required: "Email is required" })}
-        />
-        {errors?.email && (
-          <span className="text-red-500">{errors?.email?.message}</span>
         )}
       </div>
 

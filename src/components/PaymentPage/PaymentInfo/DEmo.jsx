@@ -1,47 +1,14 @@
-"use client";
+import React from "react";
 
-import { Fragment, useEffect, useState } from "react";
-
-import Link from "next/link";
-import Image from "next/image";
-import getSingleProduct from "@/utils/getSingleProduct";
-
-const PaymentInfo = ({ searchParams }) => {
-  const productsId = JSON.parse(searchParams.productId);
-  const [allProducts, setAllProducts] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const products = [];
-
-      for (const productInfo of productsId) {
-        const product = await getSingleProduct(productInfo._id);
-        products.push({ ...product, quantity: productInfo.quantity });
-      }
-
-      setAllProducts(products);
-    })();
-  }, []);
-
-  let deliveryCharge = 2.1;
-
-  let Amount = allProducts.reduce((accumulator, product) => {
-    const price = parseFloat(product.price);
-    const quantity = parseInt(product.quantity);
-    const productTotal = price * quantity;
-    return accumulator + productTotal;
-  }, 0);
-
-  let totalAmount = Amount + deliveryCharge;
-
+const DEmo = () => {
   return (
-    <Fragment>
+    <>
       <section className="shadow-xl border py-5 px-2">
         <div className="px-5">
           <div className="border ">
             {allProducts.map((product, index) => (
               <>
-                <div className="flex gap-5 items-center justify-between my-2 ">
+                <div className="flex gap-5 items-center my-5 ">
                   <p>#{index}</p>
                   <div className="h-12 w-12 flex">
                     <Image
@@ -53,7 +20,6 @@ const PaymentInfo = ({ searchParams }) => {
                     ></Image>
                   </div>
                   <div>{product?.title.slice(0, 30)}...</div>
-                  <div>x{product?.quantity}</div>
                 </div>
               </>
             ))}
@@ -78,27 +44,22 @@ const PaymentInfo = ({ searchParams }) => {
           </div>
           <div className="flex justify-between">
             <div>Total Payment:</div>
-            <div>${parseFloat(totalAmount.toFixed(2))}</div>
+            <div>${totalAmount}</div>
           </div>
           {/*  */}
           <div className="mt-10 ">
             <Link
               className="bg-[#34B701] w-[100%] text-white md:text-base text-sm px-[10px] md:px-4 font-medium py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
-              href={{
-                pathname: "/payment/payallmethod",
-                query: {
-                  allProducts: JSON.stringify(allProducts),
-                  totalAmount: totalAmount,
-                },
-              }}
+              href="/payment/payallmethod"
+              as={`/payment/payallmethod?totalAmount=${totalAmount}`}
             >
               Place Order
             </Link>
           </div>
         </div>
       </section>
-    </Fragment>
+    </>
   );
 };
 
-export default PaymentInfo;
+export default DEmo;
