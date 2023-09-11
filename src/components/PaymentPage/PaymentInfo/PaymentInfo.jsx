@@ -84,8 +84,13 @@ const PaymentInfo = ({ searchParams }) => {
           <div className="mt-10 ">
             <Link
               className="bg-[#34B701] w-[100%] text-white md:text-base text-sm px-[10px] md:px-4 font-medium py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
-              href="/payment/payallmethod"
-              as={`/payment/payallmethod?totalAmount=${totalAmount}`}
+              href={{
+                pathname: "/payment/payallmethod",
+                query: {
+                  allProducts: JSON.stringify(allProducts),
+                  totalAmount: totalAmount,
+                },
+              }}
             >
               Place Order
             </Link>
