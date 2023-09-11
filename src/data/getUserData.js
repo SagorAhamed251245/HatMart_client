@@ -10,7 +10,7 @@ const getUserData = () => {
   useEffect(() => {
     (async () => {
       try {
-        const getUserData = await getSingleUser(user.email);
+        const getUserData = await getSingleUser(user?.email);
         setUser(getUserData);
       } catch (error) {}
     })();
