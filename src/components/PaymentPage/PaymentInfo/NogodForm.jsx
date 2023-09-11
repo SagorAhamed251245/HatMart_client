@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import NagadModal from "../Modal/NagadModal";
 
 const NogodForm = ({ onConfirm }) => {
   const {
@@ -39,6 +40,7 @@ const NogodForm = ({ onConfirm }) => {
           Confirm Cash Payment
         </button>
       </form>
+      <NagadModal />
     </div>
   );
 };

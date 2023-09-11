@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import BkashModal from "../Modal/BkashModal";
 
 const BkashForm = () => {
   const {
@@ -74,6 +75,7 @@ const BkashForm = () => {
           Pay with bkash
         </button>
       </form>
+      <BkashModal />
     </div>
   );
 };
