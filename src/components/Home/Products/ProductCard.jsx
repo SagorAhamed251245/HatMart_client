@@ -24,7 +24,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
   } = product;
 
   return (
-    <div className="relative border border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-96">
+    <div className="relative border border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-[25rem]">
       <Link
         href={{
           pathname: `/productDetails`,
