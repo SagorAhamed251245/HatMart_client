@@ -100,15 +100,15 @@ const ProductCard = ({ product, handleAddToCart }) => {
               <span className="text-[#34B701]">${price}</span>
             )}
           </p>
-          <div className="absolute w-full bottom-4 left-0 px-2 md:px-4 mt-2">
-            <div className="flex items-center justify-between !mt-5">
-              <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
-
-              <BuyNow stock_quantity={stock_quantity} />
-            </div>
-          </div>
         </div>
       </Link>
+      <div className="absolute w-full bottom-4 left-0 px-2 md:px-4 mt-2">
+        <div className="flex items-center justify-between !mt-5">
+          <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
+
+          <BuyNow stock_quantity={stock_quantity} />
+        </div>
+      </div>
     </div>
   );
 };
