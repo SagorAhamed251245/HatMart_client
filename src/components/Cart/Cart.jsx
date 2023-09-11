@@ -8,6 +8,7 @@ const Cart = ({ products }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [cartData, setCartData] = useState([]);
+  const [discountMoney, setDiscountMoney] = useState(0)
 
   // onclick delete sigleCart item==================================================================================
   const deleteCartItem = (itemId) => {
@@ -131,7 +132,7 @@ const Cart = ({ products }) => {
                 {/* row 2 */}
                 <tr>
                   <td className="text-start pl-16">Discount :</td>
-                  <td className="text-end pr-16 ">$ {0}</td>
+                  <td className="text-end pr-16 ">$ {discountMoney}</td>
                 </tr>
                 {/* row 3 */}
                 <tr>
@@ -162,7 +163,7 @@ const Cart = ({ products }) => {
 
             <hr />
             {/* discount section */}
-            <DiscountSection totalPrice={totalPrice} />
+            <DiscountSection totalPrice={totalPrice} setDiscountMoney={setDiscountMoney} setTotalPrice={setTotalPrice} />
           </div>
         </section>
       </section>
