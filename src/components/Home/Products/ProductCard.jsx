@@ -7,7 +7,7 @@ import Link from "next/link";
 import AddToCartBtn from "./AddToCartBtn";
 import BuyNow from "./BuyNow";
 
-const ProductCard = ({ product, handleAddToCart }) => {
+const ProductCard = ({ product }) => {
   const {
     _id,
     title,
@@ -24,7 +24,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
   } = product;
 
   return (
-    <div className="relative border border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-96">
+    <div className="relative border border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-[25rem]">
       <Link
         href={{
           pathname: `/productDetails`,
@@ -40,7 +40,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
             src={image} // Replace with the actual image URL
             height={300}
             width={500}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
             priority
             alt="product image"
           />
@@ -100,15 +100,15 @@ const ProductCard = ({ product, handleAddToCart }) => {
               <span className="text-[#34B701]">${price}</span>
             )}
           </p>
-          <div className="absolute w-full bottom-4 left-0 px-2 md:px-4 mt-2">
-            <div className="flex items-center justify-between !mt-5">
-              <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
-
-              <BuyNow stock_quantity={stock_quantity} _id={_id} />
-            </div>
-          </div>
         </div>
       </Link>
+      <div className="absolute w-full bottom-4 left-0 px-2 md:px-4 mt-2">
+        <div className="flex items-center justify-between !mt-5">
+          <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
+
+          <BuyNow stock_quantity={stock_quantity} />
+        </div>
+      </div>
     </div>
   );
 };
