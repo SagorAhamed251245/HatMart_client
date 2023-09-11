@@ -65,7 +65,7 @@ const NavBar = () => {
             {/* night */}
             <div className="hidden md:inline-block">
               <div className="flex  items-center justify-center w-[35px] h-[35px]">
-                <Link href={"cart"}>
+                <Link href={"/cart"}>
                   <BiSolidCartAlt className="text-3xl" />
                 </Link>
               </div>

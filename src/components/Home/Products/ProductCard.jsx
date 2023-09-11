@@ -7,7 +7,7 @@ import Link from "next/link";
 import AddToCartBtn from "./AddToCartBtn";
 import BuyNow from "./BuyNow";
 
-const ProductCard = ({ product, handleAddToCart }) => {
+const ProductCard = ({ product }) => {
   const {
     _id,
     title,
@@ -22,6 +22,9 @@ const ProductCard = ({ product, handleAddToCart }) => {
     discount_percent,
     stock_quantity,
   } = product;
+
+  
+
 
   return (
     <div className="relative border border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-[25rem]">
