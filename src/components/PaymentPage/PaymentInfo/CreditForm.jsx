@@ -1,12 +1,15 @@
 "use client";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import React, { useState } from "react";
+import CheckoutFrom from "./CardPayment/CheckoutFrom";
 
-
-const CreditForm = () => {
-
-
-  const handlePostRequest = async () => {
+const CreditForm = ({ totalAmount, allProducts }) => {
+  const stripePromise = loadStripe(
+    `pk_test_51NFA04JHKCQ45Flfl2cUjcu7vsxPaN1ySv1vhGoi4qOhOthupWevu0DaocmdMofi792wfmjs7vfURVBy4acRv42000Otknk4Ff`
+  );
+  /*  const handlePostRequest = async () => {
     try {
       const requestBody = {
         items: [
@@ -32,21 +35,26 @@ const CreditForm = () => {
     } catch (error) {
       console.error("Error making POST request:", error);
     }
-  };
+  }; */
 
   return (
     <>
       <div className="justify-center items-center">
         <button
-          onClick={handlePostRequest} // Call the function on button click
+          // Call the function on button click
           type="submit"
           className="bg-[#FF7B13] hover:bg-[#34B701] w-[30%] mt-4 text-white md:text-base text-sm px-[10px] md:px-2 font-medium py-1 rounded disabled:opacity-60"
         >
           Pay Now
         </button>
+        {
+          <>
+            <Elements stripe={stripePromise}>
+              <CheckoutFrom price={totalAmount} allProducts={allProducts}></CheckoutFrom>
+            </Elements>
+          </>
+        }
       </div>
-
-      
     </>
   );
 };
