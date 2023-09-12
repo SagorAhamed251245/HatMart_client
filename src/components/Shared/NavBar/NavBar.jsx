@@ -17,7 +17,6 @@ import LogoSVG from "./LogoSVG";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
-  console.log(user);
 
   const { uid, photoURL } = user || {};
   const li = uid ? afterLoginNavData : beforeLoginNavData;
@@ -39,6 +38,7 @@ const NavBar = () => {
                 className="object-cover w-full"
                 height={144}
                 width={144}
+                alt="logo"
               />
             </Link>
           </div>
