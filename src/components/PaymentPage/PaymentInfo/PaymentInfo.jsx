@@ -17,13 +17,17 @@ const PaymentInfo = ({ searchParams }) => {
 
       for (const productInfo of productsId) {
         const product = await getSingleProduct(productInfo._id);
-        products.push({ ...product, quantity: productInfo.quantity });
+        products.push({ ...product, quantity: productInfo?.quantity });
       }
 
       setAllProducts(products);
     })();
   }, []);
 
+  console.log(
+    "🚀 ~ file: PaymentInfo.jsx:27 ~ PaymentInfo ~ allProducts:",
+    allProducts
+  );
   let deliveryCharge = 2.1;
 
   let Amount = allProducts.reduce((accumulator, product) => {
