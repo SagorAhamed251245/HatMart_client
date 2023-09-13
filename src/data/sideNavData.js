@@ -6,6 +6,8 @@ import { AiFillHeart, AiFillHome } from "react-icons/ai";
 import { GiBallPyramid } from "react-icons/gi";
 import { GrTransaction } from "react-icons/gr";
 import { PiUserListFill } from "react-icons/pi";
+import { MdOutlineRemoveShoppingCart} from "react-icons/md";
+import { LiaPaypal } from "react-icons/lia";
 
 import getSingleUser from "@/utils/users/getSingleUser";
 import { useEffect, useState } from "react";
@@ -25,7 +27,7 @@ const SideData = () => {
         if (getUser.role === "admin") {
           data = [
             {
-              path: "/dashboard",
+              path: "dashboard",
               title: "Dashboard",
               icon: <BiSolidDashboard />,
             },
@@ -81,7 +83,7 @@ const SideData = () => {
         } else if (getUser.role === "user") {
           data = [
             {
-              path: "/dashboard",
+              path: "dashboard",
               title: "Dashboard",
               icon: <BiSolidDashboard />,
             },
@@ -94,6 +96,16 @@ const SideData = () => {
               path: "/dashboard/myOrders",
               title: "My Order",
               icon: <FaCartArrowDown />,
+            },
+            {
+              path: "/dashboard/myTransaction",
+              title: "My Transaction",
+              icon: <LiaPaypal />,
+            },
+            {
+              path: "/dashboard/canceledOrders",
+              title: "Canceled Orders",
+              icon: <MdOutlineRemoveShoppingCart />,
             },
             {
               path: "/dashboard/myWishList",

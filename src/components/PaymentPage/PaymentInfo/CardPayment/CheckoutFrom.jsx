@@ -105,6 +105,13 @@ const CheckoutForm = ({ price, allProducts }) => {
                     }
                   )
                   .then((res) => {
+                    axios.post(`${process.env.NEXT_PUBLIC_APIS}/transaction`, {
+                      transactionId: paymentIntent.id,
+                      userId: user._id,
+                      paymentMethod: paymentMethod?.card?.brand,
+                      status: "approved",
+                      totalPrice: price,
+                    });
                     refresh();
                     replace("/");
                     toast.success("product payment in successfully");
