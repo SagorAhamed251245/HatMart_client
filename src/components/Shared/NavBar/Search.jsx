@@ -24,7 +24,7 @@ const Search = () => {
         placeholder="
               Search Your Product"
         required
-        className="input input-bordered w-[200px] lg:w-[500px] pr-16"
+        className="input input-bordered w-[150px] md:w-[300px] lg:w-[500px]  pr-16"
       />
       <Link
         href={{

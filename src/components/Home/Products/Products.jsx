@@ -7,7 +7,7 @@ const Products = async ({ sectionTitle }) => {
 
   return (
     <>
-      <div className="mb-20 md:w-[90%] mx-auto">
+      <div className="mb-20 md:w-[90%] lg:w-[90%] mx-auto">
         <SectionTitle>{sectionTitle}</SectionTitle>
         <div className="">
           <ChildProduct products={products} sectionTitle={sectionTitle} />

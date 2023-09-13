@@ -24,19 +24,19 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="shadow-md  z-10 mb-[25px] lg:mb-[50px]  bg-white">
-        <div className="navbar  lg:mb-2  lg:pt-5 lg:px-10  ">
+      <nav className="shadow-md  z-10 mb-[25px] md:mb-[35px] lg:mb-[50px]  bg-white">
+        <div className="navbar  lg:mb-2  lg:pt-5 px-5 md:px-10 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
             <LogoSVG></LogoSVG>
 
             <Link
               href={"/"}
-              className="h-24 flex justify-center item-center  w-24 md:w-36"
+              className="h-24 flex justify-center item-center w-24 md:w-36"
             >
               <Image
                 src="https://i.ibb.co/WtbFpmR/logo.png"
-                className="object-cover w-full"
+                className="object-cover  lg:w-36 md:w-32 w-20"
                 height={144}
                 width={144}
                 alt="logo"
