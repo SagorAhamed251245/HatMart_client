@@ -6,7 +6,7 @@ import { AiFillHeart, AiFillHome } from "react-icons/ai";
 import { GiBallPyramid } from "react-icons/gi";
 import { GrTransaction } from "react-icons/gr";
 import { PiUserListFill } from "react-icons/pi";
-import { MdOutlineRemoveShoppingCart} from "react-icons/md";
+import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { LiaPaypal } from "react-icons/lia";
 
 import getSingleUser from "@/utils/users/getSingleUser";
@@ -110,7 +110,7 @@ const SideData = () => {
             {
               path: "/dashboard/myWishList",
               title: "My WishList",
-              icon: <AiFillHeart className="text-red-300" />,
+              icon: <AiFillHeart />,
             },
             {
               path: "/",
