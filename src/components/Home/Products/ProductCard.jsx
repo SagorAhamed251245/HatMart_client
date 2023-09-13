@@ -6,6 +6,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
 import AddToCartBtn from "./AddToCartBtn";
 import BuyNow from "./BuyNow";
+import WishListBtn from "./WishListBtn";
 
 const ProductCard = ({ product }) => {
   const {
@@ -50,6 +51,7 @@ const ProductCard = ({ product }) => {
               {discount_percent}%
             </p>
           )}
+          <WishListBtn _id={_id} />
         </div>
 
         <div className="space-y-1 mt-3">
@@ -104,7 +106,7 @@ const ProductCard = ({ product }) => {
       </Link>
       <div className="absolute w-full bottom-4 left-0 px-2 md:px-4 mt-2">
         <div className="flex items-center justify-between !mt-5">
-          <AddToCartBtn id={_id} />
+          <AddToCartBtn _id={_id} />
 
           <BuyNow stock_quantity={stock_quantity} _id={_id} />
         </div>
