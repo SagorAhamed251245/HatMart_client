@@ -5,7 +5,7 @@ import PaymentForm from "./PaymentForm";
 import Image from "next/image";
 import paymentMethodImage from "@/data/paymentImage";
 
-const PayCard = () => {
+const PayCard = ({totalAmount, allProducts}) => {
   const [selectedPayment, setSelectedPayment] = useState(null);
 
   const handlePaymentSelect = (paymentMethod) => {
@@ -37,7 +37,9 @@ const PayCard = () => {
         ))}
       </div>
       {selectedPayment && (
-        <PaymentForm
+        <PaymentForm 
+        totalAmount={totalAmount}
+        allProducts={allProducts}
           paymentMethod={selectedPayment}
           isActive={selectedPayment !== null}
         />

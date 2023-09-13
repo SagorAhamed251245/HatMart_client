@@ -1,93 +1,61 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+"use client";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+import React, { useState } from "react";
+import CheckoutFrom from "./CardPayment/CheckoutFrom";
 
-const CreditForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+const CreditForm = ({ totalAmount, allProducts }) => {
+  const stripePromise = loadStripe(
+    `pk_test_51NFA04JHKCQ45Flfl2cUjcu7vsxPaN1ySv1vhGoi4qOhOthupWevu0DaocmdMofi792wfmjs7vfURVBy4acRv42000Otknk4Ff`
+  );
+  /*  const handlePostRequest = async () => {
+    try {
+      const requestBody = {
+        items: [
+          {
+            title: "Product 1",
+            image: "image-url-1",
+            _id: "product-1-id",
+            price: 10.99,
+            quantity: 2,
+          },
+          // Add more items as needed
+        ],
+        shippingInfo: {
+          user: "sagorahamed@gmail.com",
+        },
+      };
 
-  const onSubmit = (data) => {
-    console.log("Form data:", data);
-    // Here you can handle form submission and payment processing
-  };
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_APIS}/cartPayment`,
+        requestBody
+      ); // Updated endpoint
+      setResponse(response.data);
+    } catch (error) {
+      console.error("Error making POST request:", error);
+    }
+  }; */
 
   return (
-    <div className="justify-center items-center">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex gap-3 mb-3">
-          <div className="flex flex-col w-[50%]">
-            <label htmlFor="cardNumber">Card Number</label>
-            <input
-              className="border shadow-md"
-              type="text"
-              id="cardNumber"
-              name="cardNumber"
-              {...register("cardNumber", { required: true })}
-            />
-            {errors.cardNumber && <span>This field is required</span>}
-          </div>
-
-          <div className="flex flex-col w-[50%]">
-            <label htmlFor="expiry">Expiry Date</label>
-            <input
-              className="border shadow-md"
-              type="date"
-              id="expiry"
-              name="expiry"
-              {...register("expiry", { required: true })}
-            />
-            {errors.expiry && <span>This field is required</span>}
-          </div>
-        </div>
-
-        <div className="flex gap-3 mb-3">
-          <div className="flex flex-col w-[50%]">
-            <label htmlFor="cardholderName">Cardholder Name</label>
-            <input
-              className="border shadow-md"
-              type="text"
-              id="cardholderName"
-              name="cardholderName"
-              {...register("cardholderName", { required: true })}
-            />
-            {errors.cardholderName && <span>This field is required</span>}
-          </div>
-
-          <div className="flex flex-col w-[50%]">
-            <label htmlFor="cvv">CVV/CVC</label>
-            <input
-              className="border shadow-md"
-              type="text"
-              id="cvv"
-              name="cvv"
-              {...register("cvv", { required: true })}
-            />
-            {errors.cvv && <span>This field is required</span>}
-          </div>
-        </div>
-
-        <div className="flex flex-col w-[50%]">
-          <label htmlFor="postalCode">Billing Postal Code</label>
-          <input
-            className="border shadow-md"
-            type="text"
-            id="postalCode"
-            name="postalCode"
-            {...register("postalCode", { required: true })}
-          />
-          {errors.postalCode && <span>This field is required</span>}
-        </div>
-
+    <>
+      <div className="justify-center items-center">
         <button
+          // Call the function on button click
           type="submit"
           className="bg-[#FF7B13] hover:bg-[#34B701] w-[30%] mt-4 text-white md:text-base text-sm px-[10px] md:px-2 font-medium py-1 rounded disabled:opacity-60"
         >
           Pay Now
         </button>
-      </form>
-    </div>
+        {
+          <>
+            <Elements stripe={stripePromise}>
+              <CheckoutFrom price={totalAmount} allProducts={allProducts}></CheckoutFrom>
+            </Elements>
+          </>
+        }
+      </div>
+    </>
   );
 };
 

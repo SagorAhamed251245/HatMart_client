@@ -9,7 +9,7 @@ const OrdersSmallScreenView = ({ orders }) => {
     <div className="lg:hidden overflow-x-auto">
       {orders.map((order) => (
         <div
-          key={order.id}
+          key={order._id}
           className="mx-auto w-full mb-4 py-3 shadow-lg hover:shadow-2xl duration-300 "
           style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
         >
@@ -30,7 +30,7 @@ const OrdersSmallScreenView = ({ orders }) => {
                     <p>{order.productName}</p>
                   </div>
                   <p>
-                    <span className="mr-2">{order.orderNumber}</span>
+                    <span className="mr-2">{order._id}</span>
                     <FaAngleUp
                       className={`${
                         open
@@ -48,7 +48,7 @@ const OrdersSmallScreenView = ({ orders }) => {
                           # ORDER
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  text-green-500">
-                          {order.orderNumber}
+                          {order._id}
                         </td>
                       </tr>
                       <tr>
@@ -56,7 +56,7 @@ const OrdersSmallScreenView = ({ orders }) => {
                           CATEGORY
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          {order.category}
+                          {order.productCategory}
                         </td>
                       </tr>
                       <tr>
@@ -83,15 +83,15 @@ const OrdersSmallScreenView = ({ orders }) => {
                           ORDER STATUS
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  text-sm">
-                          {order.status === "confirmed" ? (
+                          {order.orderStatus === "pending" ? (
                             <span className="py-1.5 px-4 rounded-full bg-[#00BA9D] font-medium text-white">
-                              Confirmed
+                              Pending
                             </span>
-                          ) : order.status === "canceled" ? (
+                          ) : order.orderStatus === "canceled" ? (
                             <span className="py-1.5 px-4 rounded-full bg-[#FF5470] text-white font-medium">
                               Cancelled
                             </span>
-                          ) : order.status === "completed" ? (
+                          ) : order.orderStatus === "completed" ? (
                             <span className="py-1.5 px-4 rounded-full bg-[#035ECF] text-white font-medium">
                               Completed
                             </span>
@@ -105,7 +105,7 @@ const OrdersSmallScreenView = ({ orders }) => {
                           PAYMENT
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          ${order.payment}
+                          ${order.price}
                         </td>
                       </tr>
                       <tr>

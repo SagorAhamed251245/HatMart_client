@@ -9,7 +9,7 @@ const MyOrdersSmallScreenView = ({ orders }) => {
     <div className="lg:hidden overflow-x-auto">
       {orders.map((order) => (
         <div
-          key={order.id}
+          key={order?._id}
           className="mx-auto w-full mb-4 py-3 shadow-lg hover:shadow-2xl duration-300 "
           style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
         >
@@ -21,16 +21,15 @@ const MyOrdersSmallScreenView = ({ orders }) => {
                     <div className="h-6 w-6 overflow-hidden object-contain rounded">
                       <Image
                         style={{ objectFit: "contain" }}
-                        src={order.productImage}
+                        src={order?.productImage}
                         alt="product image"
                         width={40}
                         height={40}
                       />
                     </div>
-                    <p>{order.productName}</p>
+                    <p>{order?.productName.slice(0, 30)}</p>
                   </div>
                   <p>
-                    <span className="mr-2">{order.orderNumber}</span>
                     <FaAngleUp
                       className={`${
                         open
@@ -48,17 +47,10 @@ const MyOrdersSmallScreenView = ({ orders }) => {
                           # ORDER
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  text-green-500">
-                          {order.orderNumber}
+                          {order?._id}
                         </td>
                       </tr>
-                      <tr>
-                        <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          CATEGORY
-                        </td>
-                        <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          {order.category}
-                        </td>
-                      </tr>
+
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           PRODUCT
@@ -68,14 +60,40 @@ const MyOrdersSmallScreenView = ({ orders }) => {
                             <div className="h-10 w-10 overflow-hidden object-contain rounded">
                               <Image
                                 style={{ objectFit: "contain" }}
-                                src={order.productImage}
+                                src={order?.productImage}
                                 alt="product image"
                                 width={40}
                                 height={40}
                               />
                             </div>
-                            <span>{order.productName}</span>
+                            <span>{order?.productName}</span>
                           </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
+                          PAYMENT STATUS
+                        </td>
+                        <td className=" px-4 py-4 text-left border border-gray-300  text-sm">
+                          {order?.paymentStatus === "approved" ? (
+                            <span className="py-1.5 px-4 rounded-full bg-[#00BA9D] font-medium text-white">
+                              Confirmed
+                            </span>
+                          ) : order?.paymentStatus === "canceled" ? (
+                            <span className="py-1.5 px-4 rounded-full bg-[#FF5470] text-white font-medium">
+                              Cancelled
+                            </span>
+                          ) : order?.paymentStatus === "completed" ? (
+                            <span className="py-1.5 px-4 rounded-full bg-[#035ECF] text-white font-medium">
+                              Completed
+                            </span>
+                          ) : order?.paymentStatus === "pending" ? (
+                            <span className="py-1.5 px-4 rounded-full bg-[#a9b91e] text-white font-medium">
+                              Pending
+                            </span>
+                          ) : (
+                            <span>No data</span>
+                          )}
                         </td>
                       </tr>
                       <tr>
@@ -83,17 +101,21 @@ const MyOrdersSmallScreenView = ({ orders }) => {
                           ORDER STATUS
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  text-sm">
-                          {order.status === "confirmed" ? (
-                            <span className="py-1.5 px-4 rounded-full bg-[#00BA9D] font-medium text-white">
+                          {order?.status === "approved" ? (
+                            <span className="py-1.5 px-4 rounded-full bg-[#00ba3b] font-medium text-white">
                               Confirmed
                             </span>
-                          ) : order.status === "canceled" ? (
+                          ) : order?.status === "canceled" ? (
                             <span className="py-1.5 px-4 rounded-full bg-[#FF5470] text-white font-medium">
                               Cancelled
                             </span>
-                          ) : order.status === "completed" ? (
+                          ) : order?.status === "completed" ? (
                             <span className="py-1.5 px-4 rounded-full bg-[#035ECF] text-white font-medium">
                               Completed
+                            </span>
+                          ) : order?.orderStatus === "pending" ? (
+                            <span className="py-1.5 px-4 rounded-full bg-[#a9b91e] text-white font-medium">
+                              Pending
                             </span>
                           ) : (
                             <span>No data</span>
@@ -105,37 +127,7 @@ const MyOrdersSmallScreenView = ({ orders }) => {
                           PAYMENT
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          ${order.payment}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          Rating
-                        </td>
-                        <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          <Rating
-                            fractions={true}
-                            placeholderRating={order.rate}
-                            emptySymbol={
-                              <FaRegStar className="text-yellow-400" />
-                            }
-                            placeholderSymbol={
-                              <FaStar className="text-yellow-400" />
-                            }
-                            fullSymbol={<FaStar className="text-yellow-400" />}
-                            readonly
-                          />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className=" font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          Actions
-                        </td>
-                        <td className=" px-4 py-4 text-left border border-gray-300  font-semibold">
-                          <FaEllipsisVertical
-                            size={30}
-                            className="text-green-500 cursor-pointer"
-                          />
+                          ${order?.price}
                         </td>
                       </tr>
                     </tbody>

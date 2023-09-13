@@ -10,7 +10,7 @@ const usersData = [
     role: "Admin",
     createdAt: "2023-09-01",
     status: "Active",
-    // Add a placeholder image URL here
+
     image: "https://i.ibb.co/b5s3VYj/image.png",
   },
   {
@@ -20,7 +20,6 @@ const usersData = [
     role: "User",
     createdAt: "2023-09-02",
     status: "Inactive",
-    // Add a placeholder image URL here
     image: "https://i.ibb.co/b5s3VYj/image.png",
   },
 ];
@@ -28,15 +27,14 @@ const usersData = [
 test("renders user data table", () => {
   render(<UserTable usersData={usersData} />);
 
-  // Check if the table headers are present
+  
   const headers = screen.getAllByRole("columnheader");
-  expect(headers).toHaveLength(7); // 7 headers as per your component
+  expect(headers).toHaveLength(7); 
 
-  // Check if the user data is rendered
-  const userDataRows = screen.getAllByRole("row", { name: /User \d/ }); // Adjust the regex pattern accordingly
+  const userDataRows = screen.getAllByRole("row", { name: /User \d/ });
   expect(userDataRows).toHaveLength(usersData.length);
 
-  // Check if the "No Data Found" message is not displayed
+ 
   const noDataMessage = screen.queryByText("No Data Found");
   expect(noDataMessage).not.toBeInTheDocument();
 });

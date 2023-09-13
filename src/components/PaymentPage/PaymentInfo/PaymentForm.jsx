@@ -6,7 +6,7 @@ import CodForm from "./CodForm";
 import NogodForm from "./NogodForm";
 import CreditForm from "./CreditForm";
 
-const PaymentForm = ({ paymentMethod, isActive }) => {
+const PaymentForm = ({ paymentMethod, isActive, totalAmount, allProducts }) => {
   // Add the form content based on the paymentMethod
   let formContent = null;
 
@@ -19,7 +19,12 @@ const PaymentForm = ({ paymentMethod, isActive }) => {
   } else if (paymentMethod === "nogod") {
     formContent = <NogodForm></NogodForm>;
   } else if (paymentMethod === "master") {
-    formContent = <CreditForm></CreditForm>;
+    formContent = (
+      <CreditForm
+        totalAmount={totalAmount}
+        allProducts={allProducts}
+      ></CreditForm>
+    );
   }
 
   return (

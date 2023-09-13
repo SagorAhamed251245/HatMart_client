@@ -1,10 +1,11 @@
 import PaymentInfo from "@/components/PaymentPage/PaymentInfo/PaymentInfo";
 import UserInfo from "@/components/PaymentPage/UserInfo/UserInfo";
+import getSingleProduct from "@/utils/getSingleProduct";
 import React from "react";
 export const metadata = {
   title: "HatMat/payment",
 };
-const PaymentPage = () => {
+const PaymentPage = async ({ searchParams }) => {
   return (
     <>
       <section className="flex flex-col sm:flex-row w-[90%] mx-auto min-h-screen gap-3 mb-5  ">
@@ -15,7 +16,7 @@ const PaymentPage = () => {
 
         <div className="sm:w-[100%] md:w-[40%]">
           {/* eikhnae payment componet thakbe */}
-          <PaymentInfo></PaymentInfo>
+          <PaymentInfo searchParams={searchParams}></PaymentInfo>
         </div>
       </section>
     </>

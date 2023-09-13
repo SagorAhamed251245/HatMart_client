@@ -36,7 +36,7 @@ const LogoSection = () => {
         <div className="flex my-3">
           <div className="py-2 rounded-s-full px-3 w-fit border-2 border-orange-500">
             <input
-              className="bg-transparent w-fit"
+              className="bg-transparent outline-none w-fit"
               type="text"
               placeholder="Enter your email here"
             />
