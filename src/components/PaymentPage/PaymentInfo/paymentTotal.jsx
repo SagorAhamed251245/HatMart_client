@@ -1,5 +1,3 @@
-"use client";
-
 const PaymentTotal = ({ totalAmount }) => {
   return (
     <section className="shadow-xl border py-5 px-2">
