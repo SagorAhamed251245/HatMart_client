@@ -5,8 +5,24 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import MyOrdersSmallScreenView from "../MyOrder/MyOrdersSmallScreenView";
 import MyTransactionTableMobile from "./MyTransactionTableMobile";
+import getMyTransaction from "@/utils/users/getMyTransaction";
+import getUserData from "@/data/getUserData";
+import { useEffect, useState } from "react";
 
 const MyTransactionTable = () => {
+  const [MyTransaction, setTransaction] = useState([]);
+
+  const user = getUserData();
+  useEffect(() => {
+    (async () => {
+      const data = await getMyTransaction(user?._id);
+      setTransaction(data);
+    })();
+  }, [user?._id]);
+  console.log(
+    "🚀 ~ file: MyTransactionTable.jsx:13 ~ MyTransactionTable ~ MyTransaction:",
+    MyTransaction
+  );
   const transaction = [
     {
       _id: "T001",
@@ -65,41 +81,36 @@ const MyTransactionTable = () => {
           <thead>
             <tr className="border-b border-gray-300 text-green-500 w-full">
               <th className=" px-4 py-4 text-center">#Transaction</th>
-              <th className=" px-4 py-4 text-center">Pay By</th>
+              <th className=" px-4 py-4 text-center">Payment Method</th>
               <th className=" px-4 py-4 text-center">Amount</th>
               <th className=" px-4 py-4 text-center">Date</th>
               <th className=" px-4 py-4 text-center">Time</th>
-              <th className=" px-4 py-4 text-center">Shiping</th>
               <th className=" px-4 py-4 text-center">more</th>
             </tr>
           </thead>
           <tbody>
-            {transaction.map((data) => (
-              <tr
-                key={data?._id}
-                className="border-b border-gray-300 w-full"
-              >
-                <td className=" px-4 py-4 text-center text-green-500">
-                  {data?.transaction_id}
+            {MyTransaction.map((data) => (
+              <tr key={data?._id} className="border-b border-gray-300 w-full">
+                <td className=" px-4 py-4 text-center text-xs text-green-500">
+                  {data?._id}
                 </td>
                 <td className=" px-4 py-4 text-center flex gap-2 items-center justify-center">
-                  <span>{data?.payment_method}</span>
+                  <span>{data?.paymentMethod}</span>
                 </td>
-                <td className=" px-4 py-4 text-center">$ {data?.amount}</td>
-                <td className=" px-4 py-4 text-center">{new Date(data?.datetime).toLocaleDateString()}</td>
-                <td className=" px-4 py-4 text-center">{new Date(data?.datetime).toLocaleTimeString()}</td>
-                <td className=" px-4 py-4 text-center">$ {data?.shippingCharge}</td>
-                
-                
+                <td className=" px-4 py-4 text-center">$ {data?.totalPrice}</td>
                 <td className=" px-4 py-4 text-center">
-                  More Details
+                  {new Date(data?.createdAt).toLocaleDateString()}
                 </td>
+                <td className=" px-4 py-4 text-center">
+                  {new Date(data?.createdAt).toLocaleTimeString()}
+                </td>
+                <td className=" px-4 py-4 text-center">More Details</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <MyTransactionTableMobile transaction={transaction} />
+      <MyTransactionTableMobile transaction={MyTransaction} />
     </div>
   );
 };

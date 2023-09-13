@@ -15,12 +15,11 @@ const MyTransactionTableMobile = ({ transaction }) => {
               <>
                 <Disclosure.Button className="flex w-full justify-between items-center rounded-lg  px-4  text-left  font-medium   focus:outline-none   focus:border-none ">
                   <div className=" px-1  text-left   flex gap-2 items-center justify-center">
-                  <p>{data?.transaction_id}</p>
-                    <p>${data?.amount}</p>
+                    <p className="text-xs">{data?._id}</p>
                   </div>
                   <p>
                     <span className="mr-2">
-                      {new Date(data?.datetime).toLocaleDateString()}
+                      {new Date(data?.createdAt).toLocaleDateString()}
                     </span>
                     <FaAngleUp
                       className={`${
@@ -39,7 +38,7 @@ const MyTransactionTableMobile = ({ transaction }) => {
                           # Transaction
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  text-green-500">
-                          {data?.transaction_id}
+                          {data?._id}
                         </td>
                       </tr>
                       <tr>
@@ -47,7 +46,7 @@ const MyTransactionTableMobile = ({ transaction }) => {
                           date
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          {new Date(data?.datetime).toLocaleDateString()}
+                          {new Date(data?.createdAt).toLocaleDateString()}
                         </td>
                       </tr>
                       <tr>
@@ -55,33 +54,25 @@ const MyTransactionTableMobile = ({ transaction }) => {
                           Time
                         </td>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          {new Date(data?.datetime).toLocaleTimeString()}
+                          {new Date(data?.createdAt).toLocaleTimeString()}
                         </td>
                       </tr>
-                      <tr>
-                        <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          Shipping
-                        </td>
-                        <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                        $ {data?.shippingCharge}
-                        </td>
-                      </tr>
+
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           Amount
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          ${data?.amount}
+                          ${data?.totalPrice}
                         </td>
                       </tr>
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                          Pay by
+                          Payment Method
                         </td>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
-                        {data?.payment_method}
+                          {data?.paymentMethod}
                         </td>
-                        
                       </tr>
                       <tr>
                         <td className=" font-semibold px-4 py-4 text-left border border-gray-300 ">
