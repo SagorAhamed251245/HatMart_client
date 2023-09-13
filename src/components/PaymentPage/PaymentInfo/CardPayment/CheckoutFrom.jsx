@@ -1,62 +1,48 @@
-import getUserData from "@/data/getUserData";
+import React, { useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import getUserData from "@/data/getUserData";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
-const CheckoutFrom = ({ price, allProducts }) => {
-  console.log("🚀 ~ file: CheckoutFrom.jsx:5 ~ CheckoutFrom ~ price :", price);
+const CheckoutForm = ({ price, allProducts }) => {
+  console.log(
+    "🚀 ~ file: CheckoutFrom.jsx:7 ~ CheckoutForm ~ allProducts:",
+    allProducts
+  );
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [orderProducts, setOrderProducts] = useState([]);
-  console.log(allProducts);
-
+  const [transactionId, setTransactionId] = useState(null);
   const user = getUserData();
-  console.log("🚀 ~ file: CheckoutFrom.jsx:13 ~ CheckoutFrom ~ user:", user);
-
-  useEffect(() => {
-    allProducts.map((product) =>
-      setOrderProducts(...orderProducts, {
-        customerName: user?.name,
-        customerId: user?._id,
-        customerEmail: user?.email,
-        productName: product?.title,
-        productId: product?._id,
-        productImage: product?.image,
-        productCategory: product?.category,
-        price: product?.price,
-        orderStatus: "approved",
-        quantity: product?.quantity,
-      })
-    );
-  }, [allProducts]);
-
+  const { replace, refresh } = useRouter();
   useEffect(() => {
     if (price > 0) {
       axios
         .post(`${process.env.NEXT_PUBLIC_APIS}/cartPayment`, { price })
         .then((res) => {
-          console.log(res.data.clientSecret);
           setClientSecret(res.data.clientSecret);
+        })
+        .catch((error) => {
+          console.error("Error fetching clientSecret:", error);
         });
     }
   }, [price]);
-  const handleSubmit = async (event) => {
-    // Block native form submission.
 
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!stripe || !elements) {
+    if (!stripe || !elements || !clientSecret) {
       return;
     }
 
     const card = elements.getElement(CardElement);
 
-    if (card == null) {
+    if (!card) {
       return;
     }
-    console.log("🚀 ~ file: CheckoutFrom.jsx:20 ~ handleSubmit ~ card:", card);
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -64,30 +50,76 @@ const CheckoutFrom = ({ price, allProducts }) => {
     });
 
     if (error) {
-      console.log("[error]", error);
       setCardError(error.message);
     } else {
       setCardError("");
-      console.log("[PaymentMethod]", paymentMethod);
-    }
-    const { paymentIntent, error: confirmError } =
-      await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: card,
-          billing_details: {
-            email: user?.email || "unknown",
-            name: user?.displayName || "anonymous",
+
+      const { paymentIntent, error: confirmError } =
+        await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: card,
+            billing_details: {
+              email: user?.email || "unknown",
+              name: user?.displayName || "anonymous",
+            },
           },
-        },
-      });
-    if (confirmError) {
-      setCardError(confirmError);
-    }
-    if (paymentIntent.status === "succeeded") {
-      setTransactionId(paymentIntent.id);
-      console.log(paymentIntent.id);
-      const payment = { transactionId: paymentIntent.id };
-      console.log(payment);
+        });
+
+      if (confirmError) {
+        setCardError(confirmError.message);
+      }
+
+      if (paymentIntent.status === "succeeded") {
+        setTransactionId(paymentIntent.id);
+
+        const orders = allProducts.map((product) => ({
+          customerName: user.name,
+          customerId: user._id,
+          customerEmail: user.email,
+          productName: product.title,
+          productId: product._id,
+          productImage: product.image,
+          productCategory: product.category,
+          price: product.price,
+          orderStatus: "pending",
+          paymentStatus: "approved",
+          quantity: product.quantity,
+          paymentMethod: paymentMethod?.card?.brand,
+          transactionId: paymentIntent.id,
+        }));
+        await axios
+          .post(`${process.env.NEXT_PUBLIC_APIS}/orders/multi`, orders)
+          .then((res) => {
+            (async () => {
+              for (const product of allProducts) {
+                await axios
+                  .patch(
+                    `${process.env.NEXT_PUBLIC_APIS}/updateProduct/${product?._id}`,
+                    {
+                      estimateSells: product?.estimateSells
+                        ? product?.estimateSells + product?.quantity
+                        : product?.quantity,
+                      stock_quantity: product?.stock_quantity
+                        ? product?.stock_quantity - product?.quantity
+                        : 0,
+                    }
+                  )
+                  .then((res) => {
+                    refresh();
+                    replace("/");
+                    toast.success("product payment in successfully");
+                    console.log(res);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }
+            })();
+          })
+          .catch((err) => console.log(error));
+
+        console.log(orders);
+      }
     }
   };
 
@@ -113,16 +145,16 @@ const CheckoutFrom = ({ price, allProducts }) => {
         <div className="w-full flex justify-center mt-5">
           <button
             type="submit"
-            className="bg-pink-500 border-black text-white rounded-lg w-36 p-2 mt-5 "
+            className="bg-pink-500 border-black text-white rounded-lg w-36 p-2 mt-5"
             disabled={!stripe || !clientSecret}
           >
             Pay
           </button>
         </div>
       </form>
-      {cardError && <p className="text-red-600 ml-8">{cardError.message}</p>}
+      {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
     </>
   );
 };
 
-export default CheckoutFrom;
+export default CheckoutForm;
