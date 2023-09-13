@@ -18,10 +18,7 @@ const MyAllOrdersTable = () => {
     })();
   }, [user?._id]);
 
-  console.log(
-    "🚀 ~ file: MyAllOrdersTable.jsx:19 ~ MyAllOrdersTable ~ MyOrders:",
-    MyOrders
-  );
+
 
   return (
     <div
