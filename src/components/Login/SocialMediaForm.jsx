@@ -1,4 +1,36 @@
+"use client";
+
+import useAuth from "@/hooks/useAuth";
+import postUser from "@/utils/users/postUser";
+import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
+import { startTransition } from "react";
+import toast from "react-hot-toast";
+
 const SocialMediaForm = () => {
+  const { googleLogin } = useAuth();
+  const { replace, refresh } = useRouter();
+  const search = useSearchParams();
+  const from = search.get("redirectUrl") || "/";
+
+  const handleGoogleLogin = async () => {
+    const toastId = toast.loading("Loading...");
+    try {
+      const res = await googleLogin();
+      const { displayName, email, photoURL } = res.user;
+      const userData = { name: displayName, email, image: photoURL };
+      startTransition(() => {
+        refresh();
+        replace(from);
+        toast.dismiss(toastId);
+        toast.success("User signed in successfully");
+      });
+      await postUser(userData);
+    } catch (error) {
+      toast.dismiss(toastId);
+      toast.error(error.message || "User not signed in");
+    }
+  };
   return (
     <div className="mt-4">
       <p className="text-sm text-gray-600 text-center">
@@ -25,22 +57,18 @@ const SocialMediaForm = () => {
           Facebook
         </button>
         <button
+          onClick={handleGoogleLogin}
           type="button"
-          className="text-black bg-slate-200  focus:ring-4 focus:outline-none focus:ring-[#000]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+          className="text-black bg-slate-200  focus:ring-4 focus:outline-none focus:ring-[#000]/50 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 font-semibold"
         >
-          <svg
-            className="w-4 h-4 mr-2 text-black"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 18 19"
-          >
-            <path
-              fillRule="evenodd"
-              d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
-              clip-rule="evenodd"
+          <span className="h-5 w-5 mr-2">
+            <Image
+              src="https://i.ibb.co/0mk8yJX/image-1.png"
+              height={48}
+              width={49}
+              alt="google logo"
             />
-          </svg>
+          </span>
           Google
         </button>
       </div>

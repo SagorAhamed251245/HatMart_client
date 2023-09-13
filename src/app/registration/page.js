@@ -17,10 +17,10 @@ const Registration = () => {
           <EmailForm />
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">
-              have an account?{" "}
+              Have an account?
               <Link
                 href="/login"
-                className="text-#FE7216 font-semibold hover:underline transition duration-300"
+                className="text-#FE7216 font-semibold hover:underline transition duration-300 ml-1"
               >
                 log in
               </Link>

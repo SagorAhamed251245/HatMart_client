@@ -18,6 +18,7 @@ const MemberCard = ({ member }) => {
           src={image}
           width={100}
           height={100}
+          alt="member card"
           // className="rounded-full"
           // style={{ height: "100" }}
         />
