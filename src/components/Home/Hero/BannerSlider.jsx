@@ -17,7 +17,7 @@ const BannerSlider = ({ main }) => {
       <div className="md:w-[70%] lg:mb-0 relative h-56 md:h-[450px] w-full rounded-xl overflow-hidden">
         {main.map((banner, index) => (
           <div
-            key={banner.id}
+            key={banner._id}
             className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}

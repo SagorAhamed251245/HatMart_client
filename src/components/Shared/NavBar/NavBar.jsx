@@ -10,6 +10,7 @@ import Link from "next/link";
 
 import { BiSolidCartAlt } from "react-icons/bi";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import Search from "./Search";
 import useAuth from "@/hooks/useAuth";
 import { toast } from "react-hot-toast";
@@ -66,13 +67,13 @@ const NavBar = () => {
             <div className="hidden md:inline-block">
               <div className="flex  items-center justify-center w-[35px] h-[35px]">
                 <Link href={"/cart"}>
-                  <BiSolidCartAlt className="text-3xl" />
+                  <HiOutlineShoppingBag className="text-[1.75rem]" />
                 </Link>
               </div>
             </div>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="avatar cursor-pointer  ">
-                <div className="w-10 rounded overflow-hidden">
+                <div className="w-8 h-8 mt-1 shadow-lg rounded-full overflow-hidden">
                   <Image
                     src={photoURL || userImage}
                     className="object-cover w-full"

@@ -6,7 +6,7 @@ const Value = () => {
   return (
     <div className="space-y-2">
       <div className="flex gap-1 bg-white shadow-lg">
-        <Image src={img} width={25} height={5}></Image>
+        <Image src={img} width={25} height={5} alt="value"></Image>
         <div>
           <h2 className="font-bold">Quality Products</h2>
           <p>
@@ -17,7 +17,7 @@ const Value = () => {
       </div>
 
       <div className="flex gap-1 bg-white shadow-lg">
-        <Image src={img} width={25} height={5}></Image>
+        <Image src={img} width={25} height={5} alt="value"></Image>
         <div>
           <h2 className="font-bold">Excellent Service</h2>
           <p>
@@ -28,7 +28,7 @@ const Value = () => {
       </div>
 
       <div className="flex gap-1 bg-white shadow-lg">
-        <Image src={img} width={25} height={5}></Image>
+        <Image src={img} width={25} height={5} alt="value"></Image>
         <div>
           <h2 className="font-bold">Community Engagement</h2>
           <p>
@@ -39,7 +39,7 @@ const Value = () => {
       </div>
 
       <div className="flex gap-1 bg-white shadow-lg">
-        <Image src={img} width={25} height={5}></Image>
+        <Image src={img} width={25} height={5} alt="value"></Image>
         <div>
           <h2 className="font-bold">Sustainability</h2>
           <p>
@@ -50,7 +50,7 @@ const Value = () => {
       </div>
 
       <div className="flex gap-1 bg-white shadow-lg">
-        <Image src={img} width={25} height={5}></Image>
+        <Image src={img} width={25} height={5} alt="value"></Image>
         <div>
           <h2 className="font-bold">Sustainability</h2>
           <p>
