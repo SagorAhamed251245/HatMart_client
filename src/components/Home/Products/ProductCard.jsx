@@ -35,12 +35,12 @@ const ProductCard = ({ product, handleAddToCart }) => {
       >
         {/* details route */}
 
-        <div className="  h-36 w-full overflow-hidden  relative">
+        <div className="h-36 lg:w-full  overflow-hidden  relative">
           <Image
             src={image} // Replace with the actual image URL
             height={300}
             width={500}
-            className="w-full h-full object-cover"
+            className="w-full md:w-full lg:w-full sm:w-1/2 lg:p-0 p-5  h-full object-cover"
             priority
             alt="product image"
           />
@@ -63,7 +63,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
               <span className="text-red-600">Out Of Stock</span>
             )}
           </p>
-          <h5 className="md:text-lg capitalize  text-base text-gray-700 dark:text-white font-semibold">
+          <h5 className="md:text-xl lg:text-lg  sm:text-sm capitalize  text-base text-gray-700 dark:text-white font-semibold">
             {title}
           </h5>
           {rating && rating > 0 && (

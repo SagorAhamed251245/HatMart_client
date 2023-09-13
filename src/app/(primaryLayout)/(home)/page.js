@@ -1,9 +1,11 @@
+// "use client";
+
+import Chatbot from "@/components/Chatbot/Chatbot";
 import MiddleAdd from "@/components/Home/Advertisement/MiddleAdd";
 import Categories from "@/components/Home/Categories/Categories";
 
 import HeroSection from "@/components/Home/Hero/HeroSection";
 import Products from "@/components/Home/Products/Products";
-import NavBar from "@/components/Shared/NavBar/NavBar";
 import React from "react";
 
 const Homepage = () => {
@@ -15,6 +17,7 @@ const Homepage = () => {
       <MiddleAdd></MiddleAdd>
       <Products sectionTitle="Best Selling Products"></Products>
       <Products sectionTitle="Discount Product"></Products>
+      <Chatbot></Chatbot>
     </>
   );
 };
