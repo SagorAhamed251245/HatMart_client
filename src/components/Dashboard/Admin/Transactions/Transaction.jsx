@@ -2,11 +2,11 @@ import React from "react";
 import TransactionFilter from "./TransactionFilter";
 import AllTransactionsTable from "./AllTransactionsTable";
 
-const Transaction = () => {
+const Transaction = ({ transactionsData }) => {
   return (
     <div>
       <TransactionFilter />
-      <AllTransactionsTable />
+      <AllTransactionsTable transactionsData={transactionsData} />
     </div>
   );
 };

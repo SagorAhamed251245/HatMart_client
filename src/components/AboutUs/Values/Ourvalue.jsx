@@ -10,7 +10,7 @@ const Ourvalue = () => {
       <section className="w-[90%] mx-auto">
         <div className="flex flex-col lg:flex-row justify-center gap-3">
           <div>
-            <Image src={img} width={700} height={100}></Image>
+            <Image src={img} width={700} height={100} alt="our value"></Image>
           </div>
           <div>
             <Value></Value>

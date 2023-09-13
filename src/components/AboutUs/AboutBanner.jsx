@@ -12,6 +12,7 @@ const AboutBanner = () => {
           src={img}
           width={1200}
           height={800}
+          alt="about banner"
         />
       </div>
       <div className="absolute inset-0 flex flex-col justify-center items-center z-20 text-white text-center">

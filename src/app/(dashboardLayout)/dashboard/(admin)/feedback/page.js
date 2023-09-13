@@ -1,9 +1,11 @@
 import Feedback from "@/components/Dashboard/Admin/Feedback/Feedback";
+import getFeedbacks from "@/utils/getFeedbacks";
 
-const FeedbackPage = () => {
+const FeedbackPage = async () => {
+  const { allReview } = await getFeedbacks();
   return (
     <>
-      <Feedback></Feedback>
+      <Feedback feedbacks={allReview} />
     </>
   );
 };

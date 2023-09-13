@@ -2,9 +2,11 @@
 import useAuth from "@/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
-import { startTransition } from "react";
+import { startTransition, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const EmailForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -19,7 +21,6 @@ const EmailForm = () => {
   const { replace, refresh } = useRouter();
 
   const onSubmit = async (data) => {
-    
     const { email, password } = data;
     try {
       await signIn(email, password);
@@ -55,7 +56,7 @@ const EmailForm = () => {
           <span className="text-red-500">{errors?.email?.message}</span>
         )}
       </div>
-      <div>
+      <div className="relative">
         <label
           htmlFor="password"
           className="block text-sm font-medium text-gray-700"
@@ -63,7 +64,7 @@ const EmailForm = () => {
           Your password
         </label>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           id="password"
           name="password"
           placeholder="password"
@@ -84,6 +85,16 @@ const EmailForm = () => {
           })}
           autoComplete="on"
         />
+        <div
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute right-4 bottom-2.5 cursor-pointer opacity-60"
+        >
+          {showPassword ? (
+            <FaEye size={20} title="hide password" />
+          ) : (
+            <FaEyeSlash size={22} title="show password" />
+          )}
+        </div>
         {errors?.password && (
           <span className="text-red-500">{errors?.password?.message}</span>
         )}

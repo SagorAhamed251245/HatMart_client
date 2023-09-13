@@ -17,7 +17,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "m.media-amazon.com",
+        hostname: "lh3.googleusercontent.com",
       },
     ],
   },

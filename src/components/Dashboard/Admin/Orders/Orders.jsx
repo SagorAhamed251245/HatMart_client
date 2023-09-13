@@ -4,12 +4,12 @@ import AllOrdersTable from "./AllOrdersTable";
 import OrderStatics from "./OrderStatics";
 import SalesPeriod from "./SalesPeriod";
 
-const Orders = () => {
+const Orders = ({ ordersData }) => {
   return (
     <div className="mt-5">
       <SalesPeriod />
       <OrderStatics />
-      <AllOrdersTable />
+      <AllOrdersTable ordersData={ordersData} />
     </div>
   );
 };
