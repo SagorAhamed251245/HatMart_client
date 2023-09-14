@@ -27,7 +27,7 @@ const SideData = () => {
         if (getUser.role === "admin") {
           data = [
             {
-              path: "dashboard",
+              path: "/dashboard",
               title: "Dashboard",
               icon: <BiSolidDashboard />,
             },
@@ -83,7 +83,7 @@ const SideData = () => {
         } else if (getUser.role === "user") {
           data = [
             {
-              path: "dashboard",
+              path: "/dashboard",
               title: "Dashboard",
               icon: <BiSolidDashboard />,
             },

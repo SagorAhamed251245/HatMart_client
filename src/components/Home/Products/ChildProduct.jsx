@@ -49,6 +49,7 @@ const ChildProduct = ({ products, sectionTitle }) => {
         delay: 2500,
         disableOnInteraction: false,
       }}
+      modules={[Autoplay]}
       className="mySwiper"
     >
       {allProduct.length === 0 ? (
