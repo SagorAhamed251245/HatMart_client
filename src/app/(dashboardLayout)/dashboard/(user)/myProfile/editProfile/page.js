@@ -97,7 +97,7 @@ const EditProfilePage = () => {
           alt="user image"
           height={50}
           width={50}
-          className="w-24 h-24 object-cover rounded-full border-2 border-gray-400 object-center"
+          className="w-24 h-24 object-cover rounded-full border-2 border-orange-400 object-center"
         />
         {/* round */}
         <div className="absolute bottom-2 right-1 bg-orange-500 w-6 h-6 p-1 rounded-full leading-[33px] overflow-hidden text-center">
@@ -144,7 +144,7 @@ const EditProfilePage = () => {
           type="number"
           id="mobileNumber"
           name="mobileNumber"
-          placeholder="Your Phone Number Here"
+          placeholder="Your Phone Number Here ex: +0012345.."
           className={`mt-1 p-2 focus:shadow-blue-400 transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md border ${
             errors?.mobileNumber ? "border-red-500" : ""
           }`}
@@ -167,7 +167,7 @@ const EditProfilePage = () => {
           type="text"
           id="address"
           name="address"
-          placeholder="Your address Here"
+          placeholder="Your address Here ex: 32/3 mothlane,kalkata.."
           className={`mt-1 p-2 focus:shadow-blue-400 border transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
             errors?.address ? "border-red-500" : ""
           }`}
@@ -190,7 +190,7 @@ const EditProfilePage = () => {
           type="text"
           id="gender"
           name="gender"
-          placeholder="Your gender Here"
+          placeholder="Your gender Here ex: male,female.."
           className={`mt-1 p-2 focus:shadow-blue-400 border transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
             errors?.gender ? "border-red-500" : ""
           }`}
