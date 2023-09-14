@@ -29,7 +29,7 @@ const AddCoupon = () => {
                 className="outline-none w-full bg-transparent"
                 type="text"
                 name="code"
-                placeholder="Discount code here"
+                placeholder="Discount code here Ex:'FALLSALE'"
               />
             </div>
           </div>
@@ -42,7 +42,7 @@ const AddCoupon = () => {
                 className="outline-none w-full bg-transparent"
                 type="text"
                 name="description"
-                placeholder="Discount description here"
+                placeholder="Discount description here Ex: 'fall sale'"
               />
             </div>
           </div>
@@ -55,7 +55,7 @@ const AddCoupon = () => {
                 className="outline-none w-full bg-transparent"
                 type="number"
                 name="percentage"
-                placeholder="Discount percentage here"
+                placeholder="Discount percentage here Ex: '20'"
               />
             </div>
           </div>
