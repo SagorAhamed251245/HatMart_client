@@ -123,7 +123,7 @@ const EditProfilePage = () => {
           id="name"
           name="name"
           placeholder="Your Name Here ex:Clark Joseph Kent."
-          className={`border p-2 focus:shadow-blue-400 transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
+          className={`border p-2 focus:shadow-green-400 transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
             errors?.name ? "border-red-500" : ""
           }`}
           {...register("name", { required: "Name is required" })}
@@ -145,7 +145,7 @@ const EditProfilePage = () => {
           id="mobileNumber"
           name="mobileNumber"
           placeholder="Your Phone Number Here ex: +0012345.."
-          className={`mt-1 p-2 focus:shadow-blue-400 transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md border ${
+          className={`mt-1 p-2 focus:shadow-green-400 transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md border ${
             errors?.mobileNumber ? "border-red-500" : ""
           }`}
           {...register("mobileNumber")}
@@ -168,7 +168,7 @@ const EditProfilePage = () => {
           id="address"
           name="address"
           placeholder="Your address Here ex: 32/3 mothlane,kalkata.."
-          className={`mt-1 p-2 focus:shadow-blue-400 border transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
+          className={`mt-1 p-2 focus:shadow-green-400 border transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
             errors?.address ? "border-red-500" : ""
           }`}
           {...register("address")}
@@ -191,7 +191,7 @@ const EditProfilePage = () => {
           id="gender"
           name="gender"
           placeholder="Your gender Here ex: male,female.."
-          className={`mt-1 p-2 focus:shadow-blue-400 border transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
+          className={`mt-1 p-2 focus:shadow-green-400 border transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
             errors?.gender ? "border-red-500" : ""
           }`}
           {...register("gender")}
@@ -213,7 +213,7 @@ const EditProfilePage = () => {
           id="dateOfBirth"
           name="dateOfBirth"
           placeholder="Your Birthday Here"
-          className={`mt-1 p-2 focus:shadow-blue-400 border transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
+          className={`mt-1 p-2 focus:shadow-green-400 border transition-all focus:shadow-md h-10 outline-none w-full shadow-lg rounded-md ${
             errors?.dateOfBirth ? "border-red-500" : ""
           }`}
           {...register("dateOfBirth")}
