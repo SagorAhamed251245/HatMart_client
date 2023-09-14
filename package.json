@@ -23,6 +23,7 @@
     "eslint": "8.46.0",
     "eslint-config-next": "^13.4.4",
     "firebase": "^10.2.0",
+    "jose": "^4.14.6",
     "json-server": "^0.17.3",
     "next": "^13.4.19",
     "postcss": "8.4.27",

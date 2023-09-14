@@ -45,14 +45,14 @@ const ProductCard = ({ product }) => {
             priority
             alt="product image"
           />
-          <p className="h-36 absolute hidden group-hover:block rounded-xl  ease-in-out duration-500 delay-500 top-0 z-10 w-full bg-[#04040457]"></p>
+          {/* <p className="h-36 absolute hidden group-hover:block rounded-xl  ease-in-out duration-500 delay-500 top-0 z-10 w-full bg-[#04040457]"></p> */}
 
           {discount_percent && discount_percent > 0 && (
             <p className="absolute z-20 bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
               {discount_percent}%
             </p>
           )}
-          <WishListBtn _id={_id} />
+          <WishListBtn product_id={_id} />
         </div>
 
         <div className="space-y-1 mt-3">

@@ -15,13 +15,39 @@ import Search from "./Search";
 import useAuth from "@/hooks/useAuth";
 import { toast } from "react-hot-toast";
 import LogoSVG from "./LogoSVG";
+import { usePathname, useRouter } from "next/navigation";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
-
+  const { replace, refresh } = useRouter();
+  const path = usePathname();
   const { uid, photoURL } = user || {};
   const li = uid ? afterLoginNavData : beforeLoginNavData;
-
+  const handleLogout = async () => {
+    const toastId = toast.loading("Loading...");
+    try {
+      await logout();
+      const res = await fetch("/api/auth/logout", {
+        method: "POST",
+      });
+      await res.json();
+      if (
+        path.includes("/dashboard") ||
+        path.includes("/dashboard/myProfile") ||
+        path.includes("/payment")
+      ) {
+        replace(`/login?redirectUrl=${path}`);
+      }
+      toast.dismiss(toastId);
+      toast.success("Successfully logout!");
+      startTransition(() => {
+        refresh();
+      });
+    } catch (error) {
+      toast.error("Successfully not logout!");
+      toast.dismiss(toastId);
+    }
+  };
   return (
     <>
       <nav className="shadow-md  z-10 mb-[25px] md:mb-[35px] lg:mb-[50px]  bg-white">
