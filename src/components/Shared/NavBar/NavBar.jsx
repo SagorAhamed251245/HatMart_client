@@ -122,7 +122,7 @@ const NavBar = () => {
                 </li>
                 {uid && (
                   <li>
-                    <Link href={""} onClick={handleLogout}>
+                    <Link href={""} onClick={()=> logout()}>
                       LogOut
                     </Link>
                   </li>
