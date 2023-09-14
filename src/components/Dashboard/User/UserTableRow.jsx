@@ -4,7 +4,7 @@ import UserRoleEditModal from "./UserRoleEditModal";
 
 const UserTableRow = ({ userData, index }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { name, email, role, image, createdAt } = userData || {};
+  const { _id, name, email, role, image, createdAt } = userData || {};
   return (
     <>
       <tr>
@@ -76,12 +76,18 @@ const UserTableRow = ({ userData, index }) => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-indigo-600 hover:text-indigo-900"
+            title="Change role"
           >
             Edit
           </button>
         </td>
       </tr>
-      <UserRoleEditModal isOpen={isOpen} setIsOpen={setIsOpen} role={role} />
+      <UserRoleEditModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        role={role}
+        id={_id}
+      />
     </>
   );
 };
