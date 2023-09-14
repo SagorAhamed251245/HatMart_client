@@ -28,14 +28,14 @@ const UserTypeTab = ({ usersData }) => {
             <Tab
               onClick={() => setUserRole("user")}
               className="font-semibold cursor-pointer  border border-gray-300 rounded-full px-5 py-1 outline-none"
-              selectedClassName="text-[#ff6347cc]  border-[#ff6347cc] duration-300"
+              selectedClassName="text-[#ff6347cc]  !border-[#ff6347cc] duration-300"
             >
               Users
             </Tab>
             <Tab
               onClick={() => setUserRole("admin")}
               className="font-semibold cursor-pointer  border border-gray-300 rounded-full px-5 py-1 outline-none"
-              selectedClassName="text-[#ff6347cc]  border-[#ff6347cc] duration-300"
+              selectedClassName="text-[#ff6347cc]  !border-[#ff6347cc] duration-300"
             >
               Admin
             </Tab>
