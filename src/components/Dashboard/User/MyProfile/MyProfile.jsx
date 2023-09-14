@@ -18,7 +18,7 @@ const MyProfile = () => {
                 priority
                 height={50}
                 width={50}
-                className="w-16 h-16 object-cover rounded-full"
+                className="w-16 h-16 object-cover border-2 border-orange-500 rounded-full"
               />
             </div>
             <div>
