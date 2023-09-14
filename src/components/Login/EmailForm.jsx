@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import { startTransition, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import createJWT from "@/utils/createJWT";
 
 const EmailForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,6 +25,7 @@ const EmailForm = () => {
     const { email, password } = data;
     try {
       await signIn(email, password);
+      await createJWT({ email });
       startTransition(() => {
         refresh();
         replace(from);

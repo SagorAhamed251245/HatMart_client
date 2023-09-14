@@ -1,4 +1,4 @@
-import MyTransaction from '@/components/Dashboard/User/MyTransaction/MyTransaction';
+import MyTransaction from '@/components/Dashboard/User/MyTransaction/MyTransaction'
 import React from 'react';
 
 const myTransactionPage = () => {

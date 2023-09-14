@@ -1,5 +1,6 @@
 "use client";
 import useAuth from "@/hooks/useAuth";
+import createJWT from "@/utils/createJWT";
 import postUser from "@/utils/users/postUser";
 import { useRouter, useSearchParams } from "next/navigation";
 import { startTransition, useState } from "react";
@@ -28,7 +29,7 @@ const EmailForm = () => {
     const toastId = toast.loading("Loading...");
     try {
       await createUser(email, password);
-
+      await createJWT({ email });
       await profileUpdate({
         displayName: name,
       });

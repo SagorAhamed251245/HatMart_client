@@ -6,10 +6,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 const CheckoutForm = ({ price, allProducts }) => {
-  console.log(
-    "🚀 ~ file: CheckoutFrom.jsx:7 ~ CheckoutForm ~ allProducts:",
-    allProducts
-  );
+  
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");

@@ -12,9 +12,18 @@ import ProductCard from "./ProductCard";
 import ProductSkeleton from "./ProductSkeleton";
 import FilterProducts from "./FilterProducts";
 import { Autoplay } from "swiper/modules";
+import { useRef } from "react";
 const ChildProduct = ({ products, sectionTitle }) => {
   const allProduct = FilterProducts(products, sectionTitle);
+  const swiperRefLocal = useRef();
 
+  const handleMouseEnter = () => {
+    swiperRefLocal?.current?.swiper?.autoplay?.stop();
+  };
+
+  const handleMouseLeave = () => {
+    swiperRefLocal?.current?.swiper?.autoplay?.start();
+  };
   return (
     <Swiper
       slidesPerView={1}
@@ -48,8 +57,12 @@ const ChildProduct = ({ products, sectionTitle }) => {
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
+        pauseOnMouseEnter: true,
       }}
+      modules={[Autoplay]}
       className="mySwiper"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {allProduct.length === 0 ? (
         <div className="grid lg:grid-cols-4 gap-5 md:grid-cols-3 grid-cols-2">
