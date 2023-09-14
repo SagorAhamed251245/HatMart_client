@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const LogoSVG = () => {
   return (
-    <div className="relative h-10 md:h-14 w-10 md:w-14">
+    <div className="relative h-10 md:h-12 lg:h-14 w-10 md:w-12 lg:w-14">
       <Link href={"/"}>
         <Image
           src={logo}

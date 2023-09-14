@@ -23,16 +23,16 @@ const FeedbackSmallView = ({ feedbackData }) => {
                       <div className="h-6 w-6 overflow-hidden object-contain rounded">
                         <Image
                           style={{ objectFit: "contain" }}
-                          src={feedback.userImage}
+                          src={feedback.customer_image}
                           alt="product image"
                           width={40}
                           height={40}
                         />
                       </div>
-                      <p>{feedback.userName}</p>
+                      <p>{feedback.customer_name}</p>
                     </div>
                     <p>
-                      <span className="mr-2">{feedback.feedbackNumber}</span>
+                      <span className="mr-2">{feedback._id}</span>
                       <FaAngleUp
                         className={`${
                           open
@@ -49,8 +49,8 @@ const FeedbackSmallView = ({ feedbackData }) => {
                           <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                             Feedback
                           </td>
-                          <td className=" px-4 py-4 text-left border border-gray-300  text-green-500">
-                            {feedback.feedbackNumber}
+                          <td className=" px-4 py-4 text-left border border-gray-300  text-green-500 text-sm">
+                            {feedback._id}
                           </td>
                         </tr>
                         <tr>
@@ -62,15 +62,15 @@ const FeedbackSmallView = ({ feedbackData }) => {
                               <div className="h-10 w-10 overflow-hidden object-contain rounded">
                                 <Image
                                   style={{ objectFit: "contain" }}
-                                  src={feedback.userImage}
+                                  src={feedback.customer_image}
                                   alt="product image"
                                   width={100}
                                   height={100}
                                 />
                               </div>
-                              <span>{feedback.userName}</span>
+                              <span>{feedback.customer_name}</span>
                               <br />
-                              <span>{feedback.userEmail}</span>
+                              <span>{feedback.customer_email}</span>
                             </div>
                           </td>
                         </tr>
@@ -82,7 +82,7 @@ const FeedbackSmallView = ({ feedbackData }) => {
                           <td className=" px-4 py-4 text-left border border-gray-300 ">
                             <Rating
                               fractions={true}
-                              placeholderRating={feedback.rate}
+                              placeholderRating={feedback.rating}
                               emptySymbol={
                                 <FaRegStar className="text-yellow-400" />
                               }
@@ -101,13 +101,13 @@ const FeedbackSmallView = ({ feedbackData }) => {
                             Message
                           </td>
                           <td className=" px-4 py-4 text-left border border-gray-300  font-semibold">
-                            {feedback.message.length > 100 ? (
+                            {feedback.feedback.length > 100 ? (
                               <>
-                                {feedback.message.slice(0, 100)}{" "}
+                                {feedback.feedback.slice(0, 100)}{" "}
                                 <span>...</span>{" "}
                               </>
                             ) : (
-                              feedback.message
+                              feedback.feedback
                             )}
                           </td>
                         </tr>

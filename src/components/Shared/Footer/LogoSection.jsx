@@ -16,7 +16,7 @@ const LogoSection = () => {
       <section className="flex flex-col lg:items-start items-center">
         <div className="flex justify-center items-center">
           <LogoSVG></LogoSVG>
-          <div className="relative md:w-36">
+          <div className="relative lg:w-36 md:w-30 w-20 ">
             <Link href={"/"}>
               <Image
                 src="https://i.ibb.co/WtbFpmR/logo.png"

@@ -7,7 +7,7 @@ const TransactionsSmallScreenView = ({ transactions }) => {
     <div className="lg:hidden overflow-x-auto">
       {transactions.map((transition) => (
         <div
-          key={transition.id}
+          key={transition._id}
           className="mx-auto w-full mb-4 py-3 shadow-lg hover:shadow-2xl duration-300 "
           style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
         >
@@ -19,16 +19,16 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                     <div className="h-6 w-6 overflow-hidden object-contain rounded">
                       <Image
                         style={{ objectFit: "contain" }}
-                        src={transition.productImage}
+                        src={transition?.productImage}
                         alt="product image"
                         width={40}
                         height={40}
                       />
                     </div>
-                    <p>{transition.productName}</p>
+                    <p>{transition?.productName}</p>
                   </div>
                   <p>
-                    <span className="mr-1">{transition.transactionId}</span>
+                    <span className="mr-1">{transition?.transactionId}</span>
                     <FaAngleUp
                       className={`${
                         open
@@ -47,7 +47,7 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  text-green-500">
                           {new Date(
-                            transition.date || new Date()
+                            transition?.createdAt || new Date()
                           ).toLocaleString("en-US", {
                             day: "numeric",
                             month: "numeric",
@@ -56,7 +56,7 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                           <br />
                           at{" "}
                           {new Date(
-                            transition.date || new Date()
+                            transition?.createdAt || new Date()
                           ).toLocaleString("en-US", {
                             hour: "numeric",
                             minute: "numeric",
@@ -80,13 +80,13 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                             <div className="h-10 w-10 overflow-hidden object-contain rounded">
                               <Image
                                 style={{ objectFit: "contain" }}
-                                src={transition.productImage}
+                                src={transition?.productImage}
                                 alt="product image"
                                 width={40}
                                 height={40}
                               />
                             </div>
-                            <span>{transition.productName}</span>
+                            <span>{transition?.productName}</span>
                           </div>
                         </td>
                       </tr>
@@ -94,30 +94,13 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           STATUS
                         </td>
-                        <td className=" px-4 py-4 text-left border border-gray-300  text-sm">
-                          {transition.status === "rejected" ? (
-                            <span className="py-1.5 px-4 rounded-full bg-[#515C6B] font-medium text-white">
-                              Rejected
-                            </span>
-                          ) : transition.status === "canceled" ? (
-                            <span className="py-1.5 px-4 rounded-full bg-[#FF5470] text-white font-medium">
-                              Cancelled
-                            </span>
-                          ) : transition.status === "approved" ? (
-                            <span className="py-1.5 px-4 rounded-full bg-[#035ECF] text-white font-medium">
-                              Approved
-                            </span>
-                          ) : (
-                            <span>No data</span>
-                          )}
-                        </td>
                       </tr>
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           FEE
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          ${transition.payment}
+                          ${transition?.price}
                         </td>
                       </tr>
                       <tr>
@@ -125,7 +108,7 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                           TAX
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          ${transition.tax}
+                          {transition?.quantity || 1}
                         </td>
                       </tr>
                       <tr>
@@ -134,8 +117,8 @@ const TransactionsSmallScreenView = ({ transactions }) => {
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  font-semibold">
                           $
-                          {parseFloat(transition.payment) +
-                            parseFloat(transition.tax)}
+                          {parseFloat(transition?.price) *
+                            parseFloat(transition?.quantity || 1)}
                         </td>
                       </tr>
                     </tbody>

@@ -6,6 +6,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
 import AddToCartBtn from "./AddToCartBtn";
 import BuyNow from "./BuyNow";
+import WishListBtn from "./WishListBtn";
 
 const ProductCard = ({ product }) => {
   const {
@@ -35,12 +36,14 @@ const ProductCard = ({ product }) => {
       >
         {/* details route */}
 
-        <div className="  h-36 w-full overflow-hidden  relative">
+        <div className="h-36 lg:w-full  overflow-hidden  relative">
           <Image
             src={image} // Replace with the actual image URL
             height={300}
             width={500}
+
             className="w-full h-full object-contain"
+
             priority
             alt="product image"
           />
@@ -50,6 +53,7 @@ const ProductCard = ({ product }) => {
               {discount_percent}%
             </p>
           )}
+          <WishListBtn _id={_id} />
         </div>
 
         <div className="space-y-1 mt-3">
@@ -63,7 +67,7 @@ const ProductCard = ({ product }) => {
               <span className="text-red-600">Out Of Stock</span>
             )}
           </p>
-          <h5 className="md:text-lg capitalize  text-base text-gray-700 dark:text-white font-semibold">
+          <h5 className="md:text-xl lg:text-lg  sm:text-sm capitalize  text-base text-gray-700 dark:text-white font-semibold">
             {title}
           </h5>
           {rating && rating > 0 && (
@@ -104,9 +108,9 @@ const ProductCard = ({ product }) => {
       </Link>
       <div className="absolute w-full bottom-4 left-0 px-2 md:px-4 mt-2">
         <div className="flex items-center justify-between !mt-5">
-          <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
+          <AddToCartBtn _id={_id} />
 
-          <BuyNow stock_quantity={stock_quantity} />
+          <BuyNow stock_quantity={stock_quantity} _id={_id} />
         </div>
       </div>
     </div>
