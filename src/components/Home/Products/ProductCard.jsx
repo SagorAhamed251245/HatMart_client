@@ -52,7 +52,7 @@ const ProductCard = ({ product }) => {
               {discount_percent}%
             </p>
           )}
-          <WishListBtn product_id={_id} />
+          <WishListBtn product_id={_id} product={product} />
         </div>
 
         <div className="space-y-1 mt-3">

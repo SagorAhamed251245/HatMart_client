@@ -27,7 +27,7 @@ const NavBar = () => {
     const toastId = toast.loading("Loading...");
     try {
       await logout();
-      const res = await fetch("/api/auth/logout", {
+      const res = await fetch("/api/auth/", {
         method: "POST",
       });
       await res.json();

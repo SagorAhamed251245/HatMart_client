@@ -8,7 +8,7 @@ const MyWishListSmallScreenView = ({ orders }) => {
     <div className="lg:hidden overflow-x-auto">
       {orders.map((order) => (
         <div
-          key={order.id}
+          key={order?._id}
           className="mx-auto w-full mb-4 py-3 shadow-lg hover:shadow-2xl duration-300 "
           style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
         >
@@ -20,16 +20,16 @@ const MyWishListSmallScreenView = ({ orders }) => {
                     <div className="h-6 w-6 overflow-hidden object-contain rounded">
                       <Image
                         style={{ objectFit: "contain" }}
-                        src={order.productImage}
+                        src={order?.productImage}
                         alt="product image"
                         width={40}
                         height={40}
                       />
                     </div>
-                    <p>{order.productName}</p>
+                    <p>{order?.productName}</p>
                   </div>
                   <p>
-                    <span className="mr-2">${order.payment}</span>
+                    <span className="mr-2">${order?.price}</span>
                     <FaAngleUp
                       className={`${
                         open
@@ -51,13 +51,13 @@ const MyWishListSmallScreenView = ({ orders }) => {
                             <div className="h-10 w-10 overflow-hidden object-contain rounded">
                               <Image
                                 style={{ objectFit: "contain" }}
-                                src={order.productImage}
+                                src={order?.productImage}
                                 alt="product image"
                                 width={40}
                                 height={40}
                               />
                             </div>
-                            <span>{order.productName}</span>
+                            <span>{order?.productName}</span>
                           </div>
                         </td>
                       </tr>
@@ -66,7 +66,7 @@ const MyWishListSmallScreenView = ({ orders }) => {
                           CATEGORY
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          {order.category}
+                          {order?.category}
                         </td>
                       </tr>
 
@@ -75,7 +75,7 @@ const MyWishListSmallScreenView = ({ orders }) => {
                           PRICE
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
-                          ${order.payment}
+                          ${order?.price}
                         </td>
                       </tr>
 
