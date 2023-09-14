@@ -1,4 +1,5 @@
 import React from 'react';
+import {TiDelete} from "react-icons/ti"
 
 const ViewCouponCard = ({discount,handleDeleteDiscountCard}) => {
     return (
@@ -9,7 +10,7 @@ const ViewCouponCard = ({discount,handleDeleteDiscountCard}) => {
             <span title="discount code" className="text-sm font-semibold">{discount?.code}</span>
             <div className="w-1/2 flex justify-between">
               <span title="discount percent" className="text-green-500">{discount?.discount * 100}%</span>
-              <button onClick={() => handleDeleteDiscountCard(discount)} title="delete" className="text-red-400 px-2 hover:bg-red-100 rounded-full duration-700 ">x</button>
+              <button onClick={() => handleDeleteDiscountCard(discount)} title="delete" className="text-red-500 text-xl px-2 hover:bg-red-100 rounded-full duration-700 "><TiDelete /></button>
             </div>
           </div>
     );
