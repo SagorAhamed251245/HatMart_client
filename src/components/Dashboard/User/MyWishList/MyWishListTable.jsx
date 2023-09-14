@@ -1,79 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MyWishListSmallScreenView from "./MyWishListSmallScreenView";
 import { AiOutlineDelete, AiOutlineShoppingCart } from "react-icons/ai";
+import getUserData from "@/data/getUserData";
+import getWishListByUserId from "@/utils/users/getWishListByUserId";
 
 const MyWishListTable = () => {
-  const orders = [
-    {
-      id: 1,
-      orderNumber: "ORD123",
-      productImage: "https://i.ibb.co/37mp1RR/image.png",
-      status: "confirmed",
-      productName: "Product A",
-      sku: "SKU001",
-      category: "Electronics",
-      payment: "600",
-      rate: "4",
-    },
-    {
-      id: 2,
-      orderNumber: "ORD124",
-      productImage: "https://i.ibb.co/DWCwJM6/image.png",
-      status: "completed",
-      productName: "Product B",
-      sku: "SKU002",
-      category: "Clothing",
-      payment: "120",
-      rate: "5",
-    },
-    {
-      id: 3,
-      orderNumber: "ORD125",
-      productImage: "https://i.ibb.co/rZYZTPR/image.png",
-      status: "canceled",
-      productName: "Product C",
-      sku: "SKU003",
-      category: "Home & Kitchen",
-      payment: "85",
-      rate: "3",
-    },
-    {
-      id: 4,
-      orderNumber: "ORD126",
-      productImage: "https://i.ibb.co/DWCwJM6/image.png",
-      status: "confirmed",
-      productName: "Product D",
-      sku: "SKU004",
-      category: "Beauty",
-      payment: "240",
-      rate: "5",
-    },
-    {
-      id: 5,
-      orderNumber: "ORD127",
-      productImage: "https://i.ibb.co/KmPV68n/image.png",
-      status: "completed",
-      productName: "Product E",
-      sku: "SKU005",
-      category: "Toys & Games",
-      payment: "35",
-      rate: "4",
-    },
-    {
-      id: 6,
-      orderNumber: "ORD128",
-      productImage: "https://i.ibb.co/DWCwJM6/image.png",
-      status: "canceled",
-      productName: "Product F",
-      sku: "SKU006",
-      category: "Books",
-      payment: "18",
-      rate: "5",
-    },
-  ];
+  const user = getUserData();
+  console.log(
+    "🚀 ~ file: MyWishListTable.jsx:12 ~ MyWishListTable ~ user:",
+    user
+  );
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const data = await getWishListByUserId(user?._id);
+      setOrders(data);
+      console.log("🚀 ~ file: MyWishListTable.jsx:17 ~ data:", data);
+    })();
+  }, [user?._id]);
+
   return (
     <div
       style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
@@ -91,21 +39,21 @@ const MyWishListTable = () => {
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr key={order.id} className="border-b border-gray-300 w-full">
+              <tr key={order?._id} className="border-b border-gray-300 w-full">
                 <td className=" px-4 py-4 text-center flex gap-2 items-center justify-center">
                   <div className="h-10 w-10 overflow-hidden object-contain rounded">
                     <Image
                       className="w-full object-contain"
-                      src={order.productImage}
+                      src={order?.productImage}
                       alt="product image"
                       width={64}
                       height={64}
                     />
                   </div>
-                  <span>{order.productName}</span>
+                  <span>{order?.productName}</span>
                 </td>
-                <td className=" px-4 py-4 text-center">{order.category}</td>
-                <td className=" px-4 py-4 text-center">${order.payment}</td>
+                <td className=" px-4 py-4 text-center">{order?.category}</td>
+                <td className=" px-4 py-4 text-center">${order?.price}</td>
 
                 <td className=" px-4 py-4  ">
                   <div className="flex justify-center items-center gap-4 w-fit mx-auto">

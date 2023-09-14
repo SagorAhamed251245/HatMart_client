@@ -20,6 +20,7 @@ const SocialMediaForm = () => {
       const res = await googleLogin();
       const { displayName, email, photoURL } = res.user;
       const userData = { name: displayName, email, image: photoURL };
+
       await createJWT({ email });
       startTransition(() => {
         refresh();
@@ -38,7 +39,7 @@ const SocialMediaForm = () => {
       <p className="text-sm text-gray-600 text-center">
         Or log in with social media
       </p>
-      <div className="flex justify-between space-x-4 mt-2">
+      <div className="flex justify-center items-center space-x-4 mt-2">
         {/*  <button
           type="button"
           className="text-white  bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2"
@@ -61,7 +62,7 @@ const SocialMediaForm = () => {
         <button
           onClick={handleGoogleLogin}
           type="button"
-          className="text-black bg-slate-200  focus:ring-4 focus:outline-none focus:ring-[#000]/50 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 font-semibold"
+          className="text-black bg-slate-200  focus:ring-2 focus:outline-none focus:ring-[#000]/50 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 font-semibold"
         >
           <span className="h-5 w-5 mr-2">
             <Image
