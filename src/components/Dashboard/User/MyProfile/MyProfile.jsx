@@ -100,7 +100,7 @@ const MyProfile = () => {
             <div className="flex space-x-4">
               <Link
                 href={"/dashboard/myProfile/editProfile"}
-                className="bg-[#34b701]  hover:bg-[#2aa700] text-white font-semibold px-4 py-2 rounded"
+                className="bg-[#34b701] active:bg-white  hover:bg-[#2aa700] text-white font-semibold px-4 py-2 rounded"
               >
                 Edit Profile
               </Link>
