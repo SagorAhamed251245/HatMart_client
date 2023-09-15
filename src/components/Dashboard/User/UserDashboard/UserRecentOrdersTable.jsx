@@ -43,7 +43,7 @@ const UserRecentOrdersTable = ({ ordersData }) => {
                     </span>
                   </td>
                   <td className=" px-4 py-4 text-left">
-                    {new Date(order?.createdAt).toLocaleTimeString()}
+                    {new Date(order?.createdAt).toLocaleDateString()}
                   </td>
                   <td className=" px-4 py-4 text-left">${order?.price}</td>
                 </tr>

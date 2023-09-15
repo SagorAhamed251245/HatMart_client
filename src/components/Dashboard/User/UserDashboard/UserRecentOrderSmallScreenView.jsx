@@ -76,7 +76,7 @@ const UserRecentOrderSmallScreenView = ({ orders }) => {
                             PLACED ON
                           </td>
                           <td className=" px-4 py-4 text-left border border-gray-300 ">
-                            {new Date(order?.createdAt).toLocaleTimeString()}
+                            {new Date(order?.createdAt).toLocaleDateString()}
                           </td>
                         </tr>
                         <tr>
