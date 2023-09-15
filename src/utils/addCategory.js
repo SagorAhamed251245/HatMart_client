@@ -12,7 +12,6 @@ const addCategory = async (categoryData) => {
 
     if (res.ok) {
       const responseJson = await res.json();
-      toast.success("Category is added");
       return responseJson;
     } else {
       console.log("Error:", res.statusText);
