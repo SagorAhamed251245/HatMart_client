@@ -14,12 +14,12 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
     <section
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="bg-white relative border rounded-lg shadow-md w-full h-full p-3 flex flex-col"
+      className="bg-white relative border rounded-lg shadow-md w-[300px] h-full p-3 flex flex-col"
     >
       {/* product image */}
       <div className="relative w-full h-[200px]">
         <Image
-          className="object-cover object-center border rounded-xl w-full h-full"
+          className="object-contain object-center border rounded-xl w-full h-full"
           src={image}
           alt="Product Images"
           fill
@@ -104,7 +104,7 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
             href={`/dashboard/allProducts/${_id}`}
           >
             {" "}
-            <CiViewList /> View Details
+            <CiViewList /> View
           </Link>
         </button>
         <button>
@@ -113,7 +113,7 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
             href={`/dashboard/allProducts/editProduct/${_id}`}
           >
             <FaEdit />
-            Edit Product
+            Edit
           </Link>
         </button>
       </div>

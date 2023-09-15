@@ -28,16 +28,18 @@ const SideBar = () => {
          bg-white shadow-2xl peer-focus:left-0 peer:transition ease-out delay-150 duration-200"
         >
           <nav role="navigation">
-            <div className=" -mx-4 relative overflow-y-auto overflow-x-hidden p-5 h-[100vh]">
-              <ul className="space-y-4 mb-12 px-4 mt-8">
+            <div className=" -mx-4 relative overflow-y-auto  overflow-x-hidden  h-[100vh]">
+                <div className="text-2xl font-bold text-blue-600 text-center"><span className="text-[#32B901]">Hat</span><span className="text-[#FE8A48]">Mart </span> Dashboard</div>
+              <ul className="  px-4 mt-4">
+              
                 {data.map(({ path, title, icon }) => (
                   <li key={path}>
                     <Link
                       href={path}
-                      className="flex gap-4  items-center  text-black hover:text-green-400 transition"
+                      className="flex items-center   border-b-2  p-3  text-black  transition hover:bg-slate-200 hover:text-blue-800 hover:font-semibold"
                     >
-                      <> {icon}</>
-                      <>{title}</>
+                      <div className="text-blue-800  text-2xl"> {icon}</div>
+                      <div className=" ml-3">{title}</div>
                     </Link>
                   </li>
                 ))}

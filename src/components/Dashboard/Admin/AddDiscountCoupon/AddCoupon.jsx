@@ -1,19 +1,40 @@
 "use client";
-import addCoupon from "@/utils/coupon/addCoupon";
-import React from "react";
+import addCoupon from "@/utils/addCoupon";
+import React, { useState } from "react";
 
 const AddCoupon = () => {
+  const [couponData, setCouponData] = useState({
+    code: "",
+    description: "",
+    percentage: "",
+  });
   const handleAddDiscount = async (e) => {
     e.preventDefault();
     const form = e.target;
     const code = form.code.value;
     const description = form.description.value;
-    const percentage = form.percentage.value / 100;
+    const percentage = form.percentage.value;
     console.log(percentage);
     const discount = { code, description, percentage };
-    if (discount) {
-      await addCoupon(discount);
+    console.log(discount);
+
+    const couponData = {
+      code,
+      description,
+      percentage: parseFloat(percentage).toFixed(2),
+    };
+    if (couponData) {
+      await addCoupon(couponData);
     }
+    reset();
+  };
+
+  const reset = () => {
+    setCouponData({
+      code: "",
+      description: "",
+      percentage: "",
+    });
 
     // TODO: Add post api here to send the discount to the backend
   };
@@ -34,6 +55,7 @@ const AddCoupon = () => {
                 type="text"
                 name="code"
                 placeholder="Discount code here Ex:'FALLSALE'"
+                required
               />
             </div>
           </div>
@@ -47,6 +69,7 @@ const AddCoupon = () => {
                 type="text"
                 name="description"
                 placeholder="Discount description here Ex: 'fall sale'"
+                required
               />
             </div>
           </div>
@@ -60,7 +83,7 @@ const AddCoupon = () => {
                 type="number"
                 name="percentage"
                 placeholder="Discount percentage here Ex: '20'"
-                
+                required
               />
             </div>
           </div>
