@@ -160,7 +160,7 @@ const Cart = ({ products }) => {
                 pathname: "/payment",
                 query: {
                   productId: JSON.stringify(cartItems),
-                  totalPrice: JSON.stringify(totalPrice),
+                  totalPrice: totalPrice.toString(),
                 },
               }}
               className="btn w-full bg-[#34B701] hover:bg-green-500 duration-300 text-white my-6"

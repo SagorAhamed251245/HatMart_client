@@ -11,7 +11,7 @@ const BuyNow = ({ stock_quantity, _id, totalPrice }) => {
           pathname: `/payment`,
           query: {
             productId: JSON.stringify(cartItems),
-            totalPrice: totalPrice,
+            totalPrice: totalPrice.toString(),
           },
         }}
         disabled={stock_quantity == 0}

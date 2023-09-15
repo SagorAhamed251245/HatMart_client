@@ -14,11 +14,7 @@ const PaymentInfo = ({ searchParams }) => {
   const productsId = JSON.parse(searchParams.productId);
   const [allProducts, setAllProducts] = useState([]);
   console.log(searchParams);
-  const TotalPrice = searchParams.totalPrice;
-  console.log(
-    "🚀 ~ file: PaymentInfo.jsx:14 ~ PaymentInfo ~ TotalPrice:",
-    TotalPrice
-  );
+
   useEffect(() => {
     (async () => {
       const products = [];
@@ -91,7 +87,7 @@ const PaymentInfo = ({ searchParams }) => {
           </div>
           <div className="flex justify-between">
             <div>Total Payment:</div>
-            <div>${parseFloat(totalAmount.toFixed(2))}</div>
+            <div>${searchParams.totalPrice}</div>
           </div>
           {/*  */}
           <div className="mt-10 ">
@@ -101,7 +97,7 @@ const PaymentInfo = ({ searchParams }) => {
                 pathname: "/payment/payallmethod",
                 query: {
                   allProducts: JSON.stringify(allProducts),
-                  totalAmount: totalAmount,
+                  totalAmount: searchParams.totalPrice,
                 },
               }}
             >
