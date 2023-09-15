@@ -12,9 +12,7 @@ const PaymentForm = ({ paymentMethod, isActive, totalAmount, allProducts }) => {
 
   if (paymentMethod === "bkash") {
     formContent = <BkashForm></BkashForm>;
-  } else if (paymentMethod === "rocket") {
-    formContent = <RocketForm></RocketForm>;
-  } else if (paymentMethod === "cod") {
+  }else if (paymentMethod === "cod") {
     formContent = <CodForm></CodForm>;
   } else if (paymentMethod === "nogod") {
     formContent = <NogodForm></NogodForm>;
