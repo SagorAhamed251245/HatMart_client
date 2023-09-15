@@ -51,7 +51,9 @@ const LogoSection = () => {
         {/* socials */}
         <div className="mt-5 flex gap-6">
           <div className="text-orange-600 border-2 duration-300 hover:bg-orange-600 hover:text-white cursor-pointer border-orange-600 p-3 w-fit rounded-full">
-            <FaFacebookF />
+            <a href="https://www.facebook.com/HATMARTPIRAFS">
+              <FaFacebookF />
+            </a>
           </div>
           <div className="text-orange-600 border-2 duration-300 hover:bg-orange-600 hover:text-white cursor-pointer border-orange-600 p-3 w-fit rounded-full">
             <FaTwitter />
