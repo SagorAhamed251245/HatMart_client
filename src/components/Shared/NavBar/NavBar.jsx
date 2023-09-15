@@ -8,7 +8,6 @@ import userImage from "@/assets/icons/user.png";
 import Categories from "@/components/Home/Categories/Categories";
 import Link from "next/link";
 
-import { BiSolidCartAlt } from "react-icons/bi";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import Search from "./Search";
@@ -48,6 +47,7 @@ const NavBar = () => {
       toast.dismiss(toastId);
     }
   };
+
   return (
     <>
       <nav className="shadow-md  z-10 mb-[25px] md:mb-[35px] lg:mb-[50px]  bg-white">
@@ -122,7 +122,7 @@ const NavBar = () => {
                 </li>
                 {uid && (
                   <li>
-                    <Link href={""} onClick={()=> logout()}>
+                    <Link href={""} onClick={() => logout()}>
                       LogOut
                     </Link>
                   </li>
@@ -145,7 +145,7 @@ const NavBar = () => {
                 <div className="md:hidden ">
                   <div className="flex w-[35px] h-[35px]   items-center justify-center">
                     <Link href={"cart"}>
-                      <BiSolidCartAlt className="text-3xl" />
+                      <HiOutlineShoppingBag className="text-[1.75rem]" />
                     </Link>
                   </div>
                 </div>

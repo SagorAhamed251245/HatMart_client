@@ -7,10 +7,7 @@ import Image from "next/image";
 import getSingleProduct from "@/utils/getSingleProduct";
 
 const PaymentInfo = ({ searchParams }) => {
-  console.log(
-    "🚀 ~ file: PaymentInfo.jsx:10 ~ PaymentInfo ~ searchParams:",
-    searchParams
-  );
+  
   const productsId = JSON.parse(searchParams.productId);
   const [allProducts, setAllProducts] = useState([]);
   console.log(searchParams);
@@ -28,20 +25,8 @@ const PaymentInfo = ({ searchParams }) => {
     })();
   }, []);
 
-  console.log(
-    "🚀 ~ file: PaymentInfo.jsx:27 ~ PaymentInfo ~ allProducts:",
-    allProducts
-  );
-  let deliveryCharge = 2.1;
-
-  let Amount = allProducts.reduce((accumulator, product) => {
-    const price = parseFloat(product.price);
-    const quantity = parseInt(product.quantity);
-    const productTotal = price * quantity;
-    return accumulator + productTotal;
-  }, 0);
-
-  let totalAmount = Amount + deliveryCharge;
+  
+  
 
   return (
     <Fragment>
@@ -97,7 +82,7 @@ const PaymentInfo = ({ searchParams }) => {
                 pathname: "/payment/payallmethod",
                 query: {
                   allProducts: JSON.stringify(allProducts),
-                  totalAmount: searchParams.totalPrice,
+                  totalAmount:  searchParams.totalPrice,
                 },
               }}
             >

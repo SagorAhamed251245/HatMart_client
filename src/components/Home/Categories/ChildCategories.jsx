@@ -26,26 +26,54 @@ const ChildCategories = ({ categories }) => {
 
   return (
     <div className="flex flex-row items-center justify-between">
-
-        <Swiper      
-        onTouchMoveCapture={true}        
+      <Swiper
+        onTouchMoveCapture={true}
         modules={[Pagination, Navigation]}
         className={`mySwiper`}
-        slidesPerView={8}
-        watchOverflow={true}>{
-              categories?.map((item) => (
-                  <SwiperSlide>
-                    <CategoriesCart   key={item._id} item={item} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} ></CategoriesCart>
-                  </SwiperSlide>
-              ))
-          }</Swiper> 
-        {showSubCategory && (
-            <div  onMouseEnter={ () => setShowSubCategory(true)}
-            onMouseLeave={handleMouseLeave} className='h-auto mt-5  absolute z-30 w-auto bg-white shadow-2xl left-10 right-10 top-40'>
-            <SubCategories sub_category={SubCategory}></SubCategories>
-        </div>  
-        )}
-
+        breakpoints={{
+          320: {
+            slidesPerView: 3,
+            spaceBetween: 5,
+          },
+          640: {
+            slidesPerView: 4,
+            spaceBetween: 5,
+          },
+          768: {
+            slidesPerView: 6,
+            spaceBetween: 5,
+          },
+          1024: {
+            slidesPerView: 8,
+            spaceBetween: 20,
+          },
+          1200: {
+            slidesPerView: 8,
+            spaceBetween: 30,
+          },
+        }}
+        watchOverflow={true}
+      >
+        {categories?.map((item) => (
+          <SwiperSlide>
+            <CategoriesCart
+              key={item._id}
+              item={item}
+              handleMouseEnter={handleMouseEnter}
+              handleMouseLeave={handleMouseLeave}
+            ></CategoriesCart>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      {showSubCategory && (
+        <div
+          onMouseEnter={() => setShowSubCategory(true)}
+          onMouseLeave={handleMouseLeave}
+          className="h-auto mt-5  absolute z-30 w-auto bg-white shadow-2xl left-10 right-10 top-40"
+        >
+          <SubCategories sub_category={SubCategory}></SubCategories>
+        </div>
+      )}
     </div>
   );
 };
