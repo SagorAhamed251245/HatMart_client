@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
   } = product;
 
   return (
-    <div className="relative border border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-[25rem]">
+    <div className="relative border group border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-[25rem]">
       <Link
         href={{
           pathname: `/productDetails`,
@@ -41,19 +41,18 @@ const ProductCard = ({ product }) => {
             src={image} // Replace with the actual image URL
             height={300}
             width={500}
-
-            className="w-full h-full object-contain"
-
+            className="w-full h-full group-hover:scale-125 object-contain transition ease-in-out duration-500 "
             priority
             alt="product image"
           />
+          {/* <p className="h-36 absolute hidden group-hover:block rounded-xl  ease-in-out duration-500 delay-500 top-0 z-10 w-full bg-[#04040457]"></p> */}
 
           {discount_percent && discount_percent > 0 && (
-            <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
+            <p className="absolute z-20 bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
               {discount_percent}%
             </p>
           )}
-          <WishListBtn _id={_id} />
+          <WishListBtn product_id={_id} product={product} />
         </div>
 
         <div className="space-y-1 mt-3">

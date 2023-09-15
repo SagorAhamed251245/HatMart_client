@@ -1,4 +1,8 @@
-import { BiSolidDashboard, BiSolidUserCircle } from "react-icons/bi";
+import {
+  BiSolidCoupon,
+  BiSolidDashboard,
+  BiSolidUserCircle,
+} from "react-icons/bi";
 import { IoBagAdd } from "react-icons/io5";
 import { FaCartArrowDown, FaUserCog } from "react-icons/fa";
 import { MdCategory, MdFeedback } from "react-icons/md";
@@ -27,7 +31,7 @@ const SideData = () => {
         if (getUser.role === "admin") {
           data = [
             {
-              path: "dashboard",
+              path: "/dashboard",
               title: "Dashboard",
               icon: <BiSolidDashboard />,
             },
@@ -51,6 +55,11 @@ const SideData = () => {
               path: "/dashboard/addCategory",
               title: "Add Category",
               icon: <MdCategory />,
+            },
+            {
+              path: "/dashboard/addDiscount",
+              title: "Add Coupon",
+              icon: <BiSolidCoupon />,
             },
 
             {
@@ -83,7 +92,7 @@ const SideData = () => {
         } else if (getUser.role === "user") {
           data = [
             {
-              path: "dashboard",
+              path: "/dashboard",
               title: "Dashboard",
               icon: <BiSolidDashboard />,
             },

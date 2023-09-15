@@ -1,7 +1,6 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const AddToCartBtn = ({ _id }) => {
-  console.log(_id);
   const handleAddToCart = (_id) => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 

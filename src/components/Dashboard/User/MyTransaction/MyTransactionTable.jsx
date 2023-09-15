@@ -13,6 +13,10 @@ const MyTransactionTable = () => {
   const [MyTransaction, setTransaction] = useState([]);
 
   const user = getUserData();
+  console.log(
+    "🚀 ~ file: MyTransactionTable.jsx:16 ~ MyTransactionTable ~ user:",
+    user
+  );
   useEffect(() => {
     (async () => {
       const data = await getMyTransaction(user?._id);
@@ -23,53 +27,6 @@ const MyTransactionTable = () => {
     "🚀 ~ file: MyTransactionTable.jsx:13 ~ MyTransactionTable ~ MyTransaction:",
     MyTransaction
   );
-  const transaction = [
-    {
-      _id: "T001",
-      transaction_id: "T001",
-      datetime: "2023-09-10T08:30:00",
-      amount: 50.25,
-      payment_method: "Credit Card",
-      products: ["P001", "P002", "P003"],
-      shippingCharge: 5.0,
-    },
-    {
-      _id: "T002",
-      transaction_id: "T002",
-      datetime: "2023-09-09T19:15:00",
-      amount: 75.0,
-      payment_method: "Cash",
-      products: ["P004", "P005"],
-      shippingCharge: 0.0,
-    },
-    {
-      _id: "T003",
-      transaction_id: "T003",
-      datetime: "2023-09-08T14:45:00",
-      amount: 40.5,
-      payment_method: "Debit Card",
-      products: ["P006"],
-      shippingCharge: 3.75,
-    },
-    {
-      _id: "T004",
-      transaction_id: "T004",
-      datetime: "2023-09-07T10:00:00",
-      amount: 120.0,
-      payment_method: "PayPal",
-      products: ["P007", "P008", "P009"],
-      shippingCharge: 8.5,
-    },
-    {
-      _id: "T005",
-      transaction_id: "T005",
-      datetime: "2023-09-06T17:30:00",
-      amount: 80.0,
-      payment_method: "Bank Transfer",
-      products: [],
-      shippingCharge: 0.0,
-    },
-  ];
 
   return (
     <div
