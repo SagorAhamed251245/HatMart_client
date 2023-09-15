@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="relative border group border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-[25rem]">
-      <Link
+     <WishListBtn product_id={_id} product={product} /> <Link
         href={{
           pathname: `/productDetails`,
           query: {
@@ -52,7 +52,7 @@ const ProductCard = ({ product }) => {
               {discount_percent}%
             </p>
           )}
-          <WishListBtn product_id={_id} product={product} />
+          
         </div>
 
         <div className="space-y-1 mt-3">
