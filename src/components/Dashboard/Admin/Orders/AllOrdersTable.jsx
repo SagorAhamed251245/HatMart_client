@@ -1,8 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { FaRegStar, FaStar } from "react-icons/fa";
 import { FaEllipsisVertical } from "react-icons/fa6";
-import Rating from "react-rating";
 import OrdersSmallScreenView from "./OrdersSmallScreenView";
 
 const AllOrdersTable = ({ ordersData }) => {
