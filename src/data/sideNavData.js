@@ -136,7 +136,7 @@ const SideData = () => {
     };
 
     fetchData();
-  }, []);
+  }, [user]);
 
   return sideData;
 };
