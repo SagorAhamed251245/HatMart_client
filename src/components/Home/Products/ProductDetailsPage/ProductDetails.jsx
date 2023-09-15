@@ -86,7 +86,6 @@ const ProductDetails = ({ productData, reviewsData }) => {
             pathname: `/payment`,
             query: {
               productId: JSON.stringify(cartItems),
-              totalPrice: totalPrice.toString(),
             },
           }}
         >
