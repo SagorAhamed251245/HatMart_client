@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SalesStatistics from "../SalesStatistics";
 import OverViewChart from "./OverViewChart";
 import RecentSales from "./RecentSales";
+import getOrders from "@/utils/getOrders";
+import getTransactions from "@/utils/getTransactions";
 
 const OverView = () => {
+  const [ordersData, setOrdersData] = useState([]);
+  const [transactionsData, setTransactionsData] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const order = await getOrders();
+      setOrdersData(order);
+    })();
+    (async () => {
+      const transactions = await getTransactions();
+      setTransactionsData(transactions);
+    })();
+  }, []);
   const salesData = [
     {
       _id: "1",
@@ -44,10 +59,10 @@ const OverView = () => {
 
   return (
     <div>
-      <SalesStatistics />
+      <SalesStatistics transactionsData={transactionsData} />
       <div className="md:flex mt-5 gap-4">
         <OverViewChart />
-        <RecentSales salesData={salesData} />
+        <RecentSales transactionsData={transactionsData} />
       </div>
     </div>
   );
