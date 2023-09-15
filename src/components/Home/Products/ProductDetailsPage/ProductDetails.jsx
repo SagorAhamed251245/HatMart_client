@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
-const ProductDetails = ({ productData, reviewsData , totalPrice}) => {
+const ProductDetails = ({ productData, reviewsData }) => {
   const [editProduct, setEditProduct] = useState(false);
   let cartItems = [{ _id: productData?._id, quantity: 1 }];
   return (
@@ -86,7 +86,6 @@ const ProductDetails = ({ productData, reviewsData , totalPrice}) => {
             pathname: `/payment`,
             query: {
               productId: JSON.stringify(cartItems),
-              totalPrice: totalPrice.toString(),
             },
           }}
         >
