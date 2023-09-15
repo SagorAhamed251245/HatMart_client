@@ -3,9 +3,12 @@ import ProductDetails from "@/components/Home/Products/ProductDetailsPage/Produc
 import ProductImages from "@/components/Home/Products/ProductDetailsPage/ProductImages";
 import getReviews from "@/utils/getReviews";
 import getSingleProduct from "@/utils/getSingleProduct";
-
+export const metadata = {
+  title: "HatMat/productDerails",
+};
 const productDerailsPage = async ({ searchParams }) => {
   const productData = await getSingleProduct(searchParams.productId);
+
   const { productReviews: reviewsData = [] } = await getReviews(
     searchParams.productId
   );

@@ -17,7 +17,7 @@ const DescriptionAndReviews = ({ productData, reviewsData }) => {
             className="font-semibold cursor-pointer  border border-gray-300 rounded-full px-5 py-1 outline-none"
             selectedClassName="text-[#34B701]  border-[#34B701] duration-300"
           >
-            Reviews ({reviewsData.length || 0})
+            Reviews ({reviewsData?.length || 0})
           </Tab>
         </TabList>
 

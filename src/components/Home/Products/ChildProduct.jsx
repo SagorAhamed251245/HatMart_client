@@ -6,40 +6,28 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // import required modules
-import { Autoplay } from "swiper/modules";
+
 import ProductCard from "./ProductCard";
 
-const ChildProduct = ({ products }) => {
-  const handleAddToCart = (id) => {
-    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+import ProductSkeleton from "./ProductSkeleton";
+import FilterProducts from "./FilterProducts";
+import { Autoplay } from "swiper/modules";
+import { useRef } from "react";
+const ChildProduct = ({ products, sectionTitle }) => {
+  const allProduct = FilterProducts(products, sectionTitle);
+  const swiperRefLocal = useRef();
 
-    const existingItemIndex = cartItems.findIndex((item) => item._id === id);
+  const handleMouseEnter = () => {
+    swiperRefLocal?.current?.swiper?.autoplay?.stop();
+  };
 
-    if (existingItemIndex !== -1) {
-      const updatedCartItems = [...cartItems];
-
-      updatedCartItems[existingItemIndex].quantity += 1;
-
-      const updatedCartItemsString = JSON.stringify(updatedCartItems);
-
-      localStorage.setItem("cartItems", updatedCartItemsString);
-    } else {
-      const newItem = {
-        _id: id,
-        quantity: 1,
-      };
-      const updatedCartItems = [...cartItems, newItem];
-
-      const updatedCartItemsString = JSON.stringify(updatedCartItems);
-
-      localStorage.setItem("cartItems", updatedCartItemsString);
-    }
-    alert("Product has been added");
+  const handleMouseLeave = () => {
+    swiperRefLocal?.current?.swiper?.autoplay?.start();
   };
   return (
     <Swiper
       slidesPerView={1}
-      spaceBetween={10}
+      spaceBetween={100}
       freeMode={true}
       breakpoints={{
         320: {
@@ -60,7 +48,6 @@ const ChildProduct = ({ products }) => {
         },
         1200: {
           slidesPerView: 4,
-
           spaceBetween: 30,
         },
       }}
@@ -70,18 +57,35 @@ const ChildProduct = ({ products }) => {
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
+        pauseOnMouseEnter: true,
       }}
       modules={[Autoplay]}
       className="mySwiper"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="">
-        {products.map((product) => (
+      {allProduct.length === 0 ? (
+        <div className="grid lg:grid-cols-4 gap-5 md:grid-cols-3 grid-cols-2">
+          <div className="md:hidden lg:block">
+            <ProductSkeleton />
+          </div>
+          <div className="hidden md:block">
+            <ProductSkeleton />
+          </div>
+          <div>
+            <ProductSkeleton />
+          </div>
+          <div>
+            <ProductSkeleton />
+          </div>
+        </div>
+      ) : (
+        allProduct.map((product) => (
           <SwiperSlide key={product._id}>
-            {/* product card */}
-            <ProductCard handleAddToCart={handleAddToCart} product={product} />
+            <ProductCard product={product} />
           </SwiperSlide>
-        ))}
-      </div>
+        ))
+      )}
     </Swiper>
   );
 };

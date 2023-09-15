@@ -5,8 +5,10 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
 import AddToCartBtn from "./AddToCartBtn";
+import BuyNow from "./BuyNow";
+import WishListBtn from "./WishListBtn";
 
-const ProductCard = ({ product, handleAddToCart }) => {
+const ProductCard = ({ product }) => {
   const {
     _id,
     title,
@@ -23,7 +25,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
   } = product;
 
   return (
-    <div className=" border border-gray-200 dark:border-gray-500  p-3 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300">
+    <div className="relative border group border-gray-200 dark:border-gray-500  p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-[25rem]">
       <Link
         href={{
           pathname: `/productDetails`,
@@ -34,18 +36,23 @@ const ProductCard = ({ product, handleAddToCart }) => {
       >
         {/* details route */}
 
-        <div className="  h-36 w-full overflow-hidden ">
+        <div className="h-36 lg:w-full  overflow-hidden  relative">
           <Image
-            src={image}
+            src={image} // Replace with the actual image URL
             height={300}
             width={500}
-            className="w-full h-full object-cover"
+            className="w-full h-full group-hover:scale-125 object-contain transition ease-in-out duration-500 "
             priority
             alt="product image"
           />
-          <p className="absolute bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
-            {discount_percent}%
-          </p>
+          {/* <p className="h-36 absolute hidden group-hover:block rounded-xl  ease-in-out duration-500 delay-500 top-0 z-10 w-full bg-[#04040457]"></p> */}
+
+          {discount_percent && discount_percent > 0 && (
+            <p className="absolute z-20 bg-yellow-400 dark:text-white px-3 py-px rounded-full top-0 left-0 text-xs">
+              {discount_percent}%
+            </p>
+          )}
+          <WishListBtn product_id={_id} product={product} />
         </div>
 
         <div className="space-y-1 mt-3">
@@ -59,21 +66,25 @@ const ProductCard = ({ product, handleAddToCart }) => {
               <span className="text-red-600">Out Of Stock</span>
             )}
           </p>
-          <h5 className="md:text-lg  text-base text-gray-700 dark:text-white font-semibold">
+          <h5 className="md:text-xl lg:text-lg  sm:text-sm capitalize  text-base text-gray-700 dark:text-white font-semibold">
             {title}
           </h5>
-          <div className="flex items-center gap-2 md:text-base text-sm">
-            <Rating
-              placeholderRating={rating}
-              emptySymbol={<FaRegStar className="text-yellow-400" />}
-              placeholderSymbol={<FaStar className="text-yellow-400" />}
-              fullSymbol={<FaStar className="text-yellow-400" />}
-              readonly
-            />
-            <span className="text-gray-500 dark:text-gray-50 text-sm font-medium">
-              {rating}/5
-            </span>
-          </div>
+          {rating && rating > 0 && (
+            <div className="flex items-center gap-2 md:text-base text-sm">
+              <span className="mt-1">
+                <Rating
+                  placeholderRating={rating}
+                  emptySymbol={<FaRegStar className="text-yellow-400" />}
+                  placeholderSymbol={<FaStar className="text-yellow-400" />}
+                  fullSymbol={<FaStar className="text-yellow-400" />}
+                  readonly
+                />
+              </span>
+              <span className="text-gray-500 dark:text-gray-50 text-sm font-medium">
+                {rating}/5
+              </span>
+            </div>
+          )}
           <p className=" md:text-base text-sm font-medium">
             {discount_percent ? (
               <>
@@ -92,19 +103,15 @@ const ProductCard = ({ product, handleAddToCart }) => {
               <span className="text-[#34B701]">${price}</span>
             )}
           </p>
-          <div className="flex items-center justify-between !mt-5">
-            <AddToCartBtn handleAddToCart={handleAddToCart} id={_id} />
-
-            <Link
-              href={"/payment"}
-              disabled={stock_quantity == 0}
-              className="bg-[#ff6347cc]  text-white md:text-base text-sm px-[10px] md:px-4 font-medium py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
-            >
-              Buy Now
-            </Link>
-          </div>
         </div>
       </Link>
+      <div className="absolute w-full bottom-4 left-0 px-2 md:px-4 mt-2">
+        <div className="flex items-center justify-between !mt-5">
+          <AddToCartBtn _id={_id} />
+
+          <BuyNow stock_quantity={stock_quantity} _id={_id} />
+        </div>
+      </div>
     </div>
   );
 };

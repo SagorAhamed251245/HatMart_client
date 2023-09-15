@@ -16,7 +16,7 @@ const LogoSection = () => {
       <section className="flex flex-col lg:items-start items-center">
         <div className="flex justify-center items-center">
           <LogoSVG></LogoSVG>
-          <div className="relative md:w-36">
+          <div className="relative lg:w-36 md:w-30 w-20 ">
             <Link href={"/"}>
               <Image
                 src="https://i.ibb.co/WtbFpmR/logo.png"
@@ -36,7 +36,7 @@ const LogoSection = () => {
         <div className="flex my-3">
           <div className="py-2 rounded-s-full px-3 w-fit border-2 border-orange-500">
             <input
-              className="bg-transparent w-fit"
+              className="bg-transparent outline-none w-fit"
               type="text"
               placeholder="Enter your email here"
             />

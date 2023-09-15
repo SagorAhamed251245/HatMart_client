@@ -1,12 +1,17 @@
 "use client";
 import useAuth from "@/hooks/useAuth";
+import createJWT from "@/utils/createJWT";
+import postUser from "@/utils/users/postUser";
 import { useRouter, useSearchParams } from "next/navigation";
-import { startTransition } from "react";
+import { startTransition, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const EmailForm = () => {
   const { createUser, profileUpdate } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConPassword, setShowConPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -19,47 +24,23 @@ const EmailForm = () => {
   const from = search.get("redirectUrl") || "/";
   const { replace, refresh } = useRouter();
 
-  const uploadImage = async (event) => {
-    console.log("hit");
-    const formData = new FormData();
-    if (!event.target.files[0]) return;
-    formData.append("image", event.target.files[0]);
-
-    try {
-      const res = await fetch(
-        `https://api.imgbb.com/1/upload?key=f52e595071a0957951aba70405bfbaf8`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-      if (!res.ok) throw new Error("Failed to upload image");
-
-      const data = await res.json();
-
-      setValue("photo", data.data.url);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const onSubmit = async (data, event) => {
-    const { name, email, password, photo } = data;
+    const { name, email, password } = data;
     const toastId = toast.loading("Loading...");
     try {
       await createUser(email, password);
-
+      await createJWT({ email });
       await profileUpdate({
         displayName: name,
-        photoURL: photo,
       });
-      toast.success("User signed in successfully");
+
       startTransition(() => {
         refresh();
         replace(from);
         toast.dismiss(toastId);
         toast.success("User signed in successfully");
       });
+      await postUser(data);
     } catch (error) {
       toast.dismiss(toastId);
       toast.error(error.message || "User not signed in");
@@ -111,7 +92,7 @@ const EmailForm = () => {
           <span className="text-red-500">{errors?.email?.message}</span>
         )}
       </div>
-      <div>
+      <div className="relative">
         <label
           htmlFor="password"
           className="block text-sm font-medium text-gray-700"
@@ -119,7 +100,7 @@ const EmailForm = () => {
           Your password
         </label>
         <input
-          type={"password"}
+          type={showPassword ? "text" : "password"}
           id="password"
           name="password"
           placeholder="Your password"
@@ -140,11 +121,22 @@ const EmailForm = () => {
           })}
           autoComplete="on"
         />
+        <div
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute right-4 bottom-2.5 cursor-pointer opacity-60"
+        >
+          {showPassword ? (
+            <FaEye size={20} title="hide password" />
+          ) : (
+            <FaEyeSlash size={22} title="show password" />
+          )}
+        </div>
+
         {errors?.password && (
           <span className="text-red-500">{errors?.password?.message}</span>
         )}
       </div>
-      <div>
+      <div className="relative">
         <label
           htmlFor="confirm_password"
           className="block text-sm font-medium text-gray-700"
@@ -152,7 +144,7 @@ const EmailForm = () => {
           Confirm password
         </label>
         <input
-          type={"password"}
+          type={showConPassword ? "text" : "password"}
           id="confirm_password"
           name="confirm_password"
           placeholder="Confirm password"
@@ -166,25 +158,21 @@ const EmailForm = () => {
           })}
           autoComplete="on"
         />
+        <div
+          onClick={() => setShowConPassword(!showConPassword)}
+          className="absolute right-4 bottom-2.5 cursor-pointer opacity-60"
+        >
+          {showConPassword ? (
+            <FaEye size={20} title="hide password" />
+          ) : (
+            <FaEyeSlash size={22} title="show password" />
+          )}
+        </div>
         {errors?.confirm_password && (
           <span className="text-red-500">
             {errors?.confirm_password?.message}
           </span>
         )}
-      </div>
-      <div className="form-control">
-        <label
-          htmlFor="photo"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Photo
-        </label>
-        <input
-          type="file"
-          id="photo"
-          onChange={uploadImage}
-          className="file-input file-input-bordered   w-full"
-        />
       </div>
 
       <button

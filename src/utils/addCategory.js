@@ -5,15 +5,14 @@ const addCategory = async (categoryData) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_APIS}/category`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // Fixed the typo here
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(categoryData),
     });
 
     if (res.ok) {
       const responseJson = await res.json();
-      console.log("Category added:", responseJson);
-      toast.success("Category is added");
+      return responseJson;
     } else {
       console.log("Error:", res.statusText);
     }

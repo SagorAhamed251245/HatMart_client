@@ -1,11 +1,19 @@
 import BrandAdd from "@/components/CategoryProducts/BrandAdd";
-import CategoryProducts from "@/components/CategoryProducts/CategoryProducts";
 import SearchProducts from "@/components/SearchProduct/SearchProducts";
-const page = ({ searchParams }) => {
+import getProductByText from "@/utils/getProductByText";
+export const metadata = {
+  title: "HatMat/searchProducts",
+};
+const page = async ({ searchParams }) => {
+  const product = await getProductByText(searchParams.search);
   return (
     <>
       <BrandAdd />
-      <SearchProducts searchParams={searchParams} pageName={"Search"} />
+      <SearchProducts
+        searchParams={searchParams}
+        product={product}
+        pageName={"Search"}
+      />
     </>
   );
 };

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../Home/Products/SectionTitle";
 import ProductCard from "../Home/Products/ProductCard";
@@ -8,24 +8,14 @@ import noProductImage from "@/assets/images/no-products.jpg";
 import FilterAsPrice from "./FilterAsPrice";
 
 const ChildCategoryProducts = ({ pageName, searchParams, products }) => {
-  console.log(
-    "🚀 ~ file: ChildCategoryProducts.jsx:11 ~ ChildCategoryProducts ~ products:",
-    products
-  );
-
   const [viewAsList, setViewAsList] = useState(false);
 
   const [sortOrder, setSortOrder] = useState("bestMatch");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filterProduct, setFilterProduct] = useState([]);
-
   useEffect(() => {
-    const filterProduct = products?.filter((product) =>
-      product.sub_category.find((sub) => sub === searchParams.sub_category)
-    );
-    setFilterProduct(filterProduct);
-  }, [products, searchParams.sub_category]);
-
+    setFilterProduct(products);
+  }, [products]);
   useEffect(() => {
     let sortedProducts = [...filterProduct];
     if (sortOrder === "highToLow") {

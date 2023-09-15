@@ -10,37 +10,64 @@ import Link from "next/link";
 
 import { BiSolidCartAlt } from "react-icons/bi";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import Search from "./Search";
 import useAuth from "@/hooks/useAuth";
 import { toast } from "react-hot-toast";
 import LogoSVG from "./LogoSVG";
+import { usePathname, useRouter } from "next/navigation";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
-
+  const { replace, refresh } = useRouter();
+  const path = usePathname();
   const { uid, photoURL } = user || {};
   const li = uid ? afterLoginNavData : beforeLoginNavData;
-
+  const handleLogout = async () => {
+    const toastId = toast.loading("Loading...");
+    try {
+      await logout();
+      const res = await fetch("/api/auth/", {
+        method: "POST",
+      });
+      await res.json();
+      if (
+        path.includes("/dashboard") ||
+        path.includes("/dashboard/myProfile") ||
+        path.includes("/payment")
+      ) {
+        replace(`/login?redirectUrl=${path}`);
+      }
+      toast.dismiss(toastId);
+      toast.success("Successfully logout!");
+      startTransition(() => {
+        refresh();
+      });
+    } catch (error) {
+      toast.error("Successfully not logout!");
+      toast.dismiss(toastId);
+    }
+  };
   return (
     <>
-
-      <nav className="shadow-md  z-10 mb-[25px] lg:mb-[50px]  bg-white">
-
-
-        <div className="navbar  lg:mb-2  lg:pt-5 lg:px-10  ">
+      <nav className="shadow-md  z-10 mb-[25px] md:mb-[35px] lg:mb-[50px]  bg-white">
+        <div className="navbar  lg:mb-2  lg:pt-5 px-5 md:px-10 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
             <LogoSVG></LogoSVG>
-            <div className="h-24 flex justify-center item-center  w-24 md:w-36">
-              <Link href={"/"}>
-                <Image
-                  src="https://i.ibb.co/WtbFpmR/logo.png"
-                  className="object-cover w-full"
-                  height={144}
-                  width={144}
-                />
-              </Link>
-            </div>
+
+            <Link
+              href={"/"}
+              className="h-24 flex justify-center item-center w-24 md:w-36"
+            >
+              <Image
+                src="https://i.ibb.co/WtbFpmR/logo.png"
+                className="object-cover  lg:w-36 md:w-32 w-20"
+                height={144}
+                width={144}
+                alt="logo"
+              />
+            </Link>
           </div>
 
           {/* Center-aligned section of the navbar (visible on larger screens) */}
@@ -65,14 +92,14 @@ const NavBar = () => {
             {/* night */}
             <div className="hidden md:inline-block">
               <div className="flex  items-center justify-center w-[35px] h-[35px]">
-                <Link href={"cart"}>
-                  <BiSolidCartAlt className="text-3xl" />
+                <Link href={"/cart"}>
+                  <HiOutlineShoppingBag className="text-[1.75rem]" />
                 </Link>
               </div>
             </div>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="avatar cursor-pointer  ">
-                <div className="w-10 rounded overflow-hidden">
+                <div className="w-8 h-8 mt-1 shadow-lg rounded-full overflow-hidden">
                   <Image
                     src={photoURL || userImage}
                     className="object-cover w-full"
@@ -95,7 +122,7 @@ const NavBar = () => {
                 </li>
                 {uid && (
                   <li>
-                    <Link href={""} onClick={() => logout()}>
+                    <Link href={""} onClick={()=> logout()}>
                       LogOut
                     </Link>
                   </li>

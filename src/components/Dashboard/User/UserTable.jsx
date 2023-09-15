@@ -26,7 +26,9 @@ const UserTable = ({ usersData }) => {
               <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300">
                 status
               </th>
-              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300"></th>
+              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b-2 border-gray-300">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
