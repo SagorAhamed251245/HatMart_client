@@ -7,6 +7,10 @@ import Image from "next/image";
 import getSingleProduct from "@/utils/getSingleProduct";
 
 const PaymentInfo = ({ searchParams }) => {
+  console.log(
+    "🚀 ~ file: PaymentInfo.jsx:10 ~ PaymentInfo ~ searchParams:",
+    searchParams
+  );
   const productsId = JSON.parse(searchParams.productId);
   const [allProducts, setAllProducts] = useState([]);
   console.log(searchParams);
@@ -83,7 +87,7 @@ const PaymentInfo = ({ searchParams }) => {
           </div>
           <div className="flex justify-between">
             <div>Total Payment:</div>
-            <div>${parseFloat(totalAmount.toFixed(2))}</div>
+            <div>${searchParams.totalPrice}</div>
           </div>
           {/*  */}
           <div className="mt-10 ">
@@ -93,7 +97,7 @@ const PaymentInfo = ({ searchParams }) => {
                 pathname: "/payment/payallmethod",
                 query: {
                   allProducts: JSON.stringify(allProducts),
-                  totalAmount: totalAmount,
+                  totalAmount: searchParams.totalPrice,
                 },
               }}
             >

@@ -9,7 +9,7 @@ const Cart = ({ products }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [cartData, setCartData] = useState([]);
-  const [discountMoney, setDiscountMoney] = useState(0)
+  const [discountMoney, setDiscountMoney] = useState(0);
 
   // onclick delete sigleCart item==================================================================================
   const deleteCartItem = (itemId) => {
@@ -54,8 +54,6 @@ const Cart = ({ products }) => {
     return true;
   }
 
-  
-
   useEffect(() => {
     const cartItemsId = cartItems.map((cartItem) => cartItem._id);
     const cartItemsQuantity = cartItems.map((cartItem) => cartItem.quantity);
@@ -68,7 +66,14 @@ const Cart = ({ products }) => {
       const cartItem = products.find((item) => item._id === id);
       if (cartItem) {
         selectedCartItems.push(cartItem);
-        subTotalPrice += parseFloat((parseFloat(cartItem?.price) - (parseFloat(cartItem?.price)*(parseFloat(cartItem?.discount_percent) / 100))).toFixed(2)) * quantity;
+        subTotalPrice +=
+          parseFloat(
+            (
+              parseFloat(cartItem?.price) -
+              parseFloat(cartItem?.price) *
+                (parseFloat(cartItem?.discount_percent) / 100)
+            ).toFixed(2)
+          ) * quantity;
       } else {
         console.log("Item not found:", id);
       }
@@ -155,6 +160,7 @@ const Cart = ({ products }) => {
                 pathname: "/payment",
                 query: {
                   productId: JSON.stringify(cartItems),
+                  totalPrice: totalPrice.toString(),
                 },
               }}
               className="btn w-full bg-[#34B701] hover:bg-green-500 duration-300 text-white my-6"
@@ -165,7 +171,11 @@ const Cart = ({ products }) => {
 
             <hr />
             {/* discount section */}
-            <DiscountSection totalPrice={totalPrice} setDiscountMoney={setDiscountMoney} setTotalPrice={setTotalPrice} />
+            <DiscountSection
+              totalPrice={totalPrice}
+              setDiscountMoney={setDiscountMoney}
+              setTotalPrice={setTotalPrice}
+            />
           </div>
         </section>
       </section>

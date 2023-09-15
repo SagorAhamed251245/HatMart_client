@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { TbShoppingCartDiscount } from "react-icons/tb";
 
 const DiscountSection = ({ setDiscountMoney, setTotalPrice, totalPrice }) => {
@@ -24,7 +25,7 @@ const DiscountSection = ({ setDiscountMoney, setTotalPrice, totalPrice }) => {
     },
     // Add more discount codes as needed
   ];
-  
+
   //TODO: add expired discount api
   const expiredDiscountCoupons = [
     {
@@ -54,7 +55,7 @@ const DiscountSection = ({ setDiscountMoney, setTotalPrice, totalPrice }) => {
     const matching = discountCodes.find((d) => d.code === code);
     const expired = expiredDiscountCoupons.find((d) => d.code === code);
     if (matching) {
-      console.log(
+      toast.success(
         `congratulations you have got ${matching?.discount * 100}% discount`
       );
       setGotDiscount(true);
@@ -68,13 +69,13 @@ const DiscountSection = ({ setDiscountMoney, setTotalPrice, totalPrice }) => {
         )
       );
     } else if (expired) {
-      alert(
+      toast.error(
         `Sorry the discount code you provided has already Expired Expire Date: ${expired?.expirationDate} Sale: ${expired?.description}`
       );
       e.target.couponCode.value = "";
       setGotDiscount(false);
     } else {
-      alert(`Sorry the discount code you provided doesn't match`);
+      toast.error(`Sorry the discount code you provided doesn't match`);
       e.target.couponCode.value = "";
       setGotDiscount(false);
     }

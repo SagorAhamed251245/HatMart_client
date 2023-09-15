@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const AddToCartBtn = ({ _id }) => {
@@ -25,7 +26,7 @@ const AddToCartBtn = ({ _id }) => {
 
       localStorage.setItem("cartItems", updatedCartItemsString);
     }
-    alert("Product has been added");
+    toast.success("Product has been added");
   };
 
   return (

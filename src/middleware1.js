@@ -10,7 +10,7 @@ export const middleware = async (request) => {
     if (!cookie || !cookie.startsWith("Bearer")) {
       throw new Error("Invalid token");
     }
-    const secret = new TextEncoder().encode(process.env.jwt_secret);
+    const secret = new TextEncoder().encode(process.env.NEXT_JWT_SECRET);
     await jwtVerify(cookie.split("Bearer ")[1], secret);
     if (isPath("/login") || isPath("/registration")) {
       return NextResponse.redirect(new URL("/", request.url));
