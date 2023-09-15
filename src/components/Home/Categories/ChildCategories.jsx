@@ -30,6 +30,8 @@ const ChildCategories = ({ categories }) => {
         onTouchMoveCapture={true}
         modules={[Pagination, Navigation]}
         className={`mySwiper`}
+        slidesPerView={1}
+        spaceBetween={100}
         breakpoints={{
           320: {
             slidesPerView: 3,
