@@ -31,19 +31,12 @@ const ChildCategories = ({ categories }) => {
 
   return (
     <div className="flex flex-row items-center justify-between">
-        <Swiper 
-          pagination={{
-          type:"progressbar",
-          
-         }}
-        navigation={false}
+        <Swiper      
         onTouchMoveCapture={true}        
         modules={[Pagination, Navigation]}
         className={`mySwiper`}
         slidesPerView={8}
-        watchOverflow={true}    
-        
-        >{
+        watchOverflow={true}>{
               categories?.map((item) => (
                   <SwiperSlide>
                     <CategoriesCart   key={item._id} item={item} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} ></CategoriesCart>
