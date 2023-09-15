@@ -53,7 +53,7 @@ const AllProducts = ({ ProductCategory, products }) => {
       </section>
 
       {/* data cards */}
-      <section className="grid lg:grid-cols-3 grid-cols-1 gap-6 my-10 mx-10">
+      <section className="md:grid xl:grid-cols-3 md:grid-cols-2  flex flex-wrap items-center justify-center gap-6 my-10 mx-10">
         {/* product cards  */}
 
         {data.map((product) => (
