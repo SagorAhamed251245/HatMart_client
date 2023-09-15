@@ -1,5 +1,6 @@
 "use client";
 import AdminDashboard from "@/components/Dashboard/Admin/AdminDashboard/AdminDashboard";
+import UserDashboard from "@/components/Dashboard/User/UserDashboard/UserDashboard";
 import getUserData from "@/data/getUserData";
 
 const dashboardPage = () => {
@@ -9,7 +10,9 @@ const dashboardPage = () => {
       <AdminDashboard />
     </section>
   ) : (
-    <></>
+    <>
+      <UserDashboard />
+    </>
   );
 };
 
