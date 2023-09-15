@@ -21,10 +21,9 @@ const Search = () => {
         onChange={handelOnchange}
         type="text"
         id="search-input"
-        placeholder="
-              Search Your Product"
+        placeholder="Search Hatmart"
         required
-        className="input input-bordered w-[150px] md:w-[300px] lg:w-[500px]  pr-16"
+        className="input input-bordered focus:outline-none focus:border-gray-400/80 border w-[150px] md:w-[300px] lg:w-[500px]  pr-16"
       />
       <Link
         href={{
