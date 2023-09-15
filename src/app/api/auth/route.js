@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export const POST = async (request) => {
   const body = await request.json();
 
-  const secret = new TextEncoder().encode(process.env.jwt_secret);
+  const secret = new TextEncoder().encode(process.env.NEXT_JWT_SECRET);
   const alg = "HS256";
 
   const jwt = await new SignJWT(body)

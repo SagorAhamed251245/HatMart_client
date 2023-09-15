@@ -7,10 +7,18 @@ import Image from "next/image";
 import getSingleProduct from "@/utils/getSingleProduct";
 
 const PaymentInfo = ({ searchParams }) => {
+  console.log(
+    "🚀 ~ file: PaymentInfo.jsx:10 ~ PaymentInfo ~ searchParams:",
+    searchParams
+  );
   const productsId = JSON.parse(searchParams.productId);
   const [allProducts, setAllProducts] = useState([]);
   console.log(searchParams);
-
+  const TotalPrice = searchParams.totalPrice;
+  console.log(
+    "🚀 ~ file: PaymentInfo.jsx:14 ~ PaymentInfo ~ TotalPrice:",
+    TotalPrice
+  );
   useEffect(() => {
     (async () => {
       const products = [];

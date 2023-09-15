@@ -109,7 +109,20 @@ const ProductCard = ({ product }) => {
         <div className="flex items-center justify-between !mt-5">
           <AddToCartBtn _id={_id} />
 
-          <BuyNow stock_quantity={stock_quantity} _id={_id} />
+          <BuyNow
+            stock_quantity={stock_quantity}
+            _id={_id}
+            totalPrice={
+              discount_percent
+                ? (
+                    parseFloat(price) -
+                    parseFloat(
+                      parseFloat(price) * (parseFloat(discount_percent) / 100)
+                    )
+                  ).toFixed(2)
+                : price
+            }
+          />
         </div>
       </div>
     </div>

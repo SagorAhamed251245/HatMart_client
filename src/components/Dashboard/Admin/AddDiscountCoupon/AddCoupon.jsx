@@ -1,15 +1,19 @@
 "use client";
+import addCoupon from "@/utils/coupon/addCoupon";
 import React from "react";
 
 const AddCoupon = () => {
-  const handleAddDiscount = (e) => {
+  const handleAddDiscount = async (e) => {
     e.preventDefault();
     const form = e.target;
     const code = form.code.value;
     const description = form.description.value;
-    const percentage = ((form.percentage.value) / 100);
-    console.log(percentage)
-    const discount = {code, description, percentage}
+    const percentage = form.percentage.value / 100;
+    console.log(percentage);
+    const discount = { code, description, percentage };
+    if (discount) {
+      await addCoupon(discount);
+    }
 
     // TODO: Add post api here to send the discount to the backend
   };
@@ -56,6 +60,7 @@ const AddCoupon = () => {
                 type="number"
                 name="percentage"
                 placeholder="Discount percentage here Ex: '20'"
+                
               />
             </div>
           </div>
