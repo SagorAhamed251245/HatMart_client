@@ -29,16 +29,16 @@ const SideBar = () => {
         >
           <nav role="navigation">
             <div className=" -mx-4 relative overflow-y-auto  overflow-x-hidden  h-[100vh]">
-                <div className="text-2xl font-bold text-blue-600 text-center"><span className="text-[#32B901]">Hat</span><span className="text-[#FE8A48]">Mart </span> Dashboard</div>
+                <div className="text-2xl font-bold  text-center"><span className="text-[#32B901]">Hat</span><span className="text-[#FE8A48]">Mart </span> Dashboard</div>
               <ul className="  px-4 mt-4">
               
                 {data.map(({ path, title, icon }) => (
                   <li key={path}>
                     <Link
                       href={path}
-                      className="flex items-center   border-b-2  p-3  text-black  transition hover:bg-slate-200 hover:text-blue-800 hover:font-semibold"
+                      className="flex items-center   border-b-2  p-3  text-black  transition hover:bg-slate-200 hover:text-[#FE8A48] hover:font-semibold"
                     >
-                      <div className="text-blue-800  text-2xl"> {icon}</div>
+                      <div className="text-[#FE8A48]  text-2xl"> {icon}</div>
                       <div className=" ml-3">{title}</div>
                     </Link>
                   </li>

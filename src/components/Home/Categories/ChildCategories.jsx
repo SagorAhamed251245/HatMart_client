@@ -26,37 +26,26 @@ const ChildCategories = ({ categories }) => {
 
   return (
     <div className="flex flex-row items-center justify-between">
-      <Swiper
-        pagination={{
-          type: "progressbar",
-        }}
-        navigation={false}
-        onTouchMoveCapture={true}
+
+        <Swiper      
+        onTouchMoveCapture={true}        
         modules={[Pagination, Navigation]}
         className={`mySwiper`}
         slidesPerView={8}
-        watchOverflow={true}
-      >
-        {categories?.map((item) => (
-          <SwiperSlide>
-            <CategoriesCart
-              key={item._id}
-              item={item}
-              handleMouseEnter={handleMouseEnter}
-              handleMouseLeave={handleMouseLeave}
-            ></CategoriesCart>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      {showSubCategory && (
-        <div
-          onMouseEnter={() => setShowSubCategory(true)}
-          onMouseLeave={handleMouseLeave}
-          className="h-auto mt-5  absolute z-30 w-auto bg-white shadow-2xl left-10 right-10 top-40"
-        >
-          <SubCategories sub_category={SubCategory}></SubCategories>
-        </div>
-      )}
+        watchOverflow={true}>{
+              categories?.map((item) => (
+                  <SwiperSlide>
+                    <CategoriesCart   key={item._id} item={item} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} ></CategoriesCart>
+                  </SwiperSlide>
+              ))
+          }</Swiper> 
+        {showSubCategory && (
+            <div  onMouseEnter={ () => setShowSubCategory(true)}
+            onMouseLeave={handleMouseLeave} className='h-auto mt-5  absolute z-30 w-auto bg-white shadow-2xl left-10 right-10 top-40'>
+            <SubCategories sub_category={SubCategory}></SubCategories>
+        </div>  
+        )}
+
     </div>
   );
 };
