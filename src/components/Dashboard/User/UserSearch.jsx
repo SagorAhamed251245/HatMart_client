@@ -16,7 +16,7 @@ const UserSearch = ({ searchData, setSearchData }) => {
               onChange={() => setSearchData(event.target.value)}
               type="text"
               id='"form-subscribe-Filter'
-              className=" rounded-full flex-1 appearance-none border border-gray-300 w-full py-2 pr-4 pl-10 bg-white text-gray-700 placeholder-gray-500 shadow-xl text-base focus:outline-none focus:ring-2 ring-1 ring-[#34B701] focus:border-transparent "
+              className=" rounded-full flex-1 appearance-none border border-gray-300 w-full py-2 pr-4 pl-10 bg-white dark:bg-transparent dark:placeholder:text-gray-300 text-gray-700 placeholder-gray-500 shadow-xl text-base focus:outline-none focus:ring-2 ring-1 ring-[#34B701] focus:border-transparent "
               placeholder="Filter name and email..."
             />
           </div>

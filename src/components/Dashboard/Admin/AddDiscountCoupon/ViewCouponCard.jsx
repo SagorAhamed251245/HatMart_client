@@ -4,7 +4,7 @@ import { TiDelete } from "react-icons/ti";
 const ViewCouponCard = ({ discount, handleDeleteDiscountCard }) => {
   const { percentage } = discount;
   return (
-    <div className="w-full p-3 shadow-lg rounded-lg border flex gap-3 items-center justify-between">
+    <div className="w-full p-3 dark:bg-neutral-800 dark:border-neutral-600 shadow-lg rounded-lg border flex gap-3 items-center justify-between">
       <span title="discount code" className="text-sm font-semibold">
         {discount?.code}
       </span>

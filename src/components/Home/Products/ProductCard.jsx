@@ -44,7 +44,7 @@ const ProductCard = ({ product }) => {
                 src={image} // Replace with the actual image URL
                 height={300}
                 width={500}
-                className="w-full h-full group-hover:scale-125 object-contain transition ease-in-out duration-500 "
+                className="w-full h-full group-hover:scale-125 dark:bg-white rounded-lg object-contain transition ease-in-out duration-500 "
                 priority
                 alt="product image"
               />

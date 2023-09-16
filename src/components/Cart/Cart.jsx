@@ -123,7 +123,7 @@ const Cart = ({ products }) => {
           ))}
         </section>
         {/* total payment here */}
-        <section className="bg-white text-center shadow-lg rounded-lg p-3 md:h-[521px] h-full md:w-1/3 w-full">
+        <section className="bg-white dark:bg-transparent text-center shadow-lg rounded-lg p-3 md:h-[521px] h-full md:w-1/3 w-full">
           {/* card title */}
           <h4 className="my-5 text-2xl font-bold">Order Summary</h4>
           {/* table */}

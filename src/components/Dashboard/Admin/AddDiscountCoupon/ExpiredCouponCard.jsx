@@ -2,7 +2,7 @@ import React from "react";
 
 const ExpiredCouponCard = ({coupon}) => {
   return (
-    <div className="w-full p-3 shadow-lg rounded-lg border flex gap-3 items-center justify-between">
+    <div className="w-full p-3 shadow-lg  dark:bg-neutral-800 dark:border-neutral-600  rounded-lg border flex gap-3 items-center justify-between">
       <span title="discount code" className="text-sm w-1/3 font-semibold">
         {coupon?.code}
       </span>
