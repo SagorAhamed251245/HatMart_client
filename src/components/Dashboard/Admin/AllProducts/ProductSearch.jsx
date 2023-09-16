@@ -28,7 +28,7 @@ const ProductSearch = ({ products, setData }) => {
           type="text"
           name="search"
           id='"form-subscribe-Filter'
-          className=" rounded-full flex-1 appearance-none border border-gray-300 w-full py-2 pr-4 pl-10 bg-white text-gray-700 placeholder-gray-500 shadow-xl text-base focus:outline-none focus:ring-2 ring-1 ring-[#34B701] focus:border-transparent"
+          className=" rounded-full flex-1 appearance-none border border-gray-300 w-full py-2 pr-4 pl-10 bg-white dark:bg-gray-800 dark:text-gray-200 text-gray-700 placeholder-gray-500 shadow-xl text-base focus:outline-none focus:ring-2 ring-1 ring-[#34B701] focus:border-transparent"
           placeholder="Enter Product name here"
         />
       </div>
