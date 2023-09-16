@@ -125,13 +125,13 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
           {/* left site from */}
           <div className="lg:w-[70%] ">
             <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-              <h3 className="text-black mb-1 mt-3 font-semibold">
+              <h3 className="text-black dark:text-gray-200 mb-1 mt-3 font-semibold">
                 Product information
               </h3>
               <hr className="border-t border-[#FF7B13]" />
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold  "
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold  "
                   htmlFor="title"
                 >
                   Title:
@@ -149,7 +149,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold"
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold"
                   htmlFor="description"
                 >
                   Description:
@@ -165,7 +165,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold "
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold "
                   htmlFor="packagingDelivery "
                 >
                   Packaging & Delivery:
@@ -181,7 +181,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold"
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold"
                   htmlFor="warnings"
                 >
                   Warnings:
@@ -198,21 +198,21 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
             {/* Media information*/}
             <div className="border rounded-xl w-full p-5 mb-5 shadow-xl  ">
               {/* Additional :*/}
-              <h3 className="text-black mb-1 mt-3 font-semibold">Media</h3>
+              <h3 className="text-black mb-1 dark:text-gray-200 mt-3 font-semibold">Media</h3>
               <hr className="border-t border-[#FF7B13]" />
               <div className="md:flex gap-5">
                 <div className="md:w-[60%] ">
                   <label
-                    className="block text-black mb-1 mt-3 font-semibold "
+                    className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold "
                     htmlFor="image"
                   >
                     Main Image:
                   </label>
-                  <label className="shadow-md flex justify-center w-full h-32 md:h-96  transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                  <label className="shadow-md flex justify-center w-full h-32 md:h-96  transition bg-white dark:bg-Dark  border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                     {!MainImage ? (
                       <span className="flex items-center space-x-2">
                         <DropSvg />
-                        <span className="font-medium text-gray-600">
+                        <span className="font-medium text-gray-600 dark:text-gray-300">
                           Drop files to Attach, or
                           <span className="text-blue-600 underline">
                             browse
@@ -245,11 +245,11 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
                 {/* Additional :*/}
                 <div className="md:w-[40%]">
-                  <label className="block text-black mb-1 mt-3 font-semibold ">
+                  <label className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold ">
                     Additional Image URLs:
                   </label>
 
-                  <label className=" shadow-md flex justify-center w-full h-32 md:h-96   transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                  <label className=" shadow-md flex justify-center w-full h-32 md:h-96   transition bg-white dark:bg-Dark border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                     {Images.length > 0 ? (
                       <>
                         <div className="grid grid-cols-2 overflow-hidden  row-span-2">
@@ -273,7 +273,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                       <>
                         <span className="flex items-center space-x-2 ">
                           <DropSvg />
-                          <span className="font-medium text-gray-600">
+                          <span className="font-medium text-gray-600 dark:text-gray-300">
                             Drop files to Attach, or
                             <span className="text-blue-600 underline">
                               browse
@@ -302,13 +302,13 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
           <div className="lg:w-[30%] ">
             {/* pricing */}
             <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-              <h3 className="text-black mb-1 mt-3 font-semibold">
+              <h3 className="text-black dark:text-gray-200 mb-1 mt-3 font-semibold">
                 Pricing & Stock
               </h3>
               <hr className="border-t border-[#FF7B13]" />
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold"
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold"
                   htmlFor="price"
                 >
                   Price:
@@ -325,7 +325,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold"
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold"
                   htmlFor="discount_percent"
                 >
                   Discount Percent:
@@ -343,7 +343,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
               {/* Stock information */}
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold"
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold"
                   htmlFor="unit"
                 >
                   Unit:
@@ -360,7 +360,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold"
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold"
                   htmlFor="stock"
                 >
                   Stock:
@@ -378,14 +378,14 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
             {/* Organization*/}
             <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
-              <h3 className="text-black mb-1 mt-3 font-semibold">
+              <h3 className="text-black dark:text-gray-200 mb-1 mt-3 font-semibold">
                 {" "}
                 Organization
               </h3>
               <hr className="border-t border-[#FF7B13]" />
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold"
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold"
                   htmlFor="brand"
                 >
                   brand:
@@ -401,7 +401,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
               </div>
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold"
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold"
                   htmlFor="category"
                 >
                   Category:
@@ -427,7 +427,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
               <div>
                 <label
-                  className="block text-black mb-1 mt-3 font-semibold"
+                  className="block text-black dark:text-gray-200 mb-1 mt-3 font-semibold"
                   htmlFor="sub_category"
                 >
                   Sub Category:
@@ -456,11 +456,11 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
           {/* right side from */}
         </div>
-        <div className="w-[80%] mx-auto sticky bottom-5 mt-5 border h-20 bg-white shadow-xl rounded-lg ">
+        <div className="w-[80%] mx-auto sticky bottom-5 mt-5 border h-20 bg-white dark:bg-gray-600 shadow-xl rounded-lg ">
           <div className="flex h-full p-3 justify-between items-center ">
-            <p className="text-black font-bold">Add your Product </p>
+            <p className="text-black dark:text-gray-200 font-bold">Add your Product </p>
             <input
-              className="text-[black] hover:bg-orange-300 font-medium  px-3 py-2 rounded-md bg-[#FF7B13]"
+              className="text-black dark:text-gray-200 hover:bg-orange-300 font-medium  px-3 py-2 rounded-md bg-[#FF7B13]"
               type="submit"
               value="Submit"
             />
