@@ -14,35 +14,6 @@ module.exports = {
       },
     },
   },
-  daisyui: {
-    themes: [
-      "light",
-      "dark",
-      "cupcake",
-      "retro",
-      {
-        mytheme: {
-          primary1: "#FF7B13",
-
-          secondary: "#34B701",
-
-          accent: "#ff6347cc",
-
-          neutral: "#2b3440",
-
-          "base-100": "#ffffff",
-
-          info: "#3abff8",
-
-          success: "#36d399",
-
-          warning: "#fbbd23",
-
-          error: "#f87272",
-        },
-      },
-    ],
-  },
-  
+  darkMode: ["class", '[data-theme="dark"]'],
   plugins: [require("daisyui")],
 };
