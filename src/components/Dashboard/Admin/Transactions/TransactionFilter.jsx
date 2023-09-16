@@ -13,7 +13,7 @@ const TransactionFilter = () => {
       </div>
       <div className="mt-5 md:mt-0 ">
         <select
-          className="block w-full md:w-fit px-3 py-2 text-gray-700 dark:text-gray-300 dark:border-neutral-500 bg-white dark:bg-neutral-600 border border-gray-300 rounded-md shadow-sm  focus:outline-none hover:border-green-500 duration-300 focus:border-green-500"
+          className="block w-full md:w-fit px-3 py-2 text-gray-700 dark:text-white dark:border-neutral-500 bg-white dark:bg-neutral-600 border border-gray-300 rounded-md shadow-sm  focus:outline-none hover:border-green-500 duration-300 focus:border-green-500"
           name="animals"
         >
           <option value="">Default Sorting</option>

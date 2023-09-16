@@ -8,25 +8,25 @@ const UserTable = ({ usersData }) => {
         <table className="min-w-full leading-normal">
           <thead>
             <tr>
-              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-neutral-600 dark:text-gray-300 border-b-2 border-gray-300">
+              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-transparent dark:text-white border-b-2 border-gray-300">
                 #
               </th>
-              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-neutral-600 dark:text-gray-300 border-b-2 border-gray-300">
+              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-transparent dark:text-white border-b-2 border-gray-300">
                 User
               </th>
-              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-neutral-600 dark:text-gray-300 border-b-2 border-gray-300">
+              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-transparent dark:text-white border-b-2 border-gray-300">
                 Email
               </th>
-              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-neutral-600 dark:text-gray-300 border-b-2 border-gray-300">
+              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-transparent dark:text-white border-b-2 border-gray-300">
                 Role
               </th>
-              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-neutral-600 dark:text-gray-300 border-b-2 border-gray-300">
+              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-transparent dark:text-white border-b-2 border-gray-300">
                 Created at
               </th>
-              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-neutral-600 dark:text-gray-300 border-b-2 border-gray-300">
+              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-transparent dark:text-white border-b-2 border-gray-300">
                 status
               </th>
-              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-neutral-600 dark:text-gray-300 border-b-2 border-gray-300">
+              <th className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white dark:bg-transparent dark:text-white border-b-2 border-gray-300">
                 Action
               </th>
             </tr>

@@ -31,7 +31,7 @@ const RecentSales = ({ transactionsData }) => {
   return (
     <div className="lg:w-[40%] w-full border border-gray-300 rounded-md p-3">
       <h5 className="font-medium text-lg">Recent Sales</h5>
-      <p className="text-gray-700 dark:white">You made 265 sales this month.</p>
+      <p className="text-gray-700 dark:text-white">You made 265 sales this month.</p>
       <div className="grid grid-cols-1 gap-4">
         {latestSalesData &&
           latestSalesData.length > 0 &&

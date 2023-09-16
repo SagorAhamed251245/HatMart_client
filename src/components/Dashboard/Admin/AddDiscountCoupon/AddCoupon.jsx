@@ -39,7 +39,7 @@ const AddCoupon = () => {
     // TODO: Add post api here to send the discount to the backend
   };
   return (
-    <div className="shadow-xl p-8 rounded-xl dark:border-neutral-500 dark:bg-neutral-900  md:w-1/2 w-full">
+    <div className="shadow-xl p-8 rounded-xl border dark:border-neutral-500 dark:bg-transparent  md:w-1/2 w-full">
       {/* title */}
       <h4 className="text-2xl pb-6 font-semibold">Add coupon</h4>
       {/* add discount section */}
@@ -51,7 +51,7 @@ const AddCoupon = () => {
             </label>
             <div className="border-2 text-sm border-orange-500 bg-white dark:text-white dark:bg-neutral-700 w-full p-2 rounded">
               <input
-                className="outline-none w-full bg-transparent"
+                className="outline-none w-full dark:bg-transparent"
                 type="text"
                 name="code"
                 placeholder="Discount code here Ex:'FALLSALE'"
@@ -65,7 +65,7 @@ const AddCoupon = () => {
             </label>
             <div className="border-2 text-sm border-orange-500 bg-white dark:text-white dark:bg-neutral-700 w-full p-2 rounded">
               <input
-                className="outline-none w-full bg-transparent"
+                className="outline-none w-full dark:bg-transparent"
                 type="text"
                 name="description"
                 placeholder="Discount description here Ex: 'fall sale'"
@@ -79,7 +79,7 @@ const AddCoupon = () => {
             </label>
             <div className="border-2 text-sm border-orange-500 bg-white dark:text-white dark:bg-neutral-700 w-full p-2 rounded">
               <input
-                className="outline-none w-full bg-transparent"
+                className="outline-none w-full dark:bg-transparent"
                 type="number"
                 name="percentage"
                 placeholder="Discount percentage here Ex: '20'"

@@ -124,7 +124,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
         <div className="lg:flex w-full gap-5">
           {/* left site from */}
           <div className="lg:w-[70%] ">
-            <div className="border dark:border-neutral-500 dark:bg-neutral-900 p-5 mb-5 shadow-xl rounded-xl w-full ">
+            <div className="border dark:border-neutral-500  p-5 mb-5 shadow-xl rounded-xl w-full ">
               <h3 className="text-black dark:text-gray-200 mb-1 mt-3 font-semibold">
                 Product information
               </h3>
@@ -196,9 +196,11 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
               </div>
             </div>
             {/* Media information*/}
-            <div className="border rounded-xl w-full p-5 mb-5 shadow-xl dark:border-neutral-500 dark:bg-neutral-900  ">
+            <div className="border rounded-xl w-full p-5 mb-5 shadow-xl dark:border-neutral-500 bg-transparent  ">
               {/* Additional :*/}
-              <h3 className="text-black mb-1 dark:text-gray-200 mt-3 font-semibold">Media</h3>
+              <h3 className="text-black mb-1 dark:text-gray-200 mt-3 font-semibold">
+                Media
+              </h3>
               <hr className="border-t border-[#FF7B13]" />
               <div className="md:flex gap-5">
                 <div className="md:w-[60%] ">
@@ -212,7 +214,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                     {!MainImage ? (
                       <span className="flex items-center space-x-2">
                         <DropSvg />
-                        <span className="font-medium text-gray-600 dark:text-gray-300">
+                        <span className="font-medium text-gray-600 dark:text-white">
                           Drop files to Attach, or
                           <span className="text-blue-600 underline">
                             browse
@@ -273,7 +275,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                       <>
                         <span className="flex items-center space-x-2 ">
                           <DropSvg />
-                          <span className="font-medium text-gray-600 dark:text-gray-300">
+                          <span className="font-medium text-gray-600 dark:text-white">
                             Drop files to Attach, or
                             <span className="text-blue-600 underline">
                               browse
@@ -301,7 +303,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
           {/* right side from */}
           <div className="lg:w-[30%] ">
             {/* pricing */}
-            <div className="border rounded-xl w-full dark:border-neutral-500 dark:bg-neutral-900  p-5 mb-5 shadow-xl">
+            <div className="border rounded-xl w-full dark:border-neutral-500 bg-transparent  p-5 mb-5 shadow-xl">
               <h3 className="text-black dark:text-gray-200 mb-1 mt-3 font-semibold">
                 Pricing & Stock
               </h3>
@@ -377,7 +379,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
             </div>
 
             {/* Organization*/}
-            <div className="border rounded-xl dark:border-neutral-500 dark:bg-neutral-900  w-full p-5 mb-5 shadow-xl">
+            <div className="border rounded-xl dark:border-neutral-500 bg-transparent  w-full p-5 mb-5 shadow-xl">
               <h3 className="text-black dark:text-gray-200 mb-1 mt-3 font-semibold">
                 {" "}
                 Organization
@@ -458,7 +460,9 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
         </div>
         <div className="w-[80%] mx-auto sticky bottom-5 mt-5 border h-20 bg-white dark:border-neutral-500 dark:bg-neutral-800  shadow-xl rounded-lg ">
           <div className="flex h-full p-3 justify-between items-center ">
-            <p className="text-black dark:text-gray-200 font-bold">Add your Product </p>
+            <p className="text-black dark:text-gray-200 font-bold">
+              Add your Product{" "}
+            </p>
             <input
               className="text-black dark:text-gray-200 hover:bg-orange-300 font-medium  px-3 py-2 rounded-md bg-[#FF7B13]"
               type="submit"
