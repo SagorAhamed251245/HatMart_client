@@ -20,7 +20,7 @@ const HeroSection = async () => {
             {side.map((banner) => (
               <div
                 key={banner.id}
-                className="flex lg:h-[100%] lg:w-[100%] md:w-full w-full rounded-lg"
+                className="flex lg:h-[100%] sm:justify-center  lg:w-[100%] md:w-full w-full rounded-lg"
               >
                 <div className=" overflow-hidden">
                   <Image
