@@ -124,7 +124,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
         <div className="lg:flex w-full gap-5">
           {/* left site from */}
           <div className="lg:w-[70%] ">
-            <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
+            <div className="border dark:border-neutral-500 dark:bg-neutral-900 p-5 mb-5 shadow-xl rounded-xl w-full ">
               <h3 className="text-black dark:text-gray-200 mb-1 mt-3 font-semibold">
                 Product information
               </h3>
@@ -137,7 +137,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Title:
                 </label>
                 <input
-                  className=" border rounded w-full p-2 shadow-md "
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2 shadow-md "
                   type="text"
                   id="title"
                   placeholder="Product Name"
@@ -155,7 +155,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Description:
                 </label>
                 <textarea
-                  className=" border rounded w-full p-2 h-36 shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2 h-36 shadow-md"
                   id="description"
                   placeholder="write Product Description"
                   name="description"
@@ -171,7 +171,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Packaging & Delivery:
                 </label>
                 <textarea
-                  className=" border rounded w-full p-2  shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2  shadow-md"
                   id="packagingDelivery"
                   placeholder="Write About Product Packaging & Delivery"
                   name="packagingDelivery"
@@ -187,7 +187,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Warnings:
                 </label>
                 <textarea
-                  className=" border rounded w-full p-2  shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2  shadow-md"
                   id="warnings"
                   placeholder="Write About Product  Warnings"
                   name="warnings"
@@ -196,7 +196,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
               </div>
             </div>
             {/* Media information*/}
-            <div className="border rounded-xl w-full p-5 mb-5 shadow-xl  ">
+            <div className="border rounded-xl w-full p-5 mb-5 shadow-xl dark:border-neutral-500 dark:bg-neutral-900  ">
               {/* Additional :*/}
               <h3 className="text-black mb-1 dark:text-gray-200 mt-3 font-semibold">Media</h3>
               <hr className="border-t border-[#FF7B13]" />
@@ -208,7 +208,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   >
                     Main Image:
                   </label>
-                  <label className="shadow-md flex justify-center w-full h-32 md:h-96  transition bg-white dark:bg-Dark  border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                  <label className="shadow-md flex justify-center w-full h-32 md:h-96  transition bg-white dark:border-neutral-500 dark:bg-neutral-800   border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                     {!MainImage ? (
                       <span className="flex items-center space-x-2">
                         <DropSvg />
@@ -249,7 +249,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                     Additional Image URLs:
                   </label>
 
-                  <label className=" shadow-md flex justify-center w-full h-32 md:h-96   transition bg-white dark:bg-Dark border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                  <label className=" shadow-md flex justify-center w-full h-32 md:h-96   transition bg-white dark:border-neutral-500 dark:bg-neutral-800  border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
                     {Images.length > 0 ? (
                       <>
                         <div className="grid grid-cols-2 overflow-hidden  row-span-2">
@@ -301,7 +301,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
           {/* right side from */}
           <div className="lg:w-[30%] ">
             {/* pricing */}
-            <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
+            <div className="border rounded-xl w-full dark:border-neutral-500 dark:bg-neutral-900  p-5 mb-5 shadow-xl">
               <h3 className="text-black dark:text-gray-200 mb-1 mt-3 font-semibold">
                 Pricing & Stock
               </h3>
@@ -314,7 +314,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Price:
                 </label>
                 <input
-                  className=" border rounded w-full p-2 shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2 shadow-md"
                   type="number"
                   id="price"
                   placeholder="0"
@@ -331,7 +331,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Discount Percent:
                 </label>
                 <input
-                  className=" border rounded w-full p-2 shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2 shadow-md"
                   type="discount_percent"
                   id="discount_percent"
                   placeholder="0"
@@ -349,7 +349,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Unit:
                 </label>
                 <input
-                  className=" border rounded w-full p-2 shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2 shadow-md"
                   type="unit"
                   id="unit"
                   placeholder="g; kg; quantity "
@@ -366,7 +366,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Stock:
                 </label>
                 <input
-                  className=" border rounded w-full p-2 shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2 shadow-md"
                   type="number"
                   placeholder="0"
                   id="stock"
@@ -377,7 +377,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
             </div>
 
             {/* Organization*/}
-            <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
+            <div className="border rounded-xl dark:border-neutral-500 dark:bg-neutral-900  w-full p-5 mb-5 shadow-xl">
               <h3 className="text-black dark:text-gray-200 mb-1 mt-3 font-semibold">
                 {" "}
                 Organization
@@ -392,7 +392,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                 </label>
                 <input
                   placeholder="Product brand name"
-                  className=" border rounded w-full p-2 shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2 shadow-md"
                   type="text"
                   id="brand"
                   name="brand"
@@ -407,7 +407,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Category:
                 </label>
                 <select
-                  className=" border rounded w-full p-2 shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2 shadow-md"
                   id="category"
                   placeholder="Select Product Category"
                   name="category"
@@ -433,7 +433,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
                   Sub Category:
                 </label>
                 <select
-                  className=" border rounded w-full p-2 shadow-md"
+                  className=" border rounded dark:border-neutral-500 dark:bg-neutral-800 w-full p-2 shadow-md"
                   type="text"
                   id="sub_category"
                   placeholder="Select Product Sub Category"
@@ -456,7 +456,7 @@ const AddProductForm = ({ ProductCategory, products, _id }) => {
 
           {/* right side from */}
         </div>
-        <div className="w-[80%] mx-auto sticky bottom-5 mt-5 border h-20 bg-white dark:bg-gray-600 shadow-xl rounded-lg ">
+        <div className="w-[80%] mx-auto sticky bottom-5 mt-5 border h-20 bg-white dark:border-neutral-500 dark:bg-neutral-800  shadow-xl rounded-lg ">
           <div className="flex h-full p-3 justify-between items-center ">
             <p className="text-black dark:text-gray-200 font-bold">Add your Product </p>
             <input

@@ -72,7 +72,7 @@ const AddCategory = () => {
   return (
     <div className="">
       {" "}
-      <div className="border  rounded-xl w-full p-5 mb-5 shadow-xl dark:border-gray-500">
+      <div className="border  rounded-xl w-full p-5 mb-5 shadow-xl dark:border-neutral-500 dark:bg-neutral-800 ">
         <h3 className="text-2xl font-bold mb-5">Add Category</h3>
         <hr className="dark:border-gray-500" />
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -102,7 +102,7 @@ const AddCategory = () => {
             >
               Choose Image:
             </label>
-            <label className="shadow-md flex  h-28 w-64 px-4 transition bg-white dark:bg-Dark border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+            <label className="shadow-md flex  h-28 w-64 px-4 transition bg-white dark:border-neutral-500 dark:bg-neutral-600  border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
               {!categoryImage ? (
                 <span className="flex items-center space-x-2 dark:text-gray-300">
                   <DropSvg />

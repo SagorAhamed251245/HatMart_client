@@ -12,7 +12,7 @@ const SalesPeriod = () => {
       </div>
       <div className="md:flex items-center gap-3">
         <select
-          className="block w-full md:w-56 px-3 mt-5 md:mt-0 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm  focus:outline-none hover:border-green-500 duration-300 focus:border-green-500"
+          className="block w-full md:w-56 px-3 mt-5 md:mt-0 py-2 text-gray-700 bg-white dark:bg-neutral-800 dark:text-gray-400 dark:border-neutral-600 border border-gray-300 rounded-md shadow-sm  focus:outline-none hover:border-green-500 duration-300 focus:border-green-500"
           name="animals"
         >
           <option value="">All Products</option>
@@ -20,7 +20,7 @@ const SalesPeriod = () => {
           <option value="cat">Toys</option>
         </select>
         <select
-          className="block w-full md:w-56 mt-5 md:mt-0 px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm  focus:outline-none hover:border-green-500 duration-300 focus:border-green-500"
+          className="block w-full md:w-56 mt-5 md:mt-0 px-3 py-2 text-gray-700 bg-white dark:bg-neutral-800 dark:text-gray-400 dark:border-neutral-600 border border-gray-300 rounded-md shadow-sm  focus:outline-none hover:border-green-500 duration-300 focus:border-green-500"
           name="animals"
         >
           <option value="">Default Sorting</option>

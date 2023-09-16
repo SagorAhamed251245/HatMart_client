@@ -4,12 +4,11 @@ import { FaEllipsisVertical } from "react-icons/fa6";
 import OrdersSmallScreenView from "./OrdersSmallScreenView";
 
 const AllOrdersTable = ({ ordersData }) => {
-  console.log(ordersData);
 
   return (
     <div
       style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
-      className="overflow-x-auto mt-10 border rounded-xl p-4 shadow mb-5"
+      className="overflow-x-auto mt-10 border rounded-xl p-4 dark:border-neutral-500 dark:bg-neutral-900  shadow mb-5"
     >
       <div className="hidden lg:block overflow-x-auto">
         <table className="min-w-full border-collapse ">

@@ -11,7 +11,7 @@ const ViewCoupon = ({ discounts }) => {
     // TODO: add another api to store the discount data with todays date
   }
   return (
-    <div className="shadow-xl p-8 rounded-xl w-full md:w-1/2">
+    <div className="shadow-xl dark:border-neutral-500 dark:bg-neutral-900  p-8 rounded-xl w-full md:w-1/2">
       {/* title */}
       <h4 className="text-2xl pb-6 font-semibold">View available coupon</h4>
       {/* view discount section */}
