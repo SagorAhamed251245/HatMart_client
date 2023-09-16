@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import BkashModal from "../Modal/BkashModal";
 
-const BkashForm = () => {
+const BkashForm = ({totalAmount}) => {
   const [isOpen, setIsOpen] = useState(false);
   const {
     register,
@@ -26,7 +26,7 @@ const BkashForm = () => {
         Pay with bkash
       </button>
 
-      <BkashModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <BkashModal isOpen={isOpen} setIsOpen={setIsOpen} totalAmount={totalAmount} />
     </div>
   );
 };
