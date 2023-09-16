@@ -5,7 +5,7 @@ const Categories = async () => {
   const categories = await getCategories();
 
   return (
-    <section className="w-[90%] mx-auto bg-white ">
+    <section className="w-[90%] mx-auto bg-white dark:text-white dark:bg-transparent">
       <ChildCategories categories={categories}></ChildCategories>
     </section>
   );

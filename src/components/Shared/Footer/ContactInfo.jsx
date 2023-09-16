@@ -8,11 +8,13 @@ const ContactInfo = () => {
     <>
       <section className="text-center lg:text-start">
         {/* title */}
-        <h4 className="text-black font-semibold">Contact Info</h4>
+        <h4 className="text-black font-semibold dark:text-white">
+          Contact Info
+        </h4>
         <div className="text-gray-800  flex flex-col lg:items-start items-center">
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
-            <span className="text-sm">
+            <span className="text-sm dark:text-white">
               Phone:{" "}
               <span className="text-gray-700">
                 <NumberLink />
@@ -21,7 +23,7 @@ const ContactInfo = () => {
           </div>
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
-            <span className="text-sm">
+            <span className="text-sm dark:text-white">
               Email:{" "}
               <span className="text-gray-700">
                 <EmailLink />
@@ -30,9 +32,9 @@ const ContactInfo = () => {
           </div>
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
-            <span className="text-sm">
+            <span className="text-sm dark:text-white">
               Address:{" "}
-              <span className="text-gray-700">
+              <span className="text-gray-700 dark:text-white dark:hover:text-green-400">
                 <Link
                   target="_blank"
                   href={"https://goo.gl/maps/cHNkd2AT3FJR9F428"}
@@ -45,9 +47,9 @@ const ContactInfo = () => {
           </div>
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
-            <span className="text-sm">
+            <span className="text-sm dark:text-white">
               Website:{" "}
-              <span className="text-gray-700">
+              <span className="text-gray-700 dark:text-white dark:hover:text-green-400">
                 <Link
                   href={"https://hat-mart-client.vercel.app"}
                   target="_blank"

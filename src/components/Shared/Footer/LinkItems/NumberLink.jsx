@@ -7,7 +7,7 @@ const NumberLink = () => {
   return (
     <Link
       href={link}
-      className="hover:text-green-400 transition"
+      className="hover:text-green-400 transition dark:text-white dark:hover:text-green-400"
       target="_blank"
     >
       {mobileNumber}

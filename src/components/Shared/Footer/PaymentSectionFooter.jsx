@@ -3,7 +3,7 @@ const PaymentSectionFooter = () => {
   return (
     <>
       <section className="flex flex-col lg:items-start items-center">
-        <h4 className="text-black font-semibold">Payment</h4>
+        <h4 className="text-black font-semibold dark:text-white">Payment</h4>
         <div className="flex w-[300px] my-3 gap-4">
           <div className="h-[40px] w-[100px] relative">
             <Image

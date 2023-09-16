@@ -71,7 +71,7 @@ const ChildCategories = ({ categories }) => {
         <div
           onMouseEnter={() => setShowSubCategory(true)}
           onMouseLeave={handleMouseLeave}
-          className="h-auto mt-5  absolute z-30 w-auto bg-white shadow-2xl left-10 right-10 top-40"
+          className="h-auto mt-5  absolute z-30 w-auto bg-white dark:bg-transparent  shadow-2xl left-10 right-10 top-40"
         >
           <SubCategories sub_category={SubCategory}></SubCategories>
         </div>
