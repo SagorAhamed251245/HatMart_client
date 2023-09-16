@@ -72,9 +72,9 @@ const AddCategory = () => {
   return (
     <div className="">
       {" "}
-      <div className="border rounded-xl w-full p-5 mb-5 shadow-xl">
+      <div className="border  rounded-xl w-full p-5 mb-5 shadow-xl dark:border-gray-500">
         <h3 className="text-2xl font-bold mb-5">Add Category</h3>
-        <hr />
+        <hr className="dark:border-gray-500" />
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label
@@ -84,7 +84,7 @@ const AddCategory = () => {
               Category Title:
             </label>
             <input
-              className=" border rounded w-full outline-none p-2 shadow-md focus:shadow-yellow-200 focus:shadow-md "
+              className=" border dark:border-gray-600 rounded w-full outline-none p-2 shadow-md focus:shadow-yellow-200 focus:shadow-md "
               type="text"
               id="title"
               placeholder="Enter title"
@@ -102,11 +102,11 @@ const AddCategory = () => {
             >
               Choose Image:
             </label>
-            <label className="shadow-md flex  h-28 w-64 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+            <label className="shadow-md flex  h-28 w-64 px-4 transition bg-white dark:bg-Dark border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
               {!categoryImage ? (
-                <span className="flex items-center space-x-2">
+                <span className="flex items-center space-x-2 dark:text-gray-300">
                   <DropSvg />
-                  <span className="font-medium text-gray-600">
+                  <span className="font-medium text-gray-600 dark:text-gray-300">
                     Drop image to Attach, or
                     <span className="text-blue-600 underline ml-1">browse</span>
                   </span>
@@ -143,7 +143,7 @@ const AddCategory = () => {
               <small className="opacity-70">(You can add multiple)</small>:
             </label>
             <input
-              className=" border rounded outline-none w-full p-2 shadow-md  focus:shadow-yellow-200 focus:shadow-md"
+              className=" border dark:border-gray-600 rounded outline-none w-full p-2 shadow-md  focus:shadow-yellow-200 focus:shadow-md"
               type="text"
               id="title"
               placeholder="Enter sub category"
