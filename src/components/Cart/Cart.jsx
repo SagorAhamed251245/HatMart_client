@@ -6,6 +6,7 @@ import Link from "next/link";
 import { MdOutlinePayment } from "react-icons/md";
 
 const Cart = ({ products }) => {
+  let numbers = 0;
   const [totalPrice, setTotalPrice] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [cartData, setCartData] = useState([]);
@@ -160,7 +161,9 @@ const Cart = ({ products }) => {
                 pathname: "/payment",
                 query: {
                   productId: JSON.stringify(cartItems),
-                  totalPrice: totalPrice.toString(),
+                  totalPrice: totalPrice
+                    ? totalPrice.toString()
+                    : numbers.toString,
                 },
               }}
               className="btn w-full bg-[#34B701] hover:bg-green-500 duration-300 text-white my-6"

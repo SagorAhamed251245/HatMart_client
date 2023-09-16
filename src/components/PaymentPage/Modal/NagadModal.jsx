@@ -1,8 +1,20 @@
+"use client";
 import ModalPayment from "@/components/Ui/ModalPayment";
+import currencyConverter from "@/utils/currency/currencyConverter";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
-const NagadModal = ({ isOpen, setIsOpen }) => {
+const NagadModal = ({ isOpen, setIsOpen, totalAmount }) => {
+  const [toPayInBDT, setToPayInBDT] = useState(0);
+  if (totalAmount) {
+    currencyConverter(totalAmount)
+      .then((data) => {
+        setToPayInBDT(data.result);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
   return (
     <ModalPayment isOpen={isOpen} setIsOpen={setIsOpen}>
       <div className="bg-cover bg-no-repea bg-[url('https://i.ibb.co/nrbD8X0/image.png')] rounded-xl py-10">
@@ -20,6 +32,11 @@ const NagadModal = ({ isOpen, setIsOpen }) => {
             />
           </div>
           <p className="font-bold text-[#ccc]">HatMart LTD.</p>
+        </div>
+        <div className="text-center mt-14">
+          <p className="font-bold text-[#ccc] mb-2">
+            {parseFloat(toPayInBDT).toFixed(2)} &#2547;
+          </p>
         </div>
         <div className="text-center mt-14">
           <p className="font-bold text-[#ccc] mb-2">

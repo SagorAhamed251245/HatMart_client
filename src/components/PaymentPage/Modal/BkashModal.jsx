@@ -1,8 +1,20 @@
 import ModalPayment from "@/components/Ui/ModalPayment";
+import currencyConverter from "@/utils/currency/currencyConverter";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
-const BkashModal = ({ isOpen, setIsOpen }) => {
+const BkashModal = ({ isOpen, setIsOpen, totalAmount }) => {
+  const [toPayInBDT, setToPayInBDT] = useState(0);
+  if (totalAmount) {
+    currencyConverter(totalAmount)
+      .then((data) => {
+        setToPayInBDT(data.result);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
   return (
     <ModalPayment isOpen={isOpen} setIsOpen={setIsOpen}>
       <div className="max-w-xl mt-5 bg-white p-4 rounded-xl">
@@ -30,13 +42,14 @@ const BkashModal = ({ isOpen, setIsOpen }) => {
               <p className="text-xs">Invoice: rBZpTwzvK3I</p>
             </div>
           </div>
-          <p className="text-xl font-medium">$74.56</p>
+          <p className="text-xl font-medium">
+            {parseFloat(toPayInBDT).toFixed(2)} &#2547;
+          </p>
         </div>
 
         <div className="bg-[url('https://i.ibb.co/8K2r6x3/image.png')] h-44">
           <div className="flex h-full w-full flex-col justify-center items-center ">
             <div className="text-center">
-              {" "}
               <p className="text-xs mb-4 text-white">
                 Your bKash Account number
               </p>

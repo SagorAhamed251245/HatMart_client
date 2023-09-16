@@ -15,9 +15,13 @@ import useAuth from "@/hooks/useAuth";
 import { toast } from "react-hot-toast";
 import LogoSVG from "./LogoSVG";
 import { usePathname, useRouter } from "next/navigation";
+import SunSVG from "./SunSVG";
+import MoonSvg from "./MoonSvg";
+import useTheme from "@/hooks/useTheme";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const { replace, refresh } = useRouter();
   const path = usePathname();
   const { uid, photoURL } = user || {};
@@ -76,16 +80,22 @@ const NavBar = () => {
           {/* Right-aligned section of the navbar */}
           <div className="navbar-end md:gap-5">
             {/* Button labeled "Button" */}
-            <div className="hidden ">
+            <div className=" ">
               <label className="swap swap-rotate">
                 {/* this hidden checkbox controls the state */}
-                <input type="checkbox" />
+                <input
+                  onChange={toggleTheme}
+                  type="checkbox"
+                  checked={theme === "dark"}
+                />
 
                 {/* sun icon */}
-                <BsSunFill />
+
+                <SunSVG />
 
                 {/* moon icon */}
-                <BsFillMoonFill />
+
+                <MoonSvg />
               </label>
             </div>
 
