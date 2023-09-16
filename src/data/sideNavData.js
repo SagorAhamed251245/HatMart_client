@@ -8,7 +8,7 @@ import { FaCartArrowDown, FaUserCog } from "react-icons/fa";
 import { MdCategory, MdFeedback } from "react-icons/md";
 import { AiFillHeart, AiFillHome } from "react-icons/ai";
 import { GiBallPyramid } from "react-icons/gi";
-import { GrTransaction } from "react-icons/gr";
+import { PiArrowsLeftRight } from "react-icons/pi";
 import { PiUserListFill } from "react-icons/pi";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { LiaPaypal } from "react-icons/lia";
@@ -65,7 +65,7 @@ const SideData = () => {
             {
               path: "/dashboard/transactions",
               title: "Transactions",
-              icon: <GrTransaction />,
+              icon: <PiArrowsLeftRight />,
             },
             {
               path: "/dashboard/orders",

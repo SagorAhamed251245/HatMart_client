@@ -10,7 +10,7 @@ const UserStatistics = ({ MyOrders, wishlistProduct }) => {
       <div className="flex justify-between border border-gray-300 p-4 rounded-md">
         <div className="space-y-2">
           <h3 className="text-lg font-medium">Total Orders</h3>
-          <h1 className="text-2xl font-bold">{MyOrders.length}</h1>
+          <h1 className="text-2xl font-bold">{MyOrders?.length}</h1>
         </div>
         <p>
           <FaCartArrowDown />
@@ -28,7 +28,7 @@ const UserStatistics = ({ MyOrders, wishlistProduct }) => {
       <div className="flex justify-between border border-gray-300 p-4 rounded-md">
         <div className="space-y-2">
           <h3 className="text-lg font-medium">My Wishlist</h3>
-          <h1 className="text-2xl font-bold">{wishlistProduct.length}</h1>
+          <h1 className="text-2xl font-bold">{wishlistProduct?.length}</h1>
         </div>
         <p>
           <AiFillHeart />

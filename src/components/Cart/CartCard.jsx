@@ -23,7 +23,7 @@ const CartCard = ({
 
 
   return (
-    <div className="bg-white mb-3 flex p-3 shadow-lg md:w-11/12 w-full rounded-lg">
+    <div className="bg-white dark:bg-transparent mb-3 flex p-3 shadow-lg md:w-11/12 w-full rounded-lg">
       {/* card image here */}
       <div className="relative md:h-full w-[100px] md:w-[120px] object-cover rounded-lg border border-slate-400">
         <Image
