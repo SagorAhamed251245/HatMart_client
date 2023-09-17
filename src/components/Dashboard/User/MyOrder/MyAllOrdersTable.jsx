@@ -11,14 +11,16 @@ import getMyOrders from "@/utils/users/getMyOrders";
 const MyAllOrdersTable = () => {
   const [MyOrders, setOrders] = useState([]);
   const user = getUserData();
+  console.log(
+    "🚀 ~ file: MyAllOrdersTable.jsx:14 ~ MyAllOrdersTable ~ user:",
+    user
+  );
   useEffect(() => {
     (async () => {
       const data = await getMyOrders(user?._id);
       setOrders(data);
     })();
   }, [user?._id]);
-
-
 
   return (
     <div
