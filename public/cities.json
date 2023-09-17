@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Dhaka",
+    "districts": ["Dhaka", "Gazipur", "Narayanganj", "Tangail", "Munshiganj"]
+  },
+  {
+    "name": "Chittagong",
+    "districts": ["Chittagong", "Cox's Bazar", "Comilla", "Feni", "Khagrachari"]
+  },
+  {
+    "name": "Khulna",
+    "districts": ["Khulna", "Jessore", "Satkhira", "Bagerhat", "Magura"]
+  },
+  {
+    "name": "Rajshahi",
+    "districts": ["Rajshahi", "Bogra", "Pabna", "Naogaon", "Sirajganj"]
+  },
+  {
+    "name": "Sylhet",
+    "districts": ["Sylhet", "Moulvibazar", "Habiganj", "Sunamganj"]
+  },
+  {
+    "name": "Barisal",
+    "districts": ["Barisal", "Patuakhali", "Bhola", "Jhalokati"]
+  },
+  {
+    "name": "Comilla",
+    "districts": ["Comilla", "Chandpur", "Brahmanbaria"]
+  },
+  {
+    "name": "Narayanganj",
+    "districts": ["Narayanganj"]
+  },
+  {
+    "name": "Gazipur",
+    "districts": ["Gazipur"]
+  },
+  {
+    "name": "Rangpur",
+    "districts": ["Rangpur", "Dinajpur", "Kurigram", "Thakurgaon"]
+  },
+  {
+    "name": "Jessore",
+    "districts": ["Jessore", "Jhenaidah", "Narail"]
+  },
+  {
+    "name": "Mymensingh",
+    "districts": ["Mymensingh", "Netrokona", "Jamalpur"]
+  },
+  {
+    "name": "Cox's Bazar",
+    "districts": ["Cox's Bazar"]
+  },
+  {
+    "name": "Dinajpur",
+    "districts": ["Dinajpur"]
+  },
+  {
+    "name": "Tangail",
+    "districts": ["Tangail"]
+  },
+  {
+    "name": "Bogra",
+    "districts": ["Bogra"]
+  },
+  {
+    "name": "Nawabganj",
+    "districts": ["Chapainawabganj"]
+  },
+  {
+    "name": "Faridpur",
+    "districts": ["Faridpur"]
+  },
+  {
+    "name": "Pabna",
+    "districts": ["Pabna"]
+  },
+  {
+    "name": "Habiganj",
+    "districts": ["Habiganj"]
+  }
+]

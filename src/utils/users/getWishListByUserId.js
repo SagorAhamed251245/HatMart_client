@@ -3,7 +3,7 @@ const getWishListByUserId = async (userId) => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_APIS}/wishListUserId/${userId}`,
       {
-        cache: "no-cache",
+        cache: "force-cache",
       }
     );
     return res.json();

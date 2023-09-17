@@ -7,13 +7,13 @@ const dashboardPage = () => {
   const user = getUserData();
   return user?.role === "admin" ? (
     <section>
-      <AdminDashboard />
+      <AdminDashboard user={user} />
     </section>
-  ) : (
-    <>
-      <UserDashboard />
-    </>
-  );
+  ) : user?.role === "user" ? (
+    <section>
+      <UserDashboard user={user} />
+    </section>
+  ) : null;
 };
 
 export default dashboardPage;

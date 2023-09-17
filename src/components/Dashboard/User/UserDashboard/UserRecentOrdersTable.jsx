@@ -4,9 +4,15 @@ import UserRecentOrderSmallScreenView from "./UserRecentOrderSmallScreenView";
 
 const UserRecentOrdersTable = ({ ordersData }) => {
   //   get latest order data
-  const latestOrderData = ordersData.sort(
-    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-  );
+  let latestOrderData;
+  if (ordersData.length > 0) {
+    latestOrderData = ordersData.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+  } else {
+    latestOrderData = [];
+  }
+
   console.log(latestOrderData);
   return (
     <>
