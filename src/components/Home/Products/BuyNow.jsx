@@ -1,7 +1,9 @@
 import Link from "next/link";
 
-const BuyNow = ({ stock_quantity, _id }) => {
+const BuyNow = ({ stock_quantity, _id, totalPrice }) => {
   let cartItems = [{ _id, quantity: 1 }];
+  let numbers = 0;
+
   return (
     <>
       <Link
@@ -9,6 +11,7 @@ const BuyNow = ({ stock_quantity, _id }) => {
           pathname: `/payment`,
           query: {
             productId: JSON.stringify(cartItems),
+            totalPrice: totalPrice ? totalPrice.toString() : numbers.toString,
           },
         }}
         disabled={stock_quantity == 0}

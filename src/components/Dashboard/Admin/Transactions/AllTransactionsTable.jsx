@@ -10,12 +10,12 @@ const AllTransactionsTable = ({ transactionsData }) => {
   return (
     <div
       style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
-      className="  mt-10 border rounded-xl lg:p-4 px-1 py-4 shadow mb-5"
+      className="  mt-10 border dark:border-neutral-500 bg-transparent  rounded-xl lg:p-4 px-1 py-4 shadow mb-5"
     >
-      <div className="hidden lg:block overflow-x-auto">
+      <div className="hidden lg:block  overflow-x-auto">
         <table className=" w-full border-collapse ">
           <thead>
-            <tr className="border-b border-gray-300 text-green-500 w-full">
+            <tr className="border-b border-gray-300 dark:border-neutral-400 text-green-500 w-full">
               <th className=" px-4 py-4 text-center">DATE & TIME</th>
               <th className=" px-4 py-4 text-center">Transaction ID</th>
               <th className=" px-4 py-4 text-center">PRODUCT</th>
@@ -26,7 +26,10 @@ const AllTransactionsTable = ({ transactionsData }) => {
           </thead>
           <tbody>
             {transactionsData.map((order) => (
-              <tr key={order._id} className="border-b border-gray-300 w-full">
+              <tr
+                key={order._id}
+                className="border-b border-gray-300 dark:border-neutral-400 w-full"
+              >
                 <td className=" px-4 py-4 text-center text-green-500">
                   {new Date(order?.createdAt || new Date()).toLocaleString(
                     "en-US",

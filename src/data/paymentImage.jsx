@@ -10,10 +10,7 @@ let paymentMethodImage = [
     icon: bkash,
     title: "bkash",
   },
-  {
-    icon: rocket,
-    title: "rocket",
-  },
+
   {
     icon: cod,
     title: "cod",

@@ -7,6 +7,7 @@ import Rating from "react-rating";
 
 const ProductDetails = ({ productData, reviewsData }) => {
   const [editProduct, setEditProduct] = useState(false);
+  let cartItems = [{ _id: productData?._id, quantity: 1 }];
   return (
     <div className=" w-[95%] mx-auto h-full">
       <h3 className="text-gray-700 text-4xl font-medium">
@@ -80,7 +81,14 @@ const ProductDetails = ({ productData, reviewsData }) => {
         <button className="flex justify-center items-center gap-2 text-[#34B701] font-medium  bg-green-100 px-6 py-1.5 rounded hover:bg-green-200">
           <AiOutlineShoppingCart size={24} /> Add{" "}
         </button>
-        <Link href={"/payment"}>
+        <Link
+          href={{
+            pathname: `/payment`,
+            query: {
+              productId: JSON.stringify(cartItems),
+            },
+          }}
+        >
           <button
             disabled={productData?.stock === "Out of stock"}
             className="flex justify-center items-center gap-2 bg-[#ff6347cc]  text-white px-6 py-1.5 rounded   disabled:opacity-60 hover:bg-[#FF7B13]"

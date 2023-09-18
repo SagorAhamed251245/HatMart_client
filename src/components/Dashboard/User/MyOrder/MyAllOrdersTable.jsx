@@ -11,14 +11,17 @@ import getMyOrders from "@/utils/users/getMyOrders";
 const MyAllOrdersTable = () => {
   const [MyOrders, setOrders] = useState([]);
   const user = getUserData();
+ 
   useEffect(() => {
-    (async () => {
-      const data = await getMyOrders(user?._id);
-      setOrders(data);
-    })();
+    if (user) {
+      (async () => {
+        const data = await getMyOrders(user?._id);
+        setOrders(data);
+      })();
+    } else {
+      setOrders([]);
+    }
   }, [user?._id]);
-
-
 
   return (
     <div

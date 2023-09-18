@@ -14,12 +14,12 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
     <section
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="bg-white relative border rounded-lg shadow-md w-[300px] h-full p-3 flex flex-col"
+      className="bg-white dark:bg-transparent  relative border border-white dark:border-gray-700 rounded-lg shadow-md w-[300px] h-full p-3 flex flex-col"
     >
       {/* product image */}
       <div className="relative w-full h-[200px]">
         <Image
-          className="object-contain object-center border rounded-xl w-full h-full"
+          className="object-contain object-center border border-white bg-white rounded-xl w-full h-full"
           src={image}
           alt="Product Images"
           fill
@@ -29,7 +29,7 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
       {/* product info */}
       <div className="flex-grow py-2">
         {/* product name/title */}
-        <h3 className="text-xl my-2 ">{title}</h3>
+        <h3 className="text-xl text-gray-800 dark:text-white my-2 ">{title}</h3>
         {/* product category */}
         <div className="flex gap-3 my-2 flex-wrap items-center">
           <span className="text-sm bg-green-500 rounded-full px-2 text-green-200">
@@ -77,7 +77,7 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
               fullSymbol={<FaStar className="text-yellow-400" />}
               readonly
             />
-            <span className="text-gray-500 text-sm font-medium">
+            <span className="text-gray-500 dark:text-gray-200 text-sm font-medium">
               ({rating})
             </span>
           </div>

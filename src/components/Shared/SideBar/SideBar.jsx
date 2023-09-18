@@ -25,7 +25,7 @@ const SideBar = () => {
 
         <div
           className="z-20 fixed top-0 -left-96 lg:left-0 h-screen  lg:w-[20%]
-         bg-white shadow-2xl peer-focus:left-0 peer:transition ease-out delay-150 duration-200"
+         bg-white dark:bg-Dark shadow-2xl dark:shadow-black peer-focus:left-0 peer:transition ease-out delay-150 duration-200"
         >
           <nav role="navigation">
             <div className=" -mx-4 relative overflow-y-auto  overflow-x-hidden  h-[100vh]">
@@ -36,7 +36,7 @@ const SideBar = () => {
                   <li key={path}>
                     <Link
                       href={path}
-                      className="flex items-center   border-b-2  p-3  text-black  transition hover:bg-slate-200 hover:text-[#FE8A48] hover:font-semibold"
+                      className="flex items-center   border-b dark:border-neutral-500 p-3  text-black dark:text-gray-200  transition dark:hover:bg-neutral-700 hover:bg-slate-200 hover:text-[#FE8A48] hover:font-semibold"
                     >
                       <div className="text-[#FE8A48]  text-2xl"> {icon}</div>
                       <div className=" ml-3">{title}</div>

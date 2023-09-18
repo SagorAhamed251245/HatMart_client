@@ -20,7 +20,7 @@ const AllProducts = ({ ProductCategory, products }) => {
       <section className="flex items-center justify-between lg:flex-row flex-col lg:items-end px-10">
         {/* title here */}
         <div className="mb-4 lg:mb-0">
-          <h3 className="text-4xl font-semibold mb-2">All Products</h3>
+          <h3 className="text-4xl text-gray-800 dark:text-gray-200 font-semibold mb-2">All Products</h3>
           <p className="text-sm">
             In this page An admin can delete, Edit, search, and filter any data
             to his/her choice.

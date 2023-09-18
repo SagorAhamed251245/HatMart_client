@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const SubCategories = ({ sub_category }) => {
   return (
-    <div className=" border p-5 m-5 flex flex-wrap  bg-white   h-auto ">
+    <div className=" border p-5 m-5 flex flex-wrap  bg-white dark:bg-Dark  h-auto ">
       {sub_category.map((item) => (
         <Link
           href={{

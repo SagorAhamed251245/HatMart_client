@@ -6,7 +6,7 @@ const DateSelect = () => {
     new DateObject().add(4, "days"),
   ]);
   return (
-    <div className="block">
+    <div className="block dark:bg-transparent">
       <DatePicker value={values} onChange={setValues} range />
     </div>
   );

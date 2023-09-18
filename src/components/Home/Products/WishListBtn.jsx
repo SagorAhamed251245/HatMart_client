@@ -11,7 +11,6 @@ const WishListBtn = ({ product_id, product }) => {
   const [isAdded, setAdded] = useState(false);
   const { title, price, category, image } = product;
   const handleWishList = async (productId) => {
-    console.log(productId);
     const wishListBody = {
       userId: user?._id,
       productId: productId,
@@ -35,31 +34,30 @@ const WishListBtn = ({ product_id, product }) => {
     }
 
     (async () => {
-      const userWishList = await getWishListByUserId(user?._id);
-      console.log("userWishList:", userWishList);
-
-      if (product_id) {
-        const isProductInWishlist = userWishList.some(
-          (wishList) => wishList?.productId === product_id
-        );
-        console.log("isProductInWishlist:", isProductInWishlist);
-        setWishListAdded(isProductInWishlist);
+      if (!user?._id) {
+        return; // Don't perform any effect if user
       } else {
-        console.log("no product is found");
+        const userWishList = await getWishListByUserId(user?._id);
+
+        if (product_id) {
+          const isProductInWishlist = userWishList.some(
+            (wishList) => wishList?.productId === product_id
+          );
+
+          setWishListAdded(isProductInWishlist);
+        } else {
+          console.log("no product is found");
+        }
       }
     })();
   }, [user, product_id, isWishListAdded]);
-  console.log(
-    "🚀 ~ file: WishListBtn.jsx:46 ~ WishListBtn ~ isWishListAdded:",
-    isWishListAdded
-  );
 
   return (
     <>
       <button disabled={isWishListAdded}>
         <AiFillHeart
           onClick={() => handleWishList(product_id)}
-          className={`absolute z-20 text-xl top-0 right-0 ${
+          className={`absolute z-20 text-xl top-3 right-3 ${
             !user && "hidden"
           } ${isWishListAdded ? "text-red-400 cursor-not-allowed" : ""}`}
         />

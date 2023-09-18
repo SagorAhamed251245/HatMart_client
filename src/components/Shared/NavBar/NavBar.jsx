@@ -8,7 +8,6 @@ import userImage from "@/assets/icons/user.png";
 import Categories from "@/components/Home/Categories/Categories";
 import Link from "next/link";
 
-import { BiSolidCartAlt } from "react-icons/bi";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import Search from "./Search";
@@ -16,9 +15,13 @@ import useAuth from "@/hooks/useAuth";
 import { toast } from "react-hot-toast";
 import LogoSVG from "./LogoSVG";
 import { usePathname, useRouter } from "next/navigation";
+import SunSVG from "./SunSVG";
+import MoonSvg from "./MoonSvg";
+import useTheme from "@/hooks/useTheme";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const { replace, refresh } = useRouter();
   const path = usePathname();
   const { uid, photoURL } = user || {};
@@ -48,9 +51,10 @@ const NavBar = () => {
       toast.dismiss(toastId);
     }
   };
+
   return (
     <>
-      <nav className="shadow-md  z-10 mb-[25px] md:mb-[35px] lg:mb-[50px]  bg-white">
+      <nav className="shadow-md  z-10 mb-[25px] md:mb-[35px] lg:mb-[50px]  bg-white dark:bg-transparent">
         <div className="navbar  lg:mb-2  lg:pt-5 px-5 md:px-10 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
@@ -76,16 +80,22 @@ const NavBar = () => {
           {/* Right-aligned section of the navbar */}
           <div className="navbar-end md:gap-5">
             {/* Button labeled "Button" */}
-            <div className="hidden ">
+            <div className="hidden md:inline-block ">
               <label className="swap swap-rotate">
                 {/* this hidden checkbox controls the state */}
-                <input type="checkbox" />
+                <input
+                  onChange={toggleTheme}
+                  type="checkbox"
+                  checked={theme === "dark"}
+                />
 
                 {/* sun icon */}
-                <BsSunFill />
+
+                <SunSVG />
 
                 {/* moon icon */}
-                <BsFillMoonFill />
+
+                <MoonSvg />
               </label>
             </div>
 
@@ -93,7 +103,7 @@ const NavBar = () => {
             <div className="hidden md:inline-block">
               <div className="flex  items-center justify-center w-[35px] h-[35px]">
                 <Link href={"/cart"}>
-                  <HiOutlineShoppingBag className="text-[1.75rem]" />
+                  <HiOutlineShoppingBag className="text-[1.75rem] dark:text-white" />
                 </Link>
               </div>
             </div>
@@ -122,30 +132,41 @@ const NavBar = () => {
                 </li>
                 {uid && (
                   <li>
-                    <Link href={""} onClick={()=> logout()}>
+                    <Link
+                      href={""}
+                      className="dark:text-white"
+                      onClick={() => logout()}
+                    >
                       LogOut
                     </Link>
                   </li>
                 )}
 
                 {/* for  small divice  */}
-                <div className="md:hidden hidden">
+                <div className="md:hidden">
                   <label className="swap swap-rotate">
                     {/* this hidden checkbox controls the state */}
-                    <input type="checkbox" />
+                    <input
+                      onChange={toggleTheme}
+                      type="checkbox"
+                      checked={theme === "dark"}
+                    />
 
                     {/* sun icon */}
 
+                    <SunSVG />
+
                     {/* moon icon */}
-                    <BsFillMoonFill />
+
+                    <MoonSvg />
                   </label>
                 </div>
 
                 {/* night */}
                 <div className="md:hidden ">
-                  <div className="flex w-[35px] h-[35px]   items-center justify-center">
-                    <Link href={"cart"}>
-                      <BiSolidCartAlt className="text-3xl" />
+                  <div className="flex  items-center justify-center w-[35px] h-[35px]">
+                    <Link href={"/cart"}>
+                      <HiOutlineShoppingBag className="text-[1.75rem] dark:text-white" />
                     </Link>
                   </div>
                 </div>
@@ -157,7 +178,7 @@ const NavBar = () => {
         <hr />
 
         {/* category */}
-        <div className=" w-full  bg-white ">
+        <div className=" w-full  bg-white dark:bg-transparent">
           <Categories></Categories>
         </div>
       </nav>

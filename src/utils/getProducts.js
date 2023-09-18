@@ -1,6 +1,8 @@
 const getProducts = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_APIS}/product`, {
-    cache: "no-cache",
+    next: {
+      revalidate: 3,
+    },
   });
   return res.json();
 };

@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import UserStatistics from "./UserStatistics";
 import UserRecentOrders from "./UserRecentOrders";
@@ -7,10 +5,12 @@ import getMyOrders from "@/utils/users/getMyOrders";
 import getUserData from "@/data/getUserData";
 import getWishListByUserId from "@/utils/users/getWishListByUserId";
 
-const UserDashboard = () => {
+const UserDashboard = ({ user }) => {
   const [MyOrders, setOrders] = useState([]);
   const [wishlistProduct, setWishlistProduct] = useState([]);
-  const user = getUserData();
+
+  console.log("🚀 ~ file: UserDashboard.jsx:14 ~ UserDashboard ~ user:", user);
+  console.log("this is client side component");
   useEffect(() => {
     // get user order data
     (async () => {

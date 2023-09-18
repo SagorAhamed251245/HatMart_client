@@ -6,6 +6,10 @@ export const metadata = {
   title: "HatMat/payment",
 };
 const PaymentPage = async ({ searchParams }) => {
+  console.log(
+    "🚀 ~ file: page.js:9 ~ PaymentPage ~ searchParams:",
+    searchParams
+  );
   return (
     <>
       <section className="flex flex-col sm:flex-row w-[90%] mx-auto min-h-screen gap-3 mb-5  ">

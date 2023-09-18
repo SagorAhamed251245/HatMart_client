@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -6,6 +8,10 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      ...colors,
+      Dark: "#1d232a",
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -14,35 +20,6 @@ module.exports = {
       },
     },
   },
-  daisyui: {
-    themes: [
-      "light",
-      "dark",
-      "cupcake",
-      "retro",
-      {
-        mytheme: {
-          primary1: "#FF7B13",
-
-          secondary: "#34B701",
-
-          accent: "#ff6347cc",
-
-          neutral: "#2b3440",
-
-          "base-100": "#ffffff",
-
-          info: "#3abff8",
-
-          success: "#36d399",
-
-          warning: "#fbbd23",
-
-          error: "#f87272",
-        },
-      },
-    ],
-  },
-  
+  darkMode: ["class", '[data-theme="dark"]'],
   plugins: [require("daisyui")],
 };

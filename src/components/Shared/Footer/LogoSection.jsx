@@ -13,7 +13,7 @@ const LogoSection = () => {
   return (
     <>
       {/* section 1 */}
-      <section className="flex flex-col lg:items-start items-center">
+      <section className="flex flex-col  lg:items-start items-center">
         <div className="flex justify-center items-center">
           <LogoSVG></LogoSVG>
           <div className="relative lg:w-36 md:w-30 w-20 ">
@@ -28,7 +28,7 @@ const LogoSection = () => {
             </Link>
           </div>
         </div>
-        <p className="text-gray-800 text-sm font-sans italic">
+        <p className="text-gray-800 text-sm dark:text-white font-sans italic">
           "Hatmart is your one-stop for all your grocery needs."
         </p>
 
@@ -45,7 +45,7 @@ const LogoSection = () => {
             <FaRegPaperPlane />
           </button>
         </div>
-        <span className="text-sm text-gray-800 ">
+        <span className="text-sm text-gray-800 dark:text-white ">
           Subscribe for our newsletter <br /> by entering your Email address
         </span>
         {/* socials */}

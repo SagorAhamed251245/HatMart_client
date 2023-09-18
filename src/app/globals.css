@@ -5,6 +5,9 @@
   .bgPrimary {
     background-color: #34b701;
   }
+  .bgDark {
+    background-color: #1d232a;
+  }
   .bgNext {
     background: #ff8b0f;
   }
@@ -37,7 +40,3 @@
 /* two color */
 /* #34B701
 #FF7B13 */
-
- 
- 
-
