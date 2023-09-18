@@ -1,6 +1,6 @@
 # Hatmart - Online Grocery Shop
 
-![Hatmart Logo](link_to_your_logo.png)
+![Hatmart Logo]("../hatmart_client/src/assets/icons/hatmartLogo.svg")
 
 ## Team
 
