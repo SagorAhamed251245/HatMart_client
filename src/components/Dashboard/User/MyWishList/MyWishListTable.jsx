@@ -9,17 +9,19 @@ import getWishListByUserId from "@/utils/users/getWishListByUserId";
 
 const MyWishListTable = () => {
   const user = getUserData();
-  console.log(
-    "🚀 ~ file: MyWishListTable.jsx:12 ~ MyWishListTable ~ user:",
-    user
-  );
+
   const [orders, setOrders] = useState([]);
+  
   useEffect(() => {
-    (async () => {
-      const data = await getWishListByUserId(user?._id);
-      setOrders(data);
-      console.log("🚀 ~ file: MyWishListTable.jsx:17 ~ data:", data);
-    })();
+    if (user) {
+      (async () => {
+        const data = await getWishListByUserId(user?._id);
+        setOrders(data);
+        console.log("🚀 ~ file: MyWishListTable.jsx:17 ~ data:", data);
+      })();
+    } else {
+      setOrders([]);
+    }
   }, [user?._id]);
 
   return (
