@@ -29,9 +29,11 @@ const SideBar = () => {
         >
           <nav role="navigation">
             <div className=" -mx-4 relative overflow-y-auto  overflow-x-hidden  h-[100vh]">
-                <div className="text-2xl font-bold  text-center"><span className="text-[#32B901]">Hat</span><span className="text-[#FE8A48]">Mart </span> Dashboard</div>
+              <div className=" md:text-base text-sm font-bold  text-center">
+                <span className="text-[#32B901]">Hat</span>
+                <span className="text-[#FE8A48]">Mart </span> Dashboard
+              </div>
               <ul className="  px-4 mt-4">
-              
                 {data.map(({ path, title, icon }) => (
                   <li key={path}>
                     <Link
