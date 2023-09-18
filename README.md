@@ -1,6 +1,6 @@
 # Hatmart - Online Grocery Shop
 
-![Hatmart Logo](https://i.ibb.co/wMxgH3f/logo-favicon.png) ![Hatmart Logo](https://i.ibb.co/wMxgH3f/logo-favicon.png](https://i.ibb.co/WtbFpmR/logo.png)
+![Hatmart Logo](https://i.ibb.co/wMxgH3f/logo-favicon.png) ![Hatmart Logo]([https://i.ibb.co/wMxgH3f/logo-favicon.png](https://i.ibb.co/WtbFpmR/logo.png))
 
 ## Team
 
