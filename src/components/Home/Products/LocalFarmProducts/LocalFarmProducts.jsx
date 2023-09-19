@@ -2,8 +2,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../ProductCard";
 import SectionTitle from "../SectionTitle";
-import AllProductsFilterByPrice from "@/components/Dashboard/Admin/AllProducts/AllProductsFilterByPrice";
-import AllProductsFilterBySCategory from "@/components/Dashboard/Admin/AllProducts/AllProductsFilterBySCategory";
 import FIlterLocalProduct from "./FIlterLocalProduct";
 import getProductByText from "@/utils/getProductByText";
 

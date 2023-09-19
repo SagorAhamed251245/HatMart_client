@@ -25,7 +25,6 @@ const Homepage = async () => {
       <MiddleAdd></MiddleAdd>
       <Products sectionTitle="Best Selling Products"></Products>
       <Products sectionTitle="Discount Product"></Products>
-      <Products sectionTitle="Eco-Friendly Product"></Products>
       <Chatbot></Chatbot>
     </>
   );
