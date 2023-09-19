@@ -7,16 +7,22 @@ import Categories from "@/components/Home/Categories/Categories";
 import HeroSection from "@/components/Home/Hero/HeroSection";
 import Products from "@/components/Home/Products/Products";
 import getIpAddress from "@/utils/getIpAddress/getIpAddress";
+import setIpAddress from "@/utils/getIpAddress/setIpAddress";
 import React from "react";
 
-const Homepage = async () => {
-  await getIpAddress().then((ipAddress) => {
-    if (ipAddress !== null) {
-      console.log("Your IP address is:", ipAddress);
-    } else {
-      console.log("Failed to retrieve IP address.");
+const Homepage = () => {
+  (async () => {
+    try {
+      const ipAddress = await getIpAddress();
+      if (ipAddress !== null) {
+        await setIpAddress(ipAddress);
+      } else {
+        console.log("Failed to retrieve IP address.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
     }
-  });
+  })();
   return (
     <>
       <HeroSection />
@@ -25,6 +31,7 @@ const Homepage = async () => {
       <MiddleAdd></MiddleAdd>
       <Products sectionTitle="Best Selling Products"></Products>
       <Products sectionTitle="Discount Product"></Products>
+
       <Chatbot></Chatbot>
     </>
   );
