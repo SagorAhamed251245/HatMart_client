@@ -1,20 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import BkashModal from "../Modal/BkashModal";
 
-const BkashForm = ({totalAmount}) => {
+const BkashForm = ({ totalAmount, allProducts }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (data) => {
-    console.log("Form data:", data);
-    // Here you can handle form submission and API calls
-  };
 
   return (
     <div>
@@ -26,7 +15,12 @@ const BkashForm = ({totalAmount}) => {
         Pay with bkash
       </button>
 
-      <BkashModal isOpen={isOpen} setIsOpen={setIsOpen} totalAmount={totalAmount} />
+      <BkashModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        totalAmount={totalAmount}
+        allProducts={allProducts}
+      />
     </div>
   );
 };

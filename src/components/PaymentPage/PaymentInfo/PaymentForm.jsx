@@ -11,17 +11,21 @@ const PaymentForm = ({ paymentMethod, isActive, totalAmount, allProducts }) => {
   let formContent = null;
 
   if (paymentMethod === "bkash") {
-    formContent = <BkashForm
-    totalAmount={totalAmount}
+    formContent = (
+      <BkashForm
+        totalAmount={totalAmount}
         allProducts={allProducts}
-    ></BkashForm>;
-  }else if (paymentMethod === "cod") {
+      ></BkashForm>
+    );
+  } else if (paymentMethod === "cod") {
     formContent = <CodForm></CodForm>;
   } else if (paymentMethod === "nogod") {
-    formContent = <NogodForm
-    totalAmount={totalAmount}
+    formContent = (
+      <NogodForm
+        totalAmount={totalAmount}
         allProducts={allProducts}
-    ></NogodForm>;
+      ></NogodForm>
+    );
   } else if (paymentMethod === "master") {
     formContent = (
       <CreditForm
