@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import ProductCard from "../ProductCard";
 import SectionTitle from "../SectionTitle";
@@ -15,7 +15,7 @@ const EcoFriendlyProducts = ({ products }) => {
       {/* filter here */}
       <SectionTitle> Eco-Friendly Products </SectionTitle>
 
-      <div className="md:grid xl:grid-cols-4 md:grid-cols-3 grid-cols-1  flex flex-wrap items-center justify-center gap-6 my-10 ">
+      <div className="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2   gap-5 my-10 ">
         {data.map((product) => (
           <ProductCard key={product?._id} product={product} />
         ))}

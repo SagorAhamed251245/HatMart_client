@@ -28,7 +28,7 @@ const LocalFarmProducts = ({ products }) => {
       {/* filter here */}
       <SectionTitle> Local Farm Products </SectionTitle>
 
-      <div className="md:grid xl:grid-cols-4 md:grid-cols-3 grid-cols-1  flex flex-wrap items-center justify-center gap-6 my-10 ">
+      <div className="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2   gap-5 my-10 ">
         {data.map((product) => (
           <ProductCard key={product?._id} product={product} />
         ))}
