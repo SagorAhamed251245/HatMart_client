@@ -42,13 +42,13 @@ const NagadModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
 
     const orders = allProducts.map((product) => ({
       customerInfo: {
+        id: user._id,
         name: user.name,
         email: user.email,
         number: data.number,
         address: user.address,
       },
       BDT: toPayInBDT,
-      customerId: user._id,
       productName: product.title,
       productId: product._id,
       productImage: product.image,
@@ -57,7 +57,7 @@ const NagadModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
       orderStatus: "pending",
       paymentStatus: "approved",
       quantity: product.quantity,
-      paymentMethod: "bkash",
+      paymentMethod: "nagad",
       transactionId: trxId,
     }));
     await axios
