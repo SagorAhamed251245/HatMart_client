@@ -35,12 +35,6 @@ const FilterProducts = (products, sectionTitle) => {
       const filteredProducts = products.filter((p) => p?.discount_percent > 0);
       filteredProducts.sort(() => Math.random() - 0.5);
       setProduct([...filteredProducts]);
-    } else if (sectionTitle === "Eco-Friendly Product") {
-      const filteredProducts = products.filter(
-        (p) => p?.isEocFriendly === true
-      );
-      filteredProducts.sort(() => Math.random() - 0.5);
-      setProduct([...filteredProducts]);
     } else {
       return;
     }

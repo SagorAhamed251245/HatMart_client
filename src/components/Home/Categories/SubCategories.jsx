@@ -13,7 +13,7 @@ const SubCategories = ({ sub_category }) => {
             },
           }}
           key={item}
-          className="border-white m-4 font-medium  hover:text-yellow-600 hover:underline"
+          className="border-white m-4 font-medium  hover:text-green-500 hover:underline"
         >
           {item}
         </Link>
