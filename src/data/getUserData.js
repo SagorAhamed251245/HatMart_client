@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 const getUserData = () => {
   const [getUser, setUser] = useState(null);
   const { user } = useAuth();
-  console.log("🚀 ~ file: getUserData.js:10 ~ getUserData ~ user:", user);
   useEffect(() => {
     (async () => {
       try {

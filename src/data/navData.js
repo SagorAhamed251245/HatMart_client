@@ -20,15 +20,23 @@ const commonNavData = [
 export const afterLoginNavData = [
   ...commonNavData,
   {
-    path: "dashboard/myProfile",
+    path: "/dashboard/myProfile",
     title: "Profile",
   },
   {
-    path: "dashboard",
-    title: "Dashboard",
+    path: "/products/localFarm",
+    title: "Local Farm",
   },
   {
-    path: "HelpCenter",
+    path: "/products/ecoFriendly",
+    title: "Eco-Friendly",
+  },
+  {
+    path: "/dashboard",
+    title: "dashboard",
+  },
+  {
+    path: "/HelpCenter",
     title: "Help Center",
   },
 ];
