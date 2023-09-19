@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import NagadModal from "../Modal/NagadModal";
 
-const NogodForm = ({ onConfirm , totalAmount }) => {
+const NogodForm = ({ onConfirm, totalAmount, allProducts }) => {
   const [isOpen, setIsOpen] = useState(false);
   const {
     register,
@@ -25,7 +25,12 @@ const NogodForm = ({ onConfirm , totalAmount }) => {
         Confirm Nagad Payment
       </button>
 
-      <NagadModal isOpen={isOpen} setIsOpen={setIsOpen} totalAmount={totalAmount}/>
+      <NagadModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        totalAmount={totalAmount}
+        allProducts={allProducts}
+      />
     </>
   );
 };
