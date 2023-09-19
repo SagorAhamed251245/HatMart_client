@@ -24,8 +24,16 @@ export const afterLoginNavData = [
     title: "Profile",
   },
   {
+    path: "products/localFarm",
+    title: "Local Farm",
+  },
+  {
+    path: "products/ecoFriendly",
+    title: "Eco-Friendly",
+  },
+  {
     path: "dashboard",
-    title: "Dashboard",
+    title: "dashboard",
   },
   {
     path: "HelpCenter",

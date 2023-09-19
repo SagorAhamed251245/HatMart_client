@@ -1,7 +1,7 @@
 [
   {
     "name": "Dhaka",
-    "districts": ["Dhaka", "Gazipur", "Narayanganj", "Tangail", "Munshiganj"]
+    "districts": ["Gazipur", "Narayanganj", "Tangail", "Munshiganj"]
   },
   {
     "name": "Chittagong",
