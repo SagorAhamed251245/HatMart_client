@@ -14,10 +14,8 @@ const SalesStatistics = ({ transactionsData }) => {
       <div className="flex justify-between border border-gray-300 p-4 rounded-md">
         <div className="space-y-2">
           <h3 className="text-lg font-medium">Total Revenue</h3>
-          <h1 className="text-2xl font-bold">${totalRevenue}</h1>
-          <p className=" text-sm dark:text-white">
-            +20.1% from last month
-          </p>
+          <h1 className="text-2xl font-bold">${totalRevenue.toFixed(2)}</h1>
+          <p className=" text-sm dark:text-white">+20.1% from last month</p>
         </div>
         <p>
           <BsCurrencyDollar />
@@ -27,9 +25,7 @@ const SalesStatistics = ({ transactionsData }) => {
         <div className="space-y-2">
           <h3 className="text-lg font-medium">Subscriptions</h3>
           <h1 className="text-2xl font-bold">+2350</h1>
-          <p className=" text-sm dark:text-white">
-            +180.1% from last month
-          </p>
+          <p className=" text-sm dark:text-white">+180.1% from last month</p>
         </div>
         <p>
           <FiUsers />
@@ -39,9 +35,7 @@ const SalesStatistics = ({ transactionsData }) => {
         <div className="space-y-2">
           <h3 className="text-lg font-medium">Sales</h3>
           <h1 className="text-2xl font-bold">+{transactionsData.length}</h1>
-          <p className=" text-sm dark:text-white">
-            +19% from last month
-          </p>
+          <p className=" text-sm dark:text-white">+19% from last month</p>
         </div>
         <p>
           <FiCreditCard />
@@ -51,9 +45,7 @@ const SalesStatistics = ({ transactionsData }) => {
         <div className="space-y-2">
           <h3 className="text-lg font-medium">Active Now</h3>
           <h1 className="text-2xl font-bold">+573</h1>
-          <p className=" text-sm dark:text-white">
-            +201 since last hour
-          </p>
+          <p className=" text-sm dark:text-white">+201 since last hour</p>
         </div>
         <p>
           <MdShowChart />

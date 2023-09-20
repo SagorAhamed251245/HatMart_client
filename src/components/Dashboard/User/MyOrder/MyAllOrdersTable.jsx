@@ -11,7 +11,7 @@ import getMyOrders from "@/utils/users/getMyOrders";
 const MyAllOrdersTable = () => {
   const [MyOrders, setOrders] = useState([]);
   const user = getUserData();
- 
+
   useEffect(() => {
     if (user) {
       (async () => {
@@ -42,10 +42,10 @@ const MyAllOrdersTable = () => {
           <tbody>
             {MyOrders?.map((order) => (
               <tr key={order?._id} className="border-b border-gray-300 w-full">
-                <td className=" px-4 py-4 text-xs text-center text-green-500">
+                <td className=" px-4 py-4  text-center text-green-500">
                   {order?._id}
                 </td>
-                <td className=" px-4 py-4 text-center flex gap-2 items-center justify-start">
+                <td className=" px-4 py-4 flex gap-2 items-center justify-start">
                   <div className="h-10 w-10 overflow-hidden object-contain rounded">
                     <Image
                       className="w-full object-contain"
@@ -55,7 +55,7 @@ const MyAllOrdersTable = () => {
                       height={64}
                     />
                   </div>
-                  <span>{order?.productName}</span>
+                  <span className="capitalize ml-2">{order?.productName}</span>
                 </td>
 
                 <td className=" px-4 py-4 text-center">${order?.price}</td>

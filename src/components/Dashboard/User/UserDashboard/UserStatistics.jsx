@@ -19,7 +19,7 @@ const UserStatistics = ({ MyOrders, wishlistProduct }) => {
       <div className="flex justify-between border border-gray-300 p-4 rounded-md">
         <div className="space-y-2">
           <h3 className="text-lg font-medium">Total Cancel</h3>
-          <h1 className="text-2xl font-bold">+2</h1>
+          <h1 className="text-2xl font-bold">0</h1>
         </div>
         <p>
           <MdOutlineRemoveShoppingCart />
@@ -30,7 +30,7 @@ const UserStatistics = ({ MyOrders, wishlistProduct }) => {
           <h3 className="text-lg font-medium">My Wishlist</h3>
           <h1 className="text-2xl font-bold">{wishlistProduct?.length}</h1>
         </div>
-        <p>
+        <p className="text-red-400">
           <AiFillHeart />
         </p>
       </div>
