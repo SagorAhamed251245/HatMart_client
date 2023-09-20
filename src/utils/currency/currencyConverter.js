@@ -1,6 +1,6 @@
 const currencyConverter = (amount) => {
   var myHeaders = new Headers();
-  myHeaders.append("apikey", "QmHahzvb2zPdYWP5rGB1iIxD82gQDdIz");
+  myHeaders.append("apikey", "dm3gVU74YpXbTwxinbecospnA4RTedMS");
 
   var requestOptions = {
     method: "GET",
