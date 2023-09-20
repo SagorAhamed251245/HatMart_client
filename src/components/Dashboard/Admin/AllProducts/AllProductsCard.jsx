@@ -14,12 +14,12 @@ const AllProductsCard = ({ product, handleDeleteProduct }) => {
     <section
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="bg-white dark:bg-transparent  relative border border-white dark:border-gray-700 rounded-lg shadow-md w-[300px] h-full p-3 flex flex-col"
+      className=" dark:bg-transparent  relative border dark:border-gray-700 rounded-lg shadow-lg w-[300px] h-full p-3 flex flex-col"
     >
       {/* product image */}
       <div className="relative w-full h-[200px]">
         <Image
-          className="object-contain object-center border border-white bg-white rounded-xl w-full h-full"
+          className="object-contain object-center border dark:border-white bg-white rounded-xl w-full h-full"
           src={image}
           alt="Product Images"
           fill

@@ -3,7 +3,7 @@ import MyAllOrdersTable from "./MyAllOrdersTable";
 const MyOrderPage = () => {
   return (
     <>
-      <section className="mt-5 px-2">
+      <section className="mt-5 px-2 dark:text-white">
         <h3 className="text-3xl font-bold mb-5 md:text-start text-center">
           My Orders
         </h3>
