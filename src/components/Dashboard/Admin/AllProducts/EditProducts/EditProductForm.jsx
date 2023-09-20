@@ -7,12 +7,15 @@ import addProduct from "@/utils/addProduct";
 import DropSvg from "../../AddProduct/DropSvg";
 
 const EditProductForm = ({ ProductCategory, products, _id }) => {
-  const [MainImage, setMainImage] = useState(null);
-  const [Images, setImages] = useState([]);
+  const editProduct = products?.find((p) => p?._id === _id);
+
+  const [MainImage, setMainImage] = useState(editProduct?.image);
+  const [Images, setImages] = useState([...editProduct?.images]);
   const [subCategory, setSubCategory] = useState([]);
 
   // edit product from asik
-  const editProduct = products?.find((p) => p?._id === _id);
+  
+
 
   useEffect(() => {
     const subCategories = ProductCategory.flatMap((item) => item.sub_category);
@@ -118,8 +121,9 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
       price: priceAsNumber,
       stock: stockAsNumber,
     };
+    console.log("🚀 ~ file: EditProductForm.jsx:126 ~ onSubmit ~ updatedItem:", updatedItem)
 
-    await addProduct(updatedItem);
+    // await addProduct(updatedItem);
   };
   return (
     <>
@@ -243,7 +247,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                       type="file"
                       id="image"
                       name="image"
-                      required
+                      // required
                       onChange={uploadImage}
                       className="hidden "
                     />
@@ -267,6 +271,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                             >
                               <Image
                                 src={item}
+                                
                                 height={100}
                                 width={300}
                                 className="object-cover"
@@ -293,9 +298,10 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                     <input
                       type="file"
                       id="images"
+                      
                       multiple
                       name="images"
-                      required
+                      // required
                       className="hidden "
                       onChange={uploadMultiImage}
                     />
@@ -361,7 +367,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                   className=" border rounded w-full p-2 shadow-md"
                   type="unit"
                   id="unit"
-                  // defaultValue={}
+                  defaultValue={editProduct?.unit}
                   placeholder="g; kg; quantity "
                   name="unit"
                   {...register("unit", { required: true })}
@@ -404,6 +410,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                 <input
                   placeholder="Product brand name"
                   className=" border rounded w-full p-2 shadow-md"
+                  defaultValue={editProduct?.brand}
                   type="text"
                   id="brand"
                   name="brand"
@@ -420,6 +427,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                 <select
                   className=" border rounded w-full p-2 shadow-md"
                   id="category"
+                  defaultValue={(editProduct?.category) || ''}
                   placeholder="Select Product Category"
                   name="category"
                   {...register("category", { required: true })}
@@ -428,9 +436,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                     <option
                       key={_id}
                       value={category}
-                      defaultValue={
-                        editProduct ? editProduct?.category[0] : category[0]
-                      }
+                      
                     >
                       {category}
                     </option>
@@ -448,6 +454,11 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                 <select
                   className=" border rounded w-full p-2 shadow-md"
                   type="text"
+                  defaultValue={
+                    editProduct?.sub_category
+                      ? editProduct?.sub_category[0]
+                      : ''
+                  }
                   id="sub_category"
                   placeholder="Select Product Sub Category"
                   name="sub_category"
@@ -457,11 +468,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
                     <option
                       key={index}
                       value={sub_category}
-                      defaultValue={
-                        editProduct
-                          ? editProduct?.sub_category[0]
-                          : sub_category[0]
-                      }
+                     
                     >
                       {sub_category}
                     </option>
@@ -475,7 +482,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
         </div>
         <div className="w-[80%] mx-auto sticky bottom-5 mt-5 border h-20 bg-white shadow-xl rounded-lg ">
           <div className="flex h-full p-3 justify-between items-center ">
-            <p className="text-black font-bold">Add your Product </p>
+            <p className="text-black font-bold">Edit Product </p>
             <input
               className="text-[black] hover:bg-orange-300 font-medium  px-3 py-2 rounded-md bg-[#FF7B13]"
               type="submit"

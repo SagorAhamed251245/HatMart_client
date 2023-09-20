@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updatePassword,
   updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
@@ -38,14 +39,7 @@ const AuthProvider = ({ children }) => {
   const changePassword = (newPassword) => {
     const user = auth.currentUser;
 
-    updatePassword(user, newPassword)
-      .then(() => {
-        // Update successful.
-      })
-      .catch((error) => {
-        // An error ocurred
-        // ...
-      });
+    return updatePassword(user, newPassword)
   };
   const resetPassword = (userEmail) => {
     sendPasswordResetEmail(auth, userEmail)

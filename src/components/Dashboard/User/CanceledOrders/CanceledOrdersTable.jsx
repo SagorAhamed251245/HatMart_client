@@ -90,7 +90,7 @@ const CanceledOrdersTable = () => {
   return (
     <div
       style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
-      className="overflow-x-auto mt-10 border rounded-xl p-4 shadow mb-5"
+      className="overflow-x-auto mt-10 border dark:text-white rounded-xl p-4 shadow mb-5"
     >
       <div className="hidden lg:block overflow-x-auto">
         <table className="min-w-full border-collapse ">
@@ -143,7 +143,7 @@ const CanceledOrdersTable = () => {
                 </td>
                 
                 <td className=" px-4 py-4 text-center">
-                  <span className="py-1 px-3  bg-gray-200 font-semibold  rounded-full">More Details</span>
+                  <span className="py-1 px-3  bg-gray-200 dark:text-neutral-900 font-semibold  rounded-full">More Details</span>
                 </td>
               </tr>
             ))}
