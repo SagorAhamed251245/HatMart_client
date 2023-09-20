@@ -40,8 +40,8 @@ const BkashModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
     const trxId = generateRandomId();
 
     const orders = allProducts.map((product) => ({
+      customerId: user._id,
       customerInfo: {
-        id: user._id,
         name: user.name,
         email: user.email,
         number: data.number,
