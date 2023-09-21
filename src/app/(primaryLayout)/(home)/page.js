@@ -19,12 +19,13 @@ const Homepage = () => {
       } else {
         console.log("Failed to retrieve IP address.");
       }
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   })();
   return (
     <>
+      <section className=" w-full mb-[25px] md:mb-[35px] lg:mb-[50px] bg-white dark:bg-transparent">
+        <Categories></Categories>
+      </section>
       <HeroSection />
       <Products sectionTitle="Popular Products"></Products>
       <Products sectionTitle="Trending Products"></Products>

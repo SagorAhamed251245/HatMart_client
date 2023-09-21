@@ -96,10 +96,10 @@ const Cart = ({ products }) => {
     setTotalPrice(totalPriceData);
   };
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
   return (
-    <div className="md:my-16 md:mb-20 mb-10 rounded w-full lg:w-[90%] mx-auto md:p-10 p-3 ">
+    <div className="md:my-16 md:mb-20 mb-10 dark:text-white rounded w-full lg:w-[90%] mx-auto md:p-10 p-3 ">
       {/* page title here */}
       <div>
         <h3 className="text-4xl font-semibold mb-2">Cart</h3>

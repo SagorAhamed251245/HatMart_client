@@ -40,7 +40,7 @@ const EmailForm = () => {
       <div>
         <label
           htmlFor="email"
-          className="block  text-md font-medium text-gray-700"
+          className="block  text-md font-medium text-gray-700 dark:text-white"
         >
           Mobile phone number or email
         </label>
@@ -61,7 +61,7 @@ const EmailForm = () => {
       <div className="relative">
         <label
           htmlFor="password"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-white"
         >
           Your password
         </label>

@@ -21,13 +21,21 @@ const BkashModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
 
   const [toPayInBDT, setToPayInBDT] = useState(0);
   if (totalAmount) {
-    currencyConverter(totalAmount)
-      .then((data) => {
-        setToPayInBDT(data.result);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    (async () => {
+      await currencyConverter(totalAmount)
+        .then((data) => {
+          if (data?.success) {
+            setToPayInBDT(data.result);
+          } else if (data?.message) {
+            
+            setToPayInBDT(110 * totalAmount);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          setToPayInBDT(110 * totalAmount);
+        });
+    })();
   }
 
   const onSubmit = async (data) => {
