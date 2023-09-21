@@ -4,6 +4,7 @@ import axios from "axios";
 import getUserData from "@/data/getUserData";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { deleteCartItems } from "@/utils/cart/cartFunctions";
 
 const CheckoutForm = ({ price, allProducts, setIsOpen }) => {
   const stripe = useStripe();
@@ -116,6 +117,7 @@ const CheckoutForm = ({ price, allProducts, setIsOpen }) => {
                     });
                     refresh();
                     replace("/");
+                    deleteCartItems();
                     toast.success("product payment in successfully");
                     console.log(res);
                     setIsOpen(false);

@@ -1,5 +1,6 @@
 import ModalPayment from "@/components/Ui/ModalPayment";
 import getUserData from "@/data/getUserData";
+import { deleteCartItems } from "@/utils/cart/cartFunctions";
 import currencyConverter from "@/utils/currency/currencyConverter";
 import axios from "axios";
 import Image from "next/image";
@@ -20,13 +21,21 @@ const BkashModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
 
   const [toPayInBDT, setToPayInBDT] = useState(0);
   if (totalAmount) {
-    currencyConverter(totalAmount)
-      .then((data) => {
-        setToPayInBDT(data.result);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    (async () => {
+      await currencyConverter(totalAmount)
+        .then((data) => {
+          if (data?.success) {
+            setToPayInBDT(data.result);
+          } else if (data?.message) {
+            
+            setToPayInBDT(110 * totalAmount);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          setToPayInBDT(110 * totalAmount);
+        });
+    })();
   }
 
   const onSubmit = async (data) => {
@@ -88,6 +97,7 @@ const BkashModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
                 setIsOpen(false);
                 refresh();
                 replace("/");
+                deleteCartItems();
                 toast.success("product payment in successfully");
                 console.log(res);
               })

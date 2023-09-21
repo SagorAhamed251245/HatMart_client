@@ -28,7 +28,7 @@ const CartCard = ({
   );
 
   return (
-    <div className="bg-white dark:bg-transparent mb-3 flex p-3 shadow-lg md:w-11/12 w-full rounded-lg">
+    <div className="bg-white dark:text-white dark:bg-transparent mb-3 flex p-3 shadow-lg md:w-11/12 w-full rounded-lg">
       {/* card image here */}
       <div className="relative md:h-full w-[100px] md:w-[120px] object-cover rounded-lg border border-slate-400">
         <Image
@@ -100,7 +100,7 @@ const CartCard = ({
 
             {/* total */}
             <div>
-              <div className="text-center inline-block text-slate-500 ">
+              <div className="text-center inline-block dark:text-white text-slate-500 ">
                 <span className="block text-sm">Total</span>
                 <span>
                   $

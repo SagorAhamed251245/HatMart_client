@@ -54,7 +54,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="shadow-md  z-10 mb-[25px] md:mb-[35px] lg:mb-[50px]  bg-white dark:bg-transparent">
+      <nav className="shadow-md  z-10   bg-white dark:bg-transparent">
         <div className="navbar  lg:mb-2  lg:pt-5 px-5 md:px-10 lg:px-10  ">
           {/* Left-aligned section of the navbar */}
           <div className="navbar-start  h-10 ">
@@ -62,7 +62,7 @@ const NavBar = () => {
 
             <Link
               href={"/"}
-              className="h-24 flex justify-center item-center w-24 md:w-36"
+              className="h-24 md:flex hidden  justify-center item-center w-24 md:w-36"
             >
               <Image
                 src="https://i.ibb.co/WtbFpmR/logo.png"
@@ -178,9 +178,9 @@ const NavBar = () => {
         <hr />
 
         {/* category */}
-        <div className=" w-full  bg-white dark:bg-transparent">
+        {/*  <div className=" w-full  bg-white dark:bg-transparent">
           <Categories></Categories>
-        </div>
+        </div> */}
       </nav>
     </>
   );

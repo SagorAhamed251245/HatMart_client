@@ -48,11 +48,14 @@ const EmailForm = () => {
   };
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="space-y-4 dark:bg-transparent "
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div>
         <label
           htmlFor="name"
-          className="block text-md font-medium text-gray-700"
+          className="block text-md font-medium text-gray-700 dark:text-white"
         >
           Your Name
         </label>
@@ -74,7 +77,7 @@ const EmailForm = () => {
       <div>
         <label
           htmlFor="email"
-          className="block text-md font-medium text-gray-700"
+          className="block text-md font-medium dark:text-white text-gray-700"
         >
           Your email
         </label>
@@ -95,7 +98,7 @@ const EmailForm = () => {
       <div className="relative">
         <label
           htmlFor="password"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium dark:text-white text-gray-700"
         >
           Your password
         </label>
@@ -139,7 +142,7 @@ const EmailForm = () => {
       <div className="relative">
         <label
           htmlFor="confirm_password"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium dark:text-white text-gray-700"
         >
           Confirm password
         </label>
@@ -177,7 +180,7 @@ const EmailForm = () => {
 
       <button
         type="submit"
-        className="w-full py-2 btn bg-[#FFD814] hover:bg-[#e6cc0b] text-black hover rounded-md transition duration-300"
+        className="w-full py-2 btn bg-[#FFD814]  hover:bg-[#e6cc0b] text-black hover rounded-md transition duration-300"
       >
         Registration
       </button>

@@ -8,7 +8,7 @@ const AddToCart = async () => {
 
   return (
     <>
-      <Cart products={products} />
+      <Cart products={products}  />
     </>
   );
 };

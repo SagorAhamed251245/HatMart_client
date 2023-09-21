@@ -1,4 +1,4 @@
-const currencyConverter = (amount) => {
+const currencyConverter = async (amount) => {
   var myHeaders = new Headers();
   myHeaders.append("apikey", "dm3gVU74YpXbTwxinbecospnA4RTedMS");
 
@@ -8,17 +8,22 @@ const currencyConverter = (amount) => {
     headers: myHeaders,
   };
 
-  return fetch(
+  return await fetch(
     `https://api.apilayer.com/exchangerates_data/convert?to=BDT&from=USD&amount=${amount}`,
     requestOptions
   )
     .then((response) => response.json())
     .then((result) => {
-      return result; // Return the conversion result
+      if (result) {
+        console.log(result);
+        return result;
+      } // Return the conversion result
     })
     .catch((error) => {
       console.log("error", error);
-      throw error; // Rethrow the error to handle it elsewhere if needed
+      throw error;
+
+      // Rethrow the error to handle it elsewhere if needed
     });
 };
 
