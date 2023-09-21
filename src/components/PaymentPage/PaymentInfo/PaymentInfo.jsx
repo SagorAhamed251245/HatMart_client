@@ -31,7 +31,7 @@ const PaymentInfo = ({ searchParams }) => {
           <div className="border  p-2 rounded mb-4">
             {allProducts.map((product, index) => (
               <>
-                <div className=" gap-5 items-center justify-between my-2 ">
+                <div className=" gap-3 flex items-center justify-between my-2 ">
                   <p>#{index + 1}</p>
                   <div className="h-12 w-12 flex rounded">
                     <Image
@@ -42,7 +42,9 @@ const PaymentInfo = ({ searchParams }) => {
                       className="object-cover w-full"
                     ></Image>
                   </div>
-                  <div>{product?.title.slice(0, 30)}...</div>
+                  <div className="capitalize">
+                    {product?.title.slice(0, 30)}...
+                  </div>
                   <div>x{product?.quantity}</div>
                 </div>
               </>
