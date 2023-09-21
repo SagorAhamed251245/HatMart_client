@@ -14,14 +14,7 @@ const MemberCard = ({ member }) => {
   return (
     <div className="card w-96 mt-4">
       <figure className="circle mb-3">
-        <Image
-          src={image}
-          width={100}
-          height={100}
-          alt="member card"
-          // className="rounded-full"
-          // style={{ height: "100" }}
-        />
+        <Image src={image} width={100} height={100} alt="member card" />
       </figure>
 
       <div className="card-body items-center text-center mt-12 ml-10">
@@ -33,35 +26,35 @@ const MemberCard = ({ member }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebookSquare style={{ color: "#1877F2" }} />
+            <FaFacebookSquare className="social-icon" />
           </a>
           <a
             href={`https://www.linkedin.com/in/${member.linkedin}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedin style={{ color: "#0A66C2" }} />
+            <FaLinkedin className="social-icon" />
           </a>
           <a
             href={`https://twitter.com/${member.twitter}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaTwitter style={{ color: "#1DA1F2" }} />
+            <FaTwitter className="social-icon" />
           </a>
           <a
             href={`https://www.youtube.com/user/${member.youtube}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaYoutubeSquare style={{ color: "#FF0000" }} />
+            <FaYoutubeSquare className="social-icon" />
           </a>
           <a
             href={`https://github.com/${member.github}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithubSquare style={{ color: "#171515" }} />
+            <FaGithubSquare className="social-icon" />
           </a>
         </div>
       </div>

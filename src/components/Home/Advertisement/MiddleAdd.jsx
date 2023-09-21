@@ -24,10 +24,10 @@ const MiddleAdd = () => {
           ></Image>
         </div>
 
-        <div className="bg-green-300 md:h-[200px] lg:h-[300px] h-[150px] w-[40%]  lg:w-[40%] relative rounded-xl overflow-hidden">
+        <div className="md:h-[200px] lg:h-[300px] h-[150px] w-[40%]  lg:w-[40%] relative rounded-xl overflow-hidden">
           <Image
             src="https://i.ibb.co/rv8MkLv/addaas.jpg"
-            className="object-cover w-full"
+            className="object-cover w-full h-full"
             height={400}
             width={600}
             alt="Middle Add"

@@ -15,7 +15,7 @@ const BuyNow = ({ stock_quantity, _id, totalPrice }) => {
           },
         }}
         disabled={stock_quantity == 0}
-        className="bg-[#ff6347cc]  text-white md:text-base text-sm px-[10px] md:px-4 font-medium py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
+        className="bg-[#ff6347cc]  text-white lg:text-base md:text-sm text-xs px-[10px] md:px-4 font-medium py-1 rounded disabled:opacity-60 hover:bg-[#FF7B13]"
       >
         Buy Now
       </Link>

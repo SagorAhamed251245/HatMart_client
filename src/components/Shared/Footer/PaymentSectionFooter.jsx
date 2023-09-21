@@ -7,7 +7,7 @@ const PaymentSectionFooter = () => {
         <div className="flex w-[300px] my-3 gap-4">
           <div className="h-[40px] w-[100px] relative">
             <Image
-              className="object-cover w-full rounded"
+              className="object-cover w-full rounded bg-white"
               src={"https://i.ibb.co/2yDCqkG/bkash.png"}
               alt="payment methods"
               height={400}
@@ -16,7 +16,7 @@ const PaymentSectionFooter = () => {
           </div>
           <div className="h-[40px] w-[100px] relative">
             <Image
-              className="object-cover object-center rounded"
+              className="object-cover object-center rounded bg-white h-14"
               src={"https://i.ibb.co/xjhcMQ3/cashon-Delivery.png"}
               alt="payment methods"
               height={400}
