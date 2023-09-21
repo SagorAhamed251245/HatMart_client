@@ -24,10 +24,7 @@ const AllProducts = ({ ProductCategory, products }) => {
           }
         })
         .catch((err) => {
-          console.log(
-            "🚀 ~ file: deleteProduct.js:10 ~ deleteProduct ~ err:",
-            err
-          );
+          
         });
     } catch (error) {
       console.error("Error handling delete product:", error);

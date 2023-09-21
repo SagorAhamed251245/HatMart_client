@@ -9,8 +9,7 @@ const UserDashboard = ({ user }) => {
   const [MyOrders, setOrders] = useState([]);
   const [wishlistProduct, setWishlistProduct] = useState([]);
 
-  console.log("🚀 ~ file: UserDashboard.jsx:14 ~ UserDashboard ~ user:", user);
-  console.log("this is client side component");
+  
   useEffect(() => {
     // get user order data
     (async () => {

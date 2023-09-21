@@ -17,7 +17,7 @@ const MyWishListTable = () => {
       (async () => {
         const data = await getWishListByUserId(user?._id);
         setOrders(data);
-        console.log("🚀 ~ file: MyWishListTable.jsx:17 ~ data:", data);
+        
       })();
     } else {
       setOrders([]);

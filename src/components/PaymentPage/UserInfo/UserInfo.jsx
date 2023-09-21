@@ -10,7 +10,7 @@ const UserInfo = () => {
 
   const user = getUserData();
 
-  console.log("🚀 ~ file: UserInfo.jsx:13 ~ UserInfo ~ user:", user);
+  
   const closeModal = () => {
     setShowModal(false);
   };

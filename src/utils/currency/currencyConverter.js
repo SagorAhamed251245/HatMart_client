@@ -15,7 +15,7 @@ const currencyConverter = async (amount) => {
     .then((response) => response.json())
     .then((result) => {
       if (result) {
-        console.log(result);
+        
         return result;
       } // Return the conversion result
     })

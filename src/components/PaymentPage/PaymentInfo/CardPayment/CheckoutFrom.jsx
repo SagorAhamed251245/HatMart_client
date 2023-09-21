@@ -119,7 +119,7 @@ const CheckoutForm = ({ price, allProducts, setIsOpen }) => {
                     replace("/");
                     deleteCartItems();
                     toast.success("product payment in successfully");
-                    console.log(res);
+                    
                     setIsOpen(false);
                   })
                   .catch((err) => {
@@ -130,7 +130,7 @@ const CheckoutForm = ({ price, allProducts, setIsOpen }) => {
           })
           .catch((err) => console.log(error));
 
-        console.log(orders);
+        
       }
     }
   };

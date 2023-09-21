@@ -14,7 +14,7 @@ import { TbCameraPlus } from "react-icons/tb";
 const EditProfilePage = () => {
   const { profileUpdate } = useAuth();
   const user = getUserData();
-  console.log(user);
+  
   const {
     register,
     handleSubmit,
@@ -53,7 +53,7 @@ const EditProfilePage = () => {
   const onSubmit = async (data, event) => {
     let { name, email, mobileNumber, address, gender, dateOfBirth, image } =
       data;
-    console.log(data);
+    
     const NewMobileNumber = parseFloat(mobileNumber);
 
     const updatedItem = {

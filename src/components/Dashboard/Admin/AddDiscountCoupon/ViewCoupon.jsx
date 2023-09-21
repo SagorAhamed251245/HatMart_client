@@ -12,7 +12,7 @@ const ViewCoupon = ({ discounts }) => {
     const _id = data._id;
     const currentDateOnly = new Date().toLocaleDateString();
     const expiredDiscount = { ...data, currentDateOnly };
-    console.log(expiredDiscount);
+    
 
     await deleteCoupon(_id)
       .then((res) => {

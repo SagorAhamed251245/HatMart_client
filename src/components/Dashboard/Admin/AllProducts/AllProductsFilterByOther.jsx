@@ -41,7 +41,7 @@ const AllProductsFilterByOther = ({ setData, products }) => {
   const handleSort = (criteria) => {
     let sortingFunction = sortingFunctions[criteria];
 
-    console.log(sortingFunction);
+   
     if (!sortingFunction) {
       setData([...products]); 
       return;
