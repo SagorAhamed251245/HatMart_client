@@ -5,10 +5,8 @@ import ViewCouponCard from "./ViewCouponCard";
 const ViewCoupon = ({ discounts }) => {
   const handleDeleteDiscountCard = (data) => {
     const _id = data._id;
-    // TODO: now add a api to delete this discount by id;
     const date = "01/02/1994";
     const expiredDiscount = { ...data, date };
-    // TODO: add another api to store the discount data with todays date
   };
   return (
     <div className="shadow-xl border dark:border-neutral-500 bg-transparent  p-8 rounded-xl w-full md:w-1/2">

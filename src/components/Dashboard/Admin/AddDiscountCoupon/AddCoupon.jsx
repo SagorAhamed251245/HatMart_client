@@ -36,7 +36,6 @@ const AddCoupon = () => {
       percentage: "",
     });
 
-    // TODO: Add post api here to send the discount to the backend
   };
   return (
     <div className="shadow-xl p-8 rounded-xl border dark:border-neutral-500 dark:bg-transparent  md:w-1/2 w-full">

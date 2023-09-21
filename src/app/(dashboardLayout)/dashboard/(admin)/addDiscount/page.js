@@ -6,7 +6,6 @@ import React from "react";
 
 const addDiscountPage = async () => {
   const discounts = await getCoupon();
-  // TODO: add a get discount api here
   // const discounts = [
   //     {
   //         _id: 1,
@@ -46,7 +45,6 @@ const addDiscountPage = async () => {
   //     },
   //     // Add more discount codes as needed
   //   ];
-  //TODO: add a get expiredDiscount api here
   const expiredDiscounts = [
     {
       code: "EXPIRED10",
