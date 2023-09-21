@@ -3,6 +3,9 @@ import OrdersSmallScreenView from "./OrdersSmallScreenView";
 import OrdersTable from "./OrdersTable";
 
 const AllOrdersTable = ({ ordersData }) => {
+  
+  const sortedOrdersData = ordersData.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   return (
     <div
       style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
@@ -23,7 +26,7 @@ const AllOrdersTable = ({ ordersData }) => {
           </thead>
 
           <tbody>
-            {ordersData.map((order) => (
+            {sortedOrdersData.map((order) => (
               <OrdersTable key={order._id} order={order} />
             ))}
           </tbody>

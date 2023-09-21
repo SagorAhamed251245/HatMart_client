@@ -1,12 +1,37 @@
 "use client";
 import React from "react";
 import ViewCouponCard from "./ViewCouponCard";
+import toast from "react-hot-toast";
+import deleteCoupon from "@/utils/coupon/deleteCoupon";
+import { useRouter } from "next/navigation";
+// import expiredCoupon from "@/utils/coupon/expiredCoupon";
 
 const ViewCoupon = ({ discounts }) => {
-  const handleDeleteDiscountCard = (data) => {
+  const { refresh } = useRouter();
+  const handleDeleteDiscountCard = async (data) => {
     const _id = data._id;
-    const date = "01/02/1994";
-    const expiredDiscount = { ...data, date };
+    const currentDateOnly = new Date().toLocaleDateString();
+    const expiredDiscount = { ...data, currentDateOnly };
+    console.log(expiredDiscount);
+
+    await deleteCoupon(_id)
+      .then((res) => {
+        toast.success("coupon deleted successfully");
+        refresh();
+        // (async () => {
+        //   await expiredCoupon(expiredDiscount)
+        //     .then((res) => {
+        //       console.log(res);
+        //       toast.success("coupon has been deleted");
+        //     })
+        //     .catch((err) => {
+        //       console.log(err);
+        //     });
+        // })();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="shadow-xl border dark:border-neutral-500 bg-transparent  p-8 rounded-xl w-full md:w-1/2">
