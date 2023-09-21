@@ -1,90 +1,31 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import OrdersSmallScreenView from "../../Admin/Orders/OrdersSmallScreenView";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import Image from "next/image";
 import OrderCancelSmallView from "./OrderCancelSmallView";
+import getUserData from "@/data/getUserData";
+import getMyOrders from "@/utils/users/getMyOrders";
 
 const CanceledOrdersTable = () => {
   const [orders, setOrders] = useState([]);
-  const data = [
-    {
-      id: 1,
-      orderNumber: "ORD123",
-      productImage: "https://i.ibb.co/37mp1RR/image.png",
-      status: "canceled",
-      productName: "Product A",
-      sku: "SKU001",
-      category: "Electronics",
-      payment: "600",
-      rate: "4",
-      orderDate: "03/09/2023"
-    },
-    {
-      id: 2,
-      orderNumber: "ORD124",
-      productImage: "https://i.ibb.co/DWCwJM6/image.png",
-      status: "canceled",
-      productName: "Product B",
-      sku: "SKU002",
-      category: "Clothing",
-      payment: "120",
-      rate: "5",
-      orderDate: "04/09/2023"
-    },
-    {
-      id: 3,
-      orderNumber: "ORD125",
-      productImage: "https://i.ibb.co/rZYZTPR/image.png",
-      status: "canceled",
-      productName: "Product C",
-      sku: "SKU003",
-      category: "Home & Kitchen",
-      payment: "85",
-      rate: "3",
-      orderDate: "02/09/2023"
-    },
-    {
-      id: 4,
-      orderNumber: "ORD126",
-      productImage: "https://i.ibb.co/DWCwJM6/image.png",
-      status: "canceled",
-      productName: "Product D",
-      sku: "SKU004",
-      category: "Beauty",
-      payment: "240",
-      rate: "5",
-      orderDate: "09/09/2023"
-    },
-    {
-      id: 5,
-      orderNumber: "ORD127",
-      productImage: "https://i.ibb.co/KmPV68n/image.png",
-      status: "canceled",
-      productName: "Product E",
-      sku: "SKU005",
-      category: "Toys & Games",
-      payment: "35",
-      rate: "4",
-      orderDate: "08/09/2023"
-    },
-    {
-      id: 6,
-      orderNumber: "ORD128",
-      productImage: "https://i.ibb.co/DWCwJM6/image.png",
-      status: "canceled",
-      productName: "Product F",
-      sku: "SKU006",
-      category: "Books",
-      payment: "18",
-      rate: "5",
-      orderDate: "02/09/2023"
-    },
-  ];
+  const user = getUserData();
+
+  useEffect(() => {
+    if (user) {
+      (async () => {
+        const data = await getMyOrders(user?._id);
+        setOrders(data);
+      })();
+    } else {
+      setOrders([]);
+    }
+  }, [user?._id]);
+  
   useState(() => {
-    const canceledOrders = data.filter((order) => order.status === "canceled");
+    const canceledOrders = data.filter((order) => order?.orderStatus === "canceled");
     setOrders(canceledOrders);
   }, []);
   return (
