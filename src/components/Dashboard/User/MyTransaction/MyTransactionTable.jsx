@@ -48,13 +48,15 @@ const MyTransactionTable = () => {
           <tbody>
             {MyTransaction.map((data) => (
               <tr key={data?._id} className="border-b border-gray-300 w-full">
-                <td className=" px-4 py-4 text-center text-xs text-green-500">
+                <td className=" px-4 py-4 text-center  text-green-500">
                   {data?._id}
                 </td>
                 <td className=" px-4 py-4 text-center flex gap-2 items-center justify-center">
                   <span>{data?.paymentMethod}</span>
                 </td>
-                <td className=" px-4 py-4 text-center">$ {data?.totalPrice}</td>
+                <td className=" px-4 py-4 text-center">
+                  ${(data?.totalPrice).toFixed(2)}
+                </td>
                 <td className=" px-4 py-4 text-center">
                   {new Date(data?.createdAt).toLocaleDateString()}
                 </td>
