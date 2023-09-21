@@ -65,7 +65,7 @@ const WishListBtn = ({ product_id, product }) => {
       <button disabled={isWishListAdded}>
         <AiFillHeart
           onClick={() => handleWishList(product_id)}
-          className={`absolute z-20 text-xl top-0 right-0 ${
+          className={`absolute z-20 text-xl top-3 right-3 ${
             !user && "hidden"
           } ${isAdded ? "text-red-400" : "hidden"}`}
         />

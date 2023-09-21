@@ -47,17 +47,21 @@ const Faq2 = () => {
           {faqData.map((item, index) => (
             <div
               key={index}
-              className="border rounded p-2 cursor-pointer"
+              className="border rounded p-2 cursor-pointer dark:text-white"
               onClick={() => toggleItem(index)}
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-lg font-bold">{item.question}</h3>
-                <div className="faq-arrow">
+                <h3 className="text-lg font-bold dark:text-white">
+                  {item.question}
+                </h3>
+                <div className="faq-arrow dark:text-white">
                   {openItem === index ? "▼" : "▶"}
                 </div>
               </div>
               {openItem === index && (
-                <div className="mt-2 text-gray-700">{item.answer}</div>
+                <div className="mt-2 text-gray-700 dark:text-white">
+                  {item.answer}
+                </div>
               )}
             </div>
           ))}

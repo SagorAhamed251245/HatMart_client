@@ -7,7 +7,7 @@ import SalesPeriod from "./SalesPeriod";
 const Orders = ({ ordersData }) => {
   return (
     <div className="mt-5">
-      <SalesPeriod />
+      {/* <SalesPeriod /> */}
       <OrderStatics />
       <AllOrdersTable ordersData={ordersData} />
     </div>

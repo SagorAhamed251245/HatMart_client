@@ -19,8 +19,13 @@ const CartCard = ({
   // cartItem Destructure
   const { title, price, rating, _id, image } = cartItem;
 
-  const finalPrice = parseFloat((parseFloat(cartItem?.price) - (parseFloat(cartItem?.price)*(parseFloat(cartItem?.discount_percent) / 100))).toFixed(2));
-
+  const finalPrice = parseFloat(
+    (
+      parseFloat(cartItem?.price) -
+      parseFloat(cartItem?.price) *
+        (parseFloat(cartItem?.discount_percent) / 100)
+    ).toFixed(2)
+  );
 
   return (
     <div className="bg-white dark:text-white dark:bg-transparent mb-3 flex p-3 shadow-lg md:w-11/12 w-full rounded-lg">
@@ -38,10 +43,16 @@ const CartCard = ({
       <section className="px-3 flex justify-between w-full">
         {/* item info */}
         <div>
-          <h4 title={title?.length > 20 ? `${title}` : ""} className="text-xl md:block hidden font-semibold">
-            {title?.length > 30 ? title?.slice(0, 30) + "..." : title}
+          <h4
+            title={title?.length > 20 ? `${title}` : ""}
+            className="text-xl md:block hidden font-semibold"
+          >
+            {title?.length > 30 ? title?.slice(0, 24) + "..." : title}
           </h4>
-          <h4 title={title?.length > 10 ? `${title}` : ""} className="text-sm md:hidden block font-semibold">
+          <h4
+            title={title?.length > 10 ? `${title}` : ""}
+            className="text-sm md:hidden block font-semibold"
+          >
             {title?.length > 10 ? title?.slice(0, 10) + "..." : title}
           </h4>
           <div className="mt-2">
@@ -61,10 +72,7 @@ const CartCard = ({
             <p className=" md:text-base text-sm my-2 font-medium">
               {cartItem?.discount_percent ? (
                 <>
-                  <span className="text-[#34B701]">
-                    $
-                    {finalPrice}
-                  </span>{" "}
+                  <span className="text-[#34B701]">${finalPrice}</span>{" "}
                   <span className=" line-through  ml-4 text-sm text-gray-400">
                     ${price}
                   </span>

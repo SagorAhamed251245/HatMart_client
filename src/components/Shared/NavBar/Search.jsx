@@ -23,7 +23,9 @@ const Search = () => {
         id="search-input"
         placeholder="Search Hatmart"
         required
+
         className="input input-bordered focus:outline-none focus:border-gray-400/80 border w-[200px] md:w-[300px] lg:w-[500px]  pr-16 dark:text-white"
+
       />
       <Link
         href={{
