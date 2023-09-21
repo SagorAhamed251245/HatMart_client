@@ -10,7 +10,7 @@ const ViewCouponCard = ({ discount, handleDeleteDiscountCard }) => {
       </span>
       <div className="w-1/2 flex justify-between">
         <span title="discount percent" className="text-green-500">
-          {parseFloat(percentage).toFixed(2)}%
+          {percentage * 100}%
         </span>
         <button
           onClick={() => handleDeleteDiscountCard(discount)}

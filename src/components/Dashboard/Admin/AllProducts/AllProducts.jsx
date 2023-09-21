@@ -6,21 +6,43 @@ import AllProductsCard from "./AllProductsCard";
 import AllProductsFilterByPrice from "./AllProductsFilterByPrice";
 import AllProductsFilterBySCategory from "./AllProductsFilterBySCategory";
 import AllProductsFilterByOther from "./AllProductsFilterByOther";
+import deleteProduct from "@/utils/deleteProduct";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const AllProducts = ({ ProductCategory, products }) => {
   const [data, setData] = useState(products);
+  const { refresh } = useRouter();
 
-  const handleDeleteProduct = (_id) => {
-    // TODO: delete Product
-    console.log(_id, "delete this product");
+  const handleDeleteProduct = async (_id) => {
+    try {
+      await deleteProduct(_id)
+        .then((res) => {
+          if (res) {
+            toast.success("Product has been deleted");
+            refresh();
+          }
+        })
+        .catch((err) => {
+          console.log(
+            "🚀 ~ file: deleteProduct.js:10 ~ deleteProduct ~ err:",
+            err
+          );
+        });
+    } catch (error) {
+      console.error("Error handling delete product:", error);
+      // Show an error toast
+      toast.error("Error deleting product");
+    }
   };
-
   return (
     <div>
       <section className="flex items-center justify-between lg:flex-row flex-col lg:items-end px-10">
         {/* title here */}
         <div className="mb-4 lg:mb-0">
-          <h3 className="text-4xl text-gray-800 dark:text-gray-200 font-semibold mb-2">All Products</h3>
+          <h3 className="text-4xl text-gray-800 dark:text-gray-200 font-semibold mb-2">
+            All Products
+          </h3>
           <p className="text-sm">
             In this page An admin can delete, Edit, search, and filter any data
             to his/her choice.

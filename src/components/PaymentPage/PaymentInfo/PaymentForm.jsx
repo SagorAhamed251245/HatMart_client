@@ -35,9 +35,7 @@ const PaymentForm = ({ paymentMethod, isActive, totalAmount, allProducts }) => {
     );
   }
 
-  return (
-    <div className={`mt-4 ${isActive ? "bg-white" : ""}`}>{formContent}</div>
-  );
+  return <div className={`mt-4 `}>{formContent}</div>;
 };
 
 export default PaymentForm;

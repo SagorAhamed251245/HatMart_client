@@ -16,14 +16,16 @@ const Search = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative dark:text-white">
       <input
         onChange={handelOnchange}
         type="text"
         id="search-input"
         placeholder="Search Hatmart"
         required
-        className="input input-bordered focus:outline-none focus:border-gray-400/80 border w-[170px] md:w-[300px] lg:w-[500px] pr-16"
+
+        className="input input-bordered focus:outline-none focus:border-gray-400/80 border w-[200px] md:w-[300px] lg:w-[500px]  pr-16 dark:text-white"
+
       />
       <Link
         href={{
@@ -36,11 +38,11 @@ const Search = () => {
         <button
           onClick={handelOnclick}
           className={` ${
-            !searchInput ? "cursor-not-allowed" : ""
+            !searchInput ? "cursor-not-allowed dark:bg-gray-500" : ""
           } btn bg-[#ff6347cc] text-white  absolute top-0 right-0 rounded-l-none hover:bg-[#FF7B13]`}
           disabled={!searchInput}
         >
-          <AiOutlineSearch className="text-xl"></AiOutlineSearch>
+          <AiOutlineSearch className="text-xl dark:text-white "></AiOutlineSearch>
         </button>
       </Link>
     </div>

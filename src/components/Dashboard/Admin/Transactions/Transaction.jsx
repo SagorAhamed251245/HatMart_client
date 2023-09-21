@@ -5,7 +5,7 @@ import AllTransactionsTable from "./AllTransactionsTable";
 const Transaction = ({ transactionsData }) => {
   return (
     <div>
-      <TransactionFilter />
+      {/* <TransactionFilter /> */}
       <AllTransactionsTable transactionsData={transactionsData} />
     </div>
   );

@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
   } = product;
 
   return (
-    <div className="relative border group border-gray-200 dark:border-gray-500 flex items-center justify-center p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-[25rem]">
+    <div className="relative border group border-gray-200 dark:border-gray-500 flex items-center justify-center p-2 md:p-4 rounded-xl bg-base-100 shadow-lg hover:shadow-2xl duration-300 h-[27rem] md:h-[25rem]">
       <WishListBtn product_id={_id} product={product} />
       <div className="absolute h-36 top-3 px-3 z-10  lg:w-full">
         <Link
@@ -69,7 +69,7 @@ const ProductCard = ({ product }) => {
                 <span className="text-red-600">Out Of Stock</span>
               )}
             </p>
-            <h5 className="md:text-xl lg:text-lg  sm:text-sm capitalize  text-base text-gray-700 dark:text-white font-semibold">
+            <h5 className="md:text-xl lg:text-base  sm:text-sm capitalize  text-base text-gray-700 dark:text-white font-semibold">
               {title}
             </h5>
             {rating && rating > 0 && (
@@ -109,8 +109,9 @@ const ProductCard = ({ product }) => {
           </div>
         </Link>
       </div>
-      <div className="absolute w-full bottom-2 left-0 px-2 md:px-4 mt-2">
-        <div className="flex items-center justify-between  !mt-5">
+
+      <div className="absolute w-full bottom-2 md:bottom-4 left-0 px-2 md:px-4 mt-2">
+        <div className="md:flex  items-center justify-between !mt-5 ">
           <AddToCartBtn _id={_id} />
 
           <BuyNow
