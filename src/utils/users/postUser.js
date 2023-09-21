@@ -10,7 +10,6 @@ const postUser = async (userData) => {
 
   if (response.status === 200) {
     const responseJson = await response.json();
-    console.log("Product added:", responseJson);
     toast.success("product is added");
   } else {
     console.log("Error:", response.statusText);

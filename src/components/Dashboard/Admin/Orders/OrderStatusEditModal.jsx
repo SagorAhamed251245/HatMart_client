@@ -9,14 +9,11 @@ const OrderStatusEditModal = ({ isOpen, setIsOpen, Status, id }) => {
   const { refresh } = useRouter();
   // change user role
   const handleOrderStatus = async (id, status) => {
-    console.log(id, status);
+    
     if (id && status) {
       await updateOrderStatus(id, {orderStatus : status})
         .then((res) => {
-          console.log(
-            "🚀 ~ file: OrderStatusEditModal.jsx:22 ~ handleOrderStatus ~ handleOrderStatus.res:",
-            res
-          );
+          
           toast.success("Status updated.");
         })
         .catch((err) => {

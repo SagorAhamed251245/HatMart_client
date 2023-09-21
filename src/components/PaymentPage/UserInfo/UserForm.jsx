@@ -9,7 +9,7 @@ const UserForm = ({ closeModal }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("Form data:", data);
+   
     closeModal(); // Close the modal after form submission
   };
 

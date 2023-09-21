@@ -9,7 +9,7 @@ const CodForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("Form data:", data);
+  
     // Here you can handle form submission and order confirmation logic
   };
 

@@ -13,7 +13,7 @@ const UserRecentOrdersTable = ({ ordersData }) => {
     latestOrderData = [];
   }
 
-  console.log(latestOrderData);
+  
   return (
     <>
       <div className="hidden lg:block overflow-x-auto">

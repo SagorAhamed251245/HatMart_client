@@ -13,7 +13,7 @@ const editUser = async (id, body) => {
 
     if (res.ok) {
       const responseJson = await res.json();
-      console.log("Update user added:", responseJson);
+      
     } else {
       console.log("Error:", res.statusText);
     }

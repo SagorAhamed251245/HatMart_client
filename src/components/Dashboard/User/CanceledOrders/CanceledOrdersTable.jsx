@@ -25,7 +25,7 @@ const CanceledOrdersTable = () => {
   }, [user?._id]);
   
   useState(() => {
-    const canceledOrders = data.filter((order) => order?.orderStatus === "canceled");
+    const canceledOrders = orders.filter((order) => order?.orderStatus === "canceled");
     setOrders(canceledOrders);
   }, []);
   return (

@@ -9,7 +9,7 @@ import getSingleProduct from "@/utils/getSingleProduct";
 const PaymentInfo = ({ searchParams }) => {
   const productsId = JSON.parse(searchParams.productId);
   const [allProducts, setAllProducts] = useState([]);
-  console.log(searchParams);
+  
 
   useEffect(() => {
     (async () => {

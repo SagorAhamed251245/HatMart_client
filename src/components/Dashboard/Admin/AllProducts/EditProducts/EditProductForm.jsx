@@ -99,7 +99,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
       sub_category,
       unit,
     } = data;
-    console.log(data);
+   
     const priceAsNumber = parseFloat(price);
     const stockAsNumber = parseInt(stock);
     const percentAsNumber = parseFloat(discount_percent);
@@ -121,7 +121,7 @@ const EditProductForm = ({ ProductCategory, products, _id }) => {
       price: priceAsNumber,
       stock: stockAsNumber,
     };
-    console.log("🚀 ~ file: EditProductForm.jsx:126 ~ onSubmit ~ updatedItem:", updatedItem)
+    
 
     // await addProduct(updatedItem);
   };

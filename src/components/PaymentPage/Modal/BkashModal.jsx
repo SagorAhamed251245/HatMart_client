@@ -99,7 +99,7 @@ const BkashModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
                 replace("/");
                 deleteCartItems();
                 toast.success("product payment in successfully");
-                console.log(res);
+                
               })
               .catch((err) => {
                 console.log(err);
@@ -109,7 +109,7 @@ const BkashModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
       })
       .catch((err) => console.log(err));
 
-    console.log(orders);
+    
   };
 
   return (

@@ -13,20 +13,14 @@ const MyTransactionTable = () => {
   const [MyTransaction, setTransaction] = useState([]);
 
   const user = getUserData();
-  console.log(
-    "🚀 ~ file: MyTransactionTable.jsx:16 ~ MyTransactionTable ~ user:",
-    user
-  );
+  
   useEffect(() => {
     (async () => {
       const data = await getMyTransaction(user?._id);
       setTransaction(data);
     })();
   }, [user?._id]);
-  console.log(
-    "🚀 ~ file: MyTransactionTable.jsx:13 ~ MyTransactionTable ~ MyTransaction:",
-    MyTransaction
-  );
+  
 
   return (
     <div

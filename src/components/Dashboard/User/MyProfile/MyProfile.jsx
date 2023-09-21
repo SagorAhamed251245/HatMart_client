@@ -37,7 +37,7 @@ const MyProfile = () => {
     const confirmPassword = e.target.confirmPassword.value;
     if (newPassword === confirmPassword) {
       changePassword(confirmPassword).then((response) => {
-        console.log(response)
+        
 
         
       })

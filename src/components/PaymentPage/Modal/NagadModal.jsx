@@ -97,7 +97,6 @@ const NagadModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
                 refresh();
                 replace("/");
                 toast.success("product payment in successfully");
-                console.log(res);
               })
               .catch((err) => {
                 console.log(err);
@@ -106,8 +105,6 @@ const NagadModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
         })();
       })
       .catch((err) => console.log(err));
-
-    console.log(orders);
   };
   return (
     <ModalPayment isOpen={isOpen} setIsOpen={setIsOpen}>

@@ -5,7 +5,7 @@ import React from "react";
 import TransactionsSmallScreenView from "./TransactionsSmallScreenView";
 
 const AllTransactionsTable = ({ transactionsData }) => {
-  console.log(transactionsData);
+  
 
   return (
     <div

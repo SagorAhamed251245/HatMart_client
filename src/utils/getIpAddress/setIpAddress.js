@@ -8,10 +8,7 @@ const setIpAddress = async (ip) => {
     );
 
     if (response.status === 200) {
-      console.log(
-        "🚀 ~ file: setIpAddress.js:8 ~ .then ~ Response:",
-        response.data
-      );
+      
     } else {
       console.error(
         "🚀 ~ file: setIpAddress.js:11 ~ setIpAddress ~ Error: Unexpected response status",
