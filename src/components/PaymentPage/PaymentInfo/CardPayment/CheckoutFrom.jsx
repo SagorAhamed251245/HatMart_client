@@ -5,7 +5,7 @@ import getUserData from "@/data/getUserData";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-const CheckoutForm = ({ price, allProducts }) => {
+const CheckoutForm = ({ price, allProducts, setIsOpen }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");
@@ -29,6 +29,8 @@ const CheckoutForm = ({ price, allProducts }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const number = event.target.number.value;
 
     if (!stripe || !elements || !clientSecret) {
       return;
@@ -69,9 +71,13 @@ const CheckoutForm = ({ price, allProducts }) => {
         setTransactionId(paymentIntent.id);
 
         const orders = allProducts.map((product) => ({
-          customerName: user.name,
           customerId: user._id,
-          customerEmail: user.email,
+          customerInfo: {
+            name: user?.name,
+            email: user?.email,
+            number: number,
+            address: user?.address,
+          },
           productName: product.title,
           productId: product._id,
           productImage: product.image,
@@ -112,6 +118,7 @@ const CheckoutForm = ({ price, allProducts }) => {
                     replace("/");
                     toast.success("product payment in successfully");
                     console.log(res);
+                    setIsOpen(false);
                   })
                   .catch((err) => {
                     console.log(err);
@@ -127,9 +134,27 @@ const CheckoutForm = ({ price, allProducts }) => {
   };
 
   return (
-    <>
+    <div className="bg-white p-10 rounded-xl max-w-4xl w-full">
       <form onSubmit={handleSubmit}>
+        <label htmlFor="number" className="text-gray-700  mb-1">
+          Phone
+        </label>
+        <input
+          id="number"
+          name="number"
+          minLength={11}
+          maxLength={11}
+          className=" mb-5 focus:outline-0  px-1.5 py-1  dark:bg-white dark:text-black border border-gray-300 rounded w-full"
+          type="number"
+          placeholder="e.g 01XXXXXXXXX"
+          autoComplete="off"
+          required
+        />
+        <label htmlFor="number" className="text-gray-700  mb-1">
+          Card Details
+        </label>
         <CardElement
+          className="focus:outline-0  px-1.5 py-1  dark:bg-white dark:text-black border border-gray-300 rounded w-full"
           options={{
             style: {
               base: {
@@ -145,18 +170,18 @@ const CheckoutForm = ({ price, allProducts }) => {
             },
           }}
         />
+        {cardError && <p className="text-red-600 mt-1">{cardError}</p>}
         <div className="w-full flex justify-center mt-5">
           <button
             type="submit"
-            className="bg-pink-500 border-black text-white rounded-lg w-36 p-2 mt-5"
+            className="bg-green-500 border-black text-white rounded-lg w-36 p-2 mt-5"
             disabled={!stripe || !clientSecret}
           >
             Pay
           </button>
         </div>
       </form>
-      {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
-    </>
+    </div>
   );
 };
 

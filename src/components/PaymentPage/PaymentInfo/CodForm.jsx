@@ -68,7 +68,7 @@ const CodForm = () => {
 
         <button
           type="submit"
-          className="bg-[#FF7B13] hover:bg-[#34B701] w-[30%] mt-4 text-white md:text-base text-sm px-[10px] md:px-2 font-medium py-2 rounded disabled:opacity-60"
+          className="bg-[#FF7B13] hover:bg-[#34B701]  mt-4 text-white md:text-base text-sm px-[10px] md:px-2 font-medium py-1 rounded disabled:opacity-60"
         >
           Confirm Order
         </button>
