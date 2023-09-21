@@ -1,7 +1,6 @@
 import React from "react";
 import bkash from "@/assets/images/bkash.png";
-import rocket from "@/assets/images/Rocket-logo.png";
-import cod from "@/assets/images/cod.jpg";
+import cod from "@/assets/images/cod.png";
 import nogod from "@/assets/images/Nagad-Logo.wine.png";
 import master from "@/assets/images/master.png";
 
