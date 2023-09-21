@@ -4,8 +4,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import React, { useState } from "react";
 import CheckoutFrom from "./CardPayment/CheckoutFrom";
+import StripeModal from "../Modal/StripeModal";
 
 const CreditForm = ({ totalAmount, allProducts }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const stripePromise = loadStripe(
     `pk_test_51NFA04JHKCQ45Flfl2cUjcu7vsxPaN1ySv1vhGoi4qOhOthupWevu0DaocmdMofi792wfmjs7vfURVBy4acRv42000Otknk4Ff`
   );
@@ -41,20 +43,22 @@ const CreditForm = ({ totalAmount, allProducts }) => {
     <>
       <div className="justify-center items-center">
         <button
+          onClick={() => setIsOpen(true)}
           // Call the function on button click
           type="submit"
-          className="bg-[#FF7B13] hover:bg-[#34B701] w-[30%] mt-4 text-white md:text-base text-sm px-[10px] md:px-2 font-medium py-1 rounded disabled:opacity-60"
+          className="bg-[#FF7B13] hover:bg-[#34B701] w-40 text-white md:text-base text-sm px-[10px] md:px-2 font-medium py-1 rounded disabled:opacity-60"
         >
-          Pay Now
+          Pay with card
         </button>
-        {
-          <>
-            <Elements stripe={stripePromise}>
-              <CheckoutFrom price={totalAmount} allProducts={allProducts}></CheckoutFrom>
-            </Elements>
-          </>
-        }
+        {<></>}
       </div>
+      <StripeModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        allProducts={allProducts}
+        totalAmount={totalAmount}
+        stripePromise={stripePromise}
+      />
     </>
   );
 };

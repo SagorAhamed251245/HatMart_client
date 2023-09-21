@@ -7,7 +7,6 @@ import Image from "next/image";
 import getSingleProduct from "@/utils/getSingleProduct";
 
 const PaymentInfo = ({ searchParams }) => {
-  
   const productsId = JSON.parse(searchParams.productId);
   const [allProducts, setAllProducts] = useState([]);
   console.log(searchParams);
@@ -25,19 +24,16 @@ const PaymentInfo = ({ searchParams }) => {
     })();
   }, []);
 
-  
-  
-
   return (
     <Fragment>
-      <section className="shadow-xl border py-5 px-2">
+      <section className="shadow-xl border rounded py-5 px-2 dark:text-white">
         <div className="px-5">
-          <div className="border ">
+          <div className="border  p-2 rounded mb-4">
             {allProducts.map((product, index) => (
               <>
-                <div className="flex gap-5 items-center justify-between my-2 ">
-                  <p>#{index}</p>
-                  <div className="h-12 w-12 flex">
+                <div className=" gap-3 flex items-center justify-between my-2 ">
+                  <p>#{index + 1}</p>
+                  <div className="h-12 w-12 flex rounded">
                     <Image
                       src={product?.image}
                       alt={product?.title}
@@ -46,7 +42,9 @@ const PaymentInfo = ({ searchParams }) => {
                       className="object-cover w-full"
                     ></Image>
                   </div>
-                  <div>{product?.title.slice(0, 30)}...</div>
+                  <div className="capitalize">
+                    {product?.title.slice(0, 30)}...
+                  </div>
                   <div>x{product?.quantity}</div>
                 </div>
               </>
@@ -82,7 +80,7 @@ const PaymentInfo = ({ searchParams }) => {
                 pathname: "/payment/payallmethod",
                 query: {
                   allProducts: JSON.stringify(allProducts),
-                  totalAmount:  searchParams.totalPrice,
+                  totalAmount: searchParams.totalPrice,
                 },
               }}
             >
