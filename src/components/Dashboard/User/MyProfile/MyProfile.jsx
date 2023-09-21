@@ -39,12 +39,7 @@ const MyProfile = () => {
       changePassword(confirmPassword).then((response) => {
         console.log(response)
 
-        // TODO: Add edit user to change to new password
-        // editUser(user?._id,{password : confirmPassword})
-        // toast.success(`Your Password Has been updated`);
-        // setIsOpen(false);
-        // setValidityForm(true);
-
+        
       })
       .catch(error => {
         console.error(error)

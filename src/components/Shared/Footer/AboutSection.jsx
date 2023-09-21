@@ -42,7 +42,7 @@ const AboutSection = () => {
           <div className="flex items-center my-3">
             <MdKeyboardArrowRight className="text-orange-600" />
             <span className="text-sm hover:text-green-400 dark:text-white dark:hover:text-green-400">
-              <Link href={"/faq"}>FAQ</Link>
+              <Link href={"/faq"} >FAQ</Link>
             </span>
           </div>
         </div>

@@ -1,8 +1,13 @@
 "use client";
 import addCoupon from "@/utils/addCoupon";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const AddCoupon = () => {
+
+  const {refresh} = useRouter()
+
   const [couponData, setCouponData] = useState({
     code: "",
     description: "",
@@ -14,19 +19,24 @@ const AddCoupon = () => {
     const code = form.code.value;
     const description = form.description.value;
     const percentage = form.percentage.value;
-    console.log(percentage);
     const discount = { code, description, percentage };
-    console.log(discount);
 
     const couponData = {
       code,
       description,
-      percentage: parseFloat(percentage).toFixed(2),
+      percentage: (percentage / 100)
     };
     if (couponData) {
-      await addCoupon(couponData);
+      await addCoupon(couponData)
+      .then(() => {
+        toast.success("coupon has been added")
+        reset();
+        refresh();
+      })
+      .catch(() => {
+        toast.error("while adding the coupon an error occured")
+      });
     }
-    reset();
   };
 
   const reset = () => {
@@ -36,7 +46,6 @@ const AddCoupon = () => {
       percentage: "",
     });
 
-    // TODO: Add post api here to send the discount to the backend
   };
   return (
     <div className="shadow-xl p-8 rounded-xl border dark:border-neutral-500 dark:bg-transparent  md:w-1/2 w-full">
