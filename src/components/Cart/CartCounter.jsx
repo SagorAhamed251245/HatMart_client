@@ -11,8 +11,13 @@ const CartCounter = ({
 }) => {
   const [quantity, setQuantity] = useState(1);
 
-  const finalPrice = parseFloat((parseFloat(cartItem?.price) - (parseFloat(cartItem?.price)*(parseFloat(cartItem?.discount_percent) / 100))).toFixed(2));
-
+  const finalPrice = parseFloat(
+    (
+      parseFloat(cartItem?.price) -
+      parseFloat(cartItem?.price) *
+        (parseFloat(cartItem?.discount_percent) / 100)
+    ).toFixed(2)
+  );
 
   const counter = useRef();
   useEffect(() => {
@@ -82,7 +87,7 @@ const CartCounter = ({
   };
 
   return (
-    <div className="border-2  font-semibold border-[#34B701] w-fit rounded">
+    <div className="border-2 flex items-center md:flex-row h-fit flex-col  font-semibold border-[#34B701] w-fit rounded">
       <button
         onClick={() => handleDecrement(_id)}
         className="text-[#34B701] hover:bg-green-200 duration-200  active:bg-green-200 px-[5px] md:px-[10px] py-1"
