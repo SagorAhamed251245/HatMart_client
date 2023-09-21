@@ -13,11 +13,15 @@ const TermsOfUse = () => {
   return (
     <>
       <section className="p-10">
-        <h2 className="text-3xl font-bold mb-10">Terms and Conditions</h2>
+        <h2 className="text-3xl font-bold mb-10 dark:text-white">
+          Terms and Conditions
+        </h2>
 
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold">1. INTRODUCTION</h2>
-          <p>
+          <h2 className="text-2xl font-bold dark:text-white">
+            1. INTRODUCTION
+          </h2>
+          <p className="dark:text-white">
             Welcome to HatMart also hereby known as “we", "us" or "HatMart". We
             are an online marketplace and these are the terms and conditions
             governing your access and use of Daraz along with its related
@@ -32,9 +36,13 @@ const TermsOfUse = () => {
           </p>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">2. CONDITIONS OF USE</h2>
-          <h2 className="text-2xl font-bold mb-8">A. YOUR ACCOUNT</h2>
-          <p>
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
+            2. CONDITIONS OF USE
+          </h2>
+          <h2 className="text-2xl font-bold mb-8 dark:text-white">
+            A. YOUR ACCOUNT
+          </h2>
+          <p className="dark:text-white">
             To access certain services offered by the platform, we may require
             that you create an account with us or provide personal information
             to complete the creation of an account. We may at any time in our
@@ -44,14 +52,13 @@ const TermsOfUse = () => {
             out of, in connection with or by reason of such request or
             invalidation.
           </p>
-          <button onClick={handleScrollToTop} style={{ color: "#FF7B13" }}>
-            Back to top
-          </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">B. PRIVACY</h2>
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
+            B. PRIVACY
+          </h2>
 
-          <p>
+          <p className="dark:text-white">
             Please review our Privacy Agreement, which also governs your visit
             to the Site. The personal information / data provided to us by you
             or your use of the Site will be treated as strictly confidential, in
@@ -62,11 +69,11 @@ const TermsOfUse = () => {
           </p>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
             C. PLATFORM FOR COMMUNICATION
           </h2>
 
-          <p>
+          <p className="dark:text-white">
             You agree, understand and acknowledge that the Site is an online
             platform that enables you to purchase products listed at the price
             indicated therein at any time from any location using a payment
@@ -82,14 +89,13 @@ const TermsOfUse = () => {
             bipartite contract between you and the service provider as listed on
             our Site.
           </p>
-          <button onClick={handleScrollToTop} style={{ color: "#FF7B13" }}>
-            Back to top
-          </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">E. PRICING ACCURACY</h2>
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
+            E. PRICING ACCURACY
+          </h2>
 
-          <p>
+          <p className="dark:text-white">
             While we strive to provide accurate and up-to-date pricing
             information, errors may occur. In the event of a discrepancy between
             the listed price and the actual price at checkout, we will contact
@@ -100,9 +106,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">D. PRODUCT AVAILIBILITY</h2>
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
+            D. PRODUCT AVAILIBILITY
+          </h2>
 
-          <p>
+          <p className="dark:text-white">
             We make every effort to maintain a wide selection of products for
             our customers. However, due to factors beyond our control, certain
             items may occasionally be out of stock. We appreciate your
@@ -113,9 +121,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">E. COMMUNICATING WITH US</h2>
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
+            E. COMMUNICATING WITH US
+          </h2>
 
-          <p>
+          <p className="dark:text-white">
             When you visit the Site, or send e-mails to us, you are
             communicating with us electronically. You will be required to
             provide a valid phone number while placing an order with us. We may
@@ -132,9 +142,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">F. O. LOSSES</h2>
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
+            F. O. LOSSES
+          </h2>
 
-          <p>
+          <p className="dark:text-white">
             We will not be responsible for any business or personal losses
             (including but not limited to loss of profits, revenue, contracts,
             anticipated savings, data, goodwill, or wasted expenditure) or any
@@ -146,9 +158,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">G. TERMINATION</h2>
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
+            G. TERMINATION
+          </h2>
 
-          <p>
+          <p className="dark:text-white">
             In addition to any other legal or equitable remedies, we may,
             without prior notice to you, immediately terminate the Terms and
             Conditions or revoke any or all of your rights granted under the
@@ -172,11 +186,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
             H. REPRESENTATIONS AND WARRANTIES
           </h2>
 
-          <p>
+          <p className="dark:text-white">
             We do not make any representation or warranty as to specifics (such
             as quality, value, saleability, etc) of the products or services
             listed to be sold on the Site when products or services are sold by
@@ -208,9 +222,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">I. Returns and Refunds</h2>
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
+            I. Returns and Refunds
+          </h2>
 
-          <p>
+          <p className="dark:text-white">
             We accept returns of unopened and unused products within 7 days of
             purchase. To initiate a return, please contact our customer support.
             Refunds will be issued in the form of the original payment method.
@@ -222,11 +238,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
             J. Promotions and Discounts
           </h2>
 
-          <p>
+          <p className="dark:text-white">
             Periodically, we may offer promotions, discounts, and special
             offers. These are subject to specific terms and may have expiration
             dates. Please review the terms of each promotion for eligibility and
@@ -237,11 +253,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
             3. Customer Support & Modifications to Terms
           </h2>
 
-          <p>
+          <p className="dark:text-white">
             Our dedicated customer support team is available to assist you with
             any inquiries, concerns, or feedback. Feel free to reach out to us
             via phone, email, or chat during business hours. <br />
@@ -255,11 +271,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
             4. Governing Law & User Conduct
           </h2>
 
-          <p>
+          <p className="dark:text-white">
             These terms and conditions are governed by the laws of [Your
             Jurisdiction]. Any disputes arising from or related to these terms
             will be resolved in accordance with the laws of this jurisdiction.{" "}
@@ -275,11 +291,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
             5. Limitation of Liability
           </h2>
 
-          <p>
+          <p className="dark:text-white">
             Hatmart Grocery Shop is not liable for any indirect, incidental,
             special, consequential, or punitive damages that may arise from the
             use of our services or products.
@@ -289,11 +305,11 @@ const TermsOfUse = () => {
           </button>
         </div>
         <div className="space-y-5">
-          <h2 className="text-2xl font-bold mt-5">
+          <h2 className="text-2xl font-bold mt-5 dark:text-white">
             6. Termination of Services
           </h2>
 
-          <p>
+          <p className="dark:text-white">
             We reserve the right to terminate or suspend services to any user
             for violations of our terms, fraudulent activities, or any actions
             that may harm our reputation.

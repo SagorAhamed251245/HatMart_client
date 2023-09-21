@@ -109,6 +109,7 @@ const ProductCard = ({ product }) => {
           </div>
         </Link>
       </div>
+
       <div className="absolute w-full bottom-2 md:bottom-4 left-0 px-2 md:px-4 mt-2">
         <div className="md:flex  items-center justify-between !mt-5 ">
           <AddToCartBtn _id={_id} />

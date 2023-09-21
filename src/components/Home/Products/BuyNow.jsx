@@ -14,6 +14,7 @@ const BuyNow = ({ stock_quantity, _id, totalPrice }) => {
             totalPrice: totalPrice ? totalPrice.toString() : numbers.toString,
           },
         }}
+
       >
         <button
           disabled={stock_quantity == 0}

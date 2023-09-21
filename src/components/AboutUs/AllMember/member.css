@@ -36,3 +36,17 @@
   transform: translate(-50%, -50%) scale(2);
   border-radius: 10px
 }
+
+/* Light mode icon color */
+.social-icon {
+  color: #1877F2; /* Icon color in light mode */
+  background-color: white; /* Transparent background in light mode */
+}
+
+/* Dark mode icon color */
+@media (prefers-color-scheme: dark) {
+  .social-icon {
+    color: white; /* Icon color in dark mode */
+    background-color: white; /* White background in dark mode */
+  }
+}
