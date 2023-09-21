@@ -1,5 +1,6 @@
 import ModalPayment from "@/components/Ui/ModalPayment";
 import getUserData from "@/data/getUserData";
+import { deleteCartItems } from "@/utils/cart/cartFunctions";
 import currencyConverter from "@/utils/currency/currencyConverter";
 import axios from "axios";
 import Image from "next/image";
@@ -88,6 +89,7 @@ const BkashModal = ({ isOpen, setIsOpen, totalAmount, allProducts }) => {
                 setIsOpen(false);
                 refresh();
                 replace("/");
+                deleteCartItems();
                 toast.success("product payment in successfully");
                 console.log(res);
               })

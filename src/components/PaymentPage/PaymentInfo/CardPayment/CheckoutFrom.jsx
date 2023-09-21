@@ -70,8 +70,13 @@ const CheckoutForm = ({ price, allProducts }) => {
 
         const orders = allProducts.map((product) => ({
           customerName: user.name,
+          customerInfo: {
+            name: user.name,
+            email: user.email,
+            number: data?.number,
+            address: user.address,
+          },
           customerId: user._id,
-          customerEmail: user.email,
           productName: product.title,
           productId: product._id,
           productImage: product.image,
@@ -148,7 +153,7 @@ const CheckoutForm = ({ price, allProducts }) => {
         <div className="w-full flex justify-center mt-5">
           <button
             type="submit"
-            className="bg-pink-500 border-black text-white rounded-lg w-36 p-2 mt-5"
+            className="bg-green-500 border-black text-white rounded-lg w-36 p-2 mt-5"
             disabled={!stripe || !clientSecret}
           >
             Pay

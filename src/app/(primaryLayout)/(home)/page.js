@@ -20,7 +20,7 @@ const Homepage = () => {
         console.log("Failed to retrieve IP address.");
       }
     } catch (error) {
-      console.error("Error:", error);
+      
     }
   })();
   return (
