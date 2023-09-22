@@ -36,7 +36,7 @@ const MyWishListTable = () => {
               <th className=" px-4 py-4 text-center">PRODUCT</th>
               <th className=" px-4 py-4 text-center">CATEGORY</th>
               <th className=" px-4 py-4 text-center">PRICE</th>
-              <th className=" px-4 py-4 text-center">ACTIONS</th>
+              {/* <th className=" px-4 py-4 text-center">ACTIONS</th> */}
             </tr>
           </thead>
           <tbody>
@@ -57,7 +57,7 @@ const MyWishListTable = () => {
                 <td className=" px-4 py-4 text-center">{order?.category}</td>
                 <td className=" px-4 py-4 text-center">${order?.price}</td>
 
-                <td className=" px-4 py-4  ">
+                {/* <td className=" px-4 py-4  ">
                   <div className="flex justify-center items-center gap-4 w-fit mx-auto">
                     <p className="tooltip tooltip-top " data-tip="delete">
                       <AiOutlineDelete
@@ -72,7 +72,7 @@ const MyWishListTable = () => {
                       <AiOutlineShoppingCart size={20} /> Add
                     </button>
                   </div>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>

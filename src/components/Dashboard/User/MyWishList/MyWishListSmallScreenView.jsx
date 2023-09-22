@@ -79,7 +79,7 @@ const MyWishListSmallScreenView = ({ orders }) => {
                         </td>
                       </tr>
 
-                      <tr>
+                      {/* <tr>
                         <td className=" font-semibold px-4 py-4 text-left border border-gray-300 ">
                           Actions
                         </td>
@@ -102,7 +102,7 @@ const MyWishListSmallScreenView = ({ orders }) => {
                             </button>
                           </div>
                         </td>
-                      </tr>
+                      </tr> */}
                     </tbody>
                   </table>
                 </Disclosure.Panel>
