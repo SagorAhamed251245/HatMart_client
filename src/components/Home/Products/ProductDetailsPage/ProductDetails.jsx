@@ -22,7 +22,7 @@ const ProductDetails = ({ productData, reviewsData }) => {
           readonly
         />
 
-        <div className="text-gray-500 dark:text-gray-50 font-medium text-base">
+        <div className="text-gray-500 dark:text-white font-medium text-base">
           <span>{productData?.rating}</span>
           <span className="text-[#32B900] ">
             {" "}
