@@ -21,8 +21,8 @@ import useTheme from "@/hooks/useTheme";
 import { getCartItems } from "@/utils/cart/cartFunctions";
 
 const NavBar = () => {
-  const [cartItems, setCartItems] = useState([]);
-  const cart = getCartItems();
+  // const [cartItems, setCartItems] = useState([]);
+  const cartItems = getCartItems();
 
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
@@ -56,10 +56,8 @@ const NavBar = () => {
     }
   };
 
-  useEffect(() => {
-    setCartItems(cart);
-  }, []);
-  
+  useEffect(() => {}, [cartItems]);
+
   return (
     <>
       <nav className="shadow-md  z-10   bg-white dark:bg-transparent">
@@ -183,10 +181,21 @@ const NavBar = () => {
                 {/* night */}
                 <div className="md:hidden ">
                   <div className="flex relative items-center justify-center w-[35px] h-[35px]">
-                    <Link href={"/cart"}>
-                      <HiOutlineShoppingBag className="text-[1.75rem] dark:text-white" />
-                    </Link>
-                    <div className="absolute z-30 top-0 badge">+99</div>
+                    <div className="flex relative items-center justify-center w-[35px] h-[35px]">
+                      <Link href={"/cart"}>
+                        <HiOutlineShoppingBag className="text-[1.75rem] dark:text-white" />
+                      </Link>
+
+                      <div
+                        className={`${
+                          cartItems && cartItems?.length <= 0
+                            ? "hidden"
+                            : "absolute flex items-center justify-center z-30 -top-1 left-5 h-6 w-6 rounded-full bg-orange-400 font-bold text-sm"
+                        }`}
+                      >
+                        <span>{cartItems?.length}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </ul>
