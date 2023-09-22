@@ -51,7 +51,7 @@ const OrderStatics = () => {
             Completed
           </h4>
           <h3 className="text-3xl font-bold text-gray-700 dark:text-white ">
-            2,340
+            40
           </h3>
         </div>
         <div className="flex flex-col hover:shadow-xl shadow-md p-5 border  dark:border-neutral-500 bg-transparent  rounded duration-300 w-full">
@@ -62,7 +62,7 @@ const OrderStatics = () => {
             Confirmed
           </h4>
           <h3 className="text-3xl font-bold text-gray-700 dark:text-white ">
-            159
+            12
           </h3>
         </div>
         <div className="flex flex-col hover:shadow-xl shadow-md p-5 border  dark:border-neutral-500 bg-transparent  rounded duration-300 w-full">
