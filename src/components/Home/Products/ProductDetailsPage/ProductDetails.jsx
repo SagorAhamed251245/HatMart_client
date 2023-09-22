@@ -10,7 +10,7 @@ const ProductDetails = ({ productData, reviewsData }) => {
   let cartItems = [{ _id: productData?._id, quantity: 1 }];
   return (
     <div className=" w-[95%] mx-auto h-full">
-      <h3 className="text-gray-700 text-4xl font-medium capitalize">
+      <h3 className="text-gray-700 text-4xl dark:text-white font-medium capitalize">
         {productData?.title}
       </h3>
       <div className="flex items-center mt-4 gap-2">
