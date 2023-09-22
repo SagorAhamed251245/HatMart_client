@@ -7,7 +7,7 @@ const PrimaryLayout = ({ children }) => {
     <>
       <NavBar></NavBar>
 
-      <main className="px-3 md:px-0">{children}</main>
+      <main className="px-3 md:px-0 mt-5">{children}</main>
       <Footer></Footer>
     </>
   );

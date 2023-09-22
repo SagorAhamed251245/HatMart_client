@@ -15,7 +15,9 @@ const Homepage = () => {
     try {
       const ipAddress = await getIpAddress();
       if (ipAddress !== null) {
-        await setIpAddress(ipAddress);
+        (async () => {
+          await setIpAddress(ipAddress);
+        })();
       } else {
         console.log("Failed to retrieve IP address.");
       }
@@ -32,7 +34,6 @@ const Homepage = () => {
       <MiddleAdd></MiddleAdd>
       <Products sectionTitle="Best Selling Products"></Products>
       <Products sectionTitle="Discount Product"></Products>
-
       <Chatbot></Chatbot>
     </>
   );
