@@ -24,7 +24,7 @@ const RootLayout = ({ children }) => {
     <html lang="en" data-theme="dark" className="transition-all">
       <Providers>
         <body
-          className={`${poppins.className} scrollbar  `}
+          className={`${poppins.className} scrollbar  select-none dark:text-white`}
         >
           {children}
           <Toaster />
