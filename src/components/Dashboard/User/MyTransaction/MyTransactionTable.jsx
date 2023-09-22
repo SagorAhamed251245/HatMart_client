@@ -13,14 +13,13 @@ const MyTransactionTable = () => {
   const [MyTransaction, setTransaction] = useState([]);
 
   const user = getUserData();
-  
+
   useEffect(() => {
     (async () => {
       const data = await getMyTransaction(user?._id);
       setTransaction(data);
     })();
   }, [user?._id]);
-  
 
   return (
     <div
@@ -36,7 +35,7 @@ const MyTransactionTable = () => {
               <th className=" px-4 py-4 text-center">Amount</th>
               <th className=" px-4 py-4 text-center">Date</th>
               <th className=" px-4 py-4 text-center">Time</th>
-              <th className=" px-4 py-4 text-center">more</th>
+              {/* <th className=" px-4 py-4 text-center">more</th> */}
             </tr>
           </thead>
           <tbody>
@@ -57,7 +56,7 @@ const MyTransactionTable = () => {
                 <td className=" px-4 py-4 text-center">
                   {new Date(data?.createdAt).toLocaleTimeString()}
                 </td>
-                <td className=" px-4 py-4 text-center">More Details</td>
+                {/* <td className=" px-4 py-4 text-center">More Details</td> */}
               </tr>
             ))}
           </tbody>

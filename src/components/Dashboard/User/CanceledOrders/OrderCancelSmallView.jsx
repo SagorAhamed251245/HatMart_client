@@ -7,7 +7,7 @@ import Rating from "react-rating";
 const OrderCancelSmallView = ({ orders }) => {
   return (
     <div className="lg:hidden overflow-x-auto">
-      {orders.map((order) => (
+      {[].map((order) => (
         <div
           key={order.id}
           className="mx-auto w-full mb-4 py-3 shadow-lg hover:shadow-2xl duration-300 "
@@ -30,7 +30,7 @@ const OrderCancelSmallView = ({ orders }) => {
                     <p>{order.productName}</p>
                   </div>
                   <p>
-                    <span className="mr-2">{order.orderNumber}</span>
+                    {/* <span className="mr-2">{order.orderNumber}</span> */}
                     <FaAngleUp
                       className={`${
                         open
@@ -43,22 +43,22 @@ const OrderCancelSmallView = ({ orders }) => {
                 <Disclosure.Panel className="px-4 pt-4 pb-2 !text-sm w-full">
                   <table className="w-full">
                     <tbody className="w-full">
-                      <tr>
+                      {/* <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           # ORDER
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  text-green-500">
                           {order.orderNumber}
                         </td>
-                      </tr>
-                      <tr>
+                      </tr> */}
+                      {/* <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           CATEGORY
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
                           {order.category}
                         </td>
-                      </tr>
+                      </tr> */}
                       <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           PRODUCT
@@ -96,27 +96,27 @@ const OrderCancelSmallView = ({ orders }) => {
                               Completed
                             </span>
                           ) : (
-                            <span>No data</span>
+                            <span>Cancelled</span>
                           )}
                         </td>
                       </tr>
-                      <tr>
+                      {/* <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           PAYMENT
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
                           ${order.payment}
                         </td>
-                      </tr>
-                      <tr>
+                      </tr> */}
+                      {/* <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           ORDER DATE
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300 ">
                           ${order.orderDate}
                         </td>
-                      </tr>
-                      <tr>
+                      </tr> */}
+                      {/* <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           Rating
                         </td>
@@ -134,8 +134,8 @@ const OrderCancelSmallView = ({ orders }) => {
                             readonly
                           />
                         </td>
-                      </tr>
-                      <tr>
+                      </tr> */}
+                      {/* <tr>
                         <td className="font-semibold px-4 py-4 text-left border border-gray-300 ">
                           Actions
                         </td>
@@ -144,7 +144,7 @@ const OrderCancelSmallView = ({ orders }) => {
                             More Details
                           </span>
                         </td>
-                      </tr>
+                      </tr> */}
                     </tbody>
                   </table>
                 </Disclosure.Panel>

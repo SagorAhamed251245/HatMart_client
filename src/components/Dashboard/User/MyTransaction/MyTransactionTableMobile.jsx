@@ -74,14 +74,14 @@ const MyTransactionTableMobile = ({ transaction }) => {
                           {data?.paymentMethod}
                         </td>
                       </tr>
-                      <tr>
+                      {/* <tr>
                         <td className=" font-semibold px-4 py-4 text-left border border-gray-300 ">
                           More
                         </td>
                         <td className=" px-4 py-4 text-left border border-gray-300  font-semibold">
                           More Details
                         </td>
-                      </tr>
+                      </tr> */}
                     </tbody>
                   </table>
                 </Disclosure.Panel>
