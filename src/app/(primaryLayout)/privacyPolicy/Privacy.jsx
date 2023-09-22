@@ -2,9 +2,11 @@ import React from "react";
 
 const Privacy = () => {
   return (
-    <div className="p-5">
-      <h3 className="font-2xl font-bold mb-5">Privacy and Confidentiality</h3>
-      <p>
+    <div className="p-5 w-full">
+      <h3 className="font-2xl font-bold mb-5 dark:text-white">
+        Privacy and Confidentiality
+      </h3>
+      <p className="dark:text-white">
         Welcome to the{" "}
         <span className="font-bold text-orange-500">HatMart</span> website (the
         "Site") operated by HatMart Bangladesh Ltd. , We respect your privacy
@@ -15,9 +17,9 @@ const Privacy = () => {
       <br />
       <p></p>
 
-      <div className="flex flex-col lg:flex-row items-start mb-2">
+      <div className="flex flex-col lg:flex-row items-start mb-2 dark:text-white">
         <span className="mb-2 lg:mb-0 lg:mr-3">1.</span>
-        <p className="text-base">
+        <p className="text-base dark:text-white">
           This Privacy Policy explains how we collect, use and (under certain
           conditions) disclose your personal information. This Privacy Policy
           also explains the steps we have taken to secure your personal
@@ -28,9 +30,9 @@ const Privacy = () => {
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-start mb-2">
+      <div className="flex flex-col lg:flex-row items-start mb-2 dark:text-white">
         <span className=" mb-2 lg:mb-0 lg:mr-3">2.</span>
-        <p className="text-base">
+        <p className="text-base dark:text-white">
           Data protection is a matter of trust and your privacy is important to
           us. We shall therefore only use your name and other information which
           relates to you in the manner set out in this Privacy Policy. We will
@@ -40,18 +42,18 @@ const Privacy = () => {
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-start mb-2">
+      <div className="flex flex-col lg:flex-row items-start mb-2 dark:text-white">
         <span className="mb-2 lg:mb-0 lg:mr-3">3.</span>
-        <p className="text-base">
+        <p className="text-base dark:text-white">
           We will only keep your information for as long as we are either
           required to by law or as is relevant for the purposes for which it was
           collected.
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-start mb-2">
+      <div className="flex flex-col lg:flex-row items-start mb-2 dark:text-white">
         <span className="mb-2 lg:mb-0 lg:mr-3">4.</span>
-        <p className="text-base">
+        <p className="text-base dark:text-white">
           We will cease to retain your personal data, or remove the means by
           which the data can be associated with you, as soon as it is reasonable
           to assume that such retention no longer serves the purposes for which
@@ -61,8 +63,8 @@ const Privacy = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row items-start">
-        <span className="mb-2 lg:mb-0 lg:mr-3">5.</span>
-        <p className="text-base">
+        <span className="mb-2 lg:mb-0 lg:mr-3 dark:text-white">5.</span>
+        <p className="text-base dark:text-white">
           You can visit the Site and browse without having to provide personal
           details. During your visit to the Site, you remain anonymous and at no
           time can we identify you unless you have an account on the Site and
@@ -70,22 +72,22 @@ const Privacy = () => {
         </p>
       </div>
       <div className="flex flex-col lg:flex-row items-start">
-        <span className=" lg:mb-0 lg:mr-3">6.</span>
-        <p className="text-base">Data that we collect</p>
+        <span className=" lg:mb-0 lg:mr-3 dark:text-white">6.</span>
+        <p className="text-base dark:text-white">Data that we collect</p>
       </div>
 
       <ol className="ml-auto">
         <li className="ml-8">
           <div className="flex flex-col lg:flex-row ">
-            <span className="lg:mb-0 lg:mr-3">6.1</span>
-            <p className="text-base">
+            <span className="lg:mb-0 lg:mr-3 dark:text-white">6.1</span>
+            <p className="text-base dark:text-white">
               We may collect various pieces of information if you seek to place
               an order for a product with us on the Site.
             </p>
           </div>
           <div className="flex flex-col lg:flex-row">
-            <span className="lg:mb-0 lg:mr-3">6.2</span>
-            <p className="text-base">
+            <span className="lg:mb-0 lg:mr-3 dark:text-white">6.2</span>
+            <p className="text-base dark:text-white">
               We collect, store and process your data for processing your
               purchase on the Site and any possible later claims, and to provide
               you with our services. We may collect personal information
@@ -98,30 +100,30 @@ const Privacy = () => {
         </li>
       </ol>
       <div className="flex flex-col lg:flex-row ml-16 items-start">
-        <span className="lg:mb-0 lg:mr-3">6.2.1</span>
-        <p className="text-base">
+        <span className="lg:mb-0 lg:mr-3 dark:text-white">6.2.1</span>
+        <p className="text-base dark:text-white">
           HatMart shall collect the following information where you are a buyer:
         </p>
       </div>
       <ol className="mx-auto">
         <li className="ml-12 pl-11">
           <div className="flex flex-col lg:flex-row ">
-            <span className="lg:mb-0 lg:mr-2">i.</span>
-            <p className="text-base">
+            <span className="lg:mb-0 lg:mr-2 dark:text-white">i.</span>
+            <p className="text-base dark:text-white">
               Identity data, such as your name, gender, profile picture, and
               date of birth;
             </p>
           </div>
           <div className="flex flex-col lg:flex-row">
-            <span className="lg:mb-0 lg:mr-2">ii.</span>
-            <p className="text-base">
+            <span className="lg:mb-0 lg:mr-2 dark:text-white">ii.</span>
+            <p className="text-base dark:text-white">
               Contact data, such as billing address, delivery address/location,
               email address and phone numbers;
             </p>
           </div>
           <div className="flex flex-col lg:flex-row">
-            <span className="lg:mb-0 lg:mr-2">iii.</span>
-            <p className="text-base">
+            <span className="lg:mb-0 lg:mr-2 dark:text-white">iii.</span>
+            <p className="text-base dark:text-white">
               Biometric data, such as voice files and face recognition when you
               use our voice search function, and your facial features of when
               you use the Site;
@@ -129,7 +131,7 @@ const Privacy = () => {
           </div>
           <div className="flex flex-col lg:flex-row">
             <span className="lg:mb-0 lg:mr-2">iv.</span>
-            <p className="text-base">
+            <p className="text-base dark:text-white">
               Billing account information: bank account details, credit card
               account and payment information (such account data may also be
               collected directly by our affiliates and/or third party payment
@@ -140,15 +142,15 @@ const Privacy = () => {
       </ol>
       <div className="flex flex-col lg:flex-row ml-16 items-start">
         <span className="lg:mb-0 lg:mr-3">6.2.2</span>
-        <p className="text-base">
+        <p className="text-base dark:text-white">
           HatMart shall collect the following information where you are a seller
         </p>
       </div>
       <ol className="mx-auto">
         <li className="ml-12 pl-11">
           <div className="flex flex-col lg:flex-row ">
-            <span className="lg:mb-0 lg:mr-2">i.</span>
-            <p className="text-base">
+            <span className="lg:mb-0 lg:mr-2 dark:text-white">i.</span>
+            <p className="text-base dark:text-white">
               Identity and contact data, such as your name, date of birth or
               incorporation, company name, address, email address, phone number
               and other business-related information (e.g. company registration

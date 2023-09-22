@@ -10,8 +10,8 @@ const Ourvalue = () => {
         Our Values
       </h2>
       <section className="w-[90%] mx-auto">
-        <div className="flex flex-col lg:flex-row justify-center gap-3">
-          <div className="h-auto lg:h-[250px] w-auto ">
+        <div className="flex flex-col lg:flex-row justify-center gap-5">
+          <div className="h-auto lg:h-[200px] w-auto ">
             <Image src={img} width={700} height={300} alt="our value" />
           </div>
           <div className="h-auto lg:h-[250px] w-auto ">

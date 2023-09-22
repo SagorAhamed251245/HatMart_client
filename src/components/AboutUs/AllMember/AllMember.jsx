@@ -8,8 +8,13 @@ const AllMember = () => {
       <h2 className="text-center dark:text-white text-2xl font-bold mt-10 mb-10">
         Our Team Member
       </h2>
-      <div className="grid md:grid-cols-2 dark:text-white lg:grid-cols-3">
-        {teamMember.map((member) => (
+      <div className="flex flex-wrap justify-center gap-6 dark:text-white">
+        {teamMember.slice(0, 3).map((member) => (
+          <MemberCard key={member.id} member={member}></MemberCard>
+        ))}
+      </div>
+      <div className="flex flex-wrap justify-center gap-6 dark:text-white">
+        {teamMember.slice(3, 5).map((member) => (
           <MemberCard key={member.id} member={member}></MemberCard>
         ))}
       </div>

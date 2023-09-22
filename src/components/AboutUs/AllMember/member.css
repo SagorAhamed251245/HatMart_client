@@ -32,10 +32,10 @@
 .circle img:hover{
   filter: grayscale(.7)
 }
-.circle:hover{
+/* .circle:hover{
   transform: translate(-50%, -50%) scale(2);
   border-radius: 10px
-}
+} */
 
 /* Light mode icon color */
 .social-icon {

@@ -4,13 +4,13 @@ import img from "@/assets/icons/faq2.jpg";
 
 const Faqimg2 = () => {
   return (
-    <div className="h-auto lg:h-1/4">
+    <div className="h-[350px] lg:h-1/4">
       {" "}
       <Image
-        className="h-[400px]"
+        className="h-[300px] pl-5"
         src={img}
         width={600}
-        height={200}
+        height={400}
         alt="image name"
       ></Image>{" "}
     </div>

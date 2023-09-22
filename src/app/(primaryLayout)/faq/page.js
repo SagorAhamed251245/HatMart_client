@@ -10,8 +10,8 @@ const FaqPage = () => {
       <h3 className="text-2xl font-bold text-center mb-8 dark:text-white">
         Frequently Asked Questions
       </h3>
-      <div className="flex flex-col lg:flex-row justify-center gap-3">
-        <div className="flex flex-col lg:w-1/2 gap-3">
+      <div className="flex flex-col lg:flex-row justify-center">
+        <div className="flex flex-col  gap-3">
           <FaqImg></FaqImg>
           <Faq2></Faq2> {/* You can adjust the height here */}
         </div>

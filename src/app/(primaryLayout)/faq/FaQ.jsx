@@ -42,7 +42,7 @@ const FaQ = () => {
   };
   return (
     <div>
-      <div className="max-w-xl mx-auto p-4 mt-10 pt-20">
+      <div className="p-4 mt-10 pl-5">
         <div className="space-y-4">
           {faqData.map((item, index) => (
             <div
