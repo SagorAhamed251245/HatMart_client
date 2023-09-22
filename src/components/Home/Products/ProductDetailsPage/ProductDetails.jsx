@@ -10,7 +10,7 @@ const ProductDetails = ({ productData, reviewsData }) => {
   let cartItems = [{ _id: productData?._id, quantity: 1 }];
   return (
     <div className=" w-[95%] mx-auto h-full">
-      <h3 className="text-gray-700 text-4xl font-medium">
+      <h3 className="text-gray-700 text-4xl font-medium capitalize">
         {productData?.title}
       </h3>
       <div className="flex items-center mt-4 gap-2">
@@ -77,7 +77,7 @@ const ProductDetails = ({ productData, reviewsData }) => {
             ))}
         </span>
       </p>
-      <div className="flex items-center gap-5 !mt-5">
+      {/* <div className="flex items-center gap-5 !mt-5">
         <button className="flex justify-center items-center gap-2 text-[#34B701] font-medium  bg-green-100 px-6 py-1.5 rounded hover:bg-green-200">
           <AiOutlineShoppingCart size={24} /> Add{" "}
         </button>
@@ -96,7 +96,7 @@ const ProductDetails = ({ productData, reviewsData }) => {
             Buy Now
           </button>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
