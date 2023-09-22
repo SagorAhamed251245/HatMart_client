@@ -6,7 +6,7 @@ const FaqImg = () => {
   return (
     <div>
       <Image
-        className="h-[350px] pt-14 pl-8"
+        className="lg:h-[350px] lg:pt-14 lg:pl-8 pl-0 lg:w-[600px] h-full w-full"
         src={img}
         width={600}
         height={400}

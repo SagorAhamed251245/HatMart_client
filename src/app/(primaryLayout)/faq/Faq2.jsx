@@ -42,8 +42,8 @@ const Faq2 = () => {
   };
   return (
     <div>
-      <div className="  pt-5 pl-8">
-        <div className="space-y-4">
+      <div className="max-w-xl p-4 mt-10 lg:ml-8 pl-0 ">
+        <div className="space-y-4 sm:w-full">
           {faqData.map((item, index) => (
             <div
               key={index}
