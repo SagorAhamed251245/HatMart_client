@@ -57,9 +57,8 @@ const ChildCategories = ({ categories }) => {
         watchOverflow={true}
       >
         {categories?.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={item._id}>
             <CategoriesCart
-              key={item._id}
               item={item}
               handleMouseEnter={handleMouseEnter}
               handleMouseLeave={handleMouseLeave}

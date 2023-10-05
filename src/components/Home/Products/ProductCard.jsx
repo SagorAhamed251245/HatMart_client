@@ -7,6 +7,7 @@ import Link from "next/link";
 import AddToCartBtn from "./AddToCartBtn";
 import BuyNow from "./BuyNow";
 import WishListBtn from "./WishListBtn";
+import useAuth from "@/hooks/useAuth";
 
 const ProductCard = ({ product }) => {
   const {

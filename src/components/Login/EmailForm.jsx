@@ -18,6 +18,7 @@ const EmailForm = () => {
 
   const { signIn } = useAuth();
   const search = useSearchParams();
+  console.log(search);
   const from = search.get("redirectUrl") || "/";
   const { replace, refresh } = useRouter();
 

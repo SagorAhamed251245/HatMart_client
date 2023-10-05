@@ -21,7 +21,7 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="en" data-theme="dark" className="transition-all">
+    <html lang="en" className="transition-all">
       <Providers>
         <body
           className={`${poppins.className} scrollbar select-none dark:text-white `}
