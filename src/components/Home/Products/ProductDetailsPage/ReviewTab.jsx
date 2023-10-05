@@ -6,7 +6,7 @@ const ReviewTab = ({ reviewsData }) => {
   return (
     <div className="grid grid-cols-1 gap-5  duration-300 rounded">
       {reviewsData.length === 0 ? (
-        <h4 className="text-center font-medium text-lg text-gray-600">
+        <h4 className="text-center font-medium text-lg text-gray-600 dark:text-white">
           This product has no reviews
         </h4>
       ) : (

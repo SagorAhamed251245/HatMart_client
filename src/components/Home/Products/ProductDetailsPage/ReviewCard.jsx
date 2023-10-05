@@ -19,7 +19,7 @@ const ReviewCard = ({ review }) => {
           </div>
         </div>
         <div className="space-y-1">
-          <h3 className="text-gray-700 text-xl font-medium">
+          <h3 className="text-gray-700 dark:text-white text-xl font-medium">
             {review.customer_name} -{" "}
             <span className="text-xs text-green-500">
               {new Date(review.createdAt || new Date()).toLocaleString(
@@ -41,7 +41,7 @@ const ReviewCard = ({ review }) => {
             fullSymbol={<FaStar className="text-yellow-400" size={16} />}
             readonly
           />
-          <p className="text-gray-500 text-sm font-medium">{review.feedback}</p>
+          <p className="text-gray-500 text-sm dark:text-white font-medium">{review.feedback}</p>
         </div>
       </div>
     </div>

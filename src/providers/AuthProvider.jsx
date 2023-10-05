@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
@@ -39,7 +40,7 @@ const AuthProvider = ({ children }) => {
   const changePassword = (newPassword) => {
     const user = auth.currentUser;
 
-    return updatePassword(user, newPassword)
+    return updatePassword(user, newPassword);
   };
   const resetPassword = (userEmail) => {
     sendPasswordResetEmail(auth, userEmail)
@@ -65,6 +66,19 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  const cartHooks = () => {
+    if (typeof window !== "undefined") {
+      const getItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      setCartItems(getItems);
+    }
+  };
+  const cartDelateHook = () => {
+    if (typeof window !== "undefined") {
+      const getItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      setCartItems(getItems);
+    }
+  };
+
   const value = {
     user,
     loading,
@@ -74,6 +88,9 @@ const AuthProvider = ({ children }) => {
     googleLogin,
     logout,
     changePassword,
+    cartHooks,
+    cartItems,
+    cartDelateHook,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

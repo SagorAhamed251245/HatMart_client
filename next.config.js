@@ -9,6 +9,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "ghorerbazarbd.com",
+      },
+      {
+        protocol: "https",
         hostname: "localfarmok.com",
       },
       {

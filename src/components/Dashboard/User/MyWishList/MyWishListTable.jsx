@@ -11,13 +11,12 @@ const MyWishListTable = () => {
   const user = getUserData();
 
   const [orders, setOrders] = useState([]);
-  
+
   useEffect(() => {
     if (user) {
       (async () => {
         const data = await getWishListByUserId(user?._id);
         setOrders(data);
-        
       })();
     } else {
       setOrders([]);
@@ -42,7 +41,7 @@ const MyWishListTable = () => {
           <tbody>
             {orders.map((order) => (
               <tr key={order?._id} className="border-b border-gray-300 w-full">
-                <td className=" px-4 py-4 text-center flex gap-2 items-center justify-center">
+                <td className=" px-4 py-4  flex gap-2 items-center justify-center">
                   <div className="h-10 w-10 overflow-hidden object-contain rounded">
                     <Image
                       className="w-full object-contain"

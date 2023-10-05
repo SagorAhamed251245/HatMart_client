@@ -23,9 +23,11 @@ const CanceledOrdersTable = () => {
       setOrders([]);
     }
   }, [user?._id]);
-  
+
   useState(() => {
-    const canceledOrders = orders.filter((order) => order?.orderStatus === "canceled");
+    const canceledOrders = orders.filter(
+      (order) => order?.orderStatus === "canceled"
+    );
     setOrders(canceledOrders);
   }, []);
   return (
@@ -37,23 +39,23 @@ const CanceledOrdersTable = () => {
         <table className="min-w-full border-collapse ">
           <thead>
             <tr className="border-b border-gray-300 text-green-500 w-full">
-              <th className=" px-4 py-4 text-center"># ORDER</th>
-              <th className=" px-4 py-4 text-center">ORDER DATE</th>
-              <th className=" px-4 py-4 text-center">PRODUCT</th>
-              <th className=" px-4 py-4 text-center">ORDER STATUS</th>
-              <th className=" px-4 py-4 text-center">ACTIONS</th>
+              {/* <th className=" px-4 py-4 text-center"># ORDER</th> */}
+              {/* <th className=" px-4 py-4 text-center">ORDER DATE</th> */}
+              <th className=" px-4 py-4 text-left">PRODUCT</th>
+              <th className=" px-4 py-4 text-center"> STATUS</th>
+              {/* <th className=" px-4 py-4 text-center">ACTIONS</th> */}
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
               <tr key={order.id} className="border-b border-gray-300 w-full">
-                <td className=" px-4 py-4 text-center text-green-500">
+                {/* <td className=" px-4 py-4 text-center text-green-500">
                   {order.orderNumber}
-                </td>
-                <td className=" px-4 py-4 text-center text-sm text-green-500">
+                </td> */}
+                {/* <td className=" px-4 py-4 text-center text-sm text-green-500">
                   {order.orderDate}
-                </td>
-                <td className=" px-4 py-4 text-center flex gap-2 items-center justify-center">
+                </td> */}
+                <td className=" px-4 py-4  flex gap-2 items-center ">
                   <div className="h-10 w-10 overflow-hidden object-contain rounded">
                     <Image
                       className="w-full object-contain"
@@ -63,7 +65,7 @@ const CanceledOrdersTable = () => {
                       height={64}
                     />
                   </div>
-                  <span>{order.productName}</span>
+                  <span className="capitalize">{order.productName}</span>
                 </td>
                 <td className=" px-4 py-4 text-center text-sm">
                   {order.status === "confirmed" ? (
@@ -79,17 +81,22 @@ const CanceledOrdersTable = () => {
                       Completed
                     </span>
                   ) : (
-                    <span>No data</span>
+                    <span>Cancelled</span>
                   )}
                 </td>
-                
-                <td className=" px-4 py-4 text-center">
-                  <span className="py-1 px-3  bg-gray-200 dark:text-neutral-900 font-semibold  rounded-full">More Details</span>
-                </td>
+
+                {/* <td className=" px-4 py-4 text-center">
+                  <span className="py-1 px-3  bg-gray-200 dark:text-neutral-900 font-semibold  rounded-full">
+                    More Details
+                  </span>
+                </td> */}
               </tr>
             ))}
           </tbody>
         </table>
+        {orders.length === 0 && (
+          <p className="text-center mt-3">No canceled order found.</p>
+        )}
       </div>
       <OrderCancelSmallView orders={orders} />
     </div>
